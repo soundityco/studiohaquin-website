@@ -13,6 +13,10 @@ import Music from "./components/Music";
 export function Home() {
 
   return (
+    <>
+        {/* LOADER */}
+        <Loader/>
+        
         <div className="main">
             <Head>
                 <title>Studio Haquin / Andy Haquin-Guyard — Designer Graphique & Vidéaste, cadreur, monteur basé à Angers</title>
@@ -20,9 +24,6 @@ export function Home() {
                 <link rel="icon" href="/favicon.ico" />
                 <meta name="facebook-domain-verification" content="" />
             </Head>
-
-            {/* LOADER */}
-            <Loader/>
 
             {/* HEADER */}
             <Hero/>
@@ -34,6 +35,7 @@ export function Home() {
             <Footer/>
 
         </div>
+      </>
   )
 }
 

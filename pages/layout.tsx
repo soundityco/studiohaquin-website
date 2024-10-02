@@ -9,22 +9,22 @@ const alinsa = Alinsa({
   variable: '--font-alinsa',
   src: [
     {
-      path: '../content/fonts/alinsa.ttf',
+      path: '../content/fonts/alinsa.woff2',  // Ajouter .woff2
       weight: '300',
       style: 'normal',
-    }
+    },
+    {
+      path: '../content/fonts/alinsa.woff',
+      weight: '300',
+      style: 'normal',
+    },
+    {
+      path: '../content/fonts/alinsa.ttf',  // Ajouter .ttf si nécessaire
+      weight: '300',
+      style: 'normal',
+    },
   ]
-})
-
-
-// Importing Google Fonts
-/*import { Space_Grotesk } from 'next/font/google'
-
-const spaceGrotesk = Space_Grotesk({
-  subsets: ['latin'],
-  variable: '--font-space-grotesk',
-  display: 'swap',
-})*/
+});
 
 export default function Layout({
     children,
@@ -39,4 +39,3 @@ export default function Layout({
       </div>
     );
   };
-  
