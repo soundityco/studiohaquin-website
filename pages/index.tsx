@@ -8,7 +8,7 @@ import Footer from "./components/Footer";
 import Loader from "./components/Loader";
 
 // Importing components
-import Music from "./components/Music";
+import GraphicDesign from "./components/GraphicDesign";
 
 export function Home() {
 
@@ -16,24 +16,27 @@ export function Home() {
     <>
         {/* LOADER */}
         <Loader/>
-        
+
         <div className="main">
-            <Head>
-                <title>Studio Haquin / Andy Haquin-Guyard — Designer Graphique & Vidéaste, cadreur, monteur basé à Angers</title>
-                <meta name="description" content="De la prise de vue au montage, en passant par la conception graphique, je m’occupe de tout pour raconter votre histoire de manière authentique et impactante. ✨"></meta>
-                <link rel="icon" href="/favicon.ico" />
-                <meta name="facebook-domain-verification" content="" />
-            </Head>
+          <div className="main-container">
+            <div className="main-container-block">
+              <Head>
+                  <title>Studio Haquin / Andy Haquin-Guyard — Designer Graphique & Vidéaste, cadreur, monteur basé à Angers</title>
+                  <meta name="description" content="De la prise de vue au montage, en passant par la conception graphique, je m’occupe de tout pour raconter votre histoire de manière authentique et impactante. ✨"></meta>
+                  <link rel="icon" href="/favicon.ico" />
+                  <meta name="facebook-domain-verification" content="" />
+              </Head>
 
-            {/* HEADER */}
-            <Hero/>
+              {/* HEADER */}
+              <Hero/>
 
-            {/* COMPONENTS */}
-            <Music/>
+              {/* COMPONENTS */}
+              <GraphicDesign/>
 
-            {/* Footer */}
-            <Footer/>
-
+              {/* Footer */}
+              <Footer/>
+            </div>
+          </div>
         </div>
       </>
   )
