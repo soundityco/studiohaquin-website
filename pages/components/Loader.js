@@ -9,7 +9,7 @@ export function Loader() {;
 
   return (
     <section className="loader" id="loader">
-        <Image className="loader-logo" alt="blurblur Logo Chrome" src={blurblurLogo}/>
+        {/*<Image className="loader-logo" alt="blurblur Logo Chrome" src={blurblurLogo}/>*/}
     </section>
   );
 }

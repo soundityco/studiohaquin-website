@@ -55,7 +55,17 @@ export function Hero() {
           {/* HERO CONTENT */}
           <div className="hero-subcontainer">
             <div className="hero-subcontainer-block">
-              <h1 className="hero-title">Hello,<br/>Bienvenue !</h1>
+              <div className="hero-intro-container">
+                <h1 className="hero-title">Hello,<br/>Bienvenue !</h1>
+                <h2 className="hero-subtitle">Je m'appelle Andy, et je suis <span>Designer Graphique</span> et <span>Vidéaste</span> freelance, basé à Angers.</h2>
+              </div>
+              <nav className="hero-list-container">
+                <ul className="hero-list-block">
+                  <li className="hero-list-item">Design Graphique</li>
+                  <li className="hero-list-item">Web Design</li>
+                  <li className="hero-list-item">Vidéo</li>
+                </ul>
+              </nav>
             </div>
             <div className="hero-subcontainer-block">
             <Image alt="Hero Picture" draggable="false" src={HeroPicture}/>
