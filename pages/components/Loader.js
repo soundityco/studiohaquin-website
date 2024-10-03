@@ -9,7 +9,7 @@ export function Loader() {;
 
   return (
     <section className="loader" id="loader">
-      <h1>STUDIO HAQUIN *</h1>
+        <h1 className="loader-title">STUDIO HAQUIN *</h1>
         {/*<Image className="loader-logo" alt="blurblur Logo Chrome" src={blurblurLogo}/>*/}
     </section>
   );

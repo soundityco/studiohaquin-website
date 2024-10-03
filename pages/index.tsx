@@ -21,7 +21,7 @@ export function Home() {
       const scrollValue = containerRef.current.scrollTop;
       console.log('Scroll position:', scrollValue);
 
-      if (scrollValue > 500) {
+      if (scrollValue > 0) {
         setScrolled(true);
         console.log('Class added: main-scrolled');
       } else {
