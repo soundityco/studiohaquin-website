@@ -11,7 +11,7 @@ export function Header() {
     <>
       {/* HEADER PART */}
       <header>
-        <div className="header-container">
+        <div className="header-container container">
             <div className="header-logo-block">
                 <a href="/" className="header-logo">
                 <Image className="header-menu-icon" alt="Header Menu Icon" draggable="false" src={WebsiteIcon}/>

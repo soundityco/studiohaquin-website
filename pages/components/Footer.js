@@ -8,8 +8,10 @@ export function Footer() {
     <>
 
       {/* FOOTER PART */}
-      <footer >
-        <p>Hi, I'm the footer!</p>
+      <footer>
+        <div className="footer-container container">
+          <p>Hi, I'm the footer!</p>
+        </div>
       </footer>
     
     </>

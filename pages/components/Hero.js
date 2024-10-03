@@ -19,14 +19,13 @@ export function Hero() {
 
   return (
     <>
+        {/* HERO CONTENT */}
         <div className="hero">
-
-          {/* HERO CONTENT */}
-          <div className="hero-subcontainer">
+          <div className="hero-container container">
             <div className="hero-subcontainer-block">
               <div className="hero-intro-container">
                 <h1 className="hero-title">Hello,<br/>Bienvenue !</h1>
-                <h2 className="hero-subtitle">Je m'appelle Andy, et je suis <span>Designer Graphique</span> et <span>Vidéaste</span> freelance, basé à Angers.</h2>
+                <h2 className="hero-subtitle">Je m'appelle Andy et je suis <span>Designer Graphique</span> & <span>Vidéaste</span> freelance, basé à Angers.</h2>
               </div>
               <nav className="hero-list-container">
                 <ul className="hero-list-block">

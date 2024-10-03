@@ -6,7 +6,9 @@ export function GraphicDesign() {;
 
   return (
     <section className="graphic-design" id="graphic-design">
-        
+      <div className="graphic-design-container container">
+
+      </div>
     </section>
   );
 }
