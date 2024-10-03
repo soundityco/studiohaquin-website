@@ -50,7 +50,7 @@ export default function Layout({
     if (containerRef.current) {
       const scrollValue = containerRef.current.scrollTop;
 
-      if (scrollValue > 0) {
+      if (scrollValue > 50) {
         setScrolled(true);
       } else {
         setScrolled(false);
@@ -76,9 +76,9 @@ export default function Layout({
     return (
       <>
         {/* LOADER & OVERLAYS */}
-        <Loader />
         <div className="overlay"></div>
         <div className="overlay-noise"></div>
+        <Loader />
 
         {/* SITE CONTENT */}
         <div className={clsx(scrolled ? "main-scrolled" : "main", alinsa.variable)}>

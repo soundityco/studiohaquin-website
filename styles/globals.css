@@ -70,6 +70,7 @@ a {
   --border-radius: 2.5rem;
 
   --primary-color: #CCFF00;
+  --secondary-color: #9900ff;
   --background: #fffdf3; /*#ffffff*/
   --foreground: #000000;
 }
@@ -86,9 +87,9 @@ html {
 
 body {
   color: var(--foreground);
-  background: var(--primary-color);
   font-family: Arial, sans-serif;
-}
+  overflow: hidden;
+  background: var(--primary-color);}
 
 img {
   user-drag: none;
@@ -124,6 +125,108 @@ img {
   pointer-events: none;
 }
 
+.main {
+  transform: scale(0.6);
+  animation: siteScale .75s ease 1.5s forwards, mainRadius .5s ease 1.75s forwards;
+  border-radius: 4rem;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  transition: .25s all ease-in-out;
+  padding: var(--container-padding);
+  box-sizing: border-box;
+  padding-bottom: 0;
+}
+
+.main-scrolled {
+  transform: scale(0.6);
+  animation: siteScale .75s ease 1.5s forwards, mainRadius .5s ease 1.75s forwards;
+  border-radius: 4rem;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  transition: .25s all ease-in-out;
+  background: var(--primary-color);
+  box-sizing: border-box;
+  padding: unset;
+}
+
+.main::after,
+.main-scrolled::after {
+  background: linear-gradient(to top, var(--foreground), transparent);
+  width: 100%;
+  height: 110svh;
+  position: fixed;
+  content: '';
+  top: 0;
+  left: 0;
+  z-index: -1;
+  animation: gradientToTop .5s ease 2s forwards;
+  transform: translateY(100%);
+}
+
+@keyframes siteScale {
+  from {
+    transform: scale(0.6) translateY(0);
+    filter: blur(100px);
+  }
+
+  to {
+    transform: scale(1) translateY(-100%);
+    filter: blur(0px);
+  }
+}
+
+@keyframes mainRadius {
+  from {
+    border-radius: 4rem;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  to {
+    border-radius: 0rem;
+  }
+}
+
+@keyframes gradientToTop {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+
+.main-container {
+  width: 100%;
+  height: 100svh;
+  border-radius: var(--border-radius);
+  height: calc(100svh - var(--container-padding));
+  transition: all .35s ease-in-out;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  background: var(--foreground);
+}
+
+.main-container-scrolled {
+  width: 100%;
+  height: 100svh;
+  border-radius: unset;
+  height: 100svh;
+  transition: all .25s ease-in-out;
+  overflow: hidden;
+  display: flex;
+  background: var(--foreground);
+}
+
+.main-container-block {
+  overflow-y: scroll;
+  width: 100%;
+  height: 100%;
+}
+
 /* LOADER */
 .loader {
   width: 100%;
@@ -139,26 +242,26 @@ img {
   box-sizing: border-box;
   -webkit-backdrop-filter: blur(100px);
   z-index: 1000;
-  animation: loader .75s ease 1.5s forwards;
+  animation: loaderToTop .75s ease 1.5s forwards;
   color: var(--background);
   opacity: 1;
   visibility: visible;
   overflow: hidden;
   background: linear-gradient(to bottom, var(--foreground), var(--primary-color));
+  transform: translateY(0);
 }
 
-@keyframes loader {
+@keyframes loaderToTop {
   from {
     /*opacity: 1;
     visibility: visible;*/
-    height: 100svh;
+    transform: translateY(0);
   }
 
   to {
     /*opacity: 0;
     visibility: hidden;*/
-    height: 0;
-    padding: unset;
+    transform: translateY(-100%);
   }
 }
 
@@ -167,7 +270,8 @@ img {
   transform: translateY(20px);
   opacity: 0;
   visibility: hidden;
-  animation: loaderTitleEntry .5s ease-in-out 0.2s forwards, loaderTitleExit .5s ease-in-out 1.5s forwards;  
+  user-select: none;
+  animation: loaderTitleEntry .5s ease-in-out 0.2s forwards, loaderTitleExit 1.25s ease-in-out 1.25s forwards;  
 }
 
 @keyframes loaderTitleEntry {
@@ -211,97 +315,6 @@ img {
   transform: rotate(3deg);
 }
 
-.main {
-  transform: scale(0.8);
-  animation: siteScale .5s ease 1.5s forwards, mainRadius .5s ease 1.75s forwards;
-  border-radius: 4rem;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-  transition: .25s all ease-in-out;
-  padding: var(--container-padding);
-  background: var(--primary-color);
-  box-sizing: border-box;
-  padding-bottom: 0;
-}
-
-.main-scrolled {
-  transform: scale(0.8);
-  animation: siteScale .5s ease 1.5s forwards, mainRadius .5s ease 1.85s forwards;
-  border-radius: 4rem;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-  transition: .25s all ease-in-out;
-  background: var(--primary-color);
-  box-sizing: border-box;
-  padding: unset;
-}
-
-@keyframes siteScale {
-  from {
-    transform: scale(0.8);
-    filter: blur(50px);
-  }
-
-  to {
-    transform: scale(1);
-    filter: blur(0px);
-  }
-}
-
-@keyframes mainRadius {
-  from {
-    border-radius: 4rem;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-  }
-
-  to {
-    border-radius: 0rem;
-  }
-}
-
-.main.shrink {
-  padding: 0;
-}
-
-.main-container {
-  width: 100%;
-  height: 100svh;
-  border-radius: var(--border-radius);
-  height: calc(100svh - var(--container-padding));
-  transition: all .35s ease-in-out;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-  background: var(--foreground);
-}
-
-.main-container-scrolled {
-  width: 100%;
-  height: 100svh;
-  border-radius: unset;
-  height: 100svh;
-  transition: all .25s ease-in-out;
-  overflow: hidden;
-  display: flex;
-  background: var(--foreground);
-}
-
-.main-container-block {
-  overflow-y: scroll;
-  width: 100%;
-  height: 100%;
-}
-
-.container {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .site-content {
   width: 100%;
   overflow-y: scroll;
@@ -311,7 +324,6 @@ img {
 .hero {
   width: 100%;
   height: 100%;
-  background: var(--foreground);
 }
 
 header {
@@ -323,7 +335,7 @@ header {
   position: sticky;
   z-index: 1;
   background: var(--foreground);
-  background: linear-gradient(to bottom, var(--foreground) 0%, transparent 100%);
+  background: linear-gradient(to bottom, var(--foreground), transparent);
 }
 
 .header-container {
@@ -391,7 +403,7 @@ header {
 }
 
 .header-logo:hover {
-  transform: scale(1.05);
+  transform: scale(1.05) rotate(-2deg);
 }
 
 .header-logo img {
@@ -445,12 +457,10 @@ svg path {
 /* HERO CONTENT*/
 .hero-subcontainer {
   width: 100%;
-  min-height: 70vh;
+  /*min-height: 70vh;*/
   height: min-content;
   display: flex;
   flex-direction: row;
-  top: 7vw;
-  position: relative;
 }
 
 .hero-subcontainer-block {
