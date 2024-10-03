@@ -18,12 +18,6 @@ import VideoIconWhite from '../../content/images/icons/video-icon-white.svg';
 
 export function Hero() {
 
-  const [showMenu, setShowMenu] = useState(false);
-
-  const toggleMenu = () => {
-    setShowMenu(!showMenu);
-  };
-
   return (
     <>
         <div className="hero">
@@ -31,7 +25,6 @@ export function Hero() {
           {/* HERO HEADER */}
           <header>
             <div className="header-container">
-              <div className="header-block-left">
                 <div className="header-logo-block">
                   <a href="/" className="header-logo">
                     <Image className="header-menu-icon" alt="Header Menu Icon" draggable="false" src={WebsiteIcon}/>
@@ -39,7 +32,6 @@ export function Hero() {
                   </a>
                 </div>
                 {/*<Image className="header-menu-shape" alt="Header Menu Shape" draggable="false" src={HeaderMenuShape}/>*/}
-              </div>
               {/*<div className="header-block-right">
                 <nav className="header-nav">
                   <ul>
