@@ -214,6 +214,14 @@ img {
   }
 }
 
+.loader-title {
+  font-size: 5vw;
+  transform: translateY(20px);
+  opacity: 0;
+  visibility: hidden;
+  animation: loaderTitleEntry .5s ease-in-out 0.2s forwards, loaderTitleExit .5s ease-in-out 1.5s forwards;  
+}
+
 @keyframes loaderTitleEntry {
   from {
    transform: translateY(20px);
@@ -228,15 +236,7 @@ img {
   }
 }
 
-.loader-title {
-  font-size: 5vw;
-  transform: translateY(20px);
-  opacity: 0;
-  visibility: hidden;
-  animation: loaderTitle .5s ease-in-out 1.5s forwards, loaderTitleEntry .5s ease-in-out 0.2s forwards;  
-}
-
-@keyframes loaderTitle {
+@keyframes loaderTitleExit {
   0% {
     filter: blur(0);
     -webkit-filter: blur(0px);
@@ -251,6 +251,7 @@ img {
 
   100% {
     display: none;
+    opacity: 0;
   }
 }
 
