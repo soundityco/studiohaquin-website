@@ -29,14 +29,14 @@ export function Hero() {
               </div>
               <nav className="hero-list-container">
                 <ul className="hero-list-block">
-                  <li className="hero-list-item"><Image className="" alt="Graphic Design Icon" draggable="false" src={GraphicDesignIconWhite}/>Design Graphique</li>
-                  <li className="hero-list-item"><Image className="" alt="Web Icon" draggable="false" src={WebIconWhite}/>Web Design</li>
-                  <li className="hero-list-item"><Image className="" alt="Video Icon" draggable="false" src={VideoIconWhite}/>Vidéo</li>
+                  <li className="hero-list-item"><Image className="hero-list-item-icon" alt="Graphic Design Icon" draggable="false" src={GraphicDesignIconWhite}/>Design Graphique</li>
+                  <li className="hero-list-item"><Image className="hero-list-item-icon" alt="Web Icon" draggable="false" src={WebIconWhite}/>Web Design</li>
+                  <li className="hero-list-item"><Image className="hero-list-item-icon" alt="Video Icon" draggable="false" src={VideoIconWhite}/>Vidéo</li>
                 </ul>
               </nav>
             </div>
             <div className="hero-subcontainer-block">
-            <Image alt="Hero Picture" draggable="false" src={HeroPicture}/>
+              <Image className="hero-picture" alt="Hero Picture" draggable="false" src={HeroPicture}/>
               {/*<div className="hero-picture">
                 <div>
                   <Image alt="Hero Picture" draggable="false" src={HeroPicture}/>

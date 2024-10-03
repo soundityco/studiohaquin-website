@@ -552,51 +552,30 @@ svg path {
   color: var(--foreground);
 }
 
-.hero-list-item img {
+.hero-list-item-icon {
   width: 1.5vw !important;
+  min-width: 1.5vw !important;
   transition: all .2s ease-in-out;
 }
 
-.hero-list-item:hover img {
+.hero-list-item:hover .hero-list-item-icon {
   filter: invert(1);
 }
 
-.hero-subcontainer-block img {
+.hero-subcontainer-block .hero-list-item-icon {
   width: 25vw;
 }
 
 .hero-picture {
-  width: 300px;
-  height: 600px;
-  overflow: hidden;
-  border-radius: 100%;
-  object-fit: cover;
-  transform: rotate(20deg);
-}
-
-.hero-picture div {
-  height: 100%;
-  width: 100%;
-}
-
-.hero-picture div img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.hero-picture img {
-  transform: rotate(-20deg);
+  width: 25vw;
 }
 
 /* GRAPHIC DESIGN SECTION */
 .graphic-design {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   background: var(--foreground);
 }
-
-
 
 
 /*  */
@@ -622,7 +601,7 @@ svg path {
     font-size: 1.35rem;
     padding: 0.8rem 1.15rem;
   }
-  .hero-subcontainer-block img {
+  .hero-picture {
     max-width: 400px;
   }
   .hero-intro-container {
@@ -633,8 +612,7 @@ svg path {
 @media only screen and (max-width: 1250px) {
   /* VARIABLES */
   :root {
-    --border-radius: 6vw;
-    --container-padding: 4vw;
+    
   }
 
   /* HEADER */
@@ -659,7 +637,7 @@ svg path {
   .hero-subcontainer-block:first-of-type {
     gap: 2rem;
   }
-  .hero-subcontainer-block img {
+  .hero-picture {
     max-width: 400px;
   }
   .hero-intro-container {
@@ -669,6 +647,11 @@ svg path {
 }
 
 @media only screen and (max-width: 960px) {
+  /* VARIABLES */
+  :root {
+    --border-radius: 6vw;
+    --container-padding: 4vw;
+  }
   /* HERO */
   .hero-container {
     flex-direction: column;
@@ -680,7 +663,7 @@ svg path {
   .hero-intro-container {
     max-width: unset;
   }
-  .hero-subcontainer-block img {
+  .hero-picture {
     width: 100%;
     max-width: 400px;
   }
