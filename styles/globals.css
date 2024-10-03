@@ -553,8 +553,8 @@ svg path {
 }
 
 .hero-list-item-icon {
-  width: 1.5vw !important;
-  min-width: 1.5vw !important;
+  width: 1.5vw;
+  max-width: 1.5vw;
   transition: all .2s ease-in-out;
 }
 
@@ -632,7 +632,12 @@ svg path {
   }
   .hero-list-item {
     font-size: 1.15rem;
+    gap: 0.6em;
     padding: 0.65rem 1rem;
+  }
+  .hero-list-item-icon {
+    width: 1.5rem !important;
+    max-width: 1.5rem !important;
   }
   .hero-subcontainer-block:first-of-type {
     gap: 2rem;
@@ -655,6 +660,12 @@ svg path {
   /* HERO */
   .hero-container {
     flex-direction: column;
+  }
+  .hero-title {
+    font-size: 3.5rem;
+  }
+  .hero-subtitle {
+    font-size: 1.5rem;
   }
   .hero-subcontainer-block {
     justify-content: center;
