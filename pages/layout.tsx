@@ -1,8 +1,15 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import clsx from 'clsx';
 
 // Importing Custom Fonts
 import Alinsa from 'next/font/local'
+
+// Importing Smooth Scroll
+import SmoothScrolling from "@/pages/components/SmoothScrolling";
+
+// Importing main components
+import Loader from "./components/Loader";
+import Footer from "./components/Footer";
 
 // Importing Local Fonts
 const alinsa = Alinsa({
@@ -31,11 +38,62 @@ export default function Layout({
   }: {
     children: React.ReactNode;
   }) {
+
+  /* SCROLL DETECTION */
+  const [scrolled, setScrolled] = useState(false);
+
+  const containerRef = useRef<HTMLDivElement | null>(null); 
+
+  const changeClass = () => {
+
+    if (containerRef.current) {
+      const scrollValue = containerRef.current.scrollTop;
+
+      if (scrollValue > 0) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    }
+  };
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const container = containerRef.current;
+      if (!container) return;
+
+      container.addEventListener('scroll', changeClass);
+
+      return () => {
+        if (container) {
+          container.removeEventListener('scroll', changeClass);
+        }
+      };
+    }
+  }, []);
+
     return (
-      <div className={clsx(alinsa.variable)}>
+      <>
+        {/* LOADER & OVERLAYS */}
+        <Loader />
         <div className="overlay"></div>
         <div className="overlay-noise"></div>
-        {children}
-      </div>
+
+        {/* SITE CONTENT */}
+        <div className={clsx(scrolled ? "main-scrolled" : "main", alinsa.variable)}>
+          <div className={scrolled ? "main-container-scrolled" : "main-container"}>
+            
+
+            {/* PAGE */}
+            <div className="site-content" ref={containerRef}>
+              {/*<SmoothScrolling>{children}</SmoothScrolling>*/}
+              {children}
+            </div>
+
+            {/* Footer */}
+            <Footer />
+          </div>
+        </div>
+      </>
     );
   };
