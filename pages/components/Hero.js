@@ -10,7 +10,6 @@ import HeaderMenuShape from '../../content/images/header-menu-shape.svg';
 import HeroPicture from '../../content/images/hero-picture.webp';
 
 // Importing Icons
-import WebsiteIcon from '../../content/images/website-icon.svg';
 import WebIconWhite from '../../content/images/icons/web-icon-white.svg';
 import GraphicDesignIconWhite from '../../content/images/icons/graphic-design-icon-white.svg';
 import VideoIconWhite from '../../content/images/icons/video-icon-white.svg';
@@ -21,30 +20,6 @@ export function Hero() {
   return (
     <>
         <div className="hero">
-
-          {/* HERO HEADER */}
-          <header>
-            <div className="header-container">
-                <div className="header-logo-block">
-                  <a href="/" className="header-logo">
-                    <Image className="header-menu-icon" alt="Header Menu Icon" draggable="false" src={WebsiteIcon}/>
-                    <p>Studio Haquin</p>
-                  </a>
-                </div>
-                {/*<Image className="header-menu-shape" alt="Header Menu Shape" draggable="false" src={HeaderMenuShape}/>*/}
-              {/*<div className="header-block-right">
-                <nav className="header-nav">
-                  <ul>
-                    <li><Link to="home" spy={true} smooth={true} offset={0} duration={300}>👉 M'ENGAGER ?</Link></li>
-                  </ul>
-                </nav>
-              </div>
-            </div>
-            <div className="rounded-top-right-shape">
-              <div className="circle-black"></div>
-            */}
-            </div>
-          </header>
 
           {/* HERO CONTENT */}
           <div className="hero-subcontainer">

@@ -275,6 +275,7 @@ img {
   flex-direction: column;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
+  background: var(--foreground);
 }
 
 .main-container-scrolled {
@@ -285,6 +286,7 @@ img {
   transition: all .25s ease-in-out;
   overflow: hidden;
   display: flex;
+  background: var(--foreground);
 }
 
 .main-container-block {
@@ -321,6 +323,7 @@ header {
   position: sticky;
   z-index: 1;
   background: var(--foreground);
+  background: linear-gradient(to bottom, var(--foreground) 0%, transparent 100%);
 }
 
 .header-container {

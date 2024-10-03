@@ -9,7 +9,7 @@ export function Footer() {
 
       {/* FOOTER PART */}
       <footer >
-        
+        <p>Hi, I'm the footer!</p>
       </footer>
     
     </>

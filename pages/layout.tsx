@@ -9,6 +9,7 @@ import SmoothScrolling from "@/pages/components/SmoothScrolling";
 
 // Importing main components
 import Loader from "./components/Loader";
+import Header from "./components/Header";
 import Footer from "./components/Footer";
 
 // Importing Local Fonts
@@ -82,16 +83,17 @@ export default function Layout({
         {/* SITE CONTENT */}
         <div className={clsx(scrolled ? "main-scrolled" : "main", alinsa.variable)}>
           <div className={scrolled ? "main-container-scrolled" : "main-container"}>
-            
 
             {/* PAGE */}
             <div className="site-content" ref={containerRef}>
+              {/* HEADER */}
+              <Header/>
               {/*<SmoothScrolling>{children}</SmoothScrolling>*/}
               {children}
+              {/* FOOTER */}
+              <Footer/>
             </div>
 
-            {/* Footer */}
-            <Footer />
           </div>
         </div>
       </>
