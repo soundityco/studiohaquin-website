@@ -590,7 +590,7 @@ header {
 }
 
 .hero-list-item:hover .hero-list-item-icon {
-  filter: invert(1);
+  fill: var(--foreground);
 }
 
 .hero-picture {
