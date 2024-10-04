@@ -624,7 +624,7 @@ svg path {
   }
   .hero-subtitle {
     font-size: 1.25rem;
-    line-height: 2.2rem;
+    line-height: 2rem;
   }
   .hero-list-item {
     font-size: 1.15rem;
@@ -660,9 +660,6 @@ svg path {
   .hero-title {
     font-size: 3.5rem;
   }
-  .hero-subtitle {
-    font-size: 1.5rem;
-  }
   .hero-subcontainer-block {
     justify-content: center;
     width: 100%;
@@ -691,8 +688,5 @@ svg path {
   /* HERO */
   .hero-title {
     font-size: 3rem;
-  }
-  .hero-subtitle {
-    font-size: 1.5rem;
   }
 }
