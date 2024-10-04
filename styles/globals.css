@@ -48,13 +48,22 @@ a {
 }
 
 @font-face {
+  font-family: 'Arial';
+  src: url('../content/fonts/Arial.woff2') format('woff2'),
+       url('../content/fonts/Arial.woff') format('woff'),
+       url('../content/fonts/Arial.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+/*@font-face {
   font-family: 'Alinsa';
   src: url('../content/fonts/alinsa.woff2') format('woff2'),
        url('../content/fonts/alinsa.woff') format('woff'),
        url('../content/fonts/alinsa.ttf') format('truetype');
   font-weight: 300;
   font-style: normal;
-}
+}*/
 
 @font-face {
   font-family: 'NaNJaune';
