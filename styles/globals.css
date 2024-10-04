@@ -592,6 +592,7 @@ svg path {
   /* HERO */
   .hero-container {
     flex-direction: column !important;
+    gap: calc(var(--container-padding)*2);
   }
   .hero-subcontainer-block {
     width: 100%;
