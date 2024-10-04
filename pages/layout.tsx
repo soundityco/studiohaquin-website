@@ -50,7 +50,7 @@ export default function Layout({
     if (containerRef.current) {
       const scrollValue = containerRef.current.scrollTop;
 
-      if (scrollValue > 50) {
+      if (scrollValue > 300) {
         setScrolled(true);
       } else {
         setScrolled(false);

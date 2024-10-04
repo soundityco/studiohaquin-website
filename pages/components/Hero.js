@@ -13,9 +13,9 @@ import HeaderMenuShape from '../../content/images/header-menu-shape.svg';
 import HeroPicture from '../../content/images/hero-picture.webp';
 
 // Importing Icons
-import WebIconWhite from '../../content/images/icons/web-icon-white.svg';
-import GraphicDesignIconWhite from '../../content/images/icons/graphic-design-icon-white.svg';
-import VideoIconWhite from '../../content/images/icons/video-icon-white.svg';
+import { WebDesignIcon } from "./Images";
+import { GraphicDesignIcon } from "./Images";
+import { VideoIcon } from "./Images";
 
 
 export function Hero() {
@@ -42,9 +42,18 @@ export function Hero() {
               </div>
               <nav className="hero-list-container">
                 <ul className="hero-list-block">
-                  <li className="hero-list-item"><Image className="hero-list-item-icon" alt="Web Icon" draggable="false" src={WebIconWhite}/>Web Design</li>
-                  <li className="hero-list-item"><Image className="hero-list-item-icon" alt="Graphic Design Icon" draggable="false" src={GraphicDesignIconWhite}/>Design Graphique</li>
-                  <li className="hero-list-item"><Image className="hero-list-item-icon" alt="Video Icon" draggable="false" src={VideoIconWhite}/>Vidéo</li>
+                  <li className="hero-list-item">
+                    <WebDesignIcon className="hero-list-item-icon" alt="Web Icon" draggable="false"/>
+                    Web Design
+                  </li>
+                  <li className="hero-list-item">
+                    <GraphicDesignIcon className="hero-list-item-icon" alt="Graphic Design Icon" draggable="false"/>
+                    Design Graphique
+                  </li>
+                  <li className="hero-list-item">
+                    <VideoIcon className="hero-list-item-icon" alt="Video Icon" draggable="false"/>
+                    Vidéo
+                  </li>
                 </ul>
               </nav>
             </div>

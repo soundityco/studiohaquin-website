@@ -437,6 +437,18 @@ header {
   transform: rotate(0deg);
   transition: 1s all ease-in-out;
   width: 2vw;
+  height: 2vw;
+}
+
+.header-menu-icon path {
+  fill: var(--foreground);
+}
+
+.custom-svg-class {
+  stroke: #ff5733; /* Couleur du contour du SVG */
+  width: 40px;      /* Largeur du SVG */
+  height: 40px;     /* Hauteur du SVG */
+  transition: all 0.3s ease;
 }
 
 .header-logo:hover .header-menu-icon {
@@ -452,10 +464,6 @@ header {
   /*width: min-content;*/
   display: block;
   user-select: none;
-}
-
-svg path {
-  fill: #7000FF !important;
 }
 
 .header-block-right {
@@ -576,8 +584,9 @@ svg path {
 
 .hero-list-item-icon {
   width: 1.5vw;
-  max-width: 1.5vw;
+  height: 1.5vw;
   transition: all .15s ease-in-out;
+  fill: var(--background);
 }
 
 .hero-list-item:hover .hero-list-item-icon {
@@ -608,6 +617,7 @@ svg path {
   }
   .header-menu-icon {
     width: 2vw;
+    height: 2vw;
   }
   .header-nav ul li {
     font-size: 1.5vw;
@@ -647,6 +657,7 @@ svg path {
   }
   .hero-list-item-icon {
     width: 2rem;
+    height: 2rem;
   }
   .hero-picture {
     max-width: 400px;
@@ -671,6 +682,7 @@ svg path {
   }
   .header-menu-icon {
     width: 1.75rem;
+    height: 1.75rem;
   }
 
   /* HERO */
@@ -688,7 +700,7 @@ svg path {
   }
   .hero-list-item-icon {
     width: 1.5rem !important;
-    max-width: 1.5rem !important;
+    height: 1.5rem !important;
   }
   .hero-subcontainer-block:first-of-type {
     gap: 2rem;
@@ -738,7 +750,7 @@ svg path {
   }
   .hero-list-item-icon {
     width: 1.25rem !important;
-    max-width: 1.25rem !important;
+    height: 1.25rem !important;
   }
   .hero-picture {
     width: 100%;
