@@ -12,25 +12,21 @@ export function Header() {
       {/* HEADER PART */}
       <header>
         <div className="header-container container">
-            <div className="header-logo-block">
-                <a href="/" className="header-logo">
-                <Image className="header-menu-icon" alt="Header Menu Icon" draggable="false" src={WebsiteIcon}/>
-                <p>Studio Haquin</p>
-                </a>
-            </div>
+            <a href="/" className="header-logo">
+              <Image className="header-menu-icon" alt="Header Menu Icon" draggable="false" src={WebsiteIcon}/>
+              <p>Studio Haquin</p>
+            </a>
             {/*<Image className="header-menu-shape" alt="Header Menu Shape" draggable="false" src={HeaderMenuShape}/>*/}
-            {/*<div className="header-block-right">
             <nav className="header-nav">
                 <ul>
-                <li><Link to="home" spy={true} smooth={true} offset={0} duration={300}>👉 M'ENGAGER ?</Link></li>
+                  {/*<li><Link to="home" spy={true} smooth={true} offset={0} duration={300}>👉 M'ENGAGER ?</Link></li>*/}
+                  <li><a href="mailto:andy@studiohaquin.com">👉 M'ENGAGER ?</a></li>
                 </ul>
             </nav>
-            </div>
-        </div>
-        <div className="rounded-top-right-shape">
+          </div>
+          {/*<div className="rounded-top-right-shape">
             <div className="circle-black"></div>
-        */}
-        </div>
+          </div>*/}
     </header>
     
     </>

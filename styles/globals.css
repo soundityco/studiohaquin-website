@@ -127,7 +127,7 @@ img {
 
 .main {
   transform: scale(0.6);
-  animation: siteScale .75s ease 1.5s forwards, mainRadius .5s ease 1.75s forwards;
+  animation: siteScale .75s ease-in-out 1.5s forwards, mainRadius .5s ease-in-out 1.75s forwards;
   border-radius: 4rem;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
@@ -139,7 +139,7 @@ img {
 
 .main-scrolled {
   transform: scale(0.6);
-  animation: siteScale .75s ease 1.5s forwards, mainRadius .5s ease 1.75s forwards;
+  animation: siteScale .75s ease-in-out 1.5s forwards, mainRadius .5s ease-in-out 1.75s forwards;
   border-radius: 4rem;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
@@ -159,7 +159,7 @@ img {
   top: 0;
   left: 0;
   z-index: -1;
-  animation: gradientToTop .5s ease 2s forwards;
+  animation: gradientToTop .75s ease-in-out 2s forwards;
   transform: translateY(100%);
 }
 
@@ -246,7 +246,7 @@ img {
   box-sizing: border-box;
   -webkit-backdrop-filter: blur(100px);
   z-index: 1000;
-  animation: loaderToTop .75s ease 1.5s forwards;
+  animation: loaderToTop .75s ease-in-out 1.5s forwards;
   color: var(--background);
   opacity: 1;
   visibility: visible;
@@ -359,6 +359,8 @@ header {
   height: min-content;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   padding: var(--container-padding);
   box-sizing: border-box;
   /*background: var(--primary-color);*/
@@ -390,15 +392,6 @@ header {
   align-items: center;
   background: var(--foreground);
   border-top-left-radius: var(--border-radius);
-}
-
-.header-logo-block {
-  /*padding-left: 1.25rem;
-  padding-top: 1rem;*/
-
-  /*padding-left: 1.75rem;
-  padding-top: 2rem;*/
-  height: 100%;
 }
 
 .header-logo {
@@ -461,6 +454,7 @@ svg path {
   flex-direction: row;
   align-items: center;
   gap: 3rem;
+  color: var(--background);
 }
 
 .header-nav ul li {
@@ -562,10 +556,6 @@ svg path {
   filter: invert(1);
 }
 
-.hero-subcontainer-block .hero-list-item-icon {
-  width: 25vw;
-}
-
 .hero-picture {
   width: 25vw;
 }
@@ -599,7 +589,10 @@ svg path {
   }
   .hero-list-item {
     font-size: 1.35rem;
-    padding: 0.8rem 1.15rem;
+    padding: 0.8rem 1.15rem 0.8rem 1.15rem;
+  }
+  .hero-list-item-icon {
+    width: 2rem;
   }
   .hero-picture {
     max-width: 400px;
@@ -633,7 +626,7 @@ svg path {
   .hero-list-item {
     font-size: 1.15rem;
     gap: 0.6em;
-    padding: 0.65rem 1rem;
+    padding: 0.65rem 1rem 0.65rem 1rem;
   }
   .hero-list-item-icon {
     width: 1.5rem !important;
