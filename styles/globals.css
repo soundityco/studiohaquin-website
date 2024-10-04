@@ -482,9 +482,14 @@ svg path {
   font-size: 1.5vw;
   padding: 0.75vw;
   background: var(--primary-color);
+  transition: all .2s ease-in-out;
   border-radius: 100px;
   color: black;
 }
+
+/*.header-nav ul li:hover {
+  background: linear-gradient(90deg, rgba(255,0,0,1) 0%, rgba(255,248,0,1) 25%, rgba(0,255,226,1) 50%, rgba(0,18,255,1) 75%, rgba(218,0,255,1) 100%);
+}*/
 
 /* HERO CONTENT*/
 .hero-container {
@@ -597,9 +602,16 @@ svg path {
 @media only screen and (min-width: 1700px) {
   /* HEADER */
   .header-logo {
-    padding: 0.55rem 0.75rem 0.55rem 0.55rem;
-    font-size: 1.6rem;
-    gap: 0.55rem;
+    padding: 0.55vw 0.75vw 0.55vw 0.55vw;
+    font-size: 1.5vw;
+    gap: 0.55vw;
+  }
+  .header-menu-icon {
+    width: 2vw;
+  }
+  .header-nav ul li {
+    font-size: 1.5vw;
+    padding: 0.8vw;
   }
 
   /* HERO */
@@ -627,6 +639,7 @@ svg path {
   .hero-list-block {
     flex-direction: row;
     justify-content: center;
+    gap: 2vw;
   }
   .hero-list-item {
     font-size: 1.35rem;
@@ -697,7 +710,7 @@ svg path {
   }
   /* LOADER */
   .loader-title {
-    font-size: 7vw;
+    font-size: 8vw;
   }
   /* HEADER */
  
