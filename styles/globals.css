@@ -653,6 +653,10 @@ svg path {
     --border-radius: 6vw;
     --container-padding: 4vw;
   }
+  /* LOADER */
+  .loader-title {
+    font-size: 7vw;
+  }
   /* HERO */
   .hero-container {
     flex-direction: column;
