@@ -20,7 +20,7 @@ export function Header() {
             <nav className="header-nav">
                 <ul>
                   {/*<li><Link to="home" spy={true} smooth={true} offset={0} duration={300}>👉 M'ENGAGER ?</Link></li>*/}
-                  <li><a href="mailto:andy@studiohaquin.com">👉 M'ENGAGER ?</a></li>
+                  <li><a href="mailto:andy@studiohaquin.com">👉 Me contacter</a></li>
                 </ul>
             </nav>
           </div>

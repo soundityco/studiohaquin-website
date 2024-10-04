@@ -57,6 +57,15 @@ a {
 }
 
 @font-face {
+  font-family: 'NaNJaune';
+  src: url('../content/fonts/NaNJauneMaxiBlack.woff2') format('woff2'),
+       url('../content/fonts/NaNJauneMaxiBlack.woff') format('woff'),
+       url('../content/fonts/NaNJauneMaxiBlack.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
   font-family: 'ShineCoasty';
   src: url('../content/fonts/ShineCoasty.ttf') format('truetype');
   font-weight: 300;
@@ -112,7 +121,7 @@ img {
 
 .overlay-noise {
   z-index: 100000000;
-  opacity: .1;
+  opacity: 0.1;
   background-image: url('https://i.ibb.co/DRRTGSJ/noise-overlay.gif');
   background-position: 0 0;
   background-size: 350px;
@@ -320,7 +329,7 @@ img {
 }
 
 .container {
-  max-width: 1700px;
+  /*max-width: 1700px;*/
   padding: var(--container-padding);
   box-sizing: border-box;
   margin-left: auto;
@@ -360,7 +369,7 @@ header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
+  /*align-items: center;*/
   padding: var(--container-padding);
   box-sizing: border-box;
   /*background: var(--primary-color);*/
@@ -498,9 +507,9 @@ svg path {
 }
 
 .hero-title {
-  font-family: Alinsa, sans-serif;
+  font-family: 'NaNJaune', sans-serif;
   text-transform: uppercase;
-  font-size: 6vw;
+  font-size: 5vw;
 }
 
 .hero-subtitle {
@@ -532,7 +541,7 @@ svg path {
   border-radius: 100px;
   max-width: max-content;
   cursor: pointer;
-  background: linear-gradient(to right, white 50%, black 50%);
+  background: linear-gradient(to right, var(--background) 50%, var(--foreground) 50%);
   background-size: 200% 100%;
   background-position: right bottom;
   transition: all .2s ease-out;
@@ -544,12 +553,13 @@ svg path {
 .hero-list-item:hover {
   background-position: left bottom;
   color: var(--foreground);
+  mix-blend-mode: lighten;
 }
 
 .hero-list-item-icon {
   width: 1.5vw;
   max-width: 1.5vw;
-  transition: all .2s ease-in-out;
+  transition: all .15s ease-in-out;
 }
 
 .hero-list-item:hover .hero-list-item-icon {
@@ -580,12 +590,29 @@ svg path {
   }
 
   /* HERO */
+  .hero-container {
+    flex-direction: column !important;
+  }
+  .hero-subcontainer-block {
+    width: 100%;
+  }
+  .hero-subcontainer-block:first-of-type {
+    align-items: center;
+  }
+  .hero-intro-container {
+    max-width: unset;
+    text-align: center;
+  }
   .hero-title {
-    font-size: 6.35rem;
+    /*font-size: 6.35rem;*/
   }
   .hero-subtitle {
-    font-size: 1.6rem;
-    line-height: 2.2rem;
+    /*font-size: 1.6rem;
+    line-height: 2.2rem;*/
+  }
+  .hero-list-block {
+    flex-direction: row;
+    justify-content: center;
   }
   .hero-list-item {
     font-size: 1.35rem;
@@ -596,9 +623,6 @@ svg path {
   }
   .hero-picture {
     max-width: 400px;
-  }
-  .hero-intro-container {
-    max-width: 620px;
   }
 }
 
@@ -620,7 +644,7 @@ svg path {
 
   /* HERO */
   .hero-title {
-    font-size: 4rem;
+    font-size: 3.5rem;
   }
   .hero-subtitle {
     font-size: 1.25rem;
@@ -664,7 +688,7 @@ svg path {
     flex-direction: column;
   }
   .hero-title {
-    font-size: 3.5rem;
+    font-size: 3rem;
   }
   .hero-subcontainer-block {
     justify-content: center;
@@ -705,6 +729,6 @@ svg path {
   }
   /* HERO */
   .hero-title {
-    font-size: 3rem;
+    font-size: 2.75rem;
   }
 }

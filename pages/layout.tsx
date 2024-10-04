@@ -76,7 +76,6 @@ export default function Layout({
     return (
       <>
         {/* LOADER & OVERLAYS */}
-        <div className="overlay"></div>
         <div className="overlay-noise"></div>
         <Loader />
 
