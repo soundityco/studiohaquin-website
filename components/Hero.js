@@ -9,13 +9,12 @@ import Typewriter from 'typewriter-effect';
 import { Link } from "react-scroll/modules";
 
 // Importing Images
-import HeaderMenuShape from '../../content/images/header-menu-shape.svg';
-import HeroPicture from '../../content/images/hero-picture.webp';
+import HeroPicture from '@/content/images/hero-picture.webp';
 
 // Importing Icons
-import { WebDesignIcon } from "./Images";
-import { GraphicDesignIcon } from "./Images";
-import { VideoIcon } from "./Images";
+import { WebDesignIcon } from "@/components/Images";
+import { GraphicDesignIcon } from "@/components/Images";
+import { VideoIcon } from "@/components/Images";
 
 
 export function Hero() {

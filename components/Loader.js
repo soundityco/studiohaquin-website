@@ -3,7 +3,7 @@ import React from "react";
 import Image from 'next/image';
 
 // Importing Images SRC
-import blurblurLogo from '../../content/images/logos/blurblur-logo-chrome.webp';
+
 
 export function Loader() {;
 

@@ -2,12 +2,10 @@ import React, { useState, useEffect, useRef } from 'react';
 import Head from "next/head";
 
 // Importing main components
-import Hero from "./components/Hero";
-import Footer from "./components/Footer";
-import Loader from "./components/Loader";
+import Hero from "@/components/Hero";
 
 // Importing components
-import GraphicDesign from "./components/GraphicDesign";
+import GraphicDesign from "../components/GraphicDesign";
 
 export function Home() {
 

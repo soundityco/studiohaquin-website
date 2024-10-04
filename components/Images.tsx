@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image'; // Pour gérer les images Next.js
 
 // Exemple d'import d'une image
-import HeroPicture from '../../content/images/hero-picture.webp';
+import HeroPicture from '@/content/images/hero-picture.webp';
 
 // Composant SVGs en tant que JSX
 export const WebsiteIcon = ({ className = '' }: { className?: string }) => (

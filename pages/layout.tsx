@@ -5,12 +5,12 @@ import clsx from 'clsx';
 import Alinsa from 'next/font/local'
 
 // Importing Smooth Scroll
-import SmoothScrolling from "@/pages/components/SmoothScrolling";
+//import SmoothScrolling from "@/components/SmoothScrolling";
 
 // Importing main components
-import Loader from "./components/Loader";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import Loader from "../components/Loader";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 // Importing Local Fonts
 const alinsa = Alinsa({
