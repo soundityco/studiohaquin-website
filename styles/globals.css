@@ -625,7 +625,7 @@ header {
 }
 
 /* RESPONSIVE */
-@media only screen and (min-width: 1700px) {
+@media only screen and (min-width: 1920px) {
   /* HEADER */
   .header-logo {
     padding: 0.55vw 0.75vw 0.55vw 0.55vw;

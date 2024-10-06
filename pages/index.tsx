@@ -16,8 +16,13 @@ export function Home() {
         <div className={scrolled ? "main-container-scrolled" : "main-container"}>
           <div className="main-container-block" ref={containerRef}>*/}
             <Head>
-              <title>Studio Haquin / Andy Haquin-Guyard — Designer Graphique & Vidéaste, cadreur, monteur basé à Angers</title>
-              <meta name="description" content="De la prise de vue au montage, en passant par la conception graphique, je m’occupe de tout pour raconter votre histoire de manière authentique et impactante. ✨" />
+              <title>Studio Haquin — Designer Graphique & Vidéaste, Cadreur, Monteur basé à Angers</title>
+              <meta property="og:title" content="Studio Haquin — Designer Graphique & Vidéaste, Cadreur, Monteur basé à Angers" key="title" />
+              <meta property="og:image" content="studio-haquin-og-banner.jpg" />
+              
+              <meta name="description" content="Studio de création graphique et de production audiovisuelle basé à Angers. De la prise de vue au montage, en passant par la conception graphique, je m’occupe de tout pour raconter votre histoire de manière authentique et impactante." />
+              <meta property="og:description" content="Studio de création graphique et de production audiovisuelle basé à Angers. De la prise de vue au montage, en passant par la conception graphique, je m’occupe de tout pour raconter votre histoire de manière authentique et impactante." />
+              
               <link rel="icon" href="/favicon.ico" />
               <meta name="facebook-domain-verification" content="" />
             </Head>
