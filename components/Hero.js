@@ -26,7 +26,7 @@ export function Hero() {
           <div className="hero-container container">
             <div className="hero-subcontainer-block">
               <div className="hero-intro-container">
-                <h1 className="hero-title">
+                <h1 className="section-title">
                   Besoin d'un
                   <br/>
                   <Typewriter
@@ -37,20 +37,20 @@ export function Hero() {
                       }}
                     />
                   </h1>
-                <h2 className="hero-subtitle">Hello ! Je m'appelle Andy et je suis <span>Designer Graphique</span> & <span>Vidéaste</span> freelance, basé à Angers.</h2>
+                <h2 className="section-subtitle">Hello ! Je m'appelle Andy et je suis <span>Designer Graphique</span> & <span>Vidéaste</span> freelance, basé à Angers.</h2>
               </div>
               <nav className="hero-list-container">
                 <ul className="hero-list-block">
-                  <li className="hero-list-item">
-                    <WebDesignIcon className="hero-list-item-icon" alt="Web Icon" draggable="false"/>
+                  <li className="button">
+                    <WebDesignIcon className="button-icon" alt="Web Icon" draggable="false"/>
                     Web Design
                   </li>
-                  <li className="hero-list-item">
-                    <GraphicDesignIcon className="hero-list-item-icon" alt="Graphic Design Icon" draggable="false"/>
+                  <li className="button">
+                    <GraphicDesignIcon className="button-icon" alt="Graphic Design Icon" draggable="false"/>
                     Design Graphique
                   </li>
-                  <li className="hero-list-item">
-                    <VideoIcon className="hero-list-item-icon" alt="Video Icon" draggable="false"/>
+                  <li className="button">
+                    <VideoIcon className="button-icon" alt="Video Icon" draggable="false"/>
                     Vidéo
                   </li>
                 </ul>
