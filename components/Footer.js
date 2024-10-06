@@ -22,8 +22,8 @@ export function Footer() {
               <ul>
                 <li><a className="footer-link" href="https://linkedin.com/in/andyblurblur" target="_blank">LinkedIn</a></li>
                 <li><a className="footer-link" href="https://instagram.com/studiohaquin" target="_blank">Instagram</a></li>
-                <li><a className="footer-link" href="https://linkedin.com/andyhaquin" target="_blank">Behance</a></li>
-                <li><a className="footer-link" href="mailto:andy@studiohaquin.com" target="_blank">andy@studiohaquin.com</a></li>
+                <li><a className="footer-link" href="https://be.net/studiohaquin" target="_blank">Behance</a></li>
+                {/*<li><a className="footer-link" href="mailto:andy@studiohaquin.com" target="_blank">andy@studiohaquin.com</a></li>*/}
               </ul>
             </nav>
 
