@@ -10,7 +10,7 @@ export function Footer() {
       {/* FOOTER PART */}
       <footer>
         <div className="footer-container container">
-          <p>STUDIO HAQUIN © 2024 — Andy Haquin-Guyard</p>
+          <p>STUDIO HAQUIN © 2024</p>
         </div>
       </footer>
     

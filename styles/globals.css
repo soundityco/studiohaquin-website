@@ -531,7 +531,7 @@ header {
 .hero-intro-container {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 4rem;
   max-width: 40vw;
 }
 
@@ -651,10 +651,12 @@ header {
   }
   .hero-subcontainer-block:first-of-type {
     align-items: center;
+    gap: 3vw;
   }
   .hero-intro-container {
     max-width: unset;
     text-align: center;
+    gap: 3vw;
   }
   .hero-title {
     /*font-size: 6.35rem;*/
@@ -720,14 +722,15 @@ header {
     height: 1.5rem !important;
   }
   .hero-subcontainer-block:first-of-type {
-    gap: 2rem;
+    gap: 3rem;
   }
   .hero-picture {
     max-width: 400px;
+    width: 30vw;
   }
   .hero-intro-container {
     max-width: 620px;
-    gap: 1.5rem;
+    gap: 3rem;
   }
 }
 
@@ -771,7 +774,7 @@ header {
   }
   .hero-picture {
     width: 100%;
-    max-width: 400px;
+    max-width: 380px;
   }
 }
 
