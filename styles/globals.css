@@ -645,6 +645,9 @@ header {
 
 .footer-title {
   text-align: start;
+  font-family: Helvetica;
+  font-size: 3.5vw;
+  line-height: 3.5vw;
 }
 
 .footer-links {
@@ -662,7 +665,7 @@ header {
 
 .footer-link {
   transition: all .2s ease-in-out;
-  font-size: 2vw;
+  font-size: 2.5vw;
   max-width: min-content;
   display: block;
 }
@@ -674,12 +677,12 @@ header {
 .footer-link::after {
   content: '';
   width: 0px;
-  height: 0.25vw;
+  height: 0.1vw;
   display: flex;
   transition: all .2s ease-in-out;
   background: var(--primary-color);
   color: var(--primary-color);
-  margin-top: 0.75vw;
+  margin-top: 1vw;
 }
 
 .footer-link:hover::after {
@@ -691,6 +694,7 @@ header {
   display: flex;
   /*gap: 1vw;*/
   text-align: left;
+  font-size: 1.5vw;
 }
 
 .footer-cc span {
@@ -700,10 +704,15 @@ header {
   transition: all .2s ease-in-out;
 }
 
+.footer-cc span::selection {
+  background: var(--background);
+  color: var(--background);
+}
+
 .footer-cc span::after {
   content: '';
-  transform: translateY(0.2rem);
-  height: 0.075rem;
+  transform: translateY(0.5vw);
+  height: 0.075vw;
   width: 100%;
   display: flex;
   background: var(--background);
@@ -842,7 +851,10 @@ header {
   }
   .footer-link {
     transition: all .2s ease-in-out;
-    font-size: 1.75rem;
+    font-size: 2rem;
+  }
+  .footer-cc {
+    font-size: 1.25rem;
   }
 }
 
@@ -901,16 +913,19 @@ header {
     align-items: start;
   }
   .footer-container-block:last-of-type {
-    gap: 2rem;
-    flex-direction: column-reverse;
+    /*gap: 2rem;
+    flex-direction: column-reverse;*/
   }
   .footer-links ul {
-    gap: 1.5rem;
+    gap: 3rem;
     flex-direction: column;
   }
   .footer-link {
     transition: all .2s ease-in-out;
-    font-size: 1.5rem;
+    font-size: 2rem;
+  }
+  .footer-cc:last-child {
+    display: none;
   }
 }
 
@@ -950,10 +965,13 @@ header {
     gap: 0.5rem;
   }
   .footer-links ul {
-    gap: 1.5rem;
+    gap: 2rem;
   }
   .footer-link {
     transition: all .2s ease-in-out;
-    font-size: 1.5rem;
+    font-size: 1.75rem;
+  }
+  .footer-link::after {
+    margin-top: 2vw;
   }
 }
