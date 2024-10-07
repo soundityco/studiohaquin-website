@@ -14,7 +14,7 @@ export function Footer() {
       <footer>
         <div className="footer-container container">
           <div className="footer-container-block">
-            <h1 className="section-title footer-title">Enchanté,<br/>parlez moi de votre projet !</h1>
+            <h1 className="section-title footer-title">Enchanté,<br/>Parlez moi de votre projet !</h1>
             <a className="button footer-button" href="mailto:andy@studiohaquin.com">👉 Contactez-moi !</a>
           </div>
           <div className="footer-container-block">
@@ -29,10 +29,11 @@ export function Footer() {
 
           </div>
           <div className="footer-container-block">
-            <a className="footer-logo" href="/">
+            <a className="footer-cc" href="/">
               {/*<WebsiteIcon className="footer-icon" alt="Website Logo" draggable="false"/>*/}
               Studio Haquin © 2024
             </a>
+            <p className="footer-cc" >Codé avec amour by&nbsp;<span>Studio Haquin</span></p>
           </div>
         </div>
       </footer>

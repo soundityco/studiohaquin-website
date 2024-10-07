@@ -159,6 +159,7 @@ img {
   display: flex;
   gap: 0.75vw;
   align-items: center;
+  min-width: max-content;
 }
 
 .button:hover {
@@ -390,7 +391,7 @@ img {
 }
 
 .container {
-  /*max-width: 1700px;*/
+  /*max-width: 1920px;*/
   padding: var(--container-padding);
   box-sizing: border-box;
   margin-left: auto;
@@ -614,7 +615,7 @@ header {
   height: calc(100vh - var(--container-padding)*2);
   background: var(--secondary-color);
   border-radius: var(--border-radius);
-  background: linear-gradient(to top, var(--secondary-color), var(--foreground));
+  /*background: linear-gradient(to top, var(--secondary-color), var(--foreground));*/
 }
 
 
@@ -632,9 +633,14 @@ header {
 
 .footer-container-block {
   display: flex;
-  flex-direction: column;
-  align-items: start;
+  justify-content: space-between;
+  align-items: center;
   gap: 4vw;
+  width: 100%;
+}
+
+.footer-block-copyright {
+
 }
 
 .footer-title {
@@ -680,15 +686,35 @@ header {
   width: 100%;
 }
 
-.footer-logo {
+.footer-cc {
   text-transform: uppercase;
   display: flex;
-  align-items: center;
-  gap: 1vw;
+  /*gap: 1vw;*/
+  text-align: left;
+}
+
+.footer-cc span {
+  color: transparent;
+  display: flex;
+  flex-direction: column;
+  transition: all .2s ease-in-out;
+}
+
+.footer-cc span::after {
+  content: '';
+  transform: translateY(0.2rem);
+  height: 0.075rem;
+  width: 100%;
+  display: flex;
+  background: var(--background);
+}
+
+.footer-cc span:hover {
+  color: var(--background);
 }
 
 /* RESPONSIVE */
-@media only screen and (min-width: 1920px) {
+@media only screen and (min-width: 1950px) {
 
   /* VARIABLES */
   .button {
@@ -871,6 +897,12 @@ header {
   }
   .footer-container-block {
     gap: 4rem;
+    flex-direction: column;
+    align-items: start;
+  }
+  .footer-container-block:last-of-type {
+    gap: 2rem;
+    flex-direction: column-reverse;
   }
   .footer-links ul {
     gap: 1.5rem;
@@ -913,6 +945,9 @@ header {
   }
   .footer-container-block {
     gap: 4rem;
+  }
+  .footer-container-block:last-of-type {
+    gap: 0.5rem;
   }
   .footer-links ul {
     gap: 1.5rem;

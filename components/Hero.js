@@ -1,5 +1,5 @@
 // Importing Dependencies
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 
 // TYPE WRITER EFFECT
@@ -30,12 +30,13 @@ export function Hero() {
                   Besoin d'un
                   <br/>
                   <Typewriter
-                      options={{
-                        strings: ['designer graphique ?', 'designer web ?', 'vidéaste ?', 'cadreur vidéo ?', 'monteur vidéo ?', ],
-                        autoStart: true,
-                        loop: true,
-                      }}
-                    />
+                    options={{
+                      strings: ['designer graphique ?', 'designer web ?', 'vidéaste ?', 'cadreur vidéo ?', 'monteur vidéo ?', ],
+                      autoStart: true,
+                      loop: true,
+                      
+                    }}
+                  />
                   </h1>
                 <h2 className="section-subtitle">Hello ! Je m'appelle Andy et je suis <span>Designer Graphique</span> & <span>Vidéaste</span> freelance, basé à Angers.</h2>
               </div>
