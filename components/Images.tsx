@@ -1,8 +1,13 @@
 import React from 'react';
 import Image from 'next/image'; // Pour gérer les images Next.js
 
-// Exemple d'import d'une image
+// Importing Images
 import HeroPicture from '@/content/images/hero-picture.webp';
+
+// Imporrting Emojis
+import EmojiContact from '@/content/images/emojis/emoji-contact.png';
+import EmojiHandFinger from '@/content/images/emojis/emoji-hand-finger.png';
+import EmojiEyes from '@/content/images/emojis/emoji-eyes.png';
 
 // Composant SVGs en tant que JSX
 /*export const WebsiteLogo = ({ className = '' }: { className?: string }) => (
@@ -79,6 +84,9 @@ export const VideoIcon = ({ className = '' }: { className?: string }) => (
 );
 
 // Fonction pour les images
-export const Images = {
-  HeroPicture, // L'image Next.js
+export {
+  HeroPicture,
+  EmojiContact,
+  EmojiHandFinger,
+  EmojiEyes,
 };

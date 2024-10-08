@@ -1,7 +1,11 @@
 'use client';
 
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
+
+// Importing Icons
+import { EmojiContact, EmojiHandFinger, EmojiEyes } from "@/components/Images";
 
 interface StickyCursorProps {
   stickyElement: React.RefObject<HTMLElement>;
@@ -10,8 +14,8 @@ interface StickyCursorProps {
 const StickyCursor: React.FC<StickyCursorProps> = ({ stickyElement }) => {
   const cursorSize = 20;
   const mouse = {
-    x: useMotionValue(-cursorSize), // Initialement en dehors du viewport
-    y: useMotionValue(-cursorSize)  // Initialement en dehors du viewport
+    x: useMotionValue(-cursorSize),
+    y: useMotionValue(-cursorSize)
   };
 
   const smoothOptions = { damping: 15, stiffness: 200, mass: 0.25 };
@@ -20,7 +24,7 @@ const StickyCursor: React.FC<StickyCursorProps> = ({ stickyElement }) => {
     y: useSpring(mouse.y, smoothOptions)
   };
 
-  const [currentEmoji, setCurrentEmoji] = useState(''); // Émoji actuel
+  const [currentEmoji, setCurrentEmoji] = useState<React.ReactNode>(null); // Emoji par défaut
   const [isHovered, setIsHovered] = useState(false);
 
   const manageMouseMove = (e: MouseEvent) => {
@@ -34,11 +38,12 @@ const StickyCursor: React.FC<StickyCursorProps> = ({ stickyElement }) => {
     setIsHovered(true);
     
     // Définir un tableau des classes et l'emoji associé
-    const classEmojiMap: { [key: string]: string } = {
-      'button-contact': '✉️',
-      'button-footer': '✉️' // Même emoji pour 'button-contact' et 'button-footer'
+    const classEmojiMap: { [key: string]: React.ReactNode } = {
+      'button-contact': <Image src={EmojiContact} alt="Emoji" width={20} height={20} draggable="false" />,
+      'button-footer': <Image src={EmojiContact} alt="Emoji" width={20} height={20} draggable="false" />,
+      'button-discover': <Image src={EmojiHandFinger} alt="Emoji" width={20} height={20} draggable="false" />,
     };
-  
+
     // Vérifiez si l'élément a une des classes définies
     for (const className in classEmojiMap) {
       if (target.classList.contains(className)) {
@@ -46,14 +51,14 @@ const StickyCursor: React.FC<StickyCursorProps> = ({ stickyElement }) => {
         return;
       }
     }
-  
+
     // Si aucune classe ne correspond, réinitialiser à l'émoji par défaut
-    setCurrentEmoji('👀');
+    setCurrentEmoji(<Image src={EmojiEyes} alt="Default Emoji" width={20} height={20} draggable="false" />);
   };
 
   const manageMouseLeaveLink = () => {
     setIsHovered(false);
-    setCurrentEmoji(''); // Réinitialiser l'émoji
+    setCurrentEmoji(null); // Réinitialiser à l'émoji par défaut
   };
 
   useEffect(() => {
@@ -79,14 +84,13 @@ const StickyCursor: React.FC<StickyCursorProps> = ({ stickyElement }) => {
       style={{
         left: smoothMouse.x,
         top: smoothMouse.y,
-        scale: isHovered ? 2 : 1, // Change la taille du curseur selon l'état
+        scale: isHovered ? 2 : 1,
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        fontSize: isHovered ? '30px' : '20px', // Change la taille de l'émoji selon l'état
-        pointerEvents: 'none', // Pour que l'émoji ne bloque pas les événements de souris
-        background: isHovered ? 'none' : 'rgba(255, 255, 255, 1)', // Pas de fond au survol
-        mixBlendMode: isHovered ? 'normal' : 'difference' // Pas de mode de mélange au survol
+        pointerEvents: 'none',
+        background: isHovered ? 'none' : 'rgba(255, 255, 255, 1)',
+        mixBlendMode: isHovered ? 'normal' : 'difference'
       }}
       className="cursor"
     >

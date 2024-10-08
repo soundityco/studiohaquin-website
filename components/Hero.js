@@ -43,19 +43,19 @@ export function Hero() {
               <nav className="hero-list-container">
                 <ul className="hero-list-block">
                   <li>
-                    <a className="button" href="/">
+                    <a className="button button-discover" href="/">
                       <WebDesignIcon className="button-icon" alt="Web Icon" draggable="false"/>
                       Web Design
                     </a>
                   </li>
                   <li>
-                    <a className="button" href="/">
+                    <a className="button button-discover" href="/">
                       <GraphicDesignIcon className="button-icon" alt="Graphic Design Icon" draggable="false"/>
                       Design Graphique
                     </a>
                   </li>
                   <li>
-                    <a className="button" href="/">
+                    <a className="button button-discover" href="/">
                       <VideoIcon className="button-icon" alt="Video Icon" draggable="false"/>
                       Vidéo
                     </a>
