@@ -33,7 +33,7 @@ export function Footer() {
               {/*<WebsiteIcon className="footer-icon" alt="Website Logo" draggable="false"/>*/}
               Studio Haquin © 2024
             </a>
-            <p className="footer-cc" >Designed & dev by&nbsp;<span><a>Studio Haquin</a></span></p>
+            <p className="footer-cc" >Designed & dev by&nbsp;<span><a class="button-footer-reveal">Studio Haquin</a></span></p>
           </div>
         </div>
       </footer>

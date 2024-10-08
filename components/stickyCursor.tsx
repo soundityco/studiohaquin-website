@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 
 // Importing Icons
-import { EmojiContact, EmojiHandFinger, EmojiEyes } from "@/components/Images";
+import { EmojiContact, EmojiHandFinger, EmojiEyes, EmojiCute } from "@/components/Images";
 
 interface StickyCursorProps {
   stickyElement: React.RefObject<HTMLElement>;
@@ -39,9 +39,10 @@ const StickyCursor: React.FC<StickyCursorProps> = ({ stickyElement }) => {
     
     // Définir un tableau des classes et l'emoji associé
     const classEmojiMap: { [key: string]: React.ReactNode } = {
-      'button-contact': <Image src={EmojiContact} alt="Emoji" width={20} height={20} draggable="false" />,
-      'button-footer': <Image src={EmojiContact} alt="Emoji" width={20} height={20} draggable="false" />,
-      'button-discover': <Image src={EmojiHandFinger} alt="Emoji" width={20} height={20} draggable="false" />,
+      'button-contact': <Image src={EmojiContact} alt="Emoji" width={50} height={50} draggable="false" />,
+      'button-discover': <Image src={EmojiHandFinger} alt="Emoji" width={50} height={50} draggable="false" />,
+      'button-footer': <Image src={EmojiContact} alt="Emoji" width={50} height={50} draggable="false" />,
+      'button-footer-reveal': <Image src={EmojiCute} alt="Emoji" width={50} height={50} draggable="false" />,
     };
 
     // Vérifiez si l'élément a une des classes définies
@@ -53,7 +54,7 @@ const StickyCursor: React.FC<StickyCursorProps> = ({ stickyElement }) => {
     }
 
     // Si aucune classe ne correspond, réinitialiser à l'émoji par défaut
-    setCurrentEmoji(<Image src={EmojiEyes} alt="Default Emoji" width={20} height={20} draggable="false" />);
+    setCurrentEmoji(<Image src={EmojiEyes} alt="Default Emoji" width={50} height={50} draggable="false" />);
   };
 
   const manageMouseLeaveLink = () => {
@@ -84,7 +85,7 @@ const StickyCursor: React.FC<StickyCursorProps> = ({ stickyElement }) => {
       style={{
         left: smoothMouse.x,
         top: smoothMouse.y,
-        scale: isHovered ? 2 : 1,
+        scale: isHovered ? 2.5 : 1,
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',

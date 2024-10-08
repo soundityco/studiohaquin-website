@@ -5,9 +5,10 @@ import Image from 'next/image'; // Pour gérer les images Next.js
 import HeroPicture from '@/content/images/hero-picture.webp';
 
 // Imporrting Emojis
-import EmojiContact from '@/content/images/emojis/emoji-contact.png';
-import EmojiHandFinger from '@/content/images/emojis/emoji-hand-finger.png';
-import EmojiEyes from '@/content/images/emojis/emoji-eyes.png';
+import EmojiContact from '@/content/images/emojis/emoji-contact.webp';
+import EmojiHandFinger from '@/content/images/emojis/emoji-hand-finger.webp';
+import EmojiEyes from '@/content/images/emojis/emoji-eyes.webp';
+import EmojiCute from '@/content/images/emojis/emoji-cute.webp';
 
 // Composant SVGs en tant que JSX
 /*export const WebsiteLogo = ({ className = '' }: { className?: string }) => (
@@ -89,4 +90,5 @@ export {
   EmojiContact,
   EmojiHandFinger,
   EmojiEyes,
+  EmojiCute,
 };
