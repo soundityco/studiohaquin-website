@@ -12,6 +12,7 @@
     "@studio-freight/lenis": "^1.0.42",
     "axios": "^1.6.7",
     "clsx": "^2.1.0",
+    "framer-motion": "^11.11.1",
     "lenis": "^1.1.13",
     "locomotive-scroll": "^5.0.0-beta.21",
     "next": "14.1.3",

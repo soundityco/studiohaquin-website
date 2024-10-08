@@ -42,17 +42,23 @@ export function Hero() {
               </div>
               <nav className="hero-list-container">
                 <ul className="hero-list-block">
-                  <li className="button">
-                    <WebDesignIcon className="button-icon" alt="Web Icon" draggable="false"/>
-                    Web Design
+                  <li>
+                    <a className="button" href="/">
+                      <WebDesignIcon className="button-icon" alt="Web Icon" draggable="false"/>
+                      Web Design
+                    </a>
                   </li>
-                  <li className="button">
-                    <GraphicDesignIcon className="button-icon" alt="Graphic Design Icon" draggable="false"/>
-                    Design Graphique
+                  <li>
+                    <a className="button" href="/">
+                      <GraphicDesignIcon className="button-icon" alt="Graphic Design Icon" draggable="false"/>
+                      Design Graphique
+                    </a>
                   </li>
-                  <li className="button">
-                    <VideoIcon className="button-icon" alt="Video Icon" draggable="false"/>
-                    Vidéo
+                  <li>
+                    <a className="button" href="/">
+                      <VideoIcon className="button-icon" alt="Video Icon" draggable="false"/>
+                      Vidéo
+                    </a>
                   </li>
                 </ul>
               </nav>

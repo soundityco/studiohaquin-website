@@ -4,13 +4,11 @@ import clsx from 'clsx';
 // Importing Custom Fonts
 import Alinsa from 'next/font/local'
 
-// Importing Smooth Scroll
-//import SmoothScrolling from "@/components/SmoothScrolling";
-
 // Importing main components
 import Loader from "../components/Loader";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import StickyCursor from '../components/stickyCursor';
 
 // Importing Local Fonts
 const alinsa = Alinsa({
@@ -35,21 +33,18 @@ const alinsa = Alinsa({
 });
 
 export default function Layout({
-    children,
-  }: {
-    children: React.ReactNode;
-  }) {
-
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   /* SCROLL DETECTION */
   const [scrolled, setScrolled] = useState(false);
-
   const containerRef = useRef<HTMLDivElement | null>(null); 
+  const headerRef = useRef<HTMLAnchorElement | null>(null); // Création du ref pour le Header
 
   const changeClass = () => {
-
     if (containerRef.current) {
       const scrollValue = containerRef.current.scrollTop;
-
       if (scrollValue > 0) {
         setScrolled(true);
       } else {
@@ -73,28 +68,30 @@ export default function Layout({
     }
   }, []);
 
-    return (
-      <>
-        {/* LOADER & OVERLAYS */}
-        <div className="overlay-noise"></div>
-        <Loader />
+  const stickyElement = useRef(null);
 
-        {/* SITE CONTENT */}
-        <div className={clsx(scrolled ? "main-scrolled" : "main", alinsa.variable)}>
-          <div className={scrolled ? "main-container-scrolled" : "main-container"}>
+  return (
+    <>
+      {/* LOADER & OVERLAYS */}
+      <div className="overlay-noise"></div>
+      <Loader />
+      <StickyCursor stickyElement={stickyElement}/>
 
-            {/* PAGE */}
-            <div className="site-content" ref={containerRef}>
-              {/* HEADER */}
-              <Header/>
-              {/*<SmoothScrolling>{children}</SmoothScrolling>*/}
-              {children}
-              {/* FOOTER */}
-              <Footer/>
-            </div>
+      {/* SITE CONTENT */}
+      <div className={clsx(scrolled ? "main-scrolled" : "main", alinsa.variable)}>
+        <div className={scrolled ? "main-container-scrolled" : "main-container"}>
 
+          {/* PAGE */}
+          <div className="site-content" ref={containerRef}>
+            {/* HEADER */}
+            <Header/> {/* Utilisation du ref ici */}
+            {children}
+            {/* FOOTER */}
+            <Footer/>
           </div>
+
         </div>
-      </>
-    );
-  };
+      </div>
+    </>
+  );
+}

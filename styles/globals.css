@@ -96,6 +96,7 @@ a {
 /* START OF THE CODE */
 html {
   scroll-behavior: smooth;
+  cursor: none;
 }
 
 ::selection {
@@ -120,6 +121,11 @@ img {
   height: auto;
 }
 
+a {
+  cursor: none;
+}
+
+
 .overlay {
   width: 100%;
   height: 100vh;
@@ -130,7 +136,7 @@ img {
 
 .overlay-noise {
   z-index: 100000000;
-  opacity: 0.1;
+  opacity: 0.075;
   background-image: url('https://i.ibb.co/DRRTGSJ/noise-overlay.gif');
   background-position: 0 0;
   background-size: 350px;
@@ -143,6 +149,19 @@ img {
   pointer-events: none;
 }
 
+.cursor {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  background-color: var(--background);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999999999999999;
+  mix-blend-mode: difference;
+  transform: scale(1);
+  transition: transform .2s ease-in-out;
+  filter: grayscale(1);
+}
 
 .button {
   border: 1px solid var(--background);
@@ -151,7 +170,6 @@ img {
   font-size: 1.25vw;
   border-radius: 100px;
   max-width: max-content;
-  cursor: pointer;
   background: linear-gradient(to right, var(--background) 50%, var(--foreground) 50%);
   background-size: 200% 100%;
   background-position: right bottom;
@@ -432,7 +450,7 @@ header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  /*align-items: center;*/
+  align-items: center;
   padding: var(--container-padding);
   box-sizing: border-box;
   /*background: var(--primary-color);*/
@@ -487,8 +505,7 @@ header {
   transform: scale(1.05) rotate(-2deg);
 }
 
-.header-nav ul li {
-  cursor: pointer;
+.button-contact {
   min-width: max-content;
   text-transform: uppercase;
   font-size: 1.5vw;
@@ -500,7 +517,7 @@ header {
   transform: unset;
 }
 
-.header-nav ul li:hover {
+.button-contact:hover {
   /*background: linear-gradient(90deg, rgba(255,0,0,1) 0%, rgba(255,248,0,1) 25%, rgba(0,255,226,1) 50%, rgba(0,18,255,1) 75%, rgba(218,0,255,1) 100%);*/
   transform: scale(1.05) rotate(-2deg);
 }
@@ -612,10 +629,20 @@ header {
 
 .graphic-design-container {
   width: 100%;
-  height: calc(100vh - var(--container-padding)*2);
-  background: var(--secondary-color);
+  height: calc(75vh - var(--container-padding)*2);
   border-radius: var(--border-radius);
+  overflow: hidden;
+  /*background: var(--secondary-color);*/
   /*background: linear-gradient(to top, var(--secondary-color), var(--foreground));*/
+  padding: unset;
+}
+
+.graphic-design-video {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  -webkit-mask-image: -webkit-gradient(linear, left 0%, left 90%, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
 }
 
 
@@ -695,6 +722,7 @@ header {
   /*gap: 1vw;*/
   text-align: left;
   font-size: 1.5vw;
+  position: relative;
 }
 
 .footer-cc span {
@@ -720,6 +748,7 @@ header {
 
 .footer-cc span:hover {
   color: var(--background);
+  /*cursor: url('/public/emoji-loved.png') !important;*/
 }
 
 /* RESPONSIVE */
@@ -748,7 +777,7 @@ header {
     font-size: 1.5vw;
     gap: 0.55vw;
   }
-  .header-nav ul li {
+  .button-contact {
     font-size: 1.5vw;
     padding: 0.8vw;
   }
@@ -823,7 +852,7 @@ header {
     font-size: 1.2rem;
     gap: 0.55rem;
   }
-  .header-nav ul li {
+  .button-contact {
     font-size: 1.2rem;
     padding: 0.8rem;
   }

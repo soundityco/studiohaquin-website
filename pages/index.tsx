@@ -3,11 +3,14 @@ import Head from "next/head";
 
 // Importing main components
 import Hero from "@/components/Hero";
+//import StickyCursor from '../components/stickyCursor';
 
 // Importing components
 import GraphicDesign from "../components/GraphicDesign";
 
 export function Home() {
+
+  //const stickyElement = useRef(null);
 
   return (
     <>
@@ -27,10 +30,10 @@ export function Home() {
               <meta name="facebook-domain-verification" content="" />
             </Head>
 
-            {/* HEADER */}
-            <Hero />
+            {/*<StickyCursor stickyElement={stickyElement}/>/*}
 
             {/* COMPONENTS */}
+            <Hero />
             <GraphicDesign />
     </>
   );
