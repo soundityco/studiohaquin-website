@@ -45,11 +45,14 @@ const StickyCursor: React.FC<StickyCursorProps> = ({ stickyElement }) => {
       'button-footer-reveal': <Image src={EmojiCute} alt="Emoji" width={50} height={50} draggable="false" />,
     };
 
-    // Vérifiez si l'élément a une des classes définies
-    for (const className in classEmojiMap) {
-      if (target.classList.contains(className)) {
-        setCurrentEmoji(classEmojiMap[className]); // Définir l'émoji correspondant
-        return;
+    // Chercher l'élément parent qui a une des classes définies
+    const link = target.closest('a');
+    if (link) {
+      for (const className in classEmojiMap) {
+        if (link.classList.contains(className)) {
+          setCurrentEmoji(classEmojiMap[className]); // Définir l'émoji correspondant
+          return;
+        }
       }
     }
 

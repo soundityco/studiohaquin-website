@@ -100,7 +100,7 @@ html {
 }
 
 ::selection {
-  background: var(--background);
+  background: var(--primary-color);
   color: var(--foreground);
 }
 
@@ -731,9 +731,9 @@ header {
   transition: all .2s ease-in-out;
 }
 
-.footer-cc span::selection {
-  background: var(--background);
-  color: var(--background);
+.footer-cc span a::selection {
+  background: var(--primary-color);
+  color: var(--primary-color);
 }
 
 .footer-cc span::after {
