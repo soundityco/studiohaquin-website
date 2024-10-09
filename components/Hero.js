@@ -26,7 +26,7 @@ export function Hero() {
           <div className="hero-container container">
             <div className="hero-subcontainer-block">
               <div className="hero-intro-container">
-                <h1 className="section-title">
+                <h1 className="section-title hero-title">
                   Besoin d'un
                   <br/>
                   <Typewriter

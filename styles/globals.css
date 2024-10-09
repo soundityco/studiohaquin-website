@@ -421,7 +421,7 @@ a {
   overflow-y: scroll;
   display: flex;
   flex-direction: column;
-  gap: var(--container-padding);
+  gap: calc(var(--container-padding)*4);
   scrollbar-width: none;
 }
 
@@ -618,6 +618,113 @@ header {
   width: 25vw;
 }
 
+/* CLIENTS SECTION */
+.clients {
+  width: 100%;
+  background: var(--foreground);
+  padding: var(--container-padding);
+  box-sizing: border-box;
+  border-top: 1px solid #ffffff1c;
+  border-bottom: 1px solid #ffffff1c;
+}
+
+.clients-container {
+  width: 100%;
+  overflow: hidden;
+
+}
+
+.clients-container-block {
+  width: 100%;
+  max-width: 90vw;
+  display: flex;
+  flex-shrink: 0;
+  flex-direction: column;
+  gap: 1rem 0;
+  position: relative;
+  padding: 2.5vw 0;
+  overflow: hidden;
+}
+
+.clients-container-block-slider .inner {
+  display: flex;
+  width: fit-content;
+  animation-name: loop;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-duration: 20s;
+}
+
+.client-logo-block {
+  display: flex;
+  align-items: center;
+  margin-right: 5vw; /* Must used margin-right instead of gap for the loop to be smooth */
+}
+
+.client-logo {
+  max-width: 18vw;
+  max-height: 4vw;
+  height: 4vw;
+  fill: var(--background);
+  opacity: 0.3;
+  transition: opacity .2s ease-in-out;
+}
+
+.fade {
+  pointer-events: none;
+  background: linear-gradient(90deg, var(--foreground), transparent 10%, transparent 90%, var(--foreground));
+  position: absolute;
+  inset: 0;
+}
+
+@keyframes loop {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/*.clients-container-block {
+  display: flex;
+  align-items: center;
+  gap: 6vw;
+  justify-content: center;
+}
+
+.client-logo {
+  max-width: 18vw;
+  max-height: 4vw;
+  fill: var(--background);
+  opacity: 0.5;
+  transition: opacity .2s ease-in-out;
+}
+
+.client-logo:hover {
+  opacity: 1;
+}*/
+
+/* INTRO */
+.intro {
+  width: 100%;
+  color: var(--background);
+  padding: var(--container-padding);
+  box-sizing: border-box;
+}
+
+.intro-container {
+  width: 100%;
+  /*background: var(--secondary-color);*/
+  /*background: linear-gradient(to top, var(--secondary-color), var(--foreground));*/
+  padding: unset;
+}
+
+.intro-container-text {
+  font-size: 4vw;
+}
+
 /* GRAPHIC DESIGN SECTION */
 .graphic-design {
   width: 100%;
@@ -643,7 +750,6 @@ header {
   object-fit: cover;
   -webkit-mask-image: -webkit-gradient(linear, left 0%, left 90%, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
 }
-
 
 /* FOOTER */
 .footer-container {
@@ -797,6 +903,10 @@ header {
     align-items: center;
     gap: 3vw;
   }
+  .hero-title {
+    display: flex;
+    gap: 1vw;
+  }
   .hero-intro-container {
     max-width: unset;
     text-align: center;
@@ -873,6 +983,24 @@ header {
     gap: 3rem;
   }
 
+  /* INTRO */
+  .intro-container-text {
+    font-size: 3.25rem;
+  }
+
+  /* CLIENTS */
+  .clients-container-block-slider .inner {
+    animation-duration: 15s;
+  }
+  .client-logo-block {
+    margin-right: 4rem; /* Must used margin-right instead of gap for the loop to be smooth */
+  }
+  .client-logo {
+    max-width: 12rem;
+    max-height: 6rem;
+    height: 6rem;
+  }
+
   /* FOOTER */
   .footer-links ul {
     gap: 4.5rem;
@@ -900,6 +1028,9 @@ header {
   .button-icon {
     width: 1.25rem !important;
     height: 1.25rem !important;
+  }
+  .site-content {
+    gap: 3rem;
   }
   .section-title {
     font-size: 3rem;
@@ -929,6 +1060,11 @@ header {
   .hero-picture {
     width: 100%;
     max-width: 380px;
+  }
+
+  /* INTRO */
+  .intro-container-text {
+    font-size: 2.5rem;
   }
   
   /* FOOTER */
@@ -963,8 +1099,8 @@ header {
 
   }
   .section-title {
-    font-size: 2.75rem;
-    line-height: 2.75rem;
+    font-size: 2.5rem;
+    line-height: 2.5rem;
   }
   .site-content {
     gap: calc(var(--container-padding)*2)

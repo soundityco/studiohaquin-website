@@ -7,6 +7,8 @@ import Hero from "@/components/Hero";
 
 // Importing components
 import GraphicDesign from "../components/GraphicDesign";
+import Clients from "../components/Clients";
+import Intro from "../components/Intro";
 
 export function Home() {
 
@@ -35,6 +37,8 @@ export function Home() {
             {/* COMPONENTS */}
             <Hero />
             <GraphicDesign />
+            <Intro />
+            <Clients />
     </>
   );
 }
