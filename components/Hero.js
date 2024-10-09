@@ -31,7 +31,8 @@ export function Hero() {
                   <br/>
                   <Typewriter
                     options={{
-                      strings: ['designer graphique ?', 'designer web ?', 'vidéaste ?', 'cadreur vidéo ?', 'monteur vidéo ?', ],
+                      //strings: ['designer graphique ?', 'designer web ?', 'vidéaste ?', 'cadreur vidéo ?', 'monteur vidéo ?', ],
+                      strings: ['designer ?', 'vidéaste ?', 'cadreur ?', 'monteur ?', ],
                       autoStart: true,
                       loop: true,
                       
