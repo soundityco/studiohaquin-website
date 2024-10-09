@@ -1118,6 +1118,18 @@ header {
     gap: calc(var(--container-padding)*4)
   }
 
+  /* INTRO */
+  .intro-container-text {
+    font-size: 2.25rem;
+  }
+  
+  /* CLIENT */
+  .client-logo {
+    max-width: 9rem;
+    max-height: 4rem;
+    height: 6rem;
+  }
+
   /* FOOTER */
   .footer-container {
     gap: 4rem;
