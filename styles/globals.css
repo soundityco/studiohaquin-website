@@ -108,7 +108,9 @@ body {
   color: var(--foreground);
   font-family: Arial, sans-serif;
   overflow: hidden;
-  background: var(--primary-color);}
+  background: var(--primary-color);
+  scrollbar-width: none;
+}
 
 img {
   user-drag: none;
@@ -421,7 +423,7 @@ a {
   overflow-y: scroll;
   display: flex;
   flex-direction: column;
-  gap: calc(var(--container-padding)*4);
+  gap: calc(var(--container-padding)*2);
   scrollbar-width: none;
 }
 
@@ -748,7 +750,7 @@ header {
   height: 100%;
   aspect-ratio: 16/9;
   object-fit: cover;
-  -webkit-mask-image: -webkit-gradient(linear, left 0%, left 90%, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+  -webkit-mask-image: -webkit-gradient(linear, left 90%, left 0%, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
 }
 
 /* FOOTER */
