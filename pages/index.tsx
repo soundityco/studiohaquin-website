@@ -6,6 +6,7 @@ import Hero from "@/components/Hero";
 //import StickyCursor from '../components/stickyCursor';
 
 // Importing components
+import Portfolio from "../components/Portfolio";
 import GraphicDesign from "../components/GraphicDesign";
 import Clients from "../components/Clients";
 import Intro from "../components/Intro";
@@ -37,8 +38,11 @@ export function Home() {
             {/* COMPONENTS */}
             <Hero />
             <GraphicDesign />
+            <Portfolio />
+            <GraphicDesign />
             <Intro />
-            <Clients />
+            <GraphicDesign />
+            {/*<Clients />*/}
     </>
   );
 }

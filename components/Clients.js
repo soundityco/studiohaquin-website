@@ -50,7 +50,7 @@ export function Clients() {;
               </div>
             </div>
           </div>
-          <div class="fade"></div>
+          <div className="fade"></div>
         </div>
       </div>
     </section>

@@ -78,6 +78,20 @@ export const VideoIcon = ({ className = '' }: { className?: string }) => (
 </svg>
 );
 
+export const NewLinkIcon = ({ className = '' }: { className?: string }) => (
+  <svg
+    className={className}
+    viewBox="0 0 200 200" 
+    xmlns="http://www.w3.org/2000/svg"
+    //width="15px"
+    //height="15px"
+    fill="none"
+  >
+    <circle cx="100" cy="100" r="100" fill="#fff"/>
+    <path d="m133 74.5-75.3 75.3-10-10L123 64.5H83.6V50.1h63.8v63.7H133z" fill="#000"/>
+</svg>
+);
+
 // SVG Logo
 export const DecathlonLogo = ({ className = '' }: { className?: string }) => (
   <svg

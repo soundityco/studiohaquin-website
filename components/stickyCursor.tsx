@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 
 // Importing Icons
-import { EmojiContact, EmojiHandFinger, EmojiEyes, EmojiCute, EmojiProud } from "@/components/Images";
+import { EmojiContact, EmojiHandFinger, EmojiEyes, EmojiCute, EmojiProud, VideoIcon, NewLinkIcon } from "@/components/Images";
 
 interface StickyCursorProps {
   stickyElement: React.RefObject<HTMLElement>;
@@ -40,10 +40,11 @@ const StickyCursor: React.FC<StickyCursorProps> = ({ stickyElement }) => {
     // Définir un tableau des classes et l'emoji associé
     const classEmojiMap: { [key: string]: React.ReactNode } = {
       'button-contact': <Image src={EmojiContact} alt="Emoji" width={50} height={50} draggable="false" />,
-      'button-discover': <Image src={EmojiHandFinger} alt="Emoji" width={50} height={50} draggable="false" />,
+      //'button-discover': <Image src={EmojiHandFinger} alt="Emoji" width={50} height={50} draggable="false" />,
       'button-footer': <Image src={EmojiContact} alt="Emoji" width={50} height={50} draggable="false" />,
       'button-footer-reveal': <Image src={EmojiCute} alt="Emoji" width={50} height={50} draggable="false" />,
       'proud': <Image src={EmojiProud} alt="Emoji" width={50} height={50} draggable="false" />,
+      'show-me': <NewLinkIcon className="new-link "/>,
     };
 
     // Chercher l'élément parent qui a une des classes définies
@@ -89,7 +90,7 @@ const StickyCursor: React.FC<StickyCursorProps> = ({ stickyElement }) => {
       style={{
         left: smoothMouse.x,
         top: smoothMouse.y,
-        scale: isHovered ? 2.5 : 1,
+        scale: isHovered ? 3.5 : 1,
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
