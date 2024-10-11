@@ -56,7 +56,7 @@ export function Portfolio() {
     },
     {
       name: "Noelse",
-      description: "Création graphique + vidéo",
+      description: "Création graphique + motion design + 3D",
       date: "2021 — 2023",
     },
     {
@@ -66,7 +66,7 @@ export function Portfolio() {
     },
     {
       name: "ESA",
-      description: "Création graphique",
+      description: "Création graphique + 3D",
       date: "2021",
     },
   ];
