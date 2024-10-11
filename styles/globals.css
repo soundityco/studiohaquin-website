@@ -822,7 +822,7 @@ header {
   transition: opacity 0.5s ease-in-out;
   pointer-events: none; /* Désactive les clics par défaut */
   padding: var(--container-padding);
-  padding-top: calc(var(--container-padding) * 4);
+  padding-top: calc(var(--container-padding) * 3);
   padding-bottom: unset;
   box-sizing: border-box;
   backdrop-filter: blur(10px);
@@ -1267,7 +1267,7 @@ header {
   }
 
   .portfolio-popup-content-header-block div p:last-child {
-    
+
   }
  
   /* HERO */
