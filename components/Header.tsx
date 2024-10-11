@@ -1,27 +1,23 @@
-// Importing Dependencies //
-import React from "react";
-import Image from 'next/image';
+import React, { forwardRef } from 'react';
 
 // Importing Icons
 import { WebsiteIcon } from "./Images";
 
-export function Header() {
-
+const Header = forwardRef<HTMLElement>((props, ref) => {
   return (
     <>
       {/* HEADER PART */}
-      <header>
+      <header ref={ref}> {/* Ajout de la ref ici */}
         <div className="header-container container">
           <a href="/" className="header-logo">
-            <WebsiteIcon className="header-menu-icon" alt="Header Menu Icon" draggable="false"/>
+            <WebsiteIcon className="header-menu-icon"/>
             <p>Studio Haquin</p>
           </a>
           <a className="button-contact" href="mailto:andy@studiohaquin.com">👉 Me contacter</a>
         </div>
-    </header>
-    
+      </header>
     </>
   );
-}
+});
 
 export default Header;

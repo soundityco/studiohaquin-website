@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import clsx from 'clsx';
 
 // Importing Custom Fonts
-import Alinsa from 'next/font/local'
+import Alinsa from 'next/font/local';
 
 // Importing main components
 import Loader from "../components/Loader";
@@ -15,7 +15,7 @@ const alinsa = Alinsa({
   variable: '--font-alinsa',
   src: [
     {
-      path: '../content/fonts/alinsa.woff2',  // Ajouter .woff2
+      path: '../content/fonts/alinsa.woff2',
       weight: '300',
       style: 'normal',
     },
@@ -25,11 +25,11 @@ const alinsa = Alinsa({
       style: 'normal',
     },
     {
-      path: '../content/fonts/alinsa.ttf',  // Ajouter .ttf si nécessaire
+      path: '../content/fonts/alinsa.ttf',
       weight: '300',
       style: 'normal',
     },
-  ]
+  ],
 });
 
 export default function Layout({
@@ -40,15 +40,21 @@ export default function Layout({
   /* SCROLL DETECTION */
   const [scrolled, setScrolled] = useState(false);
   const containerRef = useRef<HTMLDivElement | null>(null); 
-  const headerRef = useRef<HTMLAnchorElement | null>(null); // Création du ref pour le Header
+  const headerRef = useRef<HTMLElement | null>(null);  // Change 'HTMLAnchorElement' to 'HTMLElement'
 
   const changeClass = () => {
     if (containerRef.current) {
       const scrollValue = containerRef.current.scrollTop;
       if (scrollValue > 0) {
         setScrolled(true);
+        if (headerRef.current) {
+          headerRef.current.classList.add('header-scrolled');  // Add class on scroll
+        }
       } else {
         setScrolled(false);
+        if (headerRef.current) {
+          headerRef.current.classList.remove('header-scrolled');  // Remove class when no scroll
+        }
       }
     }
   };
@@ -84,7 +90,7 @@ export default function Layout({
           {/* PAGE */}
           <div className="site-content" ref={containerRef}>
             {/* HEADER */}
-            <Header/> {/* Utilisation du ref ici */}
+            <Header ref={headerRef} /> {/* Pass headerRef to Header */}
             {children}
             {/* FOOTER */}
             <Footer/>

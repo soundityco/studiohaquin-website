@@ -172,8 +172,8 @@ export function Portfolio() {
       {/* Popup Section */}
       {activeProjectIndex !== null && (
         <div className={`portfolio-popup ${isPopupActive ? 'active' : ''} ${isClosing ? 'closing' : ''}`}>
-          <div className={`portfolio-popup-container ${isPopupActive ? 'active' : ''} ${isClosing ? 'closing' : ''}`}>
-            <div className="portfolio-popup-content" ref={popupRef}>
+          <div className={`portfolio-popup-container ${isPopupActive ? 'active' : ''} ${isClosing ? 'closing' : ''}`} ref={popupRef}>
+            <div className="portfolio-popup-content" >
               <div className="portfolio-popup-content-header">
                 <div className="portfolio-popup-content-header-block">
                   <h2>{projects[activeProjectIndex].name}</h2>
