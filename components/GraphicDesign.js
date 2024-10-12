@@ -9,7 +9,6 @@ export function GraphicDesign() {;
         <video class="graphic-design-video" autoplay="yes" muted="yes" playsinline="" loop="yes" preload="auto" poster="">
           <source src="/showreel.mp4" type="video/mp4"/>
         </video>
-
       </div>
     </section>
   );

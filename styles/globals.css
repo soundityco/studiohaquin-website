@@ -766,7 +766,7 @@ header {
 
 .portfolio-container nav ul {
   display: grid;
-  grid-template-columns: 30vw auto auto;
+  grid-template-columns: 26vw auto auto;
   gap: 2vw;
   align-items: center;
   text-transform: uppercase;
@@ -793,7 +793,7 @@ header {
 
 .portfolio-container div a {
   display: grid;
-  grid-template-columns: 30vw auto auto;
+  grid-template-columns: 26vw auto auto;
   gap: 2vw;
   align-items: start;
   font-size: 2.5vw;
@@ -847,7 +847,7 @@ header {
   background-color: var(--foreground);
   color: var(--background);
   padding: var(--container-padding);
-  border-radius: var(--border-radius);
+  border-radius: calc(var(--border-radius)/1.25);
   border-bottom-left-radius: unset;
   border-bottom-right-radius: unset;
   box-sizing: border-box;
@@ -944,6 +944,7 @@ header {
   height: 100%;
   aspect-ratio: 16/9;
   object-fit: cover;
+  filter: contrast(1.1) brightness(1.05);
   /*-webkit-mask-image: -webkit-gradient(linear, left 90%, left 0%, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));*/
   /*-webkit-mask-image: -webkit-gradient(linear, left bottom, left top, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));*/
 }

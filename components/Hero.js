@@ -19,7 +19,7 @@ import { VideoIcon } from "@/components/Images";
 export function Hero() {
 
   return (
-    <section className="hero">
+    <section className="hero" id="hero">
       <div className="hero-container container">
         <div className="hero-subcontainer-block">
           <div className="hero-intro-container">
