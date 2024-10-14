@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-
 import { ArrowLeftIcon, ArrowRightIcon, CloseIcon } from "./Images";
 
 interface Project {
@@ -9,10 +8,11 @@ interface Project {
 }
 
 export function Portfolio() {
-
   const [activeProjectIndex, setActiveProjectIndex] = useState<number | null>(null);
   const [isPopupActive, setIsPopupActive] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
+  const [isLeftPressed, setIsLeftPressed] = useState(false); // Pour l'état de la touche flèche gauche
+  const [isRightPressed, setIsRightPressed] = useState(false); // Pour l'état de la touche flèche droite
   const popupRef = useRef<HTMLDivElement | null>(null);
 
   const projects: Project[] = [
@@ -78,44 +78,56 @@ export function Portfolio() {
   };
 
   const handleClosePopup = () => {
-    setIsClosing(true); // Démarre l'animation de fermeture
+    setIsClosing(true);
     setTimeout(() => {
-      setActiveProjectIndex(null); // Ferme la popup
-      setIsClosing(false); // Réinitialise l'état de fermeture
-    }, 300); // Assurez-vous que le délai est le même que la durée de la transition
+      setActiveProjectIndex(null);
+      setIsClosing(false);
+    }, 300);
   };
 
   const handleNextProject = () => {
     setActiveProjectIndex((prevIndex) => {
-      if (prevIndex === null) return 0; 
+      if (prevIndex === null) return 0;
       return prevIndex === projects.length - 1 ? 0 : prevIndex + 1;
     });
   };
 
   const handlePrevProject = () => {
     setActiveProjectIndex((prevIndex) => {
-      if (prevIndex === null) return projects.length - 1; 
+      if (prevIndex === null) return projects.length - 1;
       return prevIndex === 0 ? projects.length - 1 : prevIndex - 1;
     });
   };
 
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        handleClosePopup();
-      } else if (activeProjectIndex !== null) {
-        if (e.key === "ArrowRight") {
-          handleNextProject();
-        } else if (e.key === "ArrowLeft") {
-          handlePrevProject();
-        }
+  const handleKeyDown = (e: KeyboardEvent) => {
+    if (e.key === "Escape") {
+      handleClosePopup();
+    } else if (activeProjectIndex !== null) {
+      if (e.key === "ArrowRight") {
+        setIsRightPressed(true);
+        handleNextProject();
+      } else if (e.key === "ArrowLeft") {
+        setIsLeftPressed(true);
+        handlePrevProject();
       }
-    };
-  
+    }
+  };
+
+  const handleKeyUp = (e: KeyboardEvent) => {
+    if (e.key === "ArrowRight") {
+      setIsRightPressed(false);
+    } else if (e.key === "ArrowLeft") {
+      setIsLeftPressed(false);
+    }
+  };
+
+  useEffect(() => {
     window.addEventListener("keydown", handleKeyDown);
-  
+    window.addEventListener("keyup", handleKeyUp);
+
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener("keyup", handleKeyUp);
     };
   }, [activeProjectIndex]);
 
@@ -175,7 +187,7 @@ export function Portfolio() {
       {activeProjectIndex !== null && (
         <div className={`portfolio-popup ${isPopupActive ? 'active' : ''} ${isClosing ? 'closing' : ''}`}>
           <div className={`portfolio-popup-container ${isPopupActive ? 'active' : ''} ${isClosing ? 'closing' : ''}`} ref={popupRef}>
-            <div className="portfolio-popup-content" >
+            <div className="portfolio-popup-content">
               <div className="portfolio-popup-content-header">
                 <div className="portfolio-popup-content-header-block">
                   <h2>{projects[activeProjectIndex].name}</h2>
@@ -186,14 +198,14 @@ export function Portfolio() {
                 </div>
                 <div className="portfolio-popup-content-header-block">
                   <span onClick={handleClosePopup}>
-                    <CloseIcon className="portfolio-icon"/>
+                    <CloseIcon className="portfolio-icon" />
                   </span>
                   <div>
                     <span onClick={handlePrevProject}>
-                      <ArrowLeftIcon className="portfolio-icon"/>
+                      <ArrowLeftIcon className={`portfolio-icon ${isLeftPressed ? 'pressed' : ''}`} />
                     </span>
                     <span onClick={handleNextProject}>
-                      <ArrowRightIcon className="portfolio-icon"/>
+                      <ArrowRightIcon className={`portfolio-icon ${isRightPressed ? 'pressed' : ''}`} />
                     </span>
                   </div>
                 </div>
