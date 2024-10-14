@@ -92,6 +92,45 @@ export const NewLinkIcon = ({ className = '' }: { className?: string }) => (
 </svg>
 );
 
+export const ArrowRightIcon = ({ className = '' }: { className?: string }) => (
+  <svg
+    className={className}
+    viewBox="0 0 134 91" 
+    xmlns="http://www.w3.org/2000/svg"
+    //width="15px"
+    //height="15px"
+    fill="none"
+  >
+    <path d="M106.6 52.2H0V38h106.5L78.7 10.2 88.9 0l45 45-45 45.1L79 80z"/>
+</svg>
+);
+
+export const ArrowLeftIcon = ({ className = '' }: { className?: string }) => (
+  <svg
+    className={className}
+    viewBox="0 0 134 91" 
+    xmlns="http://www.w3.org/2000/svg"
+    //width="15px"
+    //height="15px"
+    fill="none"
+  >
+    <path d="M27.297 37.908H133.91v14.26H27.297L55.19 80.06 45.107 90.144 0 45.037 45.038 0l10.084 10.083z"/>
+</svg>
+);
+
+export const CloseIcon = ({ className = '' }: { className?: string }) => (
+  <svg
+    className={className}
+    viewBox="0 0 200 200" 
+    xmlns="http://www.w3.org/2000/svg"
+    //width="15px"
+    //height="15px"
+    fill="none"
+  >
+    <path d="M77.4 99.8-.1 22.3 22.4-.2 100 77.2l77-77 22.6 22.4-77.2 77.2 77.5 77.4-22.4 22.4-77.5-77.4-77.2 77.2L.4 177.1z"/>
+</svg>
+);
+
 // SVG Logo
 export const DecathlonLogo = ({ className = '' }: { className?: string }) => (
   <svg

@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 
+import { ArrowLeftIcon, ArrowRightIcon, CloseIcon } from "./Images";
+
 interface Project {
   name: string;
   description: string;
@@ -183,10 +185,16 @@ export function Portfolio() {
                   </div>
                 </div>
                 <div className="portfolio-popup-content-header-block">
-                  <span onClick={handleClosePopup}>✕</span>
+                  <span onClick={handleClosePopup}>
+                    <CloseIcon className="portfolio-icon"/>
+                  </span>
                   <div>
-                    <span onClick={handlePrevProject}>←</span>
-                    <span onClick={handleNextProject}>→</span>
+                    <span onClick={handlePrevProject}>
+                      <ArrowLeftIcon className="portfolio-icon"/>
+                    </span>
+                    <span onClick={handleNextProject}>
+                      <ArrowRightIcon className="portfolio-icon"/>
+                    </span>
                   </div>
                 </div>
               </div>
