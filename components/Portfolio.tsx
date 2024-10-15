@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, Fragment } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { ArrowLeftIcon, ArrowRightIcon, CloseIcon } from "./Images";
 
 interface Project {
@@ -6,9 +6,9 @@ interface Project {
   description: string;
   date: string;
   content: {
-    videos?: string[];   // Optionnel, mais peut-être initialisé avec un tableau vide
+    videos?: string[];
     photos?: string[];
-    iframes?: string[];   // Optionnel
+    iframes?: string[];
     text?: {
       title?: string;
       subtitle?: string;
@@ -22,8 +22,8 @@ export function Portfolio() {
   const [activeProjectIndex, setActiveProjectIndex] = useState<number | null>(null);
   const [isPopupActive, setIsPopupActive] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
-  const [isLeftPressed, setIsLeftPressed] = useState(false); 
-  const [isRightPressed, setIsRightPressed] = useState(false); 
+  const [isLeftPressed, setIsLeftPressed] = useState(false);
+  const [isRightPressed, setIsRightPressed] = useState(false);
   const popupRef = useRef<HTMLDivElement | null>(null);
 
   const projects: Project[] = [
@@ -33,8 +33,8 @@ export function Portfolio() {
       date: "2024",
       content: {
         videos: ["https://player.vimeo.com/video/993371219?h=18665354fd"],
-        iframes: [],  // Initialisé à un tableau vide par défaut
-        photos: [],   // Initialisé à un tableau vide par défaut
+        iframes: [],
+        photos: [],
         text: {
           description: "Réalisation d'une série de vidéos promotionnelles et divertissantes destinées aux réseaux sociaux pour Decathlon Les Ponts-de-Cé.",
         },
@@ -46,7 +46,7 @@ export function Portfolio() {
       date: "2024",
       content: {
         videos: ["https://player.vimeo.com/video/1013996537?h=83d93ee44b"],
-        iframes: [],  // Initialisé à un tableau vide par défaut
+        iframes: [],
         photos: [],
         text: {
           description: "Réalisation d'une vidéo promotionnelle pour l'évènement 'Mère et Fille' 2024 des Galeries Lafayette d'Angers.",
@@ -72,7 +72,7 @@ export function Portfolio() {
       date: "2024",
       content: {
         iframes: ["https://polyphoniamusic.com"],
-        videos: [],   // Initialisé à un tableau vide par défaut
+        videos: [],
         photos: [],
         text: {
           description: "Réalisation, conception et développement web du site web du label POLYPHONIA.",
@@ -144,7 +144,7 @@ export function Portfolio() {
         videos: [],
         photos: [],
         text: {
-          description: "Réalisation, conception et développement web du site web d'Airval Studio.",
+          description: "Réalisation, conception et développement web du site web de Soundity.",
         },
       },
     },
@@ -174,20 +174,7 @@ export function Portfolio() {
         },
       },
     },
-    /*{
-        name: "ESA",
-        description: "Création graphique + 3D",
-        date: "2021",
-        content: {
-            text: {
-                title: "ESA Project",
-                subtitle: "Graphic Design & 3D",
-                description: "Graphic design and 3D work for ESA.",
-            },
-        },
-    },*/
-];
-
+  ];
 
   const handleClick = (index: number) => {
     setActiveProjectIndex(index);
@@ -274,6 +261,8 @@ export function Portfolio() {
     }
   }, [activeProjectIndex]);
 
+  const activeProject = activeProjectIndex !== null ? projects[activeProjectIndex] : null;
+
   return (
     <section className="portfolio" id="portfolio">
       <div className="portfolio-container container">
@@ -300,90 +289,89 @@ export function Portfolio() {
       </div>
 
       {/* Popup Section */}
-      {activeProjectIndex !== null && projects[activeProjectIndex]?.content && (
-  <div className={`portfolio-popup ${isPopupActive ? 'active' : ''} ${isClosing ? 'closing' : ''}`}>
-    <div className={`portfolio-popup-container ${isPopupActive ? 'active' : ''} ${isClosing ? 'closing' : ''}`} ref={popupRef}>
-      <div className="portfolio-popup-content">
-        <div className="portfolio-popup-content-header">
-          <div className="portfolio-popup-content-header-block">
-            <h2>{projects[activeProjectIndex]?.name}</h2>
-            <p>{projects[activeProjectIndex]?.description}</p>
-            <p>{projects[activeProjectIndex]?.date}</p>
-          </div>
-          <div className="portfolio-popup-content-header-block">
-            <span onClick={handleClosePopup}>
-              <CloseIcon className="portfolio-icon" />
-            </span>
-            <div>
-              <span onClick={handlePrevProject}>
-                <ArrowLeftIcon className={`portfolio-icon ${isLeftPressed ? 'pressed' : ''}`} />
-              </span>
-              <span onClick={handleNextProject}>
-                <ArrowRightIcon className={`portfolio-icon ${isRightPressed ? 'pressed' : ''}`} />
-              </span>
+      {activeProject && (
+        <div className={`portfolio-popup ${isPopupActive ? 'active' : ''} ${isClosing ? 'closing' : ''}`}>
+          <div className={`portfolio-popup-container ${isPopupActive ? 'active' : ''} ${isClosing ? 'closing' : ''}`} ref={popupRef}>
+            <div className="portfolio-popup-content">
+              <div className="portfolio-popup-content-header">
+                <div className="portfolio-popup-content-header-block">
+                  <h2>{activeProject.name}</h2>
+                  <p>{activeProject.description}</p>
+                  <p>{activeProject.date}</p>
+                </div>
+                <div className="portfolio-popup-content-header-block">
+                  <span onClick={handleClosePopup}>
+                    <CloseIcon className="portfolio-icon" />
+                  </span>
+                  <div>
+                    <span onClick={handlePrevProject}>
+                      <ArrowLeftIcon className={`portfolio-icon ${isLeftPressed ? 'pressed' : ''}`} />
+                    </span>
+                    <span onClick={handleNextProject}>
+                      <ArrowRightIcon className={`portfolio-icon ${isRightPressed ? 'pressed' : ''}`} />
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Dynamic content */}
+              <div className="portfolio-popup-dynamic-content">
+                {activeProject.content.text && (
+                  <div>
+                    {activeProject.content.text.title && (
+                      <h3>{activeProject.content.text.title}</h3>
+                    )}
+                    {activeProject.content.text.subtitle && (
+                      <h4>{activeProject.content.text.subtitle}</h4>
+                    )}
+                    {activeProject.content.text.description && (
+                      <p>{activeProject.content.text.description}</p>
+                    )}
+                    {activeProject.content.text.links?.map((link, i) => (
+                      <a key={i} href={link.url} target="_blank" rel="noopener noreferrer">
+                        {link.label}
+                      </a>
+                    ))}
+                  </div>
+                )}
+
+                {/* Video Content */}
+                {activeProject.content.videos?.map((videoUrl, i) => (
+                  <iframe
+                    key={i}
+                    width="560"
+                    height="315"
+                    src={videoUrl}
+                    title="Project Video"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                ))}
+
+                {/* Photo Content */}
+                {activeProject.content.photos?.map((photoUrl, i) => (
+                  <img key={i} src={photoUrl} alt={`Project ${activeProject.name}`} />
+                ))}
+
+                {/* Iframe Content */}
+                {activeProject.content.iframes?.map((iframeUrl, i) => (
+                  <iframe
+                    key={i}
+                    src={iframeUrl}
+                    title="Project Iframe"
+                    width="100%"
+                    height="600"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                ))}
+              </div>
             </div>
           </div>
         </div>
-
-        {/* Dynamic content */}
-        <div className="portfolio-popup-dynamic-content">
-          {projects[activeProjectIndex].content.text && (
-            <div>
-              {projects[activeProjectIndex].content.text.title && (
-                <h3>{projects[activeProjectIndex].content.text.title}</h3>
-              )}
-              {projects[activeProjectIndex].content.text.subtitle && (
-                <h4>{projects[activeProjectIndex].content.text.subtitle}</h4>
-              )}
-              {projects[activeProjectIndex].content.text.description && (
-                <p>{projects[activeProjectIndex].content.text.description}</p>
-              )}
-              {projects[activeProjectIndex].content.text.links?.map((link, i) => (
-                <a key={i} href={link.url} target="_blank" rel="noopener noreferrer">
-                  {link.label}
-                </a>
-              ))}
-            </div>
-          )}
-
-          {/* Video Content */}
-          {projects[activeProjectIndex].content.videos?.map((videoUrl, i) => (
-            <iframe
-              key={i}
-              width="560"
-              height="315"
-              src={videoUrl}
-              title="Project Video"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
-          ))}
-
-          {/* Photo Content */}
-          {projects[activeProjectIndex].content.photos?.map((photoUrl, i) => (
-            <img key={i} src={photoUrl} alt={`Project ${projects[activeProjectIndex]?.name}`} />
-          ))}
-
-          {/* Iframe Content */}
-          {projects[activeProjectIndex].content.iframes?.map((iframeUrl, i) => (
-            <iframe
-              key={i}
-              src={iframeUrl}
-              title="Project Iframe"
-              width="100%"
-              height="600"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
-          ))}
-        </div>
-      </div>
-    </div>
-  </div>
-)}
-
+      )}
     </section>
   );
 }
