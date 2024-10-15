@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, Fragment } from "react";
 import { ArrowLeftIcon, ArrowRightIcon, CloseIcon } from "./Images";
 
 interface Project {
@@ -317,7 +317,7 @@ export function Portfolio() {
 
                     {/* Text Content (title, subtitle, description) placed here */}
                     {projects[activeProjectIndex].content?.text && (
-                      <>
+                      <div>
                         {projects[activeProjectIndex].content.text.title && (
                           <h3>{projects[activeProjectIndex].content.text.title}</h3>
                         )}
@@ -332,7 +332,7 @@ export function Portfolio() {
                             {link.label}
                           </a>
                         ))}
-                      </>
+                      </div>
                     )}
                   </div>
                 </div>
