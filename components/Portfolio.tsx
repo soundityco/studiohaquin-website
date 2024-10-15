@@ -304,89 +304,90 @@ export function Portfolio() {
       </div>
 
       {/* Popup Section */}
-      {activeProjectIndex !== null && (
-        <div className={`portfolio-popup ${isPopupActive ? 'active' : ''} ${isClosing ? 'closing' : ''}`}>
-          <div className={`portfolio-popup-container ${isPopupActive ? 'active' : ''} ${isClosing ? 'closing' : ''}`} ref={popupRef}>
-            <div className="portfolio-popup-content">
-              <div className="portfolio-popup-content-header">
-                <div className="portfolio-popup-content-header-block">
-                  <h2>{projects[activeProjectIndex]?.name}</h2>
-                  <p>{projects[activeProjectIndex]?.description}</p>
-                  <p>{projects[activeProjectIndex]?.date}</p>
-                </div>
-                <div className="portfolio-popup-content-header-block">
-                  <span onClick={handleClosePopup}>
-                    <CloseIcon className="portfolio-icon" />
-                  </span>
-                  <div>
-                    <span onClick={handlePrevProject}>
-                      <ArrowLeftIcon className={`portfolio-icon ${isLeftPressed ? 'pressed' : ''}`} />
-                    </span>
-                    <span onClick={handleNextProject}>
-                      <ArrowRightIcon className={`portfolio-icon ${isRightPressed ? 'pressed' : ''}`} />
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Dynamic content */}
-              <div className="portfolio-popup-dynamic-content">
-                {projects[activeProjectIndex]?.content?.text && (
-                  <div>
-                    {projects[activeProjectIndex]?.content.text.title && (
-                      <h3>{projects[activeProjectIndex].content.text.title}</h3>
-                    )}
-                    {projects[activeProjectIndex]?.content.text.subtitle && (
-                      <h4>{projects[activeProjectIndex].content.text.subtitle}</h4>
-                    )}
-                    {projects[activeProjectIndex]?.content.text.description && (
-                      <p>{projects[activeProjectIndex].content.text.description}</p>
-                    )}
-                    {projects[activeProjectIndex]?.content.text.links?.map((link, i) => (
-                      <a key={i} href={link.url} target="_blank" rel="noopener noreferrer">
-                        {link.label}
-                      </a>
-                    ))}
-                  </div>
-                )}
-
-                {/* Video Content */}
-                {projects[activeProjectIndex]?.content?.videos?.map((videoUrl, i) => (
-                  <iframe
-                    key={i}
-                    width="560"
-                    height="315"
-                    src={videoUrl}
-                    title="Project Video"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  ></iframe>
-                ))}
-
-                {/* Photo Content */}
-                {projects[activeProjectIndex]?.content?.photos?.map((photoUrl, i) => (
-                  <img key={i} src={photoUrl} alt={`Project ${projects[activeProjectIndex]?.name}`} />
-                ))}
-
-                {/* Iframe Content */}
-                {projects[activeProjectIndex]?.content?.iframes?.map((iframeUrl, i) => (
-                  <iframe
-                    key={i}
-                    src={iframeUrl}
-                    title="Project Iframe"
-                    width="100%"
-                    height="600"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  ></iframe>
-                ))}
-              </div>
+      {activeProjectIndex !== null && projects[activeProjectIndex]?.content && (
+  <div className={`portfolio-popup ${isPopupActive ? 'active' : ''} ${isClosing ? 'closing' : ''}`}>
+    <div className={`portfolio-popup-container ${isPopupActive ? 'active' : ''} ${isClosing ? 'closing' : ''}`} ref={popupRef}>
+      <div className="portfolio-popup-content">
+        <div className="portfolio-popup-content-header">
+          <div className="portfolio-popup-content-header-block">
+            <h2>{projects[activeProjectIndex]?.name}</h2>
+            <p>{projects[activeProjectIndex]?.description}</p>
+            <p>{projects[activeProjectIndex]?.date}</p>
+          </div>
+          <div className="portfolio-popup-content-header-block">
+            <span onClick={handleClosePopup}>
+              <CloseIcon className="portfolio-icon" />
+            </span>
+            <div>
+              <span onClick={handlePrevProject}>
+                <ArrowLeftIcon className={`portfolio-icon ${isLeftPressed ? 'pressed' : ''}`} />
+              </span>
+              <span onClick={handleNextProject}>
+                <ArrowRightIcon className={`portfolio-icon ${isRightPressed ? 'pressed' : ''}`} />
+              </span>
             </div>
           </div>
         </div>
-      )}
+
+        {/* Dynamic content */}
+        <div className="portfolio-popup-dynamic-content">
+          {projects[activeProjectIndex]?.content?.text && (
+            <div>
+              {projects[activeProjectIndex].content.text.title && (
+                <h3>{projects[activeProjectIndex].content.text.title}</h3>
+              )}
+              {projects[activeProjectIndex]?.content.text.subtitle && (
+                <h4>{projects[activeProjectIndex].content.text.subtitle}</h4>
+              )}
+              {projects[activeProjectIndex]?.content.text.description && (
+                <p>{projects[activeProjectIndex].content.text.description}</p>
+              )}
+              {projects[activeProjectIndex]?.content.text.links?.map((link, i) => (
+                <a key={i} href={link.url} target="_blank" rel="noopener noreferrer">
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          )}
+
+          {/* Video Content */}
+          {projects[activeProjectIndex]?.content?.videos?.map((videoUrl, i) => (
+            <iframe
+              key={i}
+              width="560"
+              height="315"
+              src={videoUrl}
+              title="Project Video"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          ))}
+
+          {/* Photo Content */}
+          {projects[activeProjectIndex]?.content?.photos?.map((photoUrl, i) => (
+            <img key={i} src={photoUrl} alt={`Project ${projects[activeProjectIndex]?.name}`} />
+          ))}
+
+          {/* Iframe Content */}
+          {projects[activeProjectIndex]?.content?.iframes?.map((iframeUrl, i) => (
+            <iframe
+              key={i}
+              src={iframeUrl}
+              title="Project Iframe"
+              width="100%"
+              height="600"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+)}
+
     </section>
   );
 }
