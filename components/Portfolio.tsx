@@ -311,30 +311,28 @@ export function Portfolio() {
               <div className="portfolio-popup-content-header">
                 <div className="portfolio-popup-content-header-block">
                   <h2>{projects[activeProjectIndex].name}</h2>
-                  <div>
-                    <p>{projects[activeProjectIndex].description}</p>
-                    <p>{projects[activeProjectIndex].date}</p>
+                  <p>{projects[activeProjectIndex].description}</p>
+                  <p>{projects[activeProjectIndex].date}</p>
 
-                    {/* Text Content (title, subtitle, description) placed here */}
-                    {projects[activeProjectIndex].content?.text && (
-                      <div>
-                        {projects[activeProjectIndex].content.text.title && (
-                          <h3>{projects[activeProjectIndex].content.text.title}</h3>
-                        )}
-                        {projects[activeProjectIndex].content.text.subtitle && (
-                          <h4>{projects[activeProjectIndex].content.text.subtitle}</h4>
-                        )}
-                        {projects[activeProjectIndex].content.text.description && (
-                          <p>{projects[activeProjectIndex].content.text.description}</p>
-                        )}
-                        {projects[activeProjectIndex].content.text.links?.map((link, i) => (
-                          <a key={i} href={link.url} target="_blank" rel="noopener noreferrer">
-                            {link.label}
-                          </a>
-                        ))}
-                      </div>
-                    )}
-                  </div>
+                  {/* Text Content placed here */}
+                  {projects[activeProjectIndex].content?.text && (
+                    <div>
+                      {projects[activeProjectIndex].content.text.title && (
+                        <h3>{projects[activeProjectIndex].content.text.title}</h3>
+                      )}
+                      {projects[activeProjectIndex].content.text.subtitle && (
+                        <h4>{projects[activeProjectIndex].content.text.subtitle}</h4>
+                      )}
+                      {projects[activeProjectIndex].content.text.description && (
+                        <p>{projects[activeProjectIndex].content.text.description}</p>
+                      )}
+                      {projects[activeProjectIndex].content.text.links?.map((link, i) => (
+                        <a key={i} href={link.url} target="_blank" rel="noopener noreferrer">
+                          {link.label}
+                        </a>
+                      ))}
+                    </div>
+                  )}
                 </div>
                 <div className="portfolio-popup-content-header-block">
                   <span onClick={handleClosePopup}>
