@@ -66,7 +66,7 @@ export const GraphicDesignIcon = ({ className = '' }: { className?: string }) =>
 );
 
 export const VideoIcon = ({ className = '' }: { className?: string }) => (
-  <svg
+ <svg
     className={className}
     viewBox="0 0 15 15" 
     xmlns="http://www.w3.org/2000/svg"

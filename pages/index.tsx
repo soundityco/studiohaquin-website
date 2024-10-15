@@ -5,7 +5,7 @@ import Head from "next/head";
 import Hero from "@/components/Hero";
 
 // Importing components
-import Portfolio from "../components/Portfolio";
+import { Portfolio } from '../components/Portfolio';
 import GraphicDesign from "../components/GraphicDesign";
 import Clients from "../components/Clients";
 import Intro from "../components/Intro";

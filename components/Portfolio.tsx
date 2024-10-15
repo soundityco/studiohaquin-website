@@ -5,73 +5,193 @@ interface Project {
   name: string;
   description: string;
   date: string;
+  content?: {
+    videos?: string[];
+    photos?: string[];
+    iframes?: string[];
+    text?: {
+      title?: string;
+      subtitle?: string;  // subtitle est maintenant facultatif
+      description?: string;  // description est maintenant facultatif
+      links?: { label: string; url: string }[];
+    };
+  };
 }
 
 export function Portfolio() {
   const [activeProjectIndex, setActiveProjectIndex] = useState<number | null>(null);
   const [isPopupActive, setIsPopupActive] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
-  const [isLeftPressed, setIsLeftPressed] = useState(false); // Pour l'état de la touche flèche gauche
-  const [isRightPressed, setIsRightPressed] = useState(false); // Pour l'état de la touche flèche droite
+  const [isLeftPressed, setIsLeftPressed] = useState(false); 
+  const [isRightPressed, setIsRightPressed] = useState(false); 
   const popupRef = useRef<HTMLDivElement | null>(null);
 
   const projects: Project[] = [
-    {
-      name: "Decathlon",
-      description: "Série de vidéos réseaux sociaux",
-      date: "2024",
-    },
-    {
-      name: "L'Orange Bleue",
-      description: "Interviews + pub",
-      date: "2024",
-    },
-    {
-      name: "Polyphonia",
-      description: "Web design + développement",
-      date: "2024",
-    },
-    {
-      name: "La Cour",
-      description: "Vidéo réseaux sociaux",
-      date: "2024",
-    },
-    {
-      name: "Airval Studio",
-      description: "Web design + developpement",
-      date: "2024",
-    },
-    {
-      name: "blurblur",
-      description: "Web design + developpement",
-      date: "2024",
-    },
-    {
-      name: "Doris Oppenlander",
-      description: "Série de vidéos YouTube",
-      date: "2023 — 2024",
-    },
-    {
-      name: "Soundity",
-      description: "Web design + developpement",
-      date: "2023",
-    },
-    {
-      name: "Noelse",
-      description: "Création graphique + motion design + 3D",
-      date: "2021 — 2023",
-    },
-    {
-      name: "Anuit' Anjou (Fictif)",
-      description: "Création graphique + motion design",
-      date: "2021",
-    },
-    {
-      name: "ESA",
-      description: "Création graphique + 3D",
-      date: "2021",
-    },
+      {
+          name: "Decathlon",
+          description: "Série de vidéos réseaux sociaux",
+          date: "2024",
+          content: {
+              videos: ["https://player.vimeo.com/video/993371219?h=18665354fd"],
+              //photos: ["/images/decathlon-photo1.jpg", "/images/decathlon-photo2.jpg"],
+              text: {
+                  //title: "Décathlon Project",
+                  //subtitle: "Social Media Series",
+                  description: "Réalisation d'une série de vidéos promotionnelles et divertissantes destinées aux réseaux sociaux pour Decathlon Les Ponts-de-Cé.",
+                  /*links: [
+                      { label: "Website", url: "https://decathlon.com" },
+                      { label: "Instagram", url: "https://instagram.com/decathlon" },
+                  ],*/
+              },
+          },
+      },
+      {
+          name: "Galeries Lafayette",
+          description: "Vidéo réseaux sociaux",
+          date: "2024",
+          content: {
+              videos: ["https://player.vimeo.com/video/1013996537?h=83d93ee44b"],
+              //photos: ["/images/la-cour-photo1.jpg"],
+              text: {
+                  //title: "La Cour Project",
+                  //subtitle: "Social Media Video",
+                  description: "Réalisation d'une vidéo promotionnelle pour l'évènement 'Mère et Fille' 2024 des Galeries Lafayette d'Angers.",
+              },
+          },
+      },
+      {
+          name: "L'Orange Bleue",
+          description: "Interviews + pub",
+          date: "2024",
+          content: {
+              videos: ["https://player.vimeo.com/video/1006129673"],
+              text: {
+                  //title: "L'Orange Bleue",
+                  //subtitle: "Fitness Interviews",
+                  description: "Réalisation d'une vidéo promotionnelle et d'interviews pour L'Orange Bleue d'Angers.",
+              },
+          },
+      },
+      {
+          name: "Polyphonia",
+          description: "Web design + développement",
+          date: "2024",
+          content: {
+              iframes: ["https://polyphoniamusic.com"],
+              text: {
+                  //title: "Polyphonia Website",
+                  //subtitle: "Web Design",
+                  description: "Réalisation, concepetion et developpement web du site web du label POLYPHONIA.",
+              },
+          },
+      },
+      {
+          name: "La Cour",
+          description: "Vidéo réseaux sociaux",
+          date: "2024",
+          content: {
+              videos: ["https://player.vimeo.com/video/1012720397"],
+              //photos: ["/images/la-cour-photo1.jpg"],
+              text: {
+                  //title: "La Cour Project",
+                  //subtitle: "Social Media Video",
+                  description: "Réalisation d'une vidéo promotionnelle pour la rénovation du bar & restaurant 'La Cour', situé à Angers.",
+              },
+          },
+      },
+      {
+          name: "Airval Studio",
+          description: "Web design + développement",
+          date: "2024",
+          content: {
+            iframes: ["https://airvalstudio.com"],
+              //photos: ["/images/airval-photo1.jpg"],
+              text: {
+                  //title: "Site Web pour Airval Studio",
+                  //subtitle: "Web Design & Development",
+                  description: "Réalisation, concepetion et developpement web du site web d'Airval Studio.",
+              },
+          },
+      },
+      {
+          name: "blurblur",
+          description: "Web design + développement",
+          date: "2024",
+          content: {
+              iframes: ["https://blurblurmusic.com"],
+              //videos: ["https://www.youtube.com/embed/UcdPqI6maG4"],
+              text: {
+                  //title: "Blurblur Project",
+                  //subtitle: "Web Design",
+                  description: "Réalisation, concepetion et developpement web du site web de l'artiste blurblur",
+              },
+          },
+      },
+      {
+          name: "Doris Oppenlander",
+          description: "Série de vidéos YouTube",
+          date: "2023 — 2024",
+          content: {
+              videos: ["https://www.youtube.com/embed/QTpHOYt04QU", "https://www.youtube.com/embed/DhnqP_J-MoQ", "https://www.youtube.com/embed/ZbT4yy6ZU6I"],
+              text: {
+                  //title: "Doris Oppenlander Series",
+                  //subtitle: "YouTube Series",
+                  description: "Réalisation d'une série de vidéos YouTube sur le divertissement et la vulgarisation de la technique vocale pour la professeur de chant Doris Oppenlander.",
+              },
+          },
+      },
+      {
+          name: "Soundity",
+          description: "Web design + développement",
+          date: "2023",
+          content: {
+              iframes: ["https://soundity-website.vercel.app"],
+              //photos: ["/images/soundity-photo1.jpg"],
+              text: {
+                  //title: "Soundity",
+                  //subtitle: "Web Design & Development",
+                  description: "Réalisation, concepetion et developpement web du site web d'Airval Studio.",
+              },
+          },
+      },
+      {
+          name: "Noelse",
+          description: "Création graphique + motion design + 3D",
+          date: "2021 — 2023",
+          content: {
+              text: {
+                  //title: "Noelse",
+                  //subtitle: "Graphic Design & Motion",
+                  description: "Conception et création de contenu graphiques et vidéos pour les réseaux sociaux et le site web de la banque en ligne Noelse.",
+              },
+          },
+      },
+      {
+          name: "Anuit' Anjou (Fictif)",
+          description: "Création graphique + motion design",
+          date: "2021",
+          content: {
+              text: {
+                  //title: "Anuit' Anjou",
+                  //subtitle: "Graphic Design",
+                  description: "Web design pour le site web et l'application de Anuit' Anjou (projet étudiant fictif).",
+              },
+          },
+      },
+      /*{
+          name: "ESA",
+          description: "Création graphique + 3D",
+          date: "2021",
+          content: {
+              text: {
+                  title: "ESA Project",
+                  subtitle: "Graphic Design & 3D",
+                  description: "Graphic design and 3D work for ESA.",
+              },
+          },
+      },*/
   ];
+
 
   const handleClick = (index: number) => {
     setActiveProjectIndex(index);
@@ -211,8 +331,57 @@ export function Portfolio() {
                 </div>
               </div>
 
-              {/* CONTENT HERE */}
-              
+
+                {/* Text Content */}
+                {projects[activeProjectIndex].content?.text && (
+                  <div>
+                    <h3>{projects[activeProjectIndex].content.text.title}</h3>
+                    <h4>{projects[activeProjectIndex].content.text.subtitle}</h4>
+                    <p>{projects[activeProjectIndex].content.text.description}</p>
+                    {projects[activeProjectIndex].content.text.links?.map((link, i) => (
+                      <a key={i} href={link.url} target="_blank" rel="noopener noreferrer">
+                        {link.label}
+                      </a>
+                    ))}
+                  </div>
+                )}
+
+              {/* Dynamic content */}
+              <div className="portfolio-popup-dynamic-content">
+
+                {/* Video Content */}
+                {projects[activeProjectIndex].content?.videos?.map((videoUrl, i) => (
+                  <iframe
+                    key={i}
+                    width="560"
+                    height="315"
+                    src={videoUrl}
+                    title="Project Video"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                ))}
+
+                {/* Photo Content */}
+                {projects[activeProjectIndex].content?.photos?.map((photoUrl, i) => (
+                  <img key={i} src={photoUrl} alt={`Project ${projects[activeProjectIndex].name}`} />
+                ))}
+
+                {/* Iframe Content */}
+                {projects[activeProjectIndex].content?.iframes?.map((iframeUrl, i) => (
+                  <iframe
+                    key={i}
+                    src={iframeUrl}
+                    title="Project Iframe"
+                    width="100%"
+                    height="600"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -220,5 +389,3 @@ export function Portfolio() {
     </section>
   );
 }
-
-export default Portfolio;
