@@ -331,27 +331,27 @@ export function Portfolio() {
 
         {/* Dynamic content */}
         <div className="portfolio-popup-dynamic-content">
-          {projects[activeProjectIndex]?.content?.text && (
+          {/*{projects[activeProjectIndex].content.text && (
             <div>
               {projects[activeProjectIndex].content.text.title && (
                 <h3>{projects[activeProjectIndex].content.text.title}</h3>
               )}
-              {projects[activeProjectIndex]?.content.text.subtitle && (
+              {projects[activeProjectIndex].content.text.subtitle && (
                 <h4>{projects[activeProjectIndex].content.text.subtitle}</h4>
               )}
-              {projects[activeProjectIndex]?.content.text.description && (
+              {projects[activeProjectIndex].content.text.description && (
                 <p>{projects[activeProjectIndex].content.text.description}</p>
               )}
-              {projects[activeProjectIndex]?.content.text.links?.map((link, i) => (
+              {projects[activeProjectIndex].content.text.links?.map((link, i) => (
                 <a key={i} href={link.url} target="_blank" rel="noopener noreferrer">
                   {link.label}
                 </a>
               ))}
             </div>
-          )}
+          )}*/}
 
           {/* Video Content */}
-          {projects[activeProjectIndex]?.content?.videos?.map((videoUrl, i) => (
+          {projects[activeProjectIndex].content.videos?.map((videoUrl, i) => (
             <iframe
               key={i}
               width="560"
@@ -365,12 +365,12 @@ export function Portfolio() {
           ))}
 
           {/* Photo Content */}
-          {projects[activeProjectIndex]?.content?.photos?.map((photoUrl, i) => (
+          {projects[activeProjectIndex].content.photos?.map((photoUrl, i) => (
             <img key={i} src={photoUrl} alt={`Project ${projects[activeProjectIndex]?.name}`} />
           ))}
 
           {/* Iframe Content */}
-          {projects[activeProjectIndex]?.content?.iframes?.map((iframeUrl, i) => (
+          {projects[activeProjectIndex].content.iframes?.map((iframeUrl, i) => (
             <iframe
               key={i}
               src={iframeUrl}
