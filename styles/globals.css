@@ -139,7 +139,7 @@ a {
 
 .overlay-noise {
   z-index: 100000000;
-  opacity: 0.075;
+  opacity: 0.05;
   background-image: url('https://i.ibb.co/DRRTGSJ/noise-overlay.gif');
   background-position: 0 0;
   background-size: 350px;
