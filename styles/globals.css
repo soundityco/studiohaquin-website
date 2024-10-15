@@ -906,7 +906,7 @@ header {
 .portfolio-popup-content-header-block {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  /*justify-content: space-between;*/
   gap: 2rem;
   font-size: 1.5rem;
 }

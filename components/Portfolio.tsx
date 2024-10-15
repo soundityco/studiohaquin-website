@@ -299,7 +299,7 @@ export function Portfolio() {
                   <p>{activeProject.description}</p>
                   <p>{activeProject.date}</p>
                   {activeProject.content.text && (
-                    <div>
+                    <>
                       {activeProject.content.text.title && (
                         <h3>{activeProject.content.text.title}</h3>
                       )}
@@ -314,7 +314,7 @@ export function Portfolio() {
                           {link.label}
                         </a>
                       ))}
-                    </div>
+                    </>
                   )}
                 </div>
                 <div className="portfolio-popup-content-header-block">
