@@ -298,6 +298,24 @@ export function Portfolio() {
                   <h2>{activeProject.name}</h2>
                   <p>{activeProject.description}</p>
                   <p>{activeProject.date}</p>
+                  {activeProject.content.text && (
+                    <div>
+                      {activeProject.content.text.title && (
+                        <h3>{activeProject.content.text.title}</h3>
+                      )}
+                      {activeProject.content.text.subtitle && (
+                        <h4>{activeProject.content.text.subtitle}</h4>
+                      )}
+                      {activeProject.content.text.description && (
+                        <p>{activeProject.content.text.description}</p>
+                      )}
+                      {activeProject.content.text.links?.map((link, i) => (
+                        <a key={i} href={link.url} target="_blank" rel="noopener noreferrer">
+                          {link.label}
+                        </a>
+                      ))}
+                    </div>
+                  )}
                 </div>
                 <div className="portfolio-popup-content-header-block">
                   <span onClick={handleClosePopup}>
@@ -316,7 +334,7 @@ export function Portfolio() {
 
               {/* Dynamic content */}
               <div className="portfolio-popup-dynamic-content">
-                {activeProject.content.text && (
+                {/*{activeProject.content.text && (
                   <div>
                     {activeProject.content.text.title && (
                       <h3>{activeProject.content.text.title}</h3>
@@ -333,7 +351,7 @@ export function Portfolio() {
                       </a>
                     ))}
                   </div>
-                )}
+                )}*/}
 
                 {/* Video Content */}
                 {activeProject.content.videos?.map((videoUrl, i) => (

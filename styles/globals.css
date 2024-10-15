@@ -899,7 +899,7 @@ header {
 .portfolio-popup-content-header {
   display: flex;
   justify-content: space-between;
-  gap: 2rem;
+  gap: var(--container-padding);
   width: 100%;
 }
 
@@ -928,7 +928,7 @@ header {
 
 .portfolio-popup-content-header-block div {
   display: flex;
-  gap: 1.5rem;
+  gap: var(--container-padding);
 }
 
 .portfolio-icon {
@@ -1381,7 +1381,7 @@ header {
 @media only screen and (max-width: 500px) {
   /* VARIABLES */
   :root {
-
+    --border-radius: 8vw;
   }
   html {
     cursor: initial;
@@ -1423,6 +1423,17 @@ header {
   .portfolio-container nav ul,
   .portfolio-container div a {
     font-size: 2rem;
+  }
+
+  .portfolio-popup-content-header-block h2 {
+    font-size: 1.75rem;
+  }
+  .portfolio-popup-content-header-block p {
+    font-size: 1.25rem;
+  }
+
+  .portfolio-icon {
+    height: 1.25rem;
   }
   
   /* CLIENT */
