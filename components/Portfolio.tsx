@@ -314,25 +314,7 @@ export function Portfolio() {
                   <p>{projects[activeProjectIndex].description}</p>
                   <p>{projects[activeProjectIndex].date}</p>
 
-                  {/* Text Content placed here */}
-                  {projects[activeProjectIndex].content?.text && (
-                    <div>
-                      {projects[activeProjectIndex].content.text.title && (
-                        <h3>{projects[activeProjectIndex].content.text.title}</h3>
-                      )}
-                      {projects[activeProjectIndex].content.text.subtitle && (
-                        <h4>{projects[activeProjectIndex].content.text.subtitle}</h4>
-                      )}
-                      {projects[activeProjectIndex].content.text.description && (
-                        <p>{projects[activeProjectIndex].content.text.description}</p>
-                      )}
-                      {projects[activeProjectIndex].content.text.links?.map((link, i) => (
-                        <a key={i} href={link.url} target="_blank" rel="noopener noreferrer">
-                          {link.label}
-                        </a>
-                      ))}
-                    </div>
-                  )}
+                 
                 </div>
                 <div className="portfolio-popup-content-header-block">
                   <span onClick={handleClosePopup}>
@@ -351,6 +333,26 @@ export function Portfolio() {
 
               {/* Dynamic content */}
               <div className="portfolio-popup-dynamic-content">
+                 {/* Text Content placed here */}
+                 {projects[activeProjectIndex].content?.text && (
+                    <div>
+                      {projects[activeProjectIndex].content.text.title && (
+                        <h3>{projects[activeProjectIndex].content.text.title}</h3>
+                      )}
+                      {projects[activeProjectIndex].content.text.subtitle && (
+                        <h4>{projects[activeProjectIndex].content.text.subtitle}</h4>
+                      )}
+                      {projects[activeProjectIndex].content.text.description && (
+                        <p>{projects[activeProjectIndex].content.text.description}</p>
+                      )}
+                      {projects[activeProjectIndex].content.text.links?.map((link, i) => (
+                        <a key={i} href={link.url} target="_blank" rel="noopener noreferrer">
+                          {link.label}
+                        </a>
+                      ))}
+                    </div>
+                  )}
+
                 {/* Video Content */}
                 {projects[activeProjectIndex].content?.videos?.map((videoUrl, i) => (
                   <iframe
