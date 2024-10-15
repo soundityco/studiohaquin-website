@@ -370,7 +370,7 @@ export function Portfolio() {
                 ))}*/}
 
                 {/* Iframe Content */}
-                {/*{projects[activeProjectIndex].content.iframes?.map((iframeUrl, i) => (
+                {projects[activeProjectIndex].content.iframes?.map((iframeUrl, i) => (
                   <iframe
                     key={i}
                     src={iframeUrl}
@@ -381,7 +381,7 @@ export function Portfolio() {
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
                   ></iframe>
-                ))}*/}
+                ))}
               </div>
             </div>
           </div>
