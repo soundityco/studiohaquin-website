@@ -907,6 +907,7 @@ header {
   display: flex;
   justify-content: space-between;
   gap: var(--container-padding);
+  line-height: 1.5rem;
 }
 
 .portfolio-popup-content-header-block {
@@ -919,6 +920,7 @@ header {
 
 .portfolio-popup-content-header-block:first-child div {
   flex-direction: column;
+  gap: 0.5vw;
 }
 
 .portfolio-popup-content-header-block:nth-child(2) {
@@ -1255,6 +1257,10 @@ header {
   }
 
   /* PORTFOLIO */
+  .portfolio-popup-content-header div,
+  .portfolio-popup-content-header {
+    gap: 2rem;
+  }
   .portfolio-popup-content-header-block {
     font-size: 1.5rem;
     gap: 1.5rem;
@@ -1319,6 +1325,11 @@ header {
   .portfolio-container div a span:nth-child(2) {
     display: none;
   }
+
+  .portfolio-popup-content-header-block:first-child div {
+    gap: 0.5rem;
+  }
+
   .portfolio-popup-content-header-block h2 {
     font-size: 2rem;
   }
@@ -1330,6 +1341,7 @@ header {
   .portfolio-popup-content-header-block div p:last-child {
 
   }
+  
  
   /* HERO */
   .hero-container {

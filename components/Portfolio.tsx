@@ -297,8 +297,10 @@ export function Portfolio() {
                 <div>
                   <div className="portfolio-popup-content-header-block">
                     <h2>{activeProject.name}</h2>
-                    <h3>{activeProject.description}</h3>
-                    <p>{activeProject.date}</p>
+                    <div>
+                      <h3>{activeProject.description}</h3>
+                      <p>{activeProject.date}</p>
+                    </div>
                   </div>
                   <div className="portfolio-popup-content-header-block">
                     <span onClick={handleClosePopup}>
