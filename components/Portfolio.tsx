@@ -294,42 +294,46 @@ export function Portfolio() {
           <div className={`portfolio-popup-container ${isPopupActive ? 'active' : ''} ${isClosing ? 'closing' : ''}`} ref={popupRef}>
             <div className="portfolio-popup-content">
               <div className="portfolio-popup-content-header">
-                <div className="portfolio-popup-content-header-block">
-                  <h2>{activeProject.name}</h2>
-                  <p>{activeProject.description}</p>
-                  <p>{activeProject.date}</p>
-                  {activeProject.content.text && (
-                    <>
-                      {activeProject.content.text.title && (
-                        <h3>{activeProject.content.text.title}</h3>
-                      )}
-                      {activeProject.content.text.subtitle && (
-                        <h4>{activeProject.content.text.subtitle}</h4>
-                      )}
-                      {activeProject.content.text.description && (
-                        <p>{activeProject.content.text.description}</p>
-                      )}
-                      {activeProject.content.text.links?.map((link, i) => (
-                        <a key={i} href={link.url} target="_blank" rel="noopener noreferrer">
-                          {link.label}
-                        </a>
-                      ))}
-                    </>
-                  )}
-                </div>
-                <div className="portfolio-popup-content-header-block">
-                  <span onClick={handleClosePopup}>
-                    <CloseIcon className="portfolio-icon" />
-                  </span>
-                  <div>
-                    <span onClick={handlePrevProject}>
-                      <ArrowLeftIcon className={`portfolio-icon ${isLeftPressed ? 'pressed' : ''}`} />
+                <div>
+                  <div className="portfolio-popup-content-header-block">
+                    <h2>{activeProject.name}</h2>
+                    <h3>{activeProject.description}</h3>
+                    <p>{activeProject.date}</p>
+                  </div>
+                  <div className="portfolio-popup-content-header-block">
+                    <span onClick={handleClosePopup}>
+                      <CloseIcon className="portfolio-icon" />
                     </span>
-                    <span onClick={handleNextProject}>
-                      <ArrowRightIcon className={`portfolio-icon ${isRightPressed ? 'pressed' : ''}`} />
-                    </span>
+                    <div>
+                      <span onClick={handlePrevProject}>
+                        <ArrowLeftIcon className={`portfolio-icon ${isLeftPressed ? 'pressed' : ''}`} />
+                      </span>
+                      <span onClick={handleNextProject}>
+                        <ArrowRightIcon className={`portfolio-icon ${isRightPressed ? 'pressed' : ''}`} />
+                      </span>
+                    </div>
                   </div>
                 </div>
+                <div>
+                    {activeProject.content.text && (
+                      <>
+                        {activeProject.content.text.title && (
+                          <h3>{activeProject.content.text.title}</h3>
+                        )}
+                        {activeProject.content.text.subtitle && (
+                          <h4>{activeProject.content.text.subtitle}</h4>
+                        )}
+                        {activeProject.content.text.description && (
+                          <p>{activeProject.content.text.description}</p>
+                        )}
+                        {activeProject.content.text.links?.map((link, i) => (
+                          <a key={i} href={link.url} target="_blank" rel="noopener noreferrer">
+                            {link.label}
+                          </a>
+                        ))}
+                      </>
+                    )}
+                  </div>
               </div>
 
               {/* Dynamic content */}

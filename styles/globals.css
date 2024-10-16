@@ -898,17 +898,23 @@ header {
 
 .portfolio-popup-content-header {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   gap: var(--container-padding);
   width: 100%;
+}
+
+.portfolio-popup-content-header div {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--container-padding);
 }
 
 .portfolio-popup-content-header-block {
   display: flex;
   flex-direction: column;
   /*justify-content: space-between;*/
-  gap: 2rem;
-  font-size: 1.5rem;
+  gap: var(--container-padding);
+  font-size: 1.5vw;
 }
 
 .portfolio-popup-content-header-block:first-child div {
@@ -918,6 +924,7 @@ header {
 .portfolio-popup-content-header-block:nth-child(2) {
   align-items: end;
   user-select: none;
+  justify-content: start;
 }
 
 .portfolio-popup-content-header-block h2 {
@@ -1248,6 +1255,10 @@ header {
   }
 
   /* PORTFOLIO */
+  .portfolio-popup-content-header-block {
+    font-size: 1.5rem;
+    gap: 1.5rem;
+  }
 
   .portfolio-icon {
     height: 1.5rem;
@@ -1423,6 +1434,11 @@ header {
   .portfolio-container nav ul,
   .portfolio-container div a {
     font-size: 2rem;
+  }
+
+  .portfolio-popup-content,
+  .portfolio-popup-content-header {
+    gap: 1.5rem;
   }
 
   .portfolio-popup-content-header-block h2 {
