@@ -907,7 +907,7 @@ header {
   display: flex;
   justify-content: space-between;
   gap: var(--container-padding);
-  line-height: 1.5rem;
+  /*line-height: 1.5rem;*/
 }
 
 .portfolio-popup-content-header-block {
