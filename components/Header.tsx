@@ -6,8 +6,8 @@ import { WebsiteIcon } from "./Images";
 const Header = forwardRef<HTMLElement>((props, ref) => {
   return (
     <>
-      {/* HEADER PART */}
-      <header ref={ref}> {/* Ajout de la ref ici */}
+
+      <header className="header" ref={ref}>
         <div className="header-container container">
           <a href="/" className="header-logo">
             <WebsiteIcon className="header-menu-icon"/>

@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import clsx from 'clsx';
 
-// Importing Custom Fonts
+
+// Importing Custom Fonts & hooks
 import Alinsa from 'next/font/local';
 
 // Importing main components
@@ -90,7 +91,7 @@ export default function Layout({
           {/* PAGE */}
           <div className="site-content" ref={containerRef}>
             {/* HEADER */}
-            <Header ref={headerRef} /> {/* Pass headerRef to Header */}
+            <Header ref={headerRef} />
             {children}
             {/* FOOTER */}
             <Footer/>

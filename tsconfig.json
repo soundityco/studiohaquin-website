@@ -16,6 +16,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "components/stickyCursor.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "components/stickyCursor.jsx", "components/useMagnifierEffect.js"],
   "exclude": ["node_modules"]
 }
