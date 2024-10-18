@@ -1558,7 +1558,8 @@ header {
   }
   /* HERO */
   .hero-container {
-    gap: calc(var(--container-padding)*4)
+    gap: calc(var(--container-padding)*4);
+    padding: calc(var(--container-padding)*3) var(--container-padding);
   }
   .hero-list-block {
     flex-direction: column;
