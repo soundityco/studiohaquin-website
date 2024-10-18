@@ -1265,9 +1265,9 @@ header {
 
   /* HEADER */
   .header-logo {
-    padding: 0.55vw 0.75vw 0.55vw 0.55vw;
+    /*padding: 0.55vw 0.75vw 0.55vw 0.55vw;
     font-size: 1.5vw;
-    gap: 0.55vw;
+    gap: 0.55vw;*/
   }
   .button-contact {
     font-size: 1.5vw;
@@ -1346,7 +1346,6 @@ header {
   .header-logo {
     padding: 0.55rem 0.75rem 0.55rem 0.55rem;
     font-size: 1.2rem;
-    gap: 0.55rem;
   }
   .button-contact {
     font-size: 1.2rem;
