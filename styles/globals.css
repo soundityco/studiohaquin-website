@@ -49,34 +49,51 @@ a {
 
 @font-face {
   font-family: 'Arial';
-  src: url('../content/fonts/Arial.woff2') format('woff2'),
-       url('../content/fonts/Arial.woff') format('woff'),
-       url('../content/fonts/Arial.ttf') format('truetype');
+  src: url('../content/fonts/Arial/Arial.woff2') format('woff2'),
+       url('../content/fonts/Arial/Arial.woff') format('woff'),
+       url('../content/fonts/Arial/Arial.ttf') format('truetype');
   font-weight: 300;
   font-style: normal;
 }
 
-/*@font-face {
+@font-face {
   font-family: 'Alinsa';
-  src: url('../content/fonts/alinsa.woff2') format('woff2'),
-       url('../content/fonts/alinsa.woff') format('woff'),
-       url('../content/fonts/alinsa.ttf') format('truetype');
+  src: url('../content/fonts/Alinsa/Alinsa.woff2') format('woff2'),
+       url('../content/fonts/Alinsa/Alinsa.woff') format('woff'),
+       url('../content/fonts/Alinsa/Alinsa.ttf') format('truetype');
   font-weight: 300;
   font-style: normal;
-}*/
+}
 
 @font-face {
   font-family: 'NaNJaune';
-  src: url('../content/fonts/NaNJauneMaxiBlack.woff2') format('woff2'),
-       url('../content/fonts/NaNJauneMaxiBlack.woff') format('woff'),
-       url('../content/fonts/NaNJauneMaxiBlack.ttf') format('truetype');
+  src: url('../content/fonts/NaNJaune/NaNJauneMaxiBlack.woff2') format('woff2'),
+       url('../content/fonts/NaNJaune/NaNJauneMaxiBlack.woff') format('woff'),
+       url('../content/fonts/NaNJaune/NaNJauneMaxiBlack.ttf') format('truetype');
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'ShineCoasty';
-  src: url('../content/fonts/ShineCoasty.ttf') format('truetype');
+  src: url('../content/fonts/ShineCoasty/ShineCoasty.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gondgir';
+  src: url('../content/fonts/Gondgir/GondgirItalic.woff2') format('woff2'),
+       url('../content/fonts/Gondgir/GondgirRegular.woff') format('woff'),
+       url('../content/fonts/Gondgir/GondgirRegular.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'CutieKitty';
+  src: url('../content/fonts/CutieKitty/CutieKitty.ttf') format('truetype');
   font-weight: 300;
   font-style: normal;
 }
@@ -670,7 +687,7 @@ header {
   font-weight: 100;
   line-height: 4vw;
   /*font-family: "Kudry", serif;*/
-  font-family: "Cutie Kitty", serif;
+  font-family: "CutieKitty", serif;
   /*font-family: "Quanta Grotesk Pro", serif;*/
   /*font-family: "Popstone", serif;*/
   /*font-size: 6vw;*/
@@ -688,6 +705,11 @@ header {
 .hero-title-special-3 {
   font-family: 'Alinsa' !important;
 }
+
+.hero-title-special-4 {
+  font-family: serif !important;
+}
+
 
 .hero-title-line {
   overflow: hidden;

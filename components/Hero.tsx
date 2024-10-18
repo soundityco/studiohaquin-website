@@ -28,12 +28,12 @@ export function Hero() {
                 </div>
                 <div className="hero-title-line">
                   <div className="hero-title-line-content hero-title-line-content-2">
-                    Design&nbsp;<span className="hero-title-special-2">Graphique</span>,
+                    Design&nbsp;<span className="hero-title-special-2">Graphique,</span>
                   </div>
                 </div>
                 <div className="hero-title-line">
                   <div className="hero-title-line-content hero-title-line-content-3">
-                  {/*<span className="section-title-special-2">Design</span>*/}&nbsp;web<span className="hero-title-special">&nbsp;&&nbsp;</span><span className="hero-title-special-3">vidéo</span>
+                  {/*<span className="section-title-special-2">Design</span>*/}&nbsp;web<span className="hero-title-special">&nbsp;<span className="hero-title-special-4">&</span>&nbsp;</span><span className="hero-title-special-3">vidéo</span>
                   </div>
                 </div>
               </h1>

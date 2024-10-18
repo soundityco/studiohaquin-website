@@ -16,17 +16,17 @@ const alinsa = Alinsa({
   variable: '--font-alinsa',
   src: [
     {
-      path: '../content/fonts/alinsa.woff2',
+      path: '../content/fonts/Alinsa/Alinsa.woff2',
       weight: '300',
       style: 'normal',
     },
     {
-      path: '../content/fonts/alinsa.woff',
+      path: '../content/fonts/Alinsa/Alinsa.woff',
       weight: '300',
       style: 'normal',
     },
     {
-      path: '../content/fonts/alinsa.ttf',
+      path: '../content/fonts/Alinsa/Alinsa.ttf',
       weight: '300',
       style: 'normal',
     },
