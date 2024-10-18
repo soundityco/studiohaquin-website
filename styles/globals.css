@@ -719,6 +719,7 @@ header {
 .hero-title-line-content {
   transform: translateY(110%);
   animation: heroTitleSlide .75s cubic-bezier(.65,.05,.36,1) 2.25s forwards;
+  filter: blur(15px);
 }
 
 .hero-title-line-content-1 {
@@ -737,10 +738,12 @@ header {
 @keyframes heroTitleSlide {
   from {
     transform: translateY(110%);
+    filter: blur(15px);
   }
   to {
 
     transform: translateY(0%);
+    filter: blur(0px);
   }
 }
 
