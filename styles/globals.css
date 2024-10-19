@@ -197,7 +197,8 @@ a {
   background: linear-gradient(to right, var(--background) 50%, transparent 50%);
   background-size: 200% 100%;
   background-position: right bottom;
-  transition: all .2s ease-out;
+  transition: background-position .15s ease-in-out,
+              color .15s ease-in-out;
   display: flex;
   gap: 0.75vw;
   align-items: center;
@@ -212,11 +213,12 @@ a {
 .button-icon {
   width: 1.5vw;
   height: 1.5vw;
-  transition: all .15s ease-in-out;
+  transition: fill .15s ease-in-out;
   fill: var(--background);
 }
 
 .button:hover .button-icon {
+  transition: fill .15s ease-in-out;
   fill: var(--foreground);
 }
 
@@ -253,7 +255,8 @@ a {
   border-radius: 4rem;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
-  transition: .25s all ease-in-out;
+  transition: border-radius .25s ease-in-out,
+              padding .25s ease-in-out;
   padding: var(--container-padding);
   box-sizing: border-box;
   padding-bottom: 0;
@@ -265,7 +268,9 @@ a {
   border-radius: 4rem;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
-  transition: .25s all ease-in-out;
+
+  transition: border-radius .25s ease-in-out,
+              padding .25s ease-in-out;
   background: var(--primary-color);
   box-sizing: border-box;
   padding: unset;
@@ -320,10 +325,11 @@ a {
 
 .main-container {
   width: 100%;
-  height: 100vh;
   border-radius: var(--border-radius);
   height: calc(100vh - var(--container-padding));
-  transition: all .35s ease-in-out;
+  transition: padding .25s ease-in-out,
+              border-radius .25s ease-in-out,
+              height .25s ease-in-out;
   overflow: hidden;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
@@ -337,8 +343,9 @@ a {
   width: 100%;
   height: 100vh;
   border-radius: unset;
-  height: 100vh;
-  transition: all .25s ease-in-out;
+  transition: padding .25s ease-in-out,
+              border-radius .25s ease-in-out,
+              height .25s ease-in-out;
   overflow: hidden;
   display: flex;
   background: var(--foreground);
@@ -480,7 +487,7 @@ header {
   /*background: linear-gradient(to bottom, var(--foreground), transparent);*/
   /*background: var(--foreground);*/
   background: linear-gradient(to right, var(--foreground) 20%, var(--transparent-black), var(--foreground)80%);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px) !important;
   /*opacity: 0;
   visibility: hidden;
   transition: opacity .2s ease-in-out;*/
@@ -544,7 +551,7 @@ header {
   color: var(--background);
   border-radius: 100px;
   transform: scale(1);
-  transition: .3s all ease-in-out;
+  /*transition: .3s all ease-in-out;*/
   /*filter: drop-shadow(0px 0px 30px #ffffff30);*/
 }
 
@@ -760,6 +767,7 @@ header {
 .hero-list-block li span:hover {
   background-position: right bottom;
   color: var(--background) !important;
+  fill: var(--background) !important;
 }
 
 .hero-list-block li span:hover svg path {
@@ -1208,7 +1216,8 @@ header {
 }
 
 .footer-link {
-  transition: all .2s ease-in-out;
+  transition: color.2s ease-in-out,
+              width .2s ease-in-out;
   font-size: 2.5vw;
   max-width: min-content;
   display: block;
@@ -1223,7 +1232,7 @@ header {
   width: 0px;
   height: 0.1vw;
   display: flex;
-  transition: all .2s ease-in-out;
+  transition: width .2s ease-in-out;
   background: var(--primary-color);
   color: var(--primary-color);
   margin-top: 1vw;
@@ -1246,7 +1255,7 @@ header {
   color: transparent;
   display: flex;
   flex-direction: column;
-  transition: all .2s ease-in-out;
+  transition: color .2s ease-in-out;
 }
 
 .footer-cc span a::selection {
@@ -1329,16 +1338,15 @@ header {
     justify-content: center;
     gap: 2vw;
   }
-  .hero-picture {
+  /*.hero-picture {
     max-width: 400px;
-  }
+  }*/
 
   /* FOOTER */
   .footer-links ul {
     gap: 6vw;
   }
   .footer-link {
-    transition: all .2s ease-in-out;
     font-size: 2.5vw;
   }
 }
@@ -1434,7 +1442,6 @@ header {
     gap: 4.5rem;
   }
   .footer-link {
-    transition: all .2s ease-in-out;
     font-size: 2rem;
   }
   .footer-cc {
@@ -1545,7 +1552,6 @@ header {
     flex-direction: column;
   }
   .footer-link {
-    transition: all .2s ease-in-out;
     font-size: 2rem;
   }
   .footer-cc:last-child {
@@ -1654,7 +1660,6 @@ header {
     gap: 2rem;
   }
   .footer-link {
-    transition: all .2s ease-in-out;
     font-size: 1.75rem;
   }
   .footer-link::after {
