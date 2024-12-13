@@ -19,11 +19,62 @@ export function Hero() {
 
   // États pour la vidéo
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isFullScreen, setIsFullScreen] = useState(false);
   const [volume, setVolume] = useState(1);
   const [isMuted, setIsMuted] = useState(false); // Ajouter un état pour mute
   const [progress, setProgress] = useState(0);
   const [duration, setDuration] = useState(0);
   const [previousVolume, setPreviousVolume] = useState(1); // Sauvegarde du volume précédent
+  const [isMouseActive, setIsMouseActive] = useState(true);
+  let inactivityTimeout = useRef(null);
+
+  // État pour le plein écran
+useEffect(() => {
+  const handleFullScreenChange = () => {
+    if (document.fullscreenElement) {
+      // Si en plein écran, ajoute la classe
+      containerRef.current.classList.add("full-screen");
+      setIsFullScreen(true);
+    } else {
+      // Si sorti du plein écran, enlève la classe
+      containerRef.current.classList.remove("full-screen");
+      setIsFullScreen(false);
+    }
+  };
+
+  // Ajout de l'événement fullscreenchange
+  document.addEventListener("fullscreenchange", handleFullScreenChange);
+
+  return () => {
+    // Nettoyage de l'événement
+    document.removeEventListener("fullscreenchange", handleFullScreenChange);
+  };
+}, []);
+
+// Gestion de l'affichage des contrôles en fonction du mouvement de la souris
+useEffect(() => {
+  const container = containerRef.current;
+
+  const handleMouseMove = () => {
+    setIsMouseActive(true); // Réactive les contrôles
+    clearTimeout(inactivityTimeout.current); // Réinitialise le timer
+
+    // Cache les contrôles après une période d'inactivité
+    inactivityTimeout.current = setTimeout(() => {
+      setIsMouseActive(false);
+    }, 1000); // Délai en millisecondes
+  };
+
+  // Ajout de l'écouteur uniquement pour le conteneur
+  container.addEventListener("mousemove", handleMouseMove);
+
+  return () => {
+    // Nettoyage des écouteurs
+    container.removeEventListener("mousemove", handleMouseMove);
+    clearTimeout(inactivityTimeout.current);
+  };
+}, []);
+  
 
   // Fonction pour jouer ou mettre en pause la vidéo
   const togglePlayPause = () => {
@@ -114,10 +165,10 @@ export function Hero() {
       });
     } else if (event.key === "ArrowRight") {
       // Avancer de 5s dans la vidéo
-      videoRef.current.currentTime = Math.min(videoRef.current.currentTime + 5, videoRef.current.duration);
+      videoRef.current.currentTime = Math.min(videoRef.current.currentTime + 3, videoRef.current.duration);
     } else if (event.key === "ArrowLeft") {
       // Reculer de 5s dans la vidéo
-      videoRef.current.currentTime = Math.max(videoRef.current.currentTime - 5, 0);
+      videoRef.current.currentTime = Math.max(videoRef.current.currentTime - 3, 0);
     } else if (event.key === "m" || event.key === "M" || event.key === ";") {
       // Toggle mute/unmute avec la touche M (ou ; selon le clavier)
       toggleMute(); // Appel de la fonction pour basculer entre muet et non-muet
@@ -128,7 +179,7 @@ export function Hero() {
   const getVolumeIcon = () => {
     if (isMuted || volume <= 0) {
       return <PlayerVolume1Button className="player-icon" />;
-    } else if (volume <= 0.5) {
+    } else if (volume <= 0.6) {
       return <PlayerVolume2Button className="player-icon" />;
     } else {
       return <PlayerVolume3Button className="player-icon" />;
@@ -167,17 +218,17 @@ export function Hero() {
         {/* Vidéo */}
         <video
           ref={videoRef}
-          className="graphic-design-video"
+          className={`graphic-design-video ${isFullScreen ? 'fullscreen-video' : ''}`}
           playsInline
           preload="auto"
           poster="/showreel-thumbnail.webp"
           onClick={togglePlayPause} // Clic sur la vidéo pour play/pause
         >
-          <source src="https://res.cloudinary.com/dqrkeb9bz/video/upload/q_auto:good/v1734103518/SHOWREEL_2024_STUDIOHAQUIN_FHD_jxennm.mp4" type="video/mp4" />
+          <source src="https://res.cloudinary.com/dqrkeb9bz/video/upload/q_auto:best/v1734103518/SHOWREEL_2024_STUDIOHAQUIN_FHD_jxennm.mp4" type="video/mp4" />
         </video>
 
         {/* Contrôles vidéo personnalisés */}
-        <div className="video-controls">
+        <div className={`video-controls ${isMouseActive ? "visible" : "hidden"}`}>
           {/* Barre de progression */}
           <div className="progress-container">
             <input

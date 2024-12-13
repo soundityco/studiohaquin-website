@@ -79,7 +79,7 @@ export function GraphicDesign() {
   const getVolumeIcon = () => {
     if (isMuted || volume <= 0) {
       return <PlayerVolume1Button className="player-icon" />;
-    } else if (volume <= 0.5) {
+    } else if (volume <= 0.6) {
       return <PlayerVolume2Button className="player-icon" />;
     } else {
       return <PlayerVolume3Button className="player-icon" />;
@@ -154,7 +154,7 @@ export function GraphicDesign() {
               type="range"
               min="0"
               max="1"
-              step="0.01"
+              step="0.1"
               value={isMuted ? 0 : volume} // Si muet, la valeur est 0
               onChange={handleVolumeChange}
               className="volume-slider"
