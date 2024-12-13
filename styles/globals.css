@@ -1267,6 +1267,12 @@ header {
 
 .player-controls {
   display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.player-controls div {
+  display: flex;
   align-items: center;
   gap: var(--container-padding);
 }
@@ -1282,7 +1288,7 @@ header {
   -webkit-appearance: none;
   width: 100%;
   height: 6px;
-  background: #ddd;
+  /*background: #ddd;*/
   border-radius: 5px;
   cursor: pointer;
   outline: none;
@@ -1293,7 +1299,7 @@ header {
 .progress-bar::-webkit-slider-runnable-track {
   height: 6px;
   border-radius: 5px;
-  background: #ddd;
+  /*background: #ddd;*/
 }
 
 .progress-bar::-webkit-slider-thumb {

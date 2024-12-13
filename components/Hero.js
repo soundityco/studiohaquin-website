@@ -20,7 +20,7 @@ export function Hero() {
   // États pour la vidéo
   const [isPlaying, setIsPlaying] = useState(false);
   const [volume, setVolume] = useState(1);
-  const [isMuted, setIsMuted] = useState(false);
+  const [isMuted, setIsMuted] = useState(false); // Ajouter un état pour mute
   const [progress, setProgress] = useState(0);
   const [duration, setDuration] = useState(0);
   const [previousVolume, setPreviousVolume] = useState(1); // Sauvegarde du volume précédent
@@ -40,28 +40,32 @@ export function Hero() {
   const handleVolumeChange = (event) => {
     const newVolume = event.target.value;
     if (isMuted) {
-      setIsMuted(false); // Réactive le son si le slider est déplacé alors que le son est muet
-      videoRef.current.volume = newVolume;
+      setIsMuted(false); // Désactive le mute si l'utilisateur modifie le slider
+      videoRef.current.muted = false; // Désactive le mute
+      setPreviousVolume(newVolume); // Sauvegarde le volume actuel
     }
-    setVolume(newVolume);
-    videoRef.current.volume = newVolume;
+    setVolume(newVolume); // Met à jour l'état du volume
+    videoRef.current.volume = newVolume; // Applique le volume à la vidéo
   };
 
-  // Fonction pour basculer entre muet et non-muet
+  // Fonction pour basculer le son entre muet et non-muet
   const toggleMute = () => {
-    if (isMuted) {
-      // Restaurer le volume précédent lorsqu'on "unmute"
-      setIsMuted(false);
-      videoRef.current.volume = previousVolume; // Utiliser le volume précédent
-      setVolume(previousVolume);
+    if (videoRef.current.muted) {
+      // Si la vidéo est déjà muette, on la démut
+      videoRef.current.muted = false;
+      videoRef.current.volume = previousVolume; // Restaure le volume précédent
+      setVolume(previousVolume); // Met à jour l'état du volume
+      setIsMuted(false); // On met l'état à false
     } else {
-      // Sauvegarder le volume actuel avant de muter
-      setPreviousVolume(volume);
-      setIsMuted(true);
-      videoRef.current.volume = 0; // Réinitialise à 0 lorsqu'on mute
-      setVolume(0);
+      // Si la vidéo n'est pas muette, on la met en muet
+      setPreviousVolume(volume); // Sauvegarde le volume actuel avant de le mettre à 0
+      videoRef.current.muted = true;
+      videoRef.current.volume = 0; // On met le volume à 0
+      setVolume(0); // Met à jour l'état du volume pour le slider
+      setIsMuted(true); // On met l'état à true
     }
   };
+
 
   // Fonction pour mettre à jour la progression de la vidéo
   const handleProgressChange = (event) => {
@@ -89,11 +93,34 @@ export function Hero() {
 
   // Fonction pour gérer les événements clavier
   const handleKeyPress = (event) => {
-    if (event.code === "Space") {
+    if (event.key === " " || event.key === "Spacebar") {
       event.preventDefault(); // Empêche le défilement de la page
       togglePlayPause();
-    } else if (event.code === "KeyF") {
+    } else if (event.key === "f" || event.key === "F") {
       toggleFullScreen();
+    } else if (event.key === "ArrowUp") {
+      // Augmenter le volume avec une grande step
+      setVolume((prevVolume) => {
+        const newVolume = Math.min(prevVolume + 0.1, 1); // Cap à 1
+        videoRef.current.volume = newVolume;
+        return newVolume;
+      });
+    } else if (event.key === "ArrowDown") {
+      // Diminuer le volume avec une grande step
+      setVolume((prevVolume) => {
+        const newVolume = Math.max(prevVolume - 0.1, 0); // Cap à 0
+        videoRef.current.volume = newVolume;
+        return newVolume;
+      });
+    } else if (event.key === "ArrowRight") {
+      // Avancer de 5s dans la vidéo
+      videoRef.current.currentTime = Math.min(videoRef.current.currentTime + 5, videoRef.current.duration);
+    } else if (event.key === "ArrowLeft") {
+      // Reculer de 5s dans la vidéo
+      videoRef.current.currentTime = Math.max(videoRef.current.currentTime - 5, 0);
+    } else if (event.key === "m" || event.key === "M" || event.key === ";") {
+      // Toggle mute/unmute avec la touche M (ou ; selon le clavier)
+      toggleMute(); // Appel de la fonction pour basculer entre muet et non-muet
     }
   };
 
@@ -121,8 +148,12 @@ export function Hero() {
     const video = videoRef.current;
     video.addEventListener("timeupdate", handleTimeUpdate);
 
+    // Ajouter l'écouteur pour le double-clic
+    video.addEventListener("dblclick", toggleFullScreen);
+
     return () => {
       video.removeEventListener("timeupdate", handleTimeUpdate);
+      video.removeEventListener("dblclick", toggleFullScreen); // Nettoyage
     };
   }, []);
 
@@ -142,9 +173,7 @@ export function Hero() {
           poster="/showreel-thumbnail.webp"
           onClick={togglePlayPause} // Clic sur la vidéo pour play/pause
         >
-          {/*<source src="/showreel.mp4" type="video/mp4" />*/}
           <source src="https://res.cloudinary.com/dqrkeb9bz/video/upload/q_auto:good/v1734103518/SHOWREEL_2024_STUDIOHAQUIN_FHD_jxennm.mp4" type="video/mp4" />
-          
         </video>
 
         {/* Contrôles vidéo personnalisés */}
@@ -166,41 +195,41 @@ export function Hero() {
 
           <div className="player-controls">
             {/* Bouton Play/Pause */}
-            <button onClick={togglePlayPause} className="player-btn">
-              {isPlaying ? (
-                <PlayerPauseButton className="player-icon" />
-              ) : (
-                <PlayerPlayButton className="player-icon" />
-              )}
-            </button>
+            <div>
+              <button onClick={togglePlayPause} className="player-btn">
+                {isPlaying ? (
+                  <PlayerPauseButton className="player-icon" />
+                ) : (
+                  <PlayerPlayButton className="player-icon" />
+                )}
+              </button>
 
-            {/* Bouton Mute/Unmute */}
-            <button onClick={toggleMute} className="player-btn">
-              {isMuted ? (
-                <PlayerVolume1Button className="player-icon" />
-              ) : (
-                <>{getVolumeIcon()}</>
-              )}
-            </button>
+              {/* Bouton Mute/Unmute */}
+              <button onClick={toggleMute} className="player-btn">
+                {getVolumeIcon()}
+              </button>
 
-            {/* Slider de volume */}
-            <input
-              type="range"
-              min="0"
-              max="1"
-              step="0.01"
-              value={isMuted ? 0 : volume} // Si muet, la valeur est 0
-              onChange={handleVolumeChange}
-              className="volume-slider"
-              style={{
-                background: `linear-gradient(to right, white ${volume * 100}%, #ffffff80 ${volume * 100}%)`,
-              }}
-            />
+              {/* Slider de volume */}
+              <input
+                type="range"
+                min="0"
+                max="1"
+                step="0.01"
+                value={isMuted ? 0 : volume} // Si muet, la valeur est 0
+                onChange={handleVolumeChange}
+                className="volume-slider"
+                style={{
+                  background: `linear-gradient(to right, white ${volume * 100}%, #ffffff80 ${volume * 100}%)`,
+                }}
+              />
+            </div>
 
-            {/* Bouton Plein écran */}
-            <button onClick={toggleFullScreen} className="player-btn">
-              <PlayerFullscreenButton className="player-icon" />
-            </button>
+            <div>
+              {/* Bouton Plein écran */}
+              <button onClick={toggleFullScreen} className="player-btn">
+                <PlayerFullscreenButton className="player-icon" />
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -209,8 +238,6 @@ export function Hero() {
 }
 
 export default Hero;
-
-
 
       {/*<div className="hero-container container">
         <div className="hero-subcontainer-block">
