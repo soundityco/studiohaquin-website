@@ -32,7 +32,11 @@ export function Portfolio() {
       description: "Mini série 'Réussites 2024'",
       date: "2024",
       content: {
-        videos: ["https://youtube.com/embed/playlist?list=PL1-Jamab2g2v-dF1sXsxNcdRR-MkTwz6A&si=wQ7tZ55a7Uz4E4zx?rel=0&controls=1&modestbranding=1&showinfo=0&autoplay=0"],
+        videos: [//"https://youtube.com/embed/playlist?list=PL1-Jamab2g2v-dF1sXsxNcdRR-MkTwz6A&si=wQ7tZ55a7Uz4E4zx?rel=0&controls=1&modestbranding=1&showinfo=0&autoplay=0",
+                 "https://youtube.com/embed/FIpooQI-Qko?rel=0&controls=1&modestbranding=1&showinfo=0&autoplay=0",
+                 "https://youtube.com/embed/pOXqF5LxT5k?rel=0&controls=1&modestbranding=1&showinfo=0&autoplay=0",
+                 "https://youtube.com/embed/0NhUkX7_qSA?rel=0&controls=1&modestbranding=1&showinfo=0&autoplay=0",
+        ],
         iframes: [],
         photos: [],
         text: {
@@ -45,7 +49,7 @@ export function Portfolio() {
       description: "Évènement 'Mère Fille' 2024",
       date: "2024",
       content: {
-        videos: ["https://www.youtube.com/embed/J2JJ-yZ2ujk"],
+        videos: ["https://www.youtube.com/embed/J2JJ-yZ2ujk?rel=0&controls=1&modestbranding=1&showinfo=0&autoplay=0"],
         iframes: [],
         photos: [],
         text: {
@@ -84,7 +88,7 @@ export function Portfolio() {
       description: "Rénovation restaurant La Cour",
       date: "2024",
       content: {
-        videos: ["https://www.youtube.com/embed/P4d_1Tb2uAw"],
+        videos: ["https://www.youtube.com/embed/P4d_1Tb2uAw?rel=0&controls=1&modestbranding=1&showinfo=0&autoplay=0"],
         iframes: [],
         photos: [],
         text: {
@@ -123,8 +127,13 @@ export function Portfolio() {
       description: "Série de vidéos YouTube",
       date: "2023 — 2024",
       content: {
-        videos: [
-          "https://youtube.com/embed/playlist?list=PL1-Jamab2g2uz7au8Hi8UXNLgjkbdpQL6&si=h90Iz0ylvObE9soB?rel=0&controls=1&modestbranding=1&showinfo=0&autoplay=0",
+        videos: ["https://youtube.com/embed/Dwnl_BvyhdY?rel=0&controls=1&modestbranding=1&showinfo=0&autoplay=0",
+                 "https://youtube.com/embed/ZbT4yy6ZU6I?rel=0&controls=1&modestbranding=1&showinfo=0&autoplay=0",
+                 "https://youtube.com/embed/YB3SCKTtBLM?rel=0&controls=1&modestbranding=1&showinfo=0&autoplay=0",
+                 "https://youtube.com/embed/DhnqP_J-MoQ?rel=0&controls=1&modestbranding=1&showinfo=0&autoplay=0",
+                 "https://youtube.com/embed/IFKT_fekZw4?rel=0&controls=1&modestbranding=1&showinfo=0&autoplay=0",
+                 "https://youtube.com/embed/QTpHOYt04QU?rel=0&controls=1&modestbranding=1&showinfo=0&autoplay=0",
+                 "https://youtube.com/embed/H6wkoTE8oyo?rel=0&controls=1&modestbranding=1&showinfo=0&autoplay=0",
         ],
         iframes: [],
         photos: [],
@@ -376,8 +385,8 @@ export function Portfolio() {
                 {activeProject.content.videos?.map((videoUrl, i) => (
                   <iframe
                     key={i}
-                    width="560"
-                    height="315"
+                    //width="560"
+                    //height="500"
                     src={videoUrl}
                     title="Project Video"
                     frameBorder="0"
@@ -397,8 +406,8 @@ export function Portfolio() {
                     key={i}
                     src={iframeUrl}
                     title="Project Iframe"
-                    width="100%"
-                    height="600"
+                    //width="100%"
+                    //height="600"
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen

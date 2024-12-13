@@ -1071,12 +1071,16 @@ header {
   height: 100%;
   display: flex;
   flex-direction: column;
-  gap: var(--container-padding);
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(600px,1fr));
+  grid-gap: var(--container-padding);
 }
 
 .portfolio-popup-dynamic-content iframe {
-  min-height: 100%;
+  min-height: auto;
   width: 100%;
+  aspect-ratio: 16/9;
 }
 
 .portfolio-popup-content-header {
@@ -1248,7 +1252,7 @@ header {
 /* Personnalisation du slider de volume */
 .volume-slider {
   -webkit-appearance: none; /* Retire l'apparence par défaut du slider */
-  width: 150px;
+  width: 120px;
   height: 6px;
   background: #ffffff40;
   border-radius: 5px;
@@ -1538,6 +1542,11 @@ input[type="range"]::-ms-thumb {
   /*.hero-picture {
     max-width: 400px;
   }*/
+
+  /* PORTFOLIO */
+  .portfolio-popup-dynamic-content {
+    grid-template-columns: repeat(auto-fill,minmax(500px,1fr));
+  }
 
   /* FOOTER */
   .footer-links ul {
