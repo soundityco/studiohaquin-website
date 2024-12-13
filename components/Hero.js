@@ -239,7 +239,9 @@ useEffect(() => {
               onChange={handleProgressChange}
               className="progress-bar"
               style={{
-                background: `linear-gradient(to right, red, #ff00cb ${progress}%, #ffffff80 ${progress}%)`,
+                //background: `linear-gradient(to right, red, #ff00cb ${progress}%, #ffffff80 ${progress}%)`,
+                background: `linear-gradient(to right, #ccff00 ${progress}%, #ffffff80 ${progress}%)`,
+                
               }}
             />
           </div>
