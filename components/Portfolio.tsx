@@ -29,10 +29,10 @@ export function Portfolio() {
   const projects: Project[] = [
     {
       name: "Decathlon",
-      description: "Série de vidéos réseaux sociaux",
+      description: "Série de 11 vidéos réussites",
       date: "2024",
       content: {
-        videos: ["https://player.vimeo.com/video/993371219?h=18665354fd"],
+        videos: ["https://youtube.com/embed/playlist?list=PL1-Jamab2g2v-dF1sXsxNcdRR-MkTwz6A&si=wQ7tZ55a7Uz4E4zx?rel=0&controls=1&modestbranding=1&showinfo=0&autoplay=0"],
         iframes: [],
         photos: [],
         text: {
@@ -45,7 +45,7 @@ export function Portfolio() {
       description: "Vidéo réseaux sociaux",
       date: "2024",
       content: {
-        videos: ["https://player.vimeo.com/video/1013996537?h=83d93ee44b"],
+        videos: ["https://www.youtube.com/embed/J2JJ-yZ2ujk"],
         iframes: [],
         photos: [],
         text: {
@@ -55,10 +55,10 @@ export function Portfolio() {
     },
     {
       name: "L'Orange Bleue",
-      description: "Interviews + pub",
+      description: "Pub + Interviews",
       date: "2024",
       content: {
-        videos: ["https://player.vimeo.com/video/1006129673"],
+        videos: ["https://www.youtube.com/embed/p5dpBF0kLKU?rel=0&controls=1&modestbranding=1&showinfo=0&autoplay=0"],
         iframes: [],
         photos: [],
         text: {
@@ -66,7 +66,7 @@ export function Portfolio() {
         },
       },
     },
-    {
+    /*{
       name: "Polyphonia",
       description: "Web design + développement",
       date: "2024",
@@ -78,13 +78,13 @@ export function Portfolio() {
           description: "Réalisation, conception et développement web du site web du label POLYPHONIA.",
         },
       },
-    },
+    },*/
     {
       name: "La Cour",
-      description: "Vidéo réseaux sociaux",
+      description: "Rénovation restaurant La Cour",
       date: "2024",
       content: {
-        videos: ["https://player.vimeo.com/video/1012720397"],
+        videos: ["https://www.youtube.com/embed/P4d_1Tb2uAw"],
         iframes: [],
         photos: [],
         text: {
@@ -92,7 +92,7 @@ export function Portfolio() {
         },
       },
     },
-    {
+    /*{
       name: "Airval Studio",
       description: "Web design + développement",
       date: "2024",
@@ -104,8 +104,8 @@ export function Portfolio() {
           description: "Réalisation, conception et développement web du site web d'Airval Studio.",
         },
       },
-    },
-    {
+    },*/
+    /*{
       name: "blurblur",
       description: "Web design + développement",
       date: "2024",
@@ -117,16 +117,14 @@ export function Portfolio() {
           description: "Réalisation, conception et développement web du site web de l'artiste blurblur.",
         },
       },
-    },
+    },*/
     {
       name: "Doris Oppenlander",
       description: "Série de vidéos YouTube",
       date: "2023 — 2024",
       content: {
         videos: [
-          "https://www.youtube.com/embed/QTpHOYt04QU",
-          "https://www.youtube.com/embed/DhnqP_J-MoQ",
-          "https://www.youtube.com/embed/ZbT4yy6ZU6I",
+          "https://youtube.com/embed/playlist?list=PL1-Jamab2g2uz7au8Hi8UXNLgjkbdpQL6&si=h90Iz0ylvObE9soB?rel=0&controls=1&modestbranding=1&showinfo=0&autoplay=0",
         ],
         iframes: [],
         photos: [],
@@ -135,7 +133,7 @@ export function Portfolio() {
         },
       },
     },
-    {
+    /*{
       name: "Soundity",
       description: "Web design + développement",
       date: "2023",
@@ -147,8 +145,23 @@ export function Portfolio() {
           description: "Réalisation, conception et développement web du site web de Soundity.",
         },
       },
-    },
+    },*/
     {
+      name: "Faux Raccords Prod",
+      description: "Court métrage L'ERMITE",
+      date: "2023",
+      content: {
+        iframes: [],
+        videos: [
+          "https://www.youtube.com/embed/JmFNhAO9LEs?si=ZxiMIDiWsEbhnfzs?rel=0&controls=1&modestbranding=1&showinfo=0&autoplay=0"
+        ],
+        photos: [],
+        text: {
+          description: "Conception et création de contenu graphique et vidéos pour les réseaux sociaux et le site web de la banque en ligne Noelse.",
+        },
+      },
+    },
+    /*{
       name: "Noelse",
       description: "Création graphique + motion design + 3D",
       date: "2021 — 2023",
@@ -160,8 +173,8 @@ export function Portfolio() {
           description: "Conception et création de contenu graphique et vidéos pour les réseaux sociaux et le site web de la banque en ligne Noelse.",
         },
       },
-    },
-    {
+    },*/
+    /*{
       name: "Anuit' Anjou (Fictif)",
       description: "Création graphique + motion design",
       date: "2021",
@@ -173,7 +186,7 @@ export function Portfolio() {
           description: "Web design pour le site web et l'application de Anuit' Anjou (projet étudiant fictif).",
         },
       },
-    },
+    },*/
   ];
 
   const handleClick = (index: number) => {

@@ -107,12 +107,12 @@ a {
   
   --border-radius: 2.5rem;
 
-  --primary-color: #ffa700; /* #CCFF00 #00FFCF */
-  --secondary-color: #7f16ff;
+  --primary-color: #ccff00; /* #CCFF00 #00FFCF */
+  --secondary-color:#000;/* #7f16ff #182721 */
   --background: #fffddb; /*#fffdf3*/
-  --foreground: #090908;
+  --foreground: #000; /* #090908 */
   --dark-grey: #ffffff1c;
-  --transparent-black: #090908ab;
+  --transparent-black: #00000070;
 }
 
 /* START OF THE CODE */
@@ -131,7 +131,7 @@ body {
   /*font-family: Arial, sans-serif;*/
   font-family: "Inter", sans-serif;
   overflow: hidden;
-  background: var(--primary-color);
+  background: var(--secondary-color);
   scrollbar-width: none;
 }
 
@@ -251,27 +251,24 @@ a {
 
 .main {
   transform: scale(0.6);
-  animation: siteScale .75s ease-in-out 1.5s forwards, mainRadius .5s ease-in-out 1.75s forwards;
+  animation: siteScale .5s ease-in-out 3.25s forwards, mainRadius .5s ease-in-out 1.75s forwards;
   border-radius: 4rem;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
   transition: border-radius .25s ease-in-out,
               padding .25s ease-in-out;
-  padding: var(--container-padding);
   box-sizing: border-box;
-  padding-bottom: 0;
 }
 
 .main-scrolled {
   transform: scale(0.6);
-  animation: siteScale .75s ease-in-out 1.5s forwards, mainRadius .5s ease-in-out 1.75s forwards;
+  animation: siteScale .5s ease-in-out 3.25s forwards, mainRadius .5s ease-in-out 1.75s forwards;
   border-radius: 4rem;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 
   transition: border-radius .25s ease-in-out,
               padding .25s ease-in-out;
-  background: var(--primary-color);
   box-sizing: border-box;
   padding: unset;
 }
@@ -286,7 +283,7 @@ a {
   top: 0;
   left: 0;
   z-index: -1;
-  animation: gradientToTop .75s ease-in-out 2s forwards;
+  animation: gradientToTop .75s ease-in-out 3s forwards;
   transform: translateY(100%);
 }
 
@@ -326,17 +323,19 @@ a {
 .main-container {
   width: 100%;
   border-radius: var(--border-radius);
-  height: calc(100vh - var(--container-padding));
+  /*height: calc(100vh - var(--container-padding));*/
+  height: 100vh;
   transition: padding .25s ease-in-out,
               border-radius .25s ease-in-out,
               height .25s ease-in-out;
   overflow: hidden;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
+  /*border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;*/
   background: var(--foreground);
   display: flex;
   flex-direction: column;
   align-items: center;
+  /*filter: drop-shadow(0 0 40px #00000080);*/
 }
 
 .main-container-scrolled {
@@ -380,12 +379,12 @@ a {
   box-sizing: border-box;
   -webkit-backdrop-filter: blur(100px);
   z-index: 1000;
-  animation: loaderToTop .75s ease-in-out 1.5s forwards;
+  animation: loaderToTop .5s cubic-bezier(.7,0,.4,1.01) 3.25s forwards;
   color: var(--background);
   opacity: 1;
   visibility: visible;
   overflow: hidden;
-  background: linear-gradient(to bottom, var(--foreground), var(--primary-color));
+  background: linear-gradient(to bottom, var(--foreground), var(--secondary-color));
   transform: translateY(0);
 }
 
@@ -409,7 +408,8 @@ a {
   opacity: 0;
   visibility: hidden;
   user-select: none;
-  animation: loaderTitleEntry .5s ease-in-out 0.3s forwards, loaderTitleExit 1.25s ease-in-out 1.25s forwards;  
+  animation: loaderTitleEntry .5s cubic-bezier(.7,0,.4,1.01) 0.3s forwards, loaderTitleExit 1.25s cubic-bezier(.7,0,.4,1.01) 3.5s forwards; 
+  text-align: center;
 }
 
 @keyframes loaderTitleEntry {
@@ -476,12 +476,20 @@ a {
   height: 5rem;
 }
 
+.hero-block {
+  min-height: min-content;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
 header {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: end;
   top: 0;
+  /*bottom: 0;*/
   position: sticky;
   z-index: 1;
   /*background: linear-gradient(to bottom, var(--foreground), transparent);*/
@@ -491,6 +499,7 @@ header {
   /*opacity: 0;
   visibility: hidden;
   transition: opacity .2s ease-in-out;*/
+  /*border-bottom: 0.5px solid var(--dark-grey);*/
 }
 
 .header-scrolled {
@@ -506,7 +515,7 @@ header {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: var(--container-padding);
+  padding: var(--container-padding) 0;
   box-sizing: border-box;
   /*background: var(--primary-color);*/
 }
@@ -920,7 +929,7 @@ header {
 /* PORTFOLIO */
 .portfolio {
   color: var(--background);
-  border-top: 0.5px solid var(--dark-grey);
+  /*border-top: 0.5px solid var(--dark-grey);*/
   border-bottom: 0.5px solid var(--dark-grey);
 }
 
@@ -1134,15 +1143,21 @@ header {
 .graphic-design {
   width: 100%;
   background: var(--foreground);
-  padding: calc(var(--container-padding)*4) var(--container-padding);
+  /*padding: calc(var(--container-padding)*4) var(--container-padding);*/
+  padding: var(--container-padding);
   box-sizing: border-box;
-  border-top: 0.5px solid var(--dark-grey);
-  border-bottom: 0.5px solid var(--dark-grey);
+  /*border-top: 0.5px solid var(--dark-grey);
+  border-bottom: 0.5px solid var(--dark-grey);*/
+  padding-top: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .graphic-design-container {
   width: 100%;
-  height: calc(50vh - var(--container-padding)*2);
+  height: 100%;
+  /*height: calc(50vh - var(--container-padding)*2);*/
   border-radius: var(--border-radius);
   /*border-top-left-radius: 0;
   border-top-right-radius: 0;*/
@@ -1150,6 +1165,9 @@ header {
   /*background: var(--secondary-color);*/
   /*background: linear-gradient(to top, var(--secondary-color), var(--foreground));*/
   padding: unset;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
   position: relative;
 }
 
@@ -1164,7 +1182,9 @@ header {
 }
 
 .graphic-design-video {
+  flex-grow: 1;
   width: 100%;
+  /*height: calc(100vh - (2vw - (var(--container-padding)*4)));*/
   height: 100%;
   aspect-ratio: 16/9;
   object-fit: cover;
@@ -1172,6 +1192,159 @@ header {
   /*-webkit-mask-image: -webkit-gradient(linear, left 90%, left 0%, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));*/
   /*-webkit-mask-image: -webkit-gradient(linear, left bottom, left top, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));*/
 }
+
+/* Styles généraux pour les contrôles */
+.video-controls {
+  display: flex;
+  gap: calc(var(--container-padding)/2);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  box-sizing: border-box;
+  padding: calc(var(--container-padding)/1.25) var(--container-padding);
+  position: absolute;
+  bottom: 0;
+  opacity: 0;
+  transition: 0.2s ease-in-out;
+  background: linear-gradient(to bottom, transparent, black);
+}
+
+.graphic-design-container:hover .video-controls {
+  opacity: 1;
+}
+
+/* Personnalisation du bouton Play/Pause et Mute/Unmute */
+.player-btn {
+  background: unset;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  border-radius: 0.5rem;
+  transition: background .2s ease-in-out;
+  height: 1.75rem;
+  min-width: min-content;
+  align-items: center;
+}
+
+.player-btn:hover {
+  background: #ffffff30;
+}
+
+/* Personnalisation du slider de volume */
+.volume-slider {
+  -webkit-appearance: none; /* Retire l'apparence par défaut du slider */
+  width: 150px;
+  height: 6px;
+  background: #ffffff40;
+  border-radius: 5px;
+  outline: none;
+  transition: background 0.3s ease;
+  cursor: pointer;
+}
+
+/* Personnalisation du curseur du volume */
+.volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background: #ff00cb; /* Couleur du curseur */
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+/* Changer la couleur du curseur au survol */
+.volume-slider:hover::-webkit-slider-thumb {
+  background: #ff00cb;
+}
+
+/* Personnalisation de la barre de progression */
+.progress-container {
+  width: 100%;
+}
+
+.player-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--container-padding);
+}
+
+.player-icon {
+  fill: white;
+  /*width: 1rem;*/
+  height: 1rem;
+  padding: 0.25rem;
+}
+
+.progress-bar {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 6px;
+  background: #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+  transition: background 0.3s ease;
+}
+
+/* Personnalisation de la progression de la vidéo (remplissage dynamique) */
+.progress-bar::-webkit-slider-runnable-track {
+  height: 6px;
+  border-radius: 5px;
+  background: #ddd;
+}
+
+.progress-bar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background: #ff00cb; /* Couleur du curseur */
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+/* Changer la couleur du curseur au survol */
+.progress-bar:hover::-webkit-slider-thumb {
+  background: #ff00cb;
+}
+
+.progress-bar:focus {
+  outline: none;
+}
+
+/* Enlever complètement le cercle blanc ou gris sur tous les sliders */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 0; /* Retirer la taille par défaut */
+  height: 0;
+  background: transparent; /* S'assurer qu'il est invisible */
+  border: none; /* Supprimer la bordure */
+  box-shadow: none; /* Supprimer toute ombre */
+}
+
+input[type="range"]::-moz-range-thumb {
+  appearance: none;
+  width: 0;
+  height: 0;
+  background: transparent; /* S'assurer qu'il est invisible */
+  border: none; /* Supprimer la bordure */
+  box-shadow: none; /* Supprimer toute ombre */
+}
+
+input[type="range"]::-ms-thumb {
+  appearance: none;
+  width: 0;
+  height: 0;
+  background: transparent; /* S'assurer qu'il est invisible */
+  border: none; /* Supprimer la bordure */
+  box-shadow: none; /* Supprimer toute ombre */
+}
+
 
 /* FOOTER */
 .footer-container {

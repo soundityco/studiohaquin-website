@@ -14,8 +14,8 @@ export function Home() {
   return (
     <>
       <Head>
-        <title>Studio Haquin — Designer Graphique & Vidéaste, Cadreur, Monteur basé à Angers</title>
-        <meta property="og:title" content="Studio Haquin — Designer Graphique & Vidéaste, Cadreur, Monteur basé à Angers" key="title" />
+        <title>STUDIO HAQUIN © FILMMAKER & SOUND DESIGNER, BASED IN ANGERS, FR.</title>
+        <meta property="og:title" content="Studio Haquin — Filmmaker & Sound Designer basé à Angers" key="title" />
         <meta property="og:image" content="studio-haquin-og-banner.jpg" />
         
         <meta name="description" content="Studio de création graphique et de production audiovisuelle basé à Angers. De la prise de vue au montage, en passant par la conception graphique, je m’occupe de tout pour raconter votre histoire de manière authentique et impactante." />
@@ -28,11 +28,11 @@ export function Home() {
       {/* COMPONENTS */}
       <Hero />
       {/*<Menu />*/}
-      <GraphicDesign />
+      {/*<GraphicDesign />*/}
       <Portfolio />
-      <GraphicDesign />
+      {/*<GraphicDesign />*/}
       <Intro />
-      <GraphicDesign />
+      {/*<GraphicDesign />*/}
       {/*<Clients />*/}
     </>
   );

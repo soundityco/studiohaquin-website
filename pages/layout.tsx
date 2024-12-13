@@ -46,7 +46,7 @@ export default function Layout({
   const changeClass = () => {
     if (containerRef.current) {
       const scrollValue = containerRef.current.scrollTop;
-      if (scrollValue > 0) {
+      if (scrollValue > 800) {
         setScrolled(true);
         if (headerRef.current) {
           headerRef.current.classList.add('header-scrolled');  // Add class on scroll
@@ -80,18 +80,20 @@ export default function Layout({
   return (
     <>
       {/* LOADER & OVERLAYS */}
-      <div className="overlay-noise"></div>
+      {/*<div className="overlay-noise"></div>*/}
       <Loader />
       <StickyCursor stickyElement={stickyElement}/>
 
       {/* SITE CONTENT */}
       <div className={clsx(scrolled ? "main-scrolled" : "main", alinsa.variable)}>
+      {/*<div className="main">*/}
         <div className={scrolled ? "main-container-scrolled" : "main-container"}>
+        {/*<div className="main-container">*/}
 
           {/* PAGE */}
           <div className="site-content" ref={containerRef}>
             {/* HEADER */}
-            <Header ref={headerRef} />
+            {/*<Header ref={headerRef} />*/}
             {children}
             {/* FOOTER */}
             <Footer/>
