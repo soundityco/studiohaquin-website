@@ -15,7 +15,7 @@ export function Loader() {;
         <h1 className="loader-title">{/*STUDIO HAQUIN © FILMMAKER & SOUNDDESIGNER*/}
         <Typewriter
           options={{
-            strings: ['STUDIO HAQUIN ©', 'FILMMAKER & SOUND DESIGNER', 'WELCOME'],
+            strings: ['STUDIO HAQUIN ©', 'FILMMAKER & SOUND DESIGNER'],
             autoStart: true,
             loop: false,
             delay: 70, // Réduit le délai pour l'apparition de chaque caractère

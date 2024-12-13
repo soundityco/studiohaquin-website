@@ -251,8 +251,8 @@ a {
 
 .main {
   transform: scale(1);
-  animation: siteScale .5s ease-in-out 9s forwards,
-             mainRadius .5s ease-in-out 1.75s forwards;
+  animation: siteScale .5s ease-in-out 6.5s forwards,
+             mainRadius .75s ease-in-out 1.75s forwards;
   border-radius: 4rem;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
@@ -263,7 +263,7 @@ a {
 
 .main-scrolled {
   transform: scale(1);
-  animation: siteScale .5s ease-in-out 9s forwards, mainRadius .5s ease-in-out 1.75s forwards;
+  animation: siteScale .5s ease-in-out 6.5s forwards, mainRadius .5s ease-in-out 1.75s forwards;
   border-radius: 4rem;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
@@ -284,7 +284,7 @@ a {
   top: 0;
   left: 0;
   z-index: -1;
-  animation: gradientToTop .75s ease-in-out 9.25s forwards;
+  animation: gradientToTop .75s ease-in-out 7.25s forwards;
   transform: translateY(100%);
 }
 
@@ -380,7 +380,7 @@ a {
   box-sizing: border-box;
   -webkit-backdrop-filter: blur(100px);
   z-index: 1000;
-  animation: loaderToTop .5s cubic-bezier(.7,0,.4,1.01) 9s forwards;
+  animation: loaderToTop .75s cubic-bezier(.7,0,.4,1.01) 6.25s forwards;
   color: var(--background);
   opacity: 1;
   visibility: visible;
@@ -410,7 +410,7 @@ a {
   visibility: hidden;
   user-select: none;
   animation: loaderTitleEntry .5s cubic-bezier(.7,0,.4,1.01) 0.3s forwards,
-             loaderTitleExit 2s cubic-bezier(.7,0,.4,1.01) 7.75s forwards; 
+             loaderTitleExit 2s cubic-bezier(.7,0,.4,1.01) 5.5s forwards; 
   text-align: center;
 }
 
