@@ -250,8 +250,9 @@ a {
 }
 
 .main {
-  transform: scale(0.6);
-  animation: siteScale .5s ease-in-out 3.25s forwards, mainRadius .5s ease-in-out 1.75s forwards;
+  transform: scale(1);
+  animation: siteScale .5s ease-in-out 9s forwards,
+             mainRadius .5s ease-in-out 1.75s forwards;
   border-radius: 4rem;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
@@ -261,8 +262,8 @@ a {
 }
 
 .main-scrolled {
-  transform: scale(0.6);
-  animation: siteScale .5s ease-in-out 3.25s forwards, mainRadius .5s ease-in-out 1.75s forwards;
+  transform: scale(1);
+  animation: siteScale .5s ease-in-out 9s forwards, mainRadius .5s ease-in-out 1.75s forwards;
   border-radius: 4rem;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
@@ -283,13 +284,13 @@ a {
   top: 0;
   left: 0;
   z-index: -1;
-  animation: gradientToTop .75s ease-in-out 3s forwards;
+  animation: gradientToTop .75s ease-in-out 9.25s forwards;
   transform: translateY(100%);
 }
 
 @keyframes siteScale {
   from {
-    transform: scale(0.6) translateY(0);
+    transform: scale(1) translateY(0);
     filter: blur(100px);
   }
 
@@ -379,7 +380,7 @@ a {
   box-sizing: border-box;
   -webkit-backdrop-filter: blur(100px);
   z-index: 1000;
-  animation: loaderToTop .5s cubic-bezier(.7,0,.4,1.01) 3.25s forwards;
+  animation: loaderToTop .5s cubic-bezier(.7,0,.4,1.01) 9s forwards;
   color: var(--background);
   opacity: 1;
   visibility: visible;
@@ -403,12 +404,13 @@ a {
 }
 
 .loader-title {
-  font-size: 5vw;
+  font-size: 4.5vw;
   transform: translateY(20px);
   opacity: 0;
   visibility: hidden;
   user-select: none;
-  animation: loaderTitleEntry .5s cubic-bezier(.7,0,.4,1.01) 0.3s forwards, loaderTitleExit 1.25s cubic-bezier(.7,0,.4,1.01) 3.5s forwards; 
+  animation: loaderTitleEntry .5s cubic-bezier(.7,0,.4,1.01) 0.3s forwards,
+             loaderTitleExit 2s cubic-bezier(.7,0,.4,1.01) 7.75s forwards; 
   text-align: center;
 }
 
@@ -1669,7 +1671,7 @@ input[type="range"]::-ms-thumb {
 
   /* LOADER */
   .loader-title {
-    font-size: 8vw;
+    font-size: 7vw;
   }
   /* HEADER */
 

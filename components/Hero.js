@@ -25,55 +25,55 @@ export function Hero() {
   const [progress, setProgress] = useState(0);
   const [duration, setDuration] = useState(0);
   const [previousVolume, setPreviousVolume] = useState(1); // Sauvegarde du volume précédent
-  const [isMouseActive, setIsMouseActive] = useState(true);
+  const [isMouseActive, setIsMouseActive] = useState(false);
   let inactivityTimeout = useRef(null);
 
   // État pour le plein écran
-useEffect(() => {
-  const handleFullScreenChange = () => {
-    if (document.fullscreenElement) {
-      // Si en plein écran, ajoute la classe
-      containerRef.current.classList.add("full-screen");
-      setIsFullScreen(true);
-    } else {
-      // Si sorti du plein écran, enlève la classe
-      containerRef.current.classList.remove("full-screen");
-      setIsFullScreen(false);
-    }
-  };
+  useEffect(() => {
+    const handleFullScreenChange = () => {
+      if (document.fullscreenElement) {
+        // Si en plein écran, ajoute la classe
+        containerRef.current.classList.add("full-screen");
+        setIsFullScreen(true);
+      } else {
+        // Si sorti du plein écran, enlève la classe
+        containerRef.current.classList.remove("full-screen");
+        setIsFullScreen(false);
+      }
+    };
 
-  // Ajout de l'événement fullscreenchange
-  document.addEventListener("fullscreenchange", handleFullScreenChange);
+    // Ajout de l'événement fullscreenchange
+    document.addEventListener("fullscreenchange", handleFullScreenChange);
 
-  return () => {
-    // Nettoyage de l'événement
-    document.removeEventListener("fullscreenchange", handleFullScreenChange);
-  };
-}, []);
+    return () => {
+      // Nettoyage de l'événement
+      document.removeEventListener("fullscreenchange", handleFullScreenChange);
+    };
+  }, []);
 
-// Gestion de l'affichage des contrôles en fonction du mouvement de la souris
-useEffect(() => {
-  const container = containerRef.current;
+  // Gestion de l'affichage des contrôles en fonction du mouvement de la souris
+  useEffect(() => {
+    const container = containerRef.current;
 
-  const handleMouseMove = () => {
-    setIsMouseActive(true); // Réactive les contrôles
-    clearTimeout(inactivityTimeout.current); // Réinitialise le timer
+    const handleMouseMove = () => {
+      setIsMouseActive(true); // Réactive les contrôles
+      clearTimeout(inactivityTimeout.current); // Réinitialise le timer
 
-    // Cache les contrôles après une période d'inactivité
-    inactivityTimeout.current = setTimeout(() => {
-      setIsMouseActive(false);
-    }, 1000); // Délai en millisecondes
-  };
+      // Cache les contrôles après une période d'inactivité
+      inactivityTimeout.current = setTimeout(() => {
+        setIsMouseActive(false);
+      }, 1000); // Délai en millisecondes
+    };
 
-  // Ajout de l'écouteur uniquement pour le conteneur
-  container.addEventListener("mousemove", handleMouseMove);
+    // Ajout de l'écouteur uniquement pour le conteneur
+    container.addEventListener("mousemove", handleMouseMove);
 
-  return () => {
-    // Nettoyage des écouteurs
-    container.removeEventListener("mousemove", handleMouseMove);
-    clearTimeout(inactivityTimeout.current);
-  };
-}, []);
+    return () => {
+      // Nettoyage des écouteurs
+      container.removeEventListener("mousemove", handleMouseMove);
+      clearTimeout(inactivityTimeout.current);
+    };
+  }, []);
   
 
   // Fonction pour jouer ou mettre en pause la vidéo
