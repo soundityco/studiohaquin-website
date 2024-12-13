@@ -29,7 +29,7 @@ export function Portfolio() {
   const projects: Project[] = [
     {
       name: "Decathlon",
-      description: "Série de 11 vidéos réussites",
+      description: "Mini série 'Réussites 2024'",
       date: "2024",
       content: {
         videos: ["https://youtube.com/embed/playlist?list=PL1-Jamab2g2v-dF1sXsxNcdRR-MkTwz6A&si=wQ7tZ55a7Uz4E4zx?rel=0&controls=1&modestbranding=1&showinfo=0&autoplay=0"],
@@ -42,7 +42,7 @@ export function Portfolio() {
     },
     {
       name: "Galeries Lafayette",
-      description: "Vidéo réseaux sociaux",
+      description: "Évènement 'Mère Fille' 2024",
       date: "2024",
       content: {
         videos: ["https://www.youtube.com/embed/J2JJ-yZ2ujk"],
