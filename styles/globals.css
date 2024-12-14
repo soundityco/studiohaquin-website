@@ -184,21 +184,22 @@ a {
   z-index: 99999999999999999;
   mix-blend-mode: difference;
   transform: scale(1);
-  transition: transform .2s ease-in-out;
+  transition: transform .2s cubic-bezier(.7,0,.4,1.01);
 }
 
 .button {
-  border: 1px solid var(--background);
+  border: 1px solid var(--foreground);
   padding: 1vw 1.25vw;
   text-transform: uppercase;
   font-size: 1.5vw;
   border-radius: 100px;
   max-width: max-content;
-  background: linear-gradient(to right, var(--background) 50%, transparent 50%);
+  background: linear-gradient(to right, var(--foreground) 50%, var(--primary-color) 50%);
+  color: var(--foreground);
   background-size: 200% 100%;
   background-position: right bottom;
-  transition: background-position .15s ease-in-out,
-              color .15s ease-in-out;
+  transition: background-position .2s cubic-bezier(.7,0,.4,1.01),
+              color .2s cubic-bezier(.7,0,.4,1.01);
   display: flex;
   gap: 0.75vw;
   align-items: center;
@@ -207,18 +208,19 @@ a {
 
 .button:hover {
   background-position: left bottom;
-  color: var(--foreground);
+  color: var(--background);
+  border: 1px solid var(--background);
 }
 
 .button-icon {
   width: 1.5vw;
   height: 1.5vw;
-  transition: fill .15s ease-in-out;
+  transition: fill .15s cubic-bezier(.7,0,.4,1.01);
   fill: var(--background);
 }
 
 .button:hover .button-icon {
-  transition: fill .15s ease-in-out;
+  transition: fill .15s cubic-bezier(.7,0,.4,1.01);
   fill: var(--foreground);
 }
 
@@ -251,25 +253,25 @@ a {
 
 .main {
   transform: scale(1);
-  animation: siteScale .5s ease-in-out 6.5s forwards,
-             mainRadius .75s ease-in-out 1.75s forwards;
+  animation: siteScale .5s cubic-bezier(.7,0,.4,1.01) 6.5s forwards,
+             mainRadius .75s cubic-bezier(.7,0,.4,1.01) 1.75s forwards;
   border-radius: 4rem;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
-  transition: border-radius .25s ease-in-out,
-              padding .25s ease-in-out;
+  transition: border-radius .25s cubic-bezier(.7,0,.4,1.01),
+              padding .25s cubic-bezier(.7,0,.4,1.01);
   box-sizing: border-box;
 }
 
 .main-scrolled {
   transform: scale(1);
-  animation: siteScale .5s ease-in-out 6.5s forwards, mainRadius .5s ease-in-out 1.75s forwards;
+  animation: siteScale .5s cubic-bezier(.7,0,.4,1.01) 6.5s forwards, mainRadius .5s cubic-bezier(.7,0,.4,1.01) 1.75s forwards;
   border-radius: 4rem;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 
-  transition: border-radius .25s ease-in-out,
-              padding .25s ease-in-out;
+  transition: border-radius .25s cubic-bezier(.7,0,.4,1.01),
+              padding .25s cubic-bezier(.7,0,.4,1.01);
   box-sizing: border-box;
   padding: unset;
 }
@@ -284,7 +286,7 @@ a {
   top: 0;
   left: 0;
   z-index: -1;
-  animation: gradientToTop .75s ease-in-out 7.25s forwards;
+  animation: gradientToTop .75s cubic-bezier(.7,0,.4,1.01) 7.25s forwards;
   transform: translateY(100%);
 }
 
@@ -326,9 +328,9 @@ a {
   border-radius: var(--border-radius);
   /*height: calc(100vh - var(--container-padding));*/
   height: 100vh;
-  transition: padding .25s ease-in-out,
-              border-radius .25s ease-in-out,
-              height .25s ease-in-out;
+  transition: padding .25s cubic-bezier(.7,0,.4,1.01),
+              border-radius .25s cubic-bezier(.7,0,.4,1.01),
+              height .25s cubic-bezier(.7,0,.4,1.01);
   overflow: hidden;
   /*border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;*/
@@ -343,9 +345,9 @@ a {
   width: 100%;
   height: 100vh;
   border-radius: unset;
-  transition: padding .25s ease-in-out,
-              border-radius .25s ease-in-out,
-              height .25s ease-in-out;
+  transition: padding .25s cubic-bezier(.7,0,.4,1.01),
+              border-radius .25s cubic-bezier(.7,0,.4,1.01),
+              height .25s cubic-bezier(.7,0,.4,1.01);
   overflow: hidden;
   display: flex;
   background: var(--foreground);
@@ -500,7 +502,7 @@ header {
   backdrop-filter: blur(10px) !important;
   /*opacity: 0;
   visibility: hidden;
-  transition: opacity .2s ease-in-out;*/
+  transition: opacity .2s cubic-bezier(.7,0,.4,1.01);*/
   /*border-bottom: 0.5px solid var(--dark-grey);*/
 }
 
@@ -562,7 +564,7 @@ header {
   color: var(--background);
   border-radius: 100px;
   transform: scale(1);
-  /*transition: .3s all ease-in-out;*/
+  /*transition: .3s all cubic-bezier(.7,0,.4,1.01);*/
   /*filter: drop-shadow(0px 0px 30px #ffffff30);*/
 }
 
@@ -575,8 +577,8 @@ header {
   text-transform: uppercase;
   font-size: 1.5vw;
   padding: 0.75vw;
-  background: var(--background);
-  transition: all .2s ease-in-out;
+  background: var(--primary-color);
+  transition: all .2s cubic-bezier(.7,0,.4,1.01);
   border-radius: 100px;
   color: var(--foreground);
   transform: unset;
@@ -589,7 +591,7 @@ header {
 
 .header-menu-icon {
   transform: rotate(0deg);
-  transition: 1s all ease-in-out;
+  transition: 1s all cubic-bezier(.7,0,.4,1.01);
   width: 2vw;
   height: 2vw;
 }
@@ -699,7 +701,7 @@ header {
   position: absolute;
   bottom: 0;
   opacity: 0;
-  transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s cubic-bezier(.7,0,.4,1.01);
   background: linear-gradient(to bottom, transparent, black);
   cursor: initial !important;
 }
@@ -719,7 +721,7 @@ header {
   cursor: pointer;
   display: flex;
   border-radius: 0.5rem;
-  transition: background .2s ease-in-out;
+  transition: background .2s cubic-bezier(.7,0,.4,1.01);
   height: 1.75rem;
   min-width: min-content;
   align-items: center;
@@ -1060,7 +1062,7 @@ input[type="range"]::-ms-thumb {
   height: 4vw;
   fill: var(--background);
   opacity: 0.3;
-  transition: opacity .2s ease-in-out;
+  transition: opacity .2s cubic-bezier(.7,0,.4,1.01);
 }
 
 .fade {
@@ -1091,7 +1093,7 @@ input[type="range"]::-ms-thumb {
   max-height: 4vw;
   fill: var(--background);
   opacity: 0.5;
-  transition: opacity .2s ease-in-out;
+  transition: opacity .2s cubic-bezier(.7,0,.4,1.01);
 }
 
 .client-logo:hover {
@@ -1141,7 +1143,7 @@ input[type="range"]::-ms-thumb {
   font-size: 2.25vw;
   text-transform: uppercase;
   transform: translateY(0.3vw);
-  color: #ffffff59;
+  color: var(--primary-color);
 }
 
 .intro-container-text {
@@ -1196,10 +1198,10 @@ input[type="range"]::-ms-thumb {
   gap: 2vw;
   align-items: start;
   font-size: 2.5vw;
-  transition: color .2s ease-in-out;
+  transition: color .2s cubic-bezier(.7,0,.4,1.01);
 
-  transition: color .2s ease-in-out,
-              /*padding .2s ease-in-out*/;
+  transition: color .2s cubic-bezier(.7,0,.4,1.01),
+              /*padding .2s cubic-bezier(.7,0,.4,1.01)*/;
 }
 
 .portfolio-container div a:hover {
@@ -1228,7 +1230,7 @@ input[type="range"]::-ms-thumb {
   align-items: center;
   background-color: rgba(0, 0, 0, 0.5);
   opacity: 0;
-  transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.5s cubic-bezier(.7,0,.4,1.01);
   pointer-events: none; /* Désactive les clics par défaut */
   padding: var(--container-padding);
   padding-bottom: unset;
@@ -1263,8 +1265,8 @@ input[type="range"]::-ms-thumb {
   filter: drop-shadow(0px 0px 50px var(--dark-grey));
   /*border: 1px solid var(--dark-grey);*/
   border-bottom: unset;
-  transition: transform 0.3s ease-in-out 0.3s,
-              opacity 0.3s ease-in-out 0.3s;
+  transition: transform 0.3s cubic-bezier(.7,0,.4,1.01) 0.3s,
+              opacity 0.3s cubic-bezier(.7,0,.4,1.01) 0.3s;
 }
 
 .portfolio-popup-container.active {
@@ -1355,7 +1357,7 @@ input[type="range"]::-ms-thumb {
 
 .portfolio-icon {
   height: 1.5vw;
-  transition: all .15s ease-in-out;
+  transition: all .15s cubic-bezier(.7,0,.4,1.01);
   fill: var(--background);
 }
 
@@ -1421,8 +1423,8 @@ input[type="range"]::-ms-thumb {
 }
 
 .footer-link {
-  transition: color.2s ease-in-out,
-              width .2s ease-in-out;
+  transition: color.2s cubic-bezier(.7,0,.4,1.01),
+              width .2s cubic-bezier(.7,0,.4,1.01);
   font-size: 2.5vw;
   max-width: min-content;
   display: block;
@@ -1437,7 +1439,7 @@ input[type="range"]::-ms-thumb {
   width: 0px;
   height: 0.1vw;
   display: flex;
-  transition: width .2s ease-in-out;
+  transition: width .2s cubic-bezier(.7,0,.4,1.01);
   background: var(--primary-color);
   color: var(--primary-color);
   margin-top: 1vw;
@@ -1460,7 +1462,7 @@ input[type="range"]::-ms-thumb {
   color: transparent;
   display: flex;
   flex-direction: column;
-  transition: color .2s ease-in-out;
+  transition: color .2s cubic-bezier(.7,0,.4,1.01);
 }
 
 .footer-cc span a::selection {
