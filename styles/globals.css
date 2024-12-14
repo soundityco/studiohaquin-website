@@ -253,7 +253,7 @@ a {
 
 .main {
   transform: scale(1);
-  animation: siteScale .5s cubic-bezier(.7,0,.4,1.01) 6.5s forwards,
+  animation: siteScale .5s cubic-bezier(.7,0,.4,1.01) 6s forwards,
              mainRadius .75s cubic-bezier(.7,0,.4,1.01) 1.75s forwards;
   border-radius: 4rem;
   border-bottom-left-radius: 0;
@@ -265,7 +265,7 @@ a {
 
 .main-scrolled {
   transform: scale(1);
-  animation: siteScale .5s cubic-bezier(.7,0,.4,1.01) 6.5s forwards, mainRadius .5s cubic-bezier(.7,0,.4,1.01) 1.75s forwards;
+  animation: siteScale .5s cubic-bezier(.7,0,.4,1.01) 6.25s forwards, mainRadius .5s cubic-bezier(.7,0,.4,1.01) 1.75s forwards;
   border-radius: 4rem;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
@@ -382,7 +382,7 @@ a {
   box-sizing: border-box;
   -webkit-backdrop-filter: blur(100px);
   z-index: 1000;
-  animation: loaderToTop .75s cubic-bezier(.7,0,.4,1.01) 6.25s forwards;
+  animation: loaderToTop .75s cubic-bezier(.7,0,.4,1.01) 5.75s forwards;
   color: var(--background);
   opacity: 1;
   visibility: visible;
@@ -412,7 +412,7 @@ a {
   visibility: hidden;
   user-select: none;
   animation: loaderTitleEntry .5s cubic-bezier(.7,0,.4,1.01) 0.3s forwards,
-             loaderTitleExit 2s cubic-bezier(.7,0,.4,1.01) 5.5s forwards; 
+             loaderTitleExit 2s cubic-bezier(.7,0,.4,1.01) 5.25s forwards; 
   text-align: center;
 }
 
