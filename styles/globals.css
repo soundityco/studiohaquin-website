@@ -208,8 +208,8 @@ a {
 
 .button:hover {
   background-position: left bottom;
-  color: var(--background);
-  border: 1px solid var(--background);
+  /*color: var(--background);
+  border: 1px solid var(--background);*/
 }
 
 .button-icon {
@@ -1281,8 +1281,7 @@ input[type="range"]::-ms-thumb {
 
 .portfolio-popup-content {
   width: 100%;
-  height: 100%;
-  min-height: max-content;
+  min-height: 100%;
   display: flex;
   flex-direction: column;
   gap: var(--container-padding);
@@ -1346,9 +1345,30 @@ input[type="range"]::-ms-thumb {
 
 .portfolio-popup-content-header-block h2 {
   /*font-family: 'NaNJaune', Arial, sans-serif;*/
-  text-transform: uppercase;
+  /*text-transform: uppercase;
   font-size: 3.5vw;
+  color: var(--primary-color);*/
+  text-transform: uppercase;
+  font-size: 2.25vw;
+  color: var(--foreground);
+  background: var(--primary-color);
+  transition: all .2s cubic-bezier(.7,0,.4,1.01);
+  border-radius: 100px;
+  padding: 0.75vw 1.5vw;
+  max-width: fit-content;
+  gap: 1vw;
+  display: flex;
+  align-items: center;
 }
+
+.portfolio-popup-content-header-block h2 svg {
+  fill: var(--foreground);
+  height: 1.5vw;
+}
+
+/*.portfolio-popup-content-header-block p {
+  color: var(-);
+}*/
 
 .portfolio-popup-content-header-block div {
   display: flex;
@@ -1382,7 +1402,7 @@ input[type="range"]::-ms-thumb {
   display: flex;
   justify-content: center;
   text-align: center;
-  line-height: 1.25rem;
+  /*line-height: 1.25rem;*/
   flex-direction: column;
   padding: calc(var(--container-padding)*4) var(--container-padding) var(--container-padding);
   align-items: start;
@@ -1856,7 +1876,7 @@ input[type="range"]::-ms-thumb {
   }
 
   .portfolio-popup-content-header-block h2 {
-    font-size: 1.75rem;
+    font-size: 2rem;
   }
   .portfolio-popup-content-header-block p {
     font-size: 1.25rem;

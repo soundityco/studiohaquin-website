@@ -9,7 +9,8 @@ export function Hero() {
     <section className="hero" id="hero">
       <Header />
       <VideoPlayer
-        videoSrc="https://res.cloudinary.com/dqrkeb9bz/video/upload/q_auto:best/v1734103518/SHOWREEL_2024_STUDIOHAQUIN_FHD_jxennm.mp4"
+        //videoSrc="https://res.cloudinary.com/dqrkeb9bz/video/upload/q_auto:best/v1734103518/SHOWREEL_2024_STUDIOHAQUIN_FHD_jxennm.mp4"
+        videoSrc="https://live.staticflickr.com/video/54204971545/1d3b0d6e19/1080p.mp4?s=eyJpIjo1NDIwNDk3MTU0NSwiZSI6MTczNDIxODkxNCwicyI6ImY1MTU5YWNhN2UyOTQ0MmEyMjMzY2RhMTA4NGVhNzY0MmY2NGE4Y2EiLCJ2IjoxfQ"
         posterSrc="/showreel-thumbnail.webp"
       />
     </section>

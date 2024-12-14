@@ -8,7 +8,7 @@ export function Footer() {
         <div className="footer-container container">
           <div className="footer-container-block">
             <h1 className="section-title footer-title">Parlez moi de votre projet !</h1>
-            <a className="button button-footer" href="mailto:andy@studiohaquin.com">👉 Me contacter</a>
+            <a className="button-contact" href="mailto:andy@studiohaquin.com">👉 Me contacter</a>
           </div>
           <div className="footer-container-block">
             <nav className="footer-links">

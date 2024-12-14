@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { ArrowLeftIcon, ArrowRightIcon, CloseIcon } from "./Images";
+import { ArrowLeftIcon, ArrowRightIcon, CloseIcon, ArrowCornerIcon } from "./Images";
 
 // Importing Components
 import VideoPlayer from "@/components/VideoPlayer";
@@ -78,7 +78,8 @@ export function Portfolio() {
       description: "Rénovation du restaurant",
       date: "2024",
       content: {
-        videos: ["https://www.youtube.com/embed/P4d_1Tb2uAw?rel=0&controls=0&modestbranding=0&showinfo=0&autoplay=0"],
+        //videos: ["https://www.youtube.com/embed/P4d_1Tb2uAw?rel=0&controls=0&modestbranding=0&showinfo=0&autoplay=0"],
+        videos: ["https://live.staticflickr.com/video/54204822419/980b20ae5f/1080p.mp4?s=eyJpIjo1NDIwNDgyMjQxOSwiZSI6MTczNDIxOTc2NCwicyI6ImJkM2JiZGFjYzQ1YjQ2ZjA3NzQ3OGNiZjM4ODY2MTVjOGM3MTU5MjEiLCJ2IjoxfQ"],
         iframes: [],
         photos: [],
         text: {
@@ -246,7 +247,7 @@ export function Portfolio() {
               <div className="portfolio-popup-content-header">
                 <div>
                   <div className="portfolio-popup-content-header-block">
-                    <h2>{activeProject.name}</h2>
+                    <h2>{activeProject.name}{/*<ArrowCornerIcon/>*/}</h2>
                     <div>
                       <h3>{activeProject.description}</h3>
                       <p>{activeProject.date}</p>

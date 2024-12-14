@@ -322,6 +322,19 @@ export const PlayerFullscreenButton = ({ className = '' }: { className?: string 
   </svg>
 );
 
+export const ArrowCornerIcon = ({ className = '' }: { className?: string }) => (
+  <svg
+    className={className}
+    viewBox="0 0 1084 1084"
+    xmlns="http://www.w3.org/2000/svg"
+    //width="15px"
+    //height="15px"
+    fill="none"
+  >
+    <path d="M127.6 1083.3 0 955.8l775.2-775.2H91.9V0h991l.4.4v991H902.8V308.1z"/>
+  </svg>
+);
+
 
 // Exporting Images
 export {
