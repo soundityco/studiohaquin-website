@@ -637,11 +637,231 @@ header {
   color: var(--background);
 }
 
-/* HERO CONTENT*/
+
+
+/* VIDEO PLAYER */
+.video-player-container {
+  width: 100%;
+  height: 100%;
+  /*height: calc(50vh - var(--container-padding)*2);*/
+  border-radius: var(--border-radius);
+  /*border-top-left-radius: 0;
+  border-top-right-radius: 0;*/
+  overflow: hidden;
+  /*background: var(--secondary-color);*/
+  /*background: linear-gradient(to top, var(--secondary-color), var(--foreground));*/
+  padding: unset;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.video-player-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none; /* Disable interaction with the iframe */
+}
+
+.video-player {
+  flex-grow: 1;
+  width: 100%;
+  /*height: calc(100vh - (2vw - (var(--container-padding)*4)));*/
+  height: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  /*filter: contrast(1.1) brightness(1.05);*/
+  /*-webkit-mask-image: -webkit-gradient(linear, left 90%, left 0%, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));*/
+  /*-webkit-mask-image: -webkit-gradient(linear, left bottom, left top, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));*/
+}
+
+.fullscreen-video {
+  width: 100vw;  /* 100% de la largeur de l'écran */
+  height: auto;  /* Respecte les proportions de la vidéo */
+  object-fit: contain;  /* Couvre tout l'écran sans déformation */
+  cursor: initial !important;
+}
+
+/* Styles généraux pour les contrôles */
+.video-controls {
+  display: flex;
+  gap: calc(var(--container-padding) / 2);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  box-sizing: border-box;
+  padding: calc(var(--container-padding) / 1.25) var(--container-padding);
+  position: absolute;
+  bottom: 0;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  background: linear-gradient(to bottom, transparent, black);
+  cursor: initial !important;
+}
+
+.video-controls.visible {
+  opacity: 1;
+}
+
+.video-controls.hidden {
+  opacity: 0;
+}
+
+/* Personnalisation du bouton Play/Pause et Mute/Unmute */
+.player-btn {
+  background: unset;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  border-radius: 0.5rem;
+  transition: background .2s ease-in-out;
+  height: 1.75rem;
+  min-width: min-content;
+  align-items: center;
+}
+
+.player-btn:hover {
+  background: #ffffff30;
+}
+
+/* Personnalisation du slider de volume */
+.volume-slider {
+  -webkit-appearance: none; /* Retire l'apparence par défaut du slider */
+  width: 120px;
+  height: 6px;
+  background: #ffffff40;
+  border-radius: 5px;
+  outline: none;
+  transition: background 0.3s ease;
+  cursor: pointer;
+}
+
+/* Personnalisation du curseur du volume */
+.volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background: #ff00cb; /* Couleur du curseur */
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+/* Changer la couleur du curseur au survol */
+.volume-slider:hover::-webkit-slider-thumb {
+  background: #ff00cb;
+}
+
+/* Personnalisation de la barre de progression */
+.progress-container {
+  width: 100%;
+}
+
+.player-controls {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.player-controls div {
+  display: flex;
+  align-items: center;
+  gap: var(--container-padding);
+}
+
+.player-icon {
+  fill: white;
+  /*width: 1rem;*/
+  height: 1rem;
+  padding: 0.25rem;
+}
+
+.progress-bar {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 6px;
+  /*background: #ddd;*/
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+  transition: background 0.3s ease;
+}
+
+/* Personnalisation de la progression de la vidéo (remplissage dynamique) */
+.progress-bar::-webkit-slider-runnable-track {
+  height: 6px;
+  border-radius: 5px;
+  /*background: #ddd;*/
+}
+
+.progress-bar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background: #ff00cb; /* Couleur du curseur */
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+/* Changer la couleur du curseur au survol */
+.progress-bar:hover::-webkit-slider-thumb {
+  background: #ff00cb;
+}
+
+.progress-bar:focus {
+  outline: none;
+}
+
+/* Enlever complètement le cercle blanc ou gris sur tous les sliders */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 0; /* Retirer la taille par défaut */
+  height: 0;
+  background: transparent; /* S'assurer qu'il est invisible */
+  border: none; /* Supprimer la bordure */
+  box-shadow: none; /* Supprimer toute ombre */
+}
+
+input[type="range"]::-moz-range-thumb {
+  appearance: none;
+  width: 0;
+  height: 0;
+  background: transparent; /* S'assurer qu'il est invisible */
+  border: none; /* Supprimer la bordure */
+  box-shadow: none; /* Supprimer toute ombre */
+}
+
+input[type="range"]::-ms-thumb {
+  appearance: none;
+  width: 0;
+  height: 0;
+  background: transparent; /* S'assurer qu'il est invisible */
+  border: none; /* Supprimer la bordure */
+  box-shadow: none; /* Supprimer toute ombre */
+}
+
+/* HERO */
 .hero {
   width: 100%;
-  height: min-content;
-  border-bottom: 0.5px solid var(--dark-grey);
+  background: var(--foreground);
+  /*padding: calc(var(--container-padding)*4) var(--container-padding);*/
+  padding: var(--container-padding);
+  box-sizing: border-box;
+  /*border-top: 0.5px solid var(--dark-grey);
+  border-bottom: 0.5px solid var(--dark-grey);*/
+  padding-top: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .hero-container {
@@ -1073,7 +1293,7 @@ header {
   flex-direction: column;
 
   display: grid;
-  grid-template-columns: repeat(auto-fill,minmax(600px,1fr));
+  grid-template-columns: repeat(auto-fill,minmax(500px,1fr));
   grid-gap: var(--container-padding);
 }
 
@@ -1081,6 +1301,12 @@ header {
   min-height: auto;
   width: 100%;
   aspect-ratio: 16/9;
+  border-radius: calc(var(--border-radius)/2);
+}
+
+.portfolio-popup-dynamic-content iframe .ytp-chrome-top,
+.portfolio-popup-dynamic-content iframe .ytp-show-cards-title {
+  display: none !important;  
 }
 
 .portfolio-popup-content-header {
@@ -1145,229 +1371,7 @@ header {
 }
 
 
-/* GRAPHIC DESIGN SECTION */
-.graphic-design {
-  width: 100%;
-  background: var(--foreground);
-  /*padding: calc(var(--container-padding)*4) var(--container-padding);*/
-  padding: var(--container-padding);
-  box-sizing: border-box;
-  /*border-top: 0.5px solid var(--dark-grey);
-  border-bottom: 0.5px solid var(--dark-grey);*/
-  padding-top: 0;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
 
-.graphic-design-container {
-  width: 100%;
-  height: 100%;
-  /*height: calc(50vh - var(--container-padding)*2);*/
-  border-radius: var(--border-radius);
-  /*border-top-left-radius: 0;
-  border-top-right-radius: 0;*/
-  overflow: hidden;
-  /*background: var(--secondary-color);*/
-  /*background: linear-gradient(to top, var(--secondary-color), var(--foreground));*/
-  padding: unset;
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-}
-
-.graphic-design-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  pointer-events: none; /* Disable interaction with the iframe */
-}
-
-.graphic-design-video {
-  flex-grow: 1;
-  width: 100%;
-  /*height: calc(100vh - (2vw - (var(--container-padding)*4)));*/
-  height: 100%;
-  aspect-ratio: 16/9;
-  object-fit: cover;
-  filter: contrast(1.1) brightness(1.05);
-  /*-webkit-mask-image: -webkit-gradient(linear, left 90%, left 0%, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));*/
-  /*-webkit-mask-image: -webkit-gradient(linear, left bottom, left top, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));*/
-}
-
-.fullscreen-video {
-  width: 100vw;  /* 100% de la largeur de l'écran */
-  height: auto;  /* Respecte les proportions de la vidéo */
-  object-fit: contain;  /* Couvre tout l'écran sans déformation */
-  cursor: initial !important;
-}
-
-/* Styles généraux pour les contrôles */
-.video-controls {
-  display: flex;
-  gap: calc(var(--container-padding) / 2);
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  box-sizing: border-box;
-  padding: calc(var(--container-padding) / 1.25) var(--container-padding);
-  position: absolute;
-  bottom: 0;
-  opacity: 0;
-  transition: opacity 0.2s ease-in-out;
-  background: linear-gradient(to bottom, transparent, black);
-  cursor: initial !important;
-}
-
-.video-controls.visible {
-  opacity: 1;
-}
-
-.video-controls.hidden {
-  opacity: 0;
-}
-
-/* Personnalisation du bouton Play/Pause et Mute/Unmute */
-.player-btn {
-  background: unset;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  border-radius: 0.5rem;
-  transition: background .2s ease-in-out;
-  height: 1.75rem;
-  min-width: min-content;
-  align-items: center;
-}
-
-.player-btn:hover {
-  background: #ffffff30;
-}
-
-/* Personnalisation du slider de volume */
-.volume-slider {
-  -webkit-appearance: none; /* Retire l'apparence par défaut du slider */
-  width: 120px;
-  height: 6px;
-  background: #ffffff40;
-  border-radius: 5px;
-  outline: none;
-  transition: background 0.3s ease;
-  cursor: pointer;
-}
-
-/* Personnalisation du curseur du volume */
-.volume-slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 16px;
-  height: 16px;
-  background: #ff00cb; /* Couleur du curseur */
-  border-radius: 50%;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-/* Changer la couleur du curseur au survol */
-.volume-slider:hover::-webkit-slider-thumb {
-  background: #ff00cb;
-}
-
-/* Personnalisation de la barre de progression */
-.progress-container {
-  width: 100%;
-}
-
-.player-controls {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-}
-
-.player-controls div {
-  display: flex;
-  align-items: center;
-  gap: var(--container-padding);
-}
-
-.player-icon {
-  fill: white;
-  /*width: 1rem;*/
-  height: 1rem;
-  padding: 0.25rem;
-}
-
-.progress-bar {
-  -webkit-appearance: none;
-  width: 100%;
-  height: 6px;
-  /*background: #ddd;*/
-  border-radius: 5px;
-  cursor: pointer;
-  outline: none;
-  transition: background 0.3s ease;
-}
-
-/* Personnalisation de la progression de la vidéo (remplissage dynamique) */
-.progress-bar::-webkit-slider-runnable-track {
-  height: 6px;
-  border-radius: 5px;
-  /*background: #ddd;*/
-}
-
-.progress-bar::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 16px;
-  height: 16px;
-  background: #ff00cb; /* Couleur du curseur */
-  border-radius: 50%;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-/* Changer la couleur du curseur au survol */
-.progress-bar:hover::-webkit-slider-thumb {
-  background: #ff00cb;
-}
-
-.progress-bar:focus {
-  outline: none;
-}
-
-/* Enlever complètement le cercle blanc ou gris sur tous les sliders */
-input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 0; /* Retirer la taille par défaut */
-  height: 0;
-  background: transparent; /* S'assurer qu'il est invisible */
-  border: none; /* Supprimer la bordure */
-  box-shadow: none; /* Supprimer toute ombre */
-}
-
-input[type="range"]::-moz-range-thumb {
-  appearance: none;
-  width: 0;
-  height: 0;
-  background: transparent; /* S'assurer qu'il est invisible */
-  border: none; /* Supprimer la bordure */
-  box-shadow: none; /* Supprimer toute ombre */
-}
-
-input[type="range"]::-ms-thumb {
-  appearance: none;
-  width: 0;
-  height: 0;
-  background: transparent; /* S'assurer qu'il est invisible */
-  border: none; /* Supprimer la bordure */
-  box-shadow: none; /* Supprimer toute ombre */
-}
 
 
 /* FOOTER */
@@ -1545,7 +1549,7 @@ input[type="range"]::-ms-thumb {
 
   /* PORTFOLIO */
   .portfolio-popup-dynamic-content {
-    grid-template-columns: repeat(auto-fill,minmax(500px,1fr));
+    grid-template-columns: repeat(auto-fill,minmax(700px,1fr));
   }
 
   /* FOOTER */
@@ -1554,6 +1558,13 @@ input[type="range"]::-ms-thumb {
   }
   .footer-link {
     font-size: 2.5vw;
+  }
+}
+
+
+@media only screen and (min-width: 1600px) {
+  .portfolio-popup-dynamic-content {
+    grid-template-columns: repeat(auto-fill,minmax(650px,1fr));
   }
 }
 
@@ -1653,6 +1664,9 @@ input[type="range"]::-ms-thumb {
   .footer-cc {
     font-size: 1.25rem;
   }
+  .portfolio-popup-dynamic-content {
+    grid-template-columns: repeat(auto-fill,minmax(400px,1fr));
+  }
 }
 
 @media only screen and (max-width: 960px) {
@@ -1712,6 +1726,11 @@ input[type="range"]::-ms-thumb {
 
   .portfolio-popup-content-header-block div p:last-child {
 
+  }
+
+  .portfolio-popup-dynamic-content {
+    display: flex;
+    flex-direction: column;
   }
   
  

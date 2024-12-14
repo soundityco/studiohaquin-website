@@ -1,6 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import { ArrowLeftIcon, ArrowRightIcon, CloseIcon } from "./Images";
 
+// Importing Components
+import VideoPlayer from "@/components/VideoPlayer";
+
 interface Project {
   name: string;
   description: string;
@@ -29,13 +32,12 @@ export function Portfolio() {
   const projects: Project[] = [
     {
       name: "Decathlon",
-      description: "Mini série 'Réussites 2024'",
+      description: "Mini série 'Réussites'",
       date: "2024",
       content: {
-        videos: [//"https://youtube.com/embed/playlist?list=PL1-Jamab2g2v-dF1sXsxNcdRR-MkTwz6A&si=wQ7tZ55a7Uz4E4zx?rel=0&controls=1&modestbranding=1&showinfo=0&autoplay=0",
-                 "https://youtube.com/embed/FIpooQI-Qko?rel=0&controls=1&modestbranding=1&showinfo=0&autoplay=0",
-                 "https://youtube.com/embed/pOXqF5LxT5k?rel=0&controls=1&modestbranding=1&showinfo=0&autoplay=0",
-                 "https://youtube.com/embed/0NhUkX7_qSA?rel=0&controls=1&modestbranding=1&showinfo=0&autoplay=0",
+        videos: ["https://youtube.com/embed/FIpooQI-Qko?rel=0&controls=0&modestbranding=0&showinfo=0&autoplay=0",
+                 "https://youtube.com/embed/pOXqF5LxT5k?rel=0&controls=1&modestbranding=0&showinfo=0&autoplay=0",
+                 "https://youtube.com/embed/0NhUkX7_qSA?rel=0&controls=0&modestbranding=0&showinfo=0&autoplay=0",
         ],
         iframes: [],
         photos: [],
@@ -46,10 +48,10 @@ export function Portfolio() {
     },
     {
       name: "Galeries Lafayette",
-      description: "Évènement 'Mère Fille' 2024",
+      description: "Évènement 'Mère Fille'",
       date: "2024",
       content: {
-        videos: ["https://www.youtube.com/embed/J2JJ-yZ2ujk?rel=0&controls=1&modestbranding=1&showinfo=0&autoplay=0"],
+        videos: ["https://www.youtube.com/embed/J2JJ-yZ2ujk?rel=0&controls=0&modestbranding=0&showinfo=0&autoplay=0"],
         iframes: [],
         photos: [],
         text: {
@@ -62,7 +64,7 @@ export function Portfolio() {
       description: "Pub + Interviews",
       date: "2024",
       content: {
-        videos: ["https://www.youtube.com/embed/p5dpBF0kLKU?rel=0&controls=1&modestbranding=1&showinfo=0&autoplay=0"],
+        videos: ["https://www.youtube.com/embed/p5dpBF0kLKU?rel=0&controls=0&modestbranding=0&showinfo=0&autoplay=0"],
         iframes: [],
         photos: [],
         text: {
@@ -70,25 +72,13 @@ export function Portfolio() {
         },
       },
     },
-    /*{
-      name: "Polyphonia",
-      description: "Web design + développement",
-      date: "2024",
-      content: {
-        iframes: ["https://polyphoniamusic.com"],
-        videos: [],
-        photos: [],
-        text: {
-          description: "Réalisation, conception et développement web du site web du label POLYPHONIA.",
-        },
-      },
-    },*/
+    
     {
       name: "La Cour",
-      description: "Rénovation restaurant La Cour",
+      description: "Rénovation du restaurant",
       date: "2024",
       content: {
-        videos: ["https://www.youtube.com/embed/P4d_1Tb2uAw?rel=0&controls=1&modestbranding=1&showinfo=0&autoplay=0"],
+        videos: ["https://www.youtube.com/embed/P4d_1Tb2uAw?rel=0&controls=0&modestbranding=0&showinfo=0&autoplay=0"],
         iframes: [],
         photos: [],
         text: {
@@ -96,44 +86,19 @@ export function Portfolio() {
         },
       },
     },
-    /*{
-      name: "Airval Studio",
-      description: "Web design + développement",
-      date: "2024",
-      content: {
-        iframes: ["https://airvalstudio.com"],
-        videos: [],
-        photos: [],
-        text: {
-          description: "Réalisation, conception et développement web du site web d'Airval Studio.",
-        },
-      },
-    },*/
-    /*{
-      name: "blurblur",
-      description: "Web design + développement",
-      date: "2024",
-      content: {
-        iframes: ["https://blurblurmusic.com"],
-        videos: [],
-        photos: [],
-        text: {
-          description: "Réalisation, conception et développement web du site web de l'artiste blurblur.",
-        },
-      },
-    },*/
+    
     {
       name: "Doris Oppenlander",
       description: "Série de vidéos YouTube",
       date: "2023 — 2024",
       content: {
-        videos: ["https://youtube.com/embed/Dwnl_BvyhdY?rel=0&controls=1&modestbranding=1&showinfo=0&autoplay=0",
-                 "https://youtube.com/embed/ZbT4yy6ZU6I?rel=0&controls=1&modestbranding=1&showinfo=0&autoplay=0",
-                 "https://youtube.com/embed/YB3SCKTtBLM?rel=0&controls=1&modestbranding=1&showinfo=0&autoplay=0",
-                 "https://youtube.com/embed/DhnqP_J-MoQ?rel=0&controls=1&modestbranding=1&showinfo=0&autoplay=0",
-                 "https://youtube.com/embed/IFKT_fekZw4?rel=0&controls=1&modestbranding=1&showinfo=0&autoplay=0",
-                 "https://youtube.com/embed/QTpHOYt04QU?rel=0&controls=1&modestbranding=1&showinfo=0&autoplay=0",
-                 "https://youtube.com/embed/H6wkoTE8oyo?rel=0&controls=1&modestbranding=1&showinfo=0&autoplay=0",
+        videos: ["https://youtube.com/embed/Dwnl_BvyhdY?rel=0&controls=0&modestbranding=0&showinfo=0&autoplay=0",
+                 "https://youtube.com/embed/ZbT4yy6ZU6I?rel=0&controls=0&modestbranding=0&showinfo=0&autoplay=0",
+                 "https://youtube.com/embed/YB3SCKTtBLM?rel=0&controls=0&modestbranding=0&showinfo=0&autoplay=0",
+                 "https://youtube.com/embed/DhnqP_J-MoQ?rel=0&controls=0&modestbranding=0&showinfo=0&autoplay=0",
+                 "https://youtube.com/embed/IFKT_fekZw4?rel=0&controls=0&modestbranding=0&showinfo=0&autoplay=0",
+                 "https://youtube.com/embed/QTpHOYt04QU?rel=0&controls=0&modestbranding=0&showinfo=0&autoplay=0",
+                 "https://youtube.com/embed/H6wkoTE8oyo?rel=0&controls=0&modestbranding=0&showinfo=0&autoplay=0",
         ],
         iframes: [],
         photos: [],
@@ -142,19 +107,7 @@ export function Portfolio() {
         },
       },
     },
-    /*{
-      name: "Soundity",
-      description: "Web design + développement",
-      date: "2023",
-      content: {
-        iframes: ["https://soundity-website.vercel.app"],
-        videos: [],
-        photos: [],
-        text: {
-          description: "Réalisation, conception et développement web du site web de Soundity.",
-        },
-      },
-    },*/
+    
     {
       name: "Faux Raccords Prod",
       description: "Court métrage L'ERMITE",
@@ -162,7 +115,7 @@ export function Portfolio() {
       content: {
         iframes: [],
         videos: [
-          "https://www.youtube.com/embed/JmFNhAO9LEs?si=ZxiMIDiWsEbhnfzs?rel=0&controls=1&modestbranding=1&showinfo=0&autoplay=0"
+          "https://www.youtube.com/embed/JmFNhAO9LEs?si=ZxiMIDiWsEbhnfzs?rel=0&controls=0&modestbranding=0&showinfo=0&autoplay=0"
         ],
         photos: [],
         text: {
@@ -170,32 +123,7 @@ export function Portfolio() {
         },
       },
     },
-    /*{
-      name: "Noelse",
-      description: "Création graphique + motion design + 3D",
-      date: "2021 — 2023",
-      content: {
-        iframes: [],
-        videos: [],
-        photos: [],
-        text: {
-          description: "Conception et création de contenu graphique et vidéos pour les réseaux sociaux et le site web de la banque en ligne Noelse.",
-        },
-      },
-    },*/
-    /*{
-      name: "Anuit' Anjou (Fictif)",
-      description: "Création graphique + motion design",
-      date: "2021",
-      content: {
-        iframes: [],
-        videos: [],
-        photos: [],
-        text: {
-          description: "Web design pour le site web et l'application de Anuit' Anjou (projet étudiant fictif).",
-        },
-      },
-    },*/
+    
   ];
 
   const handleClick = (index: number) => {
@@ -362,24 +290,6 @@ export function Portfolio() {
 
               {/* Dynamic content */}
               <div className="portfolio-popup-dynamic-content">
-                {/*{activeProject.content.text && (
-                  <div>
-                    {activeProject.content.text.title && (
-                      <h3>{activeProject.content.text.title}</h3>
-                    )}
-                    {activeProject.content.text.subtitle && (
-                      <h4>{activeProject.content.text.subtitle}</h4>
-                    )}
-                    {activeProject.content.text.description && (
-                      <p>{activeProject.content.text.description}</p>
-                    )}
-                    {activeProject.content.text.links?.map((link, i) => (
-                      <a key={i} href={link.url} target="_blank" rel="noopener noreferrer">
-                        {link.label}
-                      </a>
-                    ))}
-                  </div>
-                )}*/}
 
                 {/* Video Content */}
                 {activeProject.content.videos?.map((videoUrl, i) => (
@@ -394,6 +304,12 @@ export function Portfolio() {
                     allowFullScreen
                   ></iframe>
                 ))}
+                {/*
+                  <VideoPlayer
+                    videoSrc={videoUrl}
+                    posterSrc={""}
+                  />
+                */}
 
                 {/* Photo Content */}
                 {activeProject.content.photos?.map((photoUrl, i) => (

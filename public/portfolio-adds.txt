@@ -1,0 +1,107 @@
+
+    {
+      name: "Noelse",
+      description: "Création graphique + motion design + 3D",
+      date: "2021 — 2023",
+      content: {
+        iframes: [],
+        videos: [],
+        photos: [],
+        text: {
+          description: "Conception et création de contenu graphique et vidéos pour les réseaux sociaux et le site web de la banque en ligne Noelse.",
+        },
+      },
+    },
+    {
+      name: "Anuit' Anjou (Fictif)",
+      description: "Création graphique + motion design",
+      date: "2021",
+      content: {
+        iframes: [],
+        videos: [],
+        photos: [],
+        text: {
+          description: "Web design pour le site web et l'application de Anuit' Anjou (projet étudiant fictif).",
+        },
+      },
+    },
+
+
+    /*{
+      name: "Polyphonia",
+      description: "Web design + développement",
+      date: "2024",
+      content: {
+        iframes: ["https://polyphoniamusic.com"],
+        videos: [],
+        photos: [],
+        text: {
+          description: "Réalisation, conception et développement web du site web du label POLYPHONIA.",
+        },
+      },
+    },*/
+/*{
+      name: "Airval Studio",
+      description: "Web design + développement",
+      date: "2024",
+      content: {
+        iframes: ["https://airvalstudio.com"],
+        videos: [],
+        photos: [],
+        text: {
+          description: "Réalisation, conception et développement web du site web d'Airval Studio.",
+        },
+      },
+    },*/
+    /*{
+      name: "blurblur",
+      description: "Web design + développement",
+      date: "2024",
+      content: {
+        iframes: ["https://blurblurmusic.com"],
+        videos: [],
+        photos: [],
+        text: {
+          description: "Réalisation, conception et développement web du site web de l'artiste blurblur.",
+        },
+      },
+    },*/
+/*{
+      name: "Soundity",
+      description: "Web design + développement",
+      date: "2023",
+      content: {
+        iframes: ["https://soundity-website.vercel.app"],
+        videos: [],
+        photos: [],
+        text: {
+          description: "Réalisation, conception et développement web du site web de Soundity.",
+        },
+      },
+    },*/
+/*{
+      name: "Noelse",
+      description: "Création graphique + motion design + 3D",
+      date: "2021 — 2023",
+      content: {
+        iframes: [],
+        videos: [],
+        photos: [],
+        text: {
+          description: "Conception et création de contenu graphique et vidéos pour les réseaux sociaux et le site web de la banque en ligne Noelse.",
+        },
+      },
+    },*/
+    /*{
+      name: "Anuit' Anjou (Fictif)",
+      description: "Création graphique + motion design",
+      date: "2021",
+      content: {
+        iframes: [],
+        videos: [],
+        photos: [],
+        text: {
+          description: "Web design pour le site web et l'application de Anuit' Anjou (projet étudiant fictif).",
+        },
+      },
+    },*/
