@@ -78,8 +78,7 @@ export function Portfolio() {
       description: "Rénovation du restaurant",
       date: "2024",
       content: {
-        //videos: ["https://www.youtube.com/embed/P4d_1Tb2uAw?rel=0&controls=0&modestbranding=0&showinfo=0&autoplay=0"],
-        videos: ["https://live.staticflickr.com/video/54204822419/980b20ae5f/1080p.mp4?s=eyJpIjo1NDIwNDgyMjQxOSwiZSI6MTczNDIxOTc2NCwicyI6ImJkM2JiZGFjYzQ1YjQ2ZjA3NzQ3OGNiZjM4ODY2MTVjOGM3MTU5MjEiLCJ2IjoxfQ"],
+        videos: ["https://www.youtube.com/embed/P4d_1Tb2uAw?rel=0&controls=0&modestbranding=0&showinfo=0&autoplay=0"],
         iframes: [],
         photos: [],
         text: {
