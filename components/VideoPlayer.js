@@ -137,6 +137,73 @@ const VideoPlayer = ({ videoSrc, posterSrc }) => {
     };
   }, []);
 
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      const key = event.key.toLowerCase(); // Normaliser la clé pour ignorer la casse
+      switch (key) {
+        case "m": // "M" sur AZERTY ou QWERTY
+        case "ù": // Parfois "ù" sur AZERTY (selon la configuration)
+          toggleMute();
+          break;
+  
+        case "f": // Plein écran
+          toggleFullScreen();
+          break;
+  
+        case "arrowright": // Avancer de 10 secondes
+          if (videoRef.current) {
+            videoRef.current.currentTime = Math.min(
+              videoRef.current.currentTime + 10,
+              videoRef.current.duration
+            );
+          }
+          break;
+  
+        case "arrowleft": // Reculer de 10 secondes
+          if (videoRef.current) {
+            videoRef.current.currentTime = Math.max(
+              videoRef.current.currentTime - 10,
+              0
+            );
+          }
+          break;
+  
+        case " ": // Lecture/Pause
+          event.preventDefault();
+          togglePlayPause();
+          break;
+  
+        case "arrowup": // Augmenter le volume
+          event.preventDefault();
+          setVolume((prevVolume) => {
+            const newVolume = Math.min(prevVolume + 0.1, 1);
+            if (videoRef.current) videoRef.current.volume = newVolume;
+            return newVolume;
+          });
+          break;
+  
+        case "arrowdown": // Diminuer le volume
+          event.preventDefault();
+          setVolume((prevVolume) => {
+            const newVolume = Math.max(prevVolume - 0.1, 0);
+            if (videoRef.current) videoRef.current.volume = newVolume;
+            return newVolume;
+          });
+          break;
+  
+        default:
+          break;
+      }
+    };
+  
+    document.addEventListener("keydown", handleKeyDown);
+  
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [togglePlayPause, toggleFullScreen, toggleMute, setVolume]);
+  
+
   return (
     <div ref={containerRef} className="video-player-container">
       <video
