@@ -1898,16 +1898,19 @@ input[type="range"]::-ms-thumb {
   .portfolio-popup-content-header {
     gap: 1.5rem;
   }
+  .portfolio-popup-content-header div {
+    gap: 1.25rem;
+  }
 
   .portfolio-popup-content-header-block h2 {
-    font-size: 2rem;
+    font-size: 1.75rem;
   }
   .portfolio-popup-content-header-block p {
     font-size: 1.25rem;
   }
 
   .portfolio-icon {
-    height: 1.25rem;
+    height: 1rem;
   }
   
   /* CLIENT */
