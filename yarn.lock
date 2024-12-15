@@ -29,6 +29,11 @@
   dependencies:
     tslib "^2.4.0"
 
+"@types/locomotive-scroll@^4.1.4":
+  version "4.1.4"
+  resolved "https://registry.npmjs.org/@types/locomotive-scroll/-/locomotive-scroll-4.1.4.tgz"
+  integrity sha512-G8GUr/ML/Ssxxl83VYbtFHMFoPNOQh/glzPWi5Z3Jk7Hng26Sl0ckAV11uq1AGKEq40jFMPhyAIuQ6fGPiBmHQ==
+
 "@types/node@^20":
   version "20.11.26"
   resolved "https://registry.npmjs.org/@types/node/-/node-20.11.26.tgz"
@@ -152,6 +157,20 @@ lenis@^1.1.13:
   integrity sha512-iny+vWwUHcZGbJz+p2I75H1muLBRZqSG7t04jnhA+CWOQDFL1vt9bsZDwPPtYEmYVVvqAdo5MbXVFzNOlbgUkQ==
   dependencies:
     "@darkroom.engineering/tempus" "^0.0.46"
+
+lenis@1.1.9:
+  version "1.1.9"
+  resolved "https://registry.npmjs.org/lenis/-/lenis-1.1.9.tgz"
+  integrity sha512-xU2UU1J8mJCiWBSfiMWsC/kPbQMIadSsJiEu3mVqptXGnwo/FUnfp8xCyiOJEvBwzqx4XDdB6TKYFn83y871vA==
+  dependencies:
+    "@darkroom.engineering/tempus" "^0.0.46"
+
+locomotive-scroll@^5.0.0-beta.21:
+  version "5.0.0-beta.21"
+  resolved "https://registry.npmjs.org/locomotive-scroll/-/locomotive-scroll-5.0.0-beta.21.tgz"
+  integrity sha512-UrvuBVxI9rX7b0SkLzZwlzUqZ22Oybj6c6jBflqvH6bdQEb+OcsOpQg65cFJPY0IYBNGnaHkLHr/EDDW6y6scQ==
+  dependencies:
+    lenis "1.1.9"
 
 lodash.throttle@^4.1.1:
   version "4.1.1"

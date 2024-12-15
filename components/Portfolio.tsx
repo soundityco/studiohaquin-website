@@ -19,7 +19,8 @@ interface Project {
 }
 
 export function Portfolio() {
-  const [activeProjectIndex, setActiveProjectIndex] = useState<number | null>(null);
+  //const [activeProjectIndex, setActiveProjectIndex] = useState<number | null>(null);
+  const [activeProjectIndex, setActiveProjectIndex] = useState(0);
   const [isPopupActive, setIsPopupActive] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
   const [isLeftPressed, setIsLeftPressed] = useState(false);
@@ -125,13 +126,13 @@ export function Portfolio() {
     setActiveProjectIndex(index);
   };
 
-  const handleClosePopup = () => {
+  /*const handleClosePopup = () => {
     setIsClosing(true);
     setTimeout(() => {
       setActiveProjectIndex(null);
       setIsClosing(false);
     }, 300);
-  };
+  };*/
 
   const handleNextProject = () => {
     setActiveProjectIndex((prevIndex) => {
@@ -148,9 +149,7 @@ export function Portfolio() {
   };
 
   const handleKeyDown = (e: KeyboardEvent) => {
-    if (e.key === "Escape") {
-      handleClosePopup();
-    } else if (activeProjectIndex !== null) {
+    if (activeProjectIndex !== null) {
       if (e.key === "ArrowRight") {
         setIsRightPressed(true);
         handleNextProject();
@@ -179,13 +178,13 @@ export function Portfolio() {
     };
   }, [activeProjectIndex]);
 
-  const handleOutsideClick = (e: MouseEvent) => {
+  /*const handleOutsideClick = (e: MouseEvent) => {
     if (popupRef.current && !popupRef.current.contains(e.target as Node)) {
       handleClosePopup();
     }
-  };
+  };*/
 
-  useEffect(() => {
+  /*useEffect(() => {
     if (activeProjectIndex !== null) {
       window.addEventListener("mousedown", handleOutsideClick);
     } else {
@@ -195,7 +194,7 @@ export function Portfolio() {
     return () => {
       window.removeEventListener("mousedown", handleOutsideClick);
     };
-  }, [activeProjectIndex]);
+  }, [activeProjectIndex]);*/
 
   useEffect(() => {
     if (activeProjectIndex !== null) {
@@ -236,7 +235,7 @@ export function Portfolio() {
   const activeProject = activeProjectIndex !== null ? projects[activeProjectIndex] : null;
 
   return (
-    <section className="portfolio" id="portfolio">
+    <section className="portfolio" id="portfolio" data-scroll-container="true">
       <div className="portfolio-container container">
         <nav>
           <ul>
@@ -262,22 +261,25 @@ export function Portfolio() {
 
       {/* Popup Section */}
       {activeProject && (
-        <div className={`portfolio-popup ${isPopupActive ? 'active' : ''} ${isClosing ? 'closing' : ''}`}>
-          <div className={`portfolio-popup-container ${isPopupActive ? 'active' : ''} ${isClosing ? 'closing' : ''}`} ref={popupRef}>
+          <div
+            className={`portfolio-popup-container ${isPopupActive ? 'active' : ''} ${isClosing ? 'closing' : ''}`}
+            ref={popupRef}
+          >
+            {/*<div className="scrollable-div"></div>*/}
             <div className="portfolio-popup-content">
               <div className="portfolio-popup-content-header">
                 <div>
                   <div className="portfolio-popup-content-header-block">
-                    <h2>{activeProject.name}{/*<ArrowCornerIcon/>*/}</h2>
+                    <h2>{activeProject.name}</h2>
                     <div>
-                      <h3>{activeProject.description}</h3>
-                      <p>{activeProject.date}</p>
+                      <h3>{activeProject.description} • {activeProject.date}</h3>
+                      {/*<p>{activeProject.date}</p>*/}
                     </div>
                   </div>
                   <div className="portfolio-popup-content-header-block">
-                    <span onClick={handleClosePopup}>
+                    {/*<span onClick={handleClosePopup}>
                       <CloseIcon className="portfolio-icon" />
-                    </span>
+                    </span>*/}
                     <div>
                       <span onClick={handlePrevProject}>
                         <ArrowLeftIcon className={`portfolio-icon ${isLeftPressed ? 'pressed' : ''}`} />
@@ -289,25 +291,19 @@ export function Portfolio() {
                   </div>
                 </div>
                 <div>
-                    {activeProject.content.text && (
-                      <>
-                        {activeProject.content.text.title && (
-                          <h3>{activeProject.content.text.title}</h3>
-                        )}
-                        {activeProject.content.text.subtitle && (
-                          <h4>{activeProject.content.text.subtitle}</h4>
-                        )}
-                        {activeProject.content.text.description && (
-                          <p>{activeProject.content.text.description}</p>
-                        )}
-                        {activeProject.content.text.links?.map((link, i) => (
-                          <a key={i} href={link.url} target="_blank" rel="noopener noreferrer">
-                            {link.label}
-                          </a>
-                        ))}
-                      </>
-                    )}
-                  </div>
+                  {activeProject.content.text && (
+                    <>
+                      {activeProject.content.text.title && <h3>{activeProject.content.text.title}</h3>}
+                      {activeProject.content.text.subtitle && <h4>{activeProject.content.text.subtitle}</h4>}
+                      {activeProject.content.text.description && <p>{activeProject.content.text.description}</p>}
+                      {activeProject.content.text.links?.map((link, i) => (
+                        <a key={i} href={link.url} target="_blank" rel="noopener noreferrer">
+                          {link.label}
+                        </a>
+                      ))}
+                    </>
+                  )}
+                </div>
               </div>
 
               {/* Dynamic content */}
@@ -341,8 +337,8 @@ export function Portfolio() {
               </div>
             </div>
           </div>
-        </div>
       )}
+
     </section>
   );
 }
