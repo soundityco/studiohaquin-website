@@ -153,7 +153,7 @@ const VideoPlayer = ({ videoSrc, posterSrc }) => {
         case "arrowright": // Avancer de 10 secondes
           if (videoRef.current) {
             videoRef.current.currentTime = Math.min(
-              videoRef.current.currentTime + 10,
+              videoRef.current.currentTime + 3,
               videoRef.current.duration
             );
           }
@@ -162,7 +162,7 @@ const VideoPlayer = ({ videoSrc, posterSrc }) => {
         case "arrowleft": // Reculer de 10 secondes
           if (videoRef.current) {
             videoRef.current.currentTime = Math.max(
-              videoRef.current.currentTime - 10,
+              videoRef.current.currentTime - 3,
               0
             );
           }
