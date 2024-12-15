@@ -215,8 +215,22 @@ export function Portfolio() {
   }, [activeProjectIndex]); // Cet effet se déclenche lorsque le projet change
 
   const handleThumbnailClick = (videoId: string) => {
-    setHiddenThumbnails((prev) => [...prev, videoId]); // Ajouter l'ID de la vidéo à la liste des miniatures masquées
-    setActiveVideoId(videoId); // Définir la vidéo active à jouer
+    // Si la vidéo cliquée est déjà celle active, on ne fait rien
+    if (activeVideoId === videoId) return;
+  
+    // Réinitialiser la liste des miniatures visibles, réapparaître la vidéo précédente
+    setHiddenThumbnails((prev) => {
+      // Enlever l'ancienne vidéo de la liste des miniatures masquées
+      const updatedThumbnails = prev.filter((id) => id !== activeVideoId);
+  
+      // Ajouter la nouvelle vidéo à la liste des vidéos masquées
+      updatedThumbnails.push(videoId);
+  
+      return updatedThumbnails;
+    });
+  
+    // Définir la nouvelle vidéo comme active
+    setActiveVideoId(videoId);
   };
 
   const activeProject = activeProjectIndex !== null ? projects[activeProjectIndex] : null;
