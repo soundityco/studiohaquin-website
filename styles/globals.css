@@ -1315,7 +1315,16 @@ input[type="range"]::-ms-thumb {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  user-select: none;
   /*pointer-events: none;*/
+  opacity: 1;
+  transition: all .5s cubic-bezier(.7,0,.4,1.01);
+  transform: scale(1);
+}
+
+.portfolio-popup-dynamic-content div img:hover {
+  opacity: 0.75;
+  transform: scale(1.02);
 }
 
 .portfolio-popup-dynamic-content iframe {

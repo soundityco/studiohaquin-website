@@ -321,6 +321,7 @@ export function Portfolio() {
                         alt={`Thumbnail for Video ${i + 1}`}
                         style={{ cursor: "pointer" }}
                         onClick={() => handleThumbnailClick(videoId)} // Masquer l'image au clic
+                        draggable="false"
                       />
                     )}
 
