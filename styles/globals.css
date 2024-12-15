@@ -1311,7 +1311,9 @@ input[type="range"]::-ms-thumb {
   min-height: auto;
   width: 100%;
   aspect-ratio: 16/9;
-  border-radius: calc(var(--border-radius)/2)
+  border-radius: calc(var(--border-radius)/2);
+  border: solid 1px var(--dark-grey);
+  box-sizing: border-box;
 }
 
 .portfolio-popup-dynamic-content div img {
