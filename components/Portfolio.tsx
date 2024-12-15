@@ -1,7 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import { ArrowLeftIcon, ArrowRightIcon, CloseIcon, ArrowCornerIcon } from "./Images";
-
-// Importing Components
 import VideoPlayer from "@/components/VideoPlayer";
 
 interface Project {
@@ -9,8 +7,7 @@ interface Project {
   description: string;
   date: string;
   content: {
-    videos?: string[];
-    photos?: string[];
+    videoIds?: string[];
     iframes?: string[];
     text?: {
       title?: string;
@@ -27,6 +24,8 @@ export function Portfolio() {
   const [isClosing, setIsClosing] = useState(false);
   const [isLeftPressed, setIsLeftPressed] = useState(false);
   const [isRightPressed, setIsRightPressed] = useState(false);
+  const [hiddenThumbnails, setHiddenThumbnails] = useState<string[]>([]);
+  const [activeVideoId, setActiveVideoId] = useState<string | null>(null);
   const popupRef = useRef<HTMLDivElement | null>(null);
 
   const projects: Project[] = [
@@ -35,14 +34,13 @@ export function Portfolio() {
       description: "Mini série 'Réussites'",
       date: "2024",
       content: {
-        videos: ["https://youtube.com/embed/FIpooQI-Qko?rel=0&controls=0&modestbranding=0&showinfo=0&autoplay=0",
-                 "https://youtube.com/embed/pOXqF5LxT5k?rel=0&controls=1&modestbranding=0&showinfo=0&autoplay=0",
-                 "https://youtube.com/embed/0NhUkX7_qSA?rel=0&controls=0&modestbranding=0&showinfo=0&autoplay=0",
-        ],
+        videoIds: ["FIpooQI-Qko",
+                   "pOXqF5LxT5k",
+                   "0NhUkX7_qSA"],
         iframes: [],
-        photos: [],
         text: {
-          description: "Réalisation d'une série de vidéos promotionnelles et divertissantes destinées aux réseaux sociaux pour Decathlon Les Ponts-de-Cé.",
+          description:
+            "Réalisation d'une série de vidéos promotionnelles et divertissantes destinées aux réseaux sociaux pour Decathlon Les Ponts-de-Cé.",
         },
       },
     },
@@ -51,11 +49,11 @@ export function Portfolio() {
       description: "Évènement 'Mère Fille'",
       date: "2024",
       content: {
-        videos: ["https://www.youtube.com/embed/J2JJ-yZ2ujk?rel=0&controls=0&modestbranding=0&showinfo=0&autoplay=0"],
+        videoIds: ["J2JJ-yZ2ujk"],
         iframes: [],
-        photos: [],
         text: {
-          description: "Réalisation d'une vidéo promotionnelle pour l'évènement 'Mère et Fille' 2024 des Galeries Lafayette d'Angers.",
+          description:
+            "Réalisation d'une vidéo promotionnelle pour l'évènement 'Mère et Fille' 2024 des Galeries Lafayette d'Angers.",
         },
       },
     },
@@ -64,66 +62,63 @@ export function Portfolio() {
       description: "Pub + Interviews",
       date: "2024",
       content: {
-        videos: ["https://www.youtube.com/embed/p5dpBF0kLKU?rel=0&controls=0&modestbranding=0&showinfo=0&autoplay=0"],
+        videoIds: [
+          "p5dpBF0kLKU"
+        ],
         iframes: [],
-        photos: [],
         text: {
-          description: "Réalisation d'une vidéo promotionnelle et d'interviews pour L'Orange Bleue d'Angers.",
-        },
-      },
+          description: "Réalisation d'une vidéo promotionnelle et d'interviews pour L'Orange Bleue d'Angers."
+        }
+      }
     },
-    
     {
       name: "La Cour",
       description: "Rénovation du restaurant",
       date: "2024",
       content: {
-        videos: ["https://www.youtube.com/embed/P4d_1Tb2uAw?rel=0&controls=0&modestbranding=0&showinfo=0&autoplay=0"],
+        videoIds: [
+          "P4d_1Tb2uAw"
+        ],
         iframes: [],
-        photos: [],
         text: {
-          description: "Réalisation d'une vidéo promotionnelle pour la rénovation du bar & restaurant 'La Cour', situé à Angers.",
-        },
-      },
+          description: "Réalisation d'une vidéo promotionnelle pour la rénovation du bar & restaurant 'La Cour', situé à Angers."
+        }
+      }
     },
-    
     {
       name: "Doris Oppenlander",
       description: "Série de vidéos YouTube",
       date: "2023 — 2024",
       content: {
-        videos: ["https://youtube.com/embed/Dwnl_BvyhdY?rel=0&controls=0&modestbranding=0&showinfo=0&autoplay=0",
-                 "https://youtube.com/embed/ZbT4yy6ZU6I?rel=0&controls=0&modestbranding=0&showinfo=0&autoplay=0",
-                 "https://youtube.com/embed/YB3SCKTtBLM?rel=0&controls=0&modestbranding=0&showinfo=0&autoplay=0",
-                 "https://youtube.com/embed/DhnqP_J-MoQ?rel=0&controls=0&modestbranding=0&showinfo=0&autoplay=0",
-                 "https://youtube.com/embed/IFKT_fekZw4?rel=0&controls=0&modestbranding=0&showinfo=0&autoplay=0",
-                 "https://youtube.com/embed/QTpHOYt04QU?rel=0&controls=0&modestbranding=0&showinfo=0&autoplay=0",
-                 "https://youtube.com/embed/H6wkoTE8oyo?rel=0&controls=0&modestbranding=0&showinfo=0&autoplay=0",
+        videoIds: [
+          "H6wkoTE8oyo",
+          "IFKT_fekZw4",
+          "QTpHOYt04QU",
+          "DhnqP_J-MoQ",
+          "YB3SCKTtBLM",
+          "ZbT4yy6ZU6I",
+          "Dwnl_BvyhdY"
         ],
         iframes: [],
-        photos: [],
         text: {
-          description: "Réalisation d'une série de vidéos YouTube sur le divertissement et la vulgarisation de la technique vocale pour la professeur de chant Doris Oppenlander.",
-        },
-      },
+          description: "Réalisation d'une série de vidéos YouTube sur le divertissement et la vulgarisation de la technique vocale pour la professeur de chant Doris Oppenlander."
+        }
+      }
     },
-    
     {
       name: "Faux Raccords Prod",
       description: "Court métrage L'ERMITE",
       date: "2023",
       content: {
-        iframes: [],
-        videos: [
-          "https://www.youtube.com/embed/JmFNhAO9LEs?si=ZxiMIDiWsEbhnfzs?rel=0&controls=0&modestbranding=0&showinfo=0&autoplay=0"
+        videoIds: [
+          "JmFNhAO9LEs"
         ],
-        photos: [],
+        iframes: [],
         text: {
-          description: "Conception et création de contenu graphique et vidéos pour les réseaux sociaux et le site web de la banque en ligne Noelse.",
-        },
-      },
-    },
-    
+          description: "Conception et création de contenu graphique et vidéos pour les réseaux sociaux et le site web de la banque en ligne Noelse."
+        }
+      }
+    }
   ];
 
   const handleClick = (index: number) => {
@@ -211,6 +206,19 @@ export function Portfolio() {
     }
   }, [activeProjectIndex]);
 
+  // Réinitialiser les vidéos quand on change de projet
+  useEffect(() => {
+    if (activeProjectIndex !== null) {
+      setHiddenThumbnails([]); // Réinitialise la visibilité des miniatures
+      setActiveVideoId(null);   // Réinitialise la vidéo active
+    }
+  }, [activeProjectIndex]); // Cet effet se déclenche lorsque le projet change
+
+  const handleThumbnailClick = (videoId: string) => {
+    setHiddenThumbnails((prev) => [...prev, videoId]); // Ajouter l'ID de la vidéo à la liste des miniatures masquées
+    setActiveVideoId(videoId); // Définir la vidéo active à jouer
+  };
+
   const activeProject = activeProjectIndex !== null ? projects[activeProjectIndex] : null;
 
   return (
@@ -290,44 +298,30 @@ export function Portfolio() {
 
               {/* Dynamic content */}
               <div className="portfolio-popup-dynamic-content">
+                {activeProject.content.videoIds?.map((videoId, i) => (
+                  <div key={i}>
+                    {/* Afficher la miniature si elle n'est pas masquée */}
+                    {!hiddenThumbnails.includes(videoId) && (
+                      <img
+                        src={`https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`}
+                        alt={`Thumbnail for Video ${i + 1}`}
+                        style={{ cursor: "pointer" }}
+                        onClick={() => handleThumbnailClick(videoId)} // Masquer l'image au clic
+                      />
+                    )}
 
-                {/* Video Content */}
-                {activeProject.content.videos?.map((videoUrl, i) => (
-                  <iframe
-                    key={i}
-                    //width="560"
-                    //height="500"
-                    src={videoUrl}
-                    title="Project Video"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  ></iframe>
-                ))}
-                {/*
-                  <VideoPlayer
-                    videoSrc={videoUrl}
-                    posterSrc={""}
-                  />
-                */}
-
-                {/* Photo Content */}
-                {activeProject.content.photos?.map((photoUrl, i) => (
-                  <img key={i} src={photoUrl} alt={`Project ${activeProject.name}`} />
-                ))}
-
-                {/* Iframe Content */}
-                {activeProject.content.iframes?.map((iframeUrl, i) => (
-                  <iframe
-                    key={i}
-                    src={iframeUrl}
-                    title="Project Iframe"
-                    //width="100%"
-                    //height="600"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  ></iframe>
+                    {/* Afficher l'iframe avec autoplay si c'est la vidéo active */}
+                    {activeVideoId === videoId && (
+                      <iframe
+                        src={`https://www.youtube.com/embed/${videoId}?rel=0&controls=1&modestbranding=1&autoplay=1`} // Ajout du paramètre autoplay
+                        title={`Video ${i + 1}`}
+                        width="100%"
+                        frameBorder="0"
+                        allow="autoplay; encrypted-media"
+                        allowFullScreen
+                      ></iframe>
+                    )}
+                  </div>
                 ))}
               </div>
             </div>
