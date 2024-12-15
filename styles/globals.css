@@ -194,12 +194,13 @@ a {
   font-size: 1.5vw;
   border-radius: 100px;
   max-width: max-content;
-  background: linear-gradient(to right, var(--foreground) 50%, var(--primary-color) 50%);
-  color: var(--foreground);
-  background-size: 200% 100%;
+  color: var(--background);
+  border: solid 1px var(--background);
+  /*background: linear-gradient(to right, var(--foreground) 50%, var(--primary-color) 50%);*/
+  /*background-size: 200% 100%;
   background-position: right bottom;
   transition: background-position .2s cubic-bezier(.7,0,.4,1.01),
-              color .2s cubic-bezier(.7,0,.4,1.01);
+              color .2s cubic-bezier(.7,0,.4,1.01);*/
   display: flex;
   gap: 0.75vw;
   align-items: center;
@@ -219,10 +220,10 @@ a {
   fill: var(--background);
 }
 
-.button:hover .button-icon {
+/*.button:hover .button-icon {
   transition: fill .15s cubic-bezier(.7,0,.4,1.01);
   fill: var(--foreground);
-}
+}*/
 
 /*.section-title {
   font-family: 'NaNJaune', sans-serif;
@@ -261,6 +262,8 @@ a {
   transition: border-radius .25s cubic-bezier(.7,0,.4,1.01),
               padding .25s cubic-bezier(.7,0,.4,1.01);
   box-sizing: border-box;
+  z-index: 1000000000;
+  position: relative;
 }
 
 .main-scrolled {
@@ -273,7 +276,8 @@ a {
   transition: border-radius .25s cubic-bezier(.7,0,.4,1.01),
               padding .25s cubic-bezier(.7,0,.4,1.01);
   box-sizing: border-box;
-  padding: unset;
+  padding: unset;  z-index: 1000000000;
+  position: relative;
 }
 
 .main::after,
@@ -334,7 +338,7 @@ a {
   overflow: hidden;
   /*border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;*/
-  background: var(--foreground);
+  /*background: var(--foreground);*/
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -350,7 +354,7 @@ a {
               height .25s cubic-bezier(.7,0,.4,1.01);
   overflow: hidden;
   display: flex;
-  background: var(--foreground);
+  /*background: var(--foreground);*/
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -496,14 +500,10 @@ header {
   /*bottom: 0;*/
   position: sticky;
   z-index: 1;
-  /*background: linear-gradient(to bottom, var(--foreground), transparent);*/
-  /*background: var(--foreground);*/
-  background: linear-gradient(to right, var(--foreground) 20%, var(--transparent-black), var(--foreground)80%);
-  backdrop-filter: blur(10px) !important;
-  /*opacity: 0;
-  visibility: hidden;
-  transition: opacity .2s cubic-bezier(.7,0,.4,1.01);*/
-  /*border-bottom: 0.5px solid var(--dark-grey);*/
+  background: var(--foreground);
+  /*background: linear-gradient(to right, var(--foreground) 20%, var(--transparent-black), var(--foreground)80%);
+  backdrop-filter: blur(10px) !important;*/
+  
 }
 
 .header-scrolled {
@@ -854,7 +854,7 @@ input[type="range"]::-ms-thumb {
 /* HERO */
 .hero {
   width: 100%;
-  background: var(--foreground);
+  /*background: var(--foreground);*/
   /*padding: calc(var(--container-padding)*4) var(--container-padding);*/
   padding: var(--container-padding);
   box-sizing: border-box;

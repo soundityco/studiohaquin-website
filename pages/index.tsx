@@ -29,11 +29,12 @@ export function Home() {
       <Hero />
       {/*<Menu />*/}
       {/*<GraphicDesign />*/}
+      {/*<Clients />*/}
       <Portfolio />
       {/*<GraphicDesign />*/}
       <Intro />
       {/*<GraphicDesign />*/}
-      {/*<Clients />*/}
+      
     </>
   );
 }

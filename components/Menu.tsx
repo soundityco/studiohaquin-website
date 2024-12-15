@@ -10,24 +10,24 @@ export function Menu() {
     <section className="menu">
         <nav className="hero-list-container">
             <ul className="hero-list-block">
-                {/*<li>
+                <li>
                     <span className="button">
                     <GraphicDesignIcon className="button-icon"/>
-                    Freelance disponible à Angers et alentours
+                    FILMMAKER
                     </span>
-                </li>*/}
+                </li>
                 <li>
                     <span className="button">
                     <WebDesignIcon className="button-icon"/>
-                    Freelance disponible à Angers et alentours
+                    SOUND DESIGNER
                     </span>
                 </li>
-                {/*<li>
+                <li>
                     <span className="button">
                     <ContactIcon className="button-icon"/>
-                    Andy
+                    COMPOSER
                     </span>
-                </li>*/}
+                </li>
             </ul>
         </nav>
     </section>
