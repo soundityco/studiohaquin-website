@@ -27,7 +27,7 @@ export function Home() {
 
       {/* COMPONENTS */}
       <Hero />
-      <Menu />
+      {/*<Menu />*/}
       {/*<GraphicDesign />*/}
       <Portfolio />
       {/*<GraphicDesign />*/}
