@@ -311,7 +311,7 @@ export function Portfolio() {
               {/* Dynamic content */}
               <div className="portfolio-popup-dynamic-content">
                 {activeProject.content.videoIds?.map((videoId, i) => (
-                  <div key={i}>
+                  <div key={i} className="portfolio-popup-dynamic-content-video">
                     {/* Afficher la miniature si elle n'est pas masquée */}
                     {!hiddenThumbnails.includes(videoId) && (
                       <div className="portfolio-popup-dynamic-content-thumbnail-block">

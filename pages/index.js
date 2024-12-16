@@ -27,9 +27,8 @@ export function Home() {
 
       {/* COMPONENTS */}
       <Hero />
-      {/*<Menu />*/}
+      <Menu />
       {/*<GraphicDesign />*/}
-      {/*<Clients />*/}
       <Portfolio />
       {/*<GraphicDesign />*/}
       <Intro />
