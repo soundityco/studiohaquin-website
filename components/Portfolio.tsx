@@ -248,7 +248,9 @@ export function Portfolio() {
           {projects.map((project, index) => (
             <a
               key={project.name}
-              className="div-to-click show-me"
+              className={`div-to-click show-me ${
+                activeProjectIndex === index ? 'activeProject' : ''
+              }`}
               onClick={() => handleClick(index)}
             >
               <span>{project.name}</span>
