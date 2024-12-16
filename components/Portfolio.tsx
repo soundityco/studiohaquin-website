@@ -102,7 +102,7 @@ export function Portfolio() {
         ],
         iframes: [],
         text: {
-          description: "Réalisation d'une série de vidéos YouTube sur le divertissement et la vulgarisation de la technique vocale pour la professeur de chant Doris Oppenlander."
+          description: "Réalisation d'une série de vidéos YouTube sur le divertissement et la vulgarisation du chant par Doris Oppenlander."
         }
       }
     },

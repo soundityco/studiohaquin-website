@@ -1101,6 +1101,8 @@ input[type="range"]::-ms-thumb {
   /*padding: calc(var(--container-padding)*2) var(--container-padding);*/
   padding: calc(var(--container-padding)*4) var(--container-padding);
   gap: calc(var(--container-padding)*1.5);
+  position: sticky;
+  top: 0;
 }
 
 .portfolio-container nav ul {
