@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { ArrowLeftIcon, ArrowRightIcon, CloseIcon, ArrowCornerIcon } from "./Images";
+import { ArrowLeftIcon, ArrowRightIcon, CloseIcon, ArrowCornerIcon, PlayerPlayButton } from "./Images";
 import VideoPlayer from "@/components/VideoPlayer";
 
 interface Project {
@@ -314,13 +314,16 @@ export function Portfolio() {
                   <div key={i}>
                     {/* Afficher la miniature si elle n'est pas masquée */}
                     {!hiddenThumbnails.includes(videoId) && (
-                      <img
-                        src={`https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`}
-                        alt={`Thumbnail for Video ${i + 1}`}
-                        style={{ cursor: "pointer" }}
-                        onClick={() => handleThumbnailClick(videoId)} // Masquer l'image au clic
-                        draggable="false"
-                      />
+                      <div className="portfolio-popup-dynamic-content-thumbnail-block">
+                          <PlayerPlayButton className="portfolio-video-play-button" />
+                        <img
+                          src={`https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`}
+                          alt={`Thumbnail for Video ${i + 1}`}
+                          style={{ cursor: "pointer" }}
+                          onClick={() => handleThumbnailClick(videoId)} // Masquer l'image au clic
+                          draggable="false"
+                        />
+                      </div>
                     )}
 
                     {/* Afficher l'iframe avec autoplay si c'est la vidéo active */}
