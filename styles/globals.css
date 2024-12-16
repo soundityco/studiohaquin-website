@@ -1866,7 +1866,7 @@ input[type="range"]::-ms-thumb {
     flex-direction: column-reverse;*/
   }
   .footer-links ul {
-    gap: 3rem;
+    gap: 1rem;
     flex-direction: column;
   }
   .footer-link {
