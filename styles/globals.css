@@ -1253,7 +1253,7 @@ input[type="range"]::-ms-thumb {
   grid-gap: calc(var(--container-padding)*1.5);*/
 
   display: flex;
-  gap: calc(var(--container-padding)*1.5);
+  gap: var(--container-padding);
   overflow-x: scroll;
 
 }
