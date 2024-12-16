@@ -1256,13 +1256,13 @@ input[type="range"]::-ms-thumb {
   gap: var(--container-padding);
 }
 
-.portfolio-popup-content p {
+.portfolio-scroll {
   display: flex;
   align-items: center;
   height: 1rem;
 }
 
-.portfolio-popup-content p svg {
+.portfolio-scroll svg {
   fill: var(--background);
   height: 80%;
 }
