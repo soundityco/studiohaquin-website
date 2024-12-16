@@ -608,14 +608,10 @@ header {
 .video-player {
   flex-grow: 1;
   width: 100%;
-  /*height: calc(100vh - (2vw - (var(--container-padding)*4)));*/
   height: 100%;
   aspect-ratio: 16/9;
   object-fit: cover;
   filter: contrast(1.1);
-  /*filter: contrast(1.1) brightness(1.05);*/
-  /*-webkit-mask-image: -webkit-gradient(linear, left 90%, left 0%, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));*/
-  /*-webkit-mask-image: -webkit-gradient(linear, left bottom, left top, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));*/
 }
 
 .full-screen {

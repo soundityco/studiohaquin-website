@@ -148,7 +148,7 @@ export function Portfolio() {
     });
   };
 
-  const handleKeyDown = (e: KeyboardEvent) => {
+  /*const handleKeyDown = (e: KeyboardEvent) => {
     if (activeProjectIndex !== null) {
       if (e.key === "ArrowRight") {
         setIsRightPressed(true);
@@ -176,7 +176,7 @@ export function Portfolio() {
       window.removeEventListener("keydown", handleKeyDown);
       window.removeEventListener("keyup", handleKeyUp);
     };
-  }, [activeProjectIndex]);
+  }, [activeProjectIndex]);*/
 
   /*const handleOutsideClick = (e: MouseEvent) => {
     if (popupRef.current && !popupRef.current.contains(e.target as Node)) {
