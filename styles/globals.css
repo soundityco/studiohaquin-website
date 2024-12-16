@@ -1085,7 +1085,14 @@ input[type="range"]::-ms-thumb {
 
 .intro-container-text {
   font-size: 3.5vw;
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
 }
+
+/*.intro-container-text span:first-child {
+  text-indent: 7vw;
+}*/
 
 /* PORTFOLIO */
 .portfolio {
