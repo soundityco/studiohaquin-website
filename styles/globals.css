@@ -1099,7 +1099,9 @@ input[type="range"]::-ms-thumb {
   display: flex;
   flex-direction: column;
   /*padding: calc(var(--container-padding)*2) var(--container-padding);*/
-  padding: calc(var(--container-padding)*4) var(--container-padding);
+  padding: var(--container-padding);
+  padding-bottom: calc(var(--container-padding)*4);
+  margin-top: calc(var(--container-padding)*4);
   gap: calc(var(--container-padding)*1.5);
   position: sticky;
   top: 0;
