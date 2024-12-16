@@ -1358,14 +1358,14 @@ input[type="range"]::-ms-thumb {
   gap: var(--container-padding);
   /*line-height: 1.5rem;*/
 }
-
+.portfolio-popup-content-header div h3 {
+  line-height: 2vw;
+  font-size: 1.75vw;
+}
 .portfolio-popup-content-header div p {
   color: var(--light-grey);
-  line-height: 1.25rem;
-}
-
-.portfolio-popup-content-header div h3 {
-  font-size: 1.25rem;
+  line-height: 1.75vw;
+  font-size: 1.5vw;
 }
 
 .portfolio-popup-content-header-block {
@@ -1724,9 +1724,17 @@ input[type="range"]::-ms-thumb {
     min-width: 50vw;
     max-width: 50vw;
   }
-
   .portfolio-icon {
     height: 1.5rem;
+  }
+  .portfolio-popup-content-header div h3 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+  .portfolio-popup-content-header div p {
+    color: var(--light-grey);
+    line-height: 1.75rem;
+    font-size: 1.25rem;
   }
 
   /* FOOTER */
