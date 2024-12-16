@@ -108,7 +108,7 @@ export function Portfolio() {
     },
     {
       name: "Faux Raccords Prod",
-      description: "Court métrage L'ERMITE",
+      description: "Court métrage 'L'ERMITE'",
       date: "2023",
       content: {
         videoIds: [
