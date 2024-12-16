@@ -116,7 +116,7 @@ export function Portfolio() {
         ],
         iframes: [],
         text: {
-          description: "Conception et création de contenu graphique et vidéos pour les réseaux sociaux et le site web de la banque en ligne Noelse."
+          description: "Réalisation, captation, montage et sound design du court métrage 'L'ERMITE'"
         }
       }
     }
