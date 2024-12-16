@@ -1,29 +1,36 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import Loader from "@/components/Loader";
 import Footer from "@/components/Footer";
 import StickyCursor from '@/components/stickyCursor';
 
-import 'lenis/dist/lenis.css'
+// Google Font
+import { Inter } from 'next/font/google';
 
+const inter = Inter({ subsets: ['latin'] });
+
+// Smooth Scroll
 import { ReactLenis } from '@/components/utils/lenis';
+import 'lenis/dist/lenis.css';
 
 export default function Layout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-
   const stickyElement = useRef(null);
 
   return (
     <ReactLenis root>
-      <Loader />
-      <StickyCursor stickyElement={stickyElement}/>
-      {children}
-      <Footer />
+      <div className={inter.className}>
+        <Loader />
+        <StickyCursor stickyElement={stickyElement} />
+        {children}
+        <Footer />
+      </div>
     </ReactLenis>
   );
 }
+
 
 
 
