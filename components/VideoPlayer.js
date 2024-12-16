@@ -140,6 +140,14 @@ const VideoPlayer = ({ videoSrc, posterSrc }) => {
   useEffect(() => {
     const handleKeyDown = (event) => {
       const key = event.key.toLowerCase(); // Normaliser la clé pour ignorer la casse
+      
+      // Ajouter la classe visible aux contrôles
+      setIsMouseActive(true);
+      clearTimeout(inactivityTimeout.current);
+      inactivityTimeout.current = setTimeout(() => {
+        setIsMouseActive(false);
+      }, 1000);
+  
       switch (key) {
         case "m": // "M" sur AZERTY ou QWERTY
         case "ù": // Parfois "ù" sur AZERTY (selon la configuration)
