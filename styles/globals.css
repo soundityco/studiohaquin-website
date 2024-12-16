@@ -56,7 +56,7 @@ a {
   font-style: normal;
 }
 
-@font-face {
+/*@font-face {
   font-family: 'Alinsa';
   src: url('../content/fonts/Alinsa/Alinsa.woff2') format('woff2'),
        url('../content/fonts/Alinsa/Alinsa.woff') format('woff'),
@@ -96,7 +96,7 @@ a {
   src: url('../content/fonts/CutieKitty/CutieKitty.ttf') format('truetype');
   font-weight: 300;
   font-style: normal;
-}
+}*/
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap');
@@ -1793,7 +1793,7 @@ input[type="range"]::-ms-thumb {
 
   .portfolio-popup-content-header-block h2 {
     font-size: 1.75rem;
-    padding: 0.5rem 1.25rem;
+    padding: 0.75rem 1.25rem;
   }
 
   .portfolio-popup-content-header-block div p {
@@ -1963,7 +1963,8 @@ input[type="range"]::-ms-thumb {
 
   .portfolio-popup-content-header-block h2 {
     font-size: 1.5rem;
-    padding: 0.5rem 1.25rem;
+    padding: 0.75rem 1.25rem;
+    width: min-content;
   }
   
   /* CLIENT */
