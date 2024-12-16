@@ -340,7 +340,7 @@ export function Portfolio() {
                   </div>
                 ))}
               </div>
-              <p>( SCROLL → )</p>
+              <p>(&nbsp;SCROLL&nbsp;<ArrowRightIcon/>&nbsp;)</p>
             </div>
           </div>
       )}
