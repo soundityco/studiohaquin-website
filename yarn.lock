@@ -205,10 +205,10 @@ lenis@^1.1.13:
   dependencies:
     "@darkroom.engineering/tempus" "^0.0.46"
 
-locomotive-scroll@^5.0.0-beta.21:
-  version "5.0.0-beta.21"
-  resolved "https://registry.npmjs.org/locomotive-scroll/-/locomotive-scroll-5.0.0-beta.21.tgz"
-  integrity sha512-UrvuBVxI9rX7b0SkLzZwlzUqZ22Oybj6c6jBflqvH6bdQEb+OcsOpQg65cFJPY0IYBNGnaHkLHr/EDDW6y6scQ==
+locomotive-scroll@5.0.0-beta.20:
+  version "5.0.0-beta.20"
+  resolved "https://registry.yarnpkg.com/locomotive-scroll/-/locomotive-scroll-5.0.0-beta.20.tgz#d67d9c939fb43b43e38fef5b54533ffb019f86e8"
+  integrity sha512-KCJx5fkdxHyyY73MVB9DyjGm0STz2ybflC6w49Xg/ygEubWg/bHaDNEkoyC8srL5MeEu2zJdVk93+3scZ1vHcg==
   dependencies:
     lenis "1.1.9"
 
