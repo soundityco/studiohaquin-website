@@ -1270,7 +1270,7 @@ input[type="range"]::-ms-thumb {
 
 .portfolio-video-play-button {
   fill: var(--primary-color);
-  width: 5vw;
+  width: 4vw;
   position: absolute;
   z-index: 1;
   filter: drop-shadow(0 0 50px var(--foreground));
@@ -1799,6 +1799,10 @@ input[type="range"]::-ms-thumb {
     display: flex;
     flex-direction: column;
   }*/
+
+  .portfolio-video-play-button {
+    width: 5.5vw;
+  }
   
  
   /* HERO */
