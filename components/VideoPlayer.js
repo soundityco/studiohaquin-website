@@ -1,5 +1,4 @@
 import React, { useRef, useState, useEffect } from "react";
-
 import {
   PlayerPlayButton,
   PlayerPauseButton,
@@ -20,8 +19,41 @@ const VideoPlayer = ({ videoSrc, posterSrc }) => {
   const [progress, setProgress] = useState(0);
   const [duration, setDuration] = useState(0);
   const [previousVolume, setPreviousVolume] = useState(1);
-  const [isMouseActive, setIsMouseActive] = useState(false);
+  const [isMouseActive, setIsMouseActive] = useState(false); // Contrôle si la souris est active
+  const [isHovered, setIsHovered] = useState(false); // Nouveau état pour le hover
+  const [lastClicked, setLastClicked] = useState(false); // Nouveau état pour le dernier clic
   let inactivityTimeout = useRef(null);
+
+  // Gestion du survol de la vidéo
+  useEffect(() => {
+    const container = containerRef.current;
+
+    const handleMouseEnter = () => {
+      setIsHovered(true);
+      setIsMouseActive(true);  // Montrer les contrôles lorsque la souris survole
+    };
+
+    const handleMouseLeave = () => {
+      setIsHovered(false);
+      if (!lastClicked) { // Masquer les contrôles si pas de clic récent
+        setIsMouseActive(false);
+      }
+    };
+
+    container.addEventListener("mouseenter", handleMouseEnter);
+    container.addEventListener("mouseleave", handleMouseLeave);
+
+    return () => {
+      container.removeEventListener("mouseenter", handleMouseEnter);
+      container.removeEventListener("mouseleave", handleMouseLeave);
+    };
+  }, [lastClicked]);
+
+  // Gestion du clic sur la vidéo
+  const handleClick = () => {
+    setLastClicked(true);
+    setIsMouseActive(true);  // Montrer les contrôles après un clic
+  };
 
   useEffect(() => {
     const handleFullScreenChange = () => {
@@ -37,25 +69,6 @@ const VideoPlayer = ({ videoSrc, posterSrc }) => {
     document.addEventListener("fullscreenchange", handleFullScreenChange);
     return () => {
       document.removeEventListener("fullscreenchange", handleFullScreenChange);
-    };
-  }, []);
-
-  useEffect(() => {
-    const container = containerRef.current;
-
-    const handleMouseMove = () => {
-      setIsMouseActive(true);
-      clearTimeout(inactivityTimeout.current);
-      inactivityTimeout.current = setTimeout(() => {
-        setIsMouseActive(false);
-      }, 1000);
-    };
-
-    container.addEventListener("mousemove", handleMouseMove);
-
-    return () => {
-      container.removeEventListener("mousemove", handleMouseMove);
-      clearTimeout(inactivityTimeout.current);
     };
   }, []);
 
@@ -130,16 +143,21 @@ const VideoPlayer = ({ videoSrc, posterSrc }) => {
     const video = videoRef.current;
     video.addEventListener("timeupdate", handleTimeUpdate);
     video.addEventListener("dblclick", toggleFullScreen);
+    video.addEventListener("click", handleClick); // Ajouter un gestionnaire pour le clic
 
     return () => {
       video.removeEventListener("timeupdate", handleTimeUpdate);
       video.removeEventListener("dblclick", toggleFullScreen);
+      video.removeEventListener("click", handleClick);
     };
   }, []);
 
   useEffect(() => {
     const handleKeyDown = (event) => {
       const key = event.key.toLowerCase(); // Normaliser la clé pour ignorer la casse
+      // Vérifier si le survol ou le dernier clic a eu lieu sur la vidéo avant d'activer les touches
+      if (!isHovered && !lastClicked) return;
+
       switch (key) {
         case "m": // "M" sur AZERTY ou QWERTY
         case "ù": // Parfois "ù" sur AZERTY (selon la configuration)
@@ -201,8 +219,7 @@ const VideoPlayer = ({ videoSrc, posterSrc }) => {
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
     };
-  }, [togglePlayPause, toggleFullScreen, toggleMute, setVolume]);
-  
+  }, [togglePlayPause, toggleFullScreen, toggleMute, setVolume, isHovered, lastClicked]);
 
   return (
     <div ref={containerRef} className="video-player-container">
@@ -212,7 +229,7 @@ const VideoPlayer = ({ videoSrc, posterSrc }) => {
         playsInline
         preload="auto"
         poster={posterSrc}
-        onClick={togglePlayPause}
+        onClick={handleClick}
       >
         <source src={videoSrc} type="video/mp4" />
       </video>
@@ -233,38 +250,38 @@ const VideoPlayer = ({ videoSrc, posterSrc }) => {
         </div>
 
         <div className="player-controls">
-            <div>   
-                <button onClick={togglePlayPause} className="player-btn">
-                    {isPlaying ? (
-                    <PlayerPauseButton className="player-icon" />
-                    ) : (
-                    <PlayerPlayButton className="player-icon" />
-                    )}
-                </button>
+          <div>
+            <button onClick={togglePlayPause} className="player-btn">
+              {isPlaying ? (
+                <PlayerPauseButton className="player-icon" />
+              ) : (
+                <PlayerPlayButton className="player-icon" />
+              )}
+            </button>
 
-                <button onClick={toggleMute} className="player-btn">
-                    {getVolumeIcon()}
-                </button>
+            <button onClick={toggleMute} className="player-btn">
+              {getVolumeIcon()}
+            </button>
 
-                <input
-                    type="range"
-                    min="0"
-                    max="1"
-                    step="0.01"
-                    value={isMuted ? 0 : volume}
-                    onChange={handleVolumeChange}
-                    className="volume-slider"
-                    style={{
-                    background: `linear-gradient(to right, white ${volume * 100}%, #ffffff80 ${volume * 100}%)`,
-                    }}
-                />
-            </div>
+            <input
+              type="range"
+              min="0"
+              max="1"
+              step="0.01"
+              value={isMuted ? 0 : volume}
+              onChange={handleVolumeChange}
+              className="volume-slider"
+              style={{
+                background: `linear-gradient(to right, white ${volume * 100}%, #ffffff80 ${volume * 100}%)`,
+              }}
+            />
+          </div>
 
-            <div>   
-                <button onClick={toggleFullScreen} className="player-btn">
-                    <PlayerFullscreenButton className="player-icon" />
-                </button>
-            </div>
+          <div>
+            <button onClick={toggleFullScreen} className="player-btn">
+              <PlayerFullscreenButton className="player-icon" />
+            </button>
+          </div>
         </div>
       </div>
     </div>

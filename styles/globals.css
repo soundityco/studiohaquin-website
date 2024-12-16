@@ -1204,12 +1204,27 @@ input[type="range"]::-ms-thumb {
   border-bottom: 0.5px solid var(--dark-grey);
   /*height: 100vh;
   position: fixed;*/
-  background-color: var(--secondary-color);
+  /*background-color: var(--secondary-color);*/
   padding: calc(var(--container-padding)*1.5);
   box-sizing: border-box;
   backdrop-filter: blur(50px);
   overflow: auto;
 }
+
+.portfolio-popup-container-overlay {
+  opacity: 0.085;
+  background-image: url('https://i.ibb.co/DRRTGSJ/noise-overlay.gif');
+  background-position: 0 0;
+  background-size: 350px;
+  background-attachment: fixed;
+  position: absolute;
+  top: 0%;
+  bottom: 0%;
+  left: 0%;
+  right: 0%;
+  pointer-events: none;
+}
+
 
 .portfolio-popup-container.active {
 
@@ -1260,7 +1275,7 @@ input[type="range"]::-ms-thumb {
   aspect-ratio: 16/9;
   border-radius: calc(var(--border-radius)/2);
   box-sizing: border-box;
-  border: 3px solid var(--secondary-color);
+  border: 1px solid var(--dark-grey);
   min-width: 35vw;
   max-width: 35vw;
 }

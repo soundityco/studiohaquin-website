@@ -267,7 +267,7 @@ export function Portfolio() {
             className={`portfolio-popup-container ${isPopupActive ? 'active' : ''} ${isClosing ? 'closing' : ''}`}
             ref={popupRef}
           >
-            {/*<div className="scrollable-div"></div>*/}
+            <div className="portfolio-popup-container-overlay"></div>
             <div className="portfolio-popup-content">
               <div className="portfolio-popup-content-header">
                 <div>
