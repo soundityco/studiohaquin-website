@@ -103,7 +103,7 @@ a {
 
 /* VARIABLES */
 :root {
-  --container-padding: 2vw;
+  --container-padding: 2.5vw;
   
   --border-radius: 2.5rem;
 
@@ -1205,7 +1205,7 @@ input[type="range"]::-ms-thumb {
   /*height: 100vh;
   position: fixed;*/
   /*background-color: var(--secondary-color);*/
-  padding: calc(var(--container-padding)*1.5);
+  padding: var(--container-padding);
   box-sizing: border-box;
   backdrop-filter: blur(50px);
   overflow: auto;
@@ -1241,7 +1241,7 @@ input[type="range"]::-ms-thumb {
   min-height: 100%;
   display: flex;
   flex-direction: column;
-  gap: calc(var(--container-padding)*1.5);
+  gap: var(--container-padding);
 }
 
 .portfolio-popup-dynamic-content {
