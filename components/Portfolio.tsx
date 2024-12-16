@@ -46,6 +46,26 @@ export function Portfolio() {
       },
     },
     {
+      name: "Doris Oppenlander",
+      description: "Série de vidéos YouTube",
+      date: "2023 — 2024",
+      content: {
+        videoIds: [
+          "H6wkoTE8oyo",
+          "IFKT_fekZw4",
+          "QTpHOYt04QU",
+          "DhnqP_J-MoQ",
+          "YB3SCKTtBLM",
+          "ZbT4yy6ZU6I",
+          "Dwnl_BvyhdY"
+        ],
+        iframes: [],
+        text: {
+          description: "Réalisation d'une série de vidéos YouTube sur le divertissement et la vulgarisation du chant par Doris Oppenlander."
+        }
+      }
+    },
+    {
       name: "Galeries Lafayette",
       description: "Évènement 'Mère Fille'",
       date: "2024",
@@ -83,26 +103,6 @@ export function Portfolio() {
         iframes: [],
         text: {
           description: "Réalisation d'une vidéo promotionnelle pour la rénovation du bar & restaurant 'La Cour', situé à Angers."
-        }
-      }
-    },
-    {
-      name: "Doris Oppenlander",
-      description: "Série de vidéos YouTube",
-      date: "2023 — 2024",
-      content: {
-        videoIds: [
-          "H6wkoTE8oyo",
-          "IFKT_fekZw4",
-          "QTpHOYt04QU",
-          "DhnqP_J-MoQ",
-          "YB3SCKTtBLM",
-          "ZbT4yy6ZU6I",
-          "Dwnl_BvyhdY"
-        ],
-        iframes: [],
-        text: {
-          description: "Réalisation d'une série de vidéos YouTube sur le divertissement et la vulgarisation du chant par Doris Oppenlander."
         }
       }
     },

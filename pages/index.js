@@ -4,10 +4,7 @@ import Head from "next/head";
 // Importing components
 import { Portfolio } from '../components/Portfolio';
 import { Hero } from '../components/Hero';
-import GraphicDesign from "../components/GraphicDesign";
-import Clients from "../components/Clients";
 import Intro from "../components/Intro";
-import Menu from "../components/Menu";
 
 export function Home() {
 
@@ -27,12 +24,8 @@ export function Home() {
 
       {/* COMPONENTS */}
       <Hero />
-      {/*<Menu />*/}
-      {/*<GraphicDesign />*/}
       <Portfolio />
-      {/*<GraphicDesign />*/}
       <Intro />
-      {/*<GraphicDesign />*/}
       
     </>
   );
