@@ -1962,16 +1962,13 @@ input[type="range"]::-ms-thumb {
     gap: 2rem;
   }
   .portfolio-popup-content-header div {
-    gap: 2rem;
+    gap: var(--container-padding);
   }
 
-  .portfolio-popup-content-header div:last-child {
+  /*.portfolio-popup-content-header div:last-child {
     gap: 1.5rem;
-  }
+  }*/
 
-  .portfolio-popup-content-header-block h2 {
-    font-size: 1.75rem;
-  }
   .portfolio-popup-content-header-block p {
     font-size: 1.25rem;
   }
@@ -1989,6 +1986,10 @@ input[type="range"]::-ms-thumb {
     font-size: 1.5rem;
     padding: 0.75rem 1.25rem;
     width: min-content;
+  }
+
+  .portfolio-icon {
+    height: 1.25rem;
   }
   
   /* CLIENT */
