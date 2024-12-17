@@ -30,6 +30,7 @@ export function Portfolio() {
   const [activeVideoId, setActiveVideoId] = useState<string | null>(null);
 
   const [hoveredProjectIndex, setHoveredProjectIndex] = useState<number | null>(null);
+  const [hoveredVideoId, setHoveredVideoId] = useState<string | null>(null);
 
 
 
@@ -128,10 +129,10 @@ export function Portfolio() {
         ],
         iframes: [],
         text: {
-          description: "Réalisation, captation, montage et sound design du court métrage 'L'ERMITE'"
+          description: "Réalisation, captation, montage et sound design du court métrage 'L'ERMITE'."
         }
       }
-    }
+    },
   ];
 
   const handleClick = (index: number) => {
@@ -141,6 +142,10 @@ export function Portfolio() {
 
   const handleMouseEnter = (index: number) => {
     setHoveredProjectIndex(index);
+  
+    // Réinitialiser les vidéos actives et les miniatures
+    setHiddenThumbnails([]);
+    setActiveVideoId(null);
   };
 
   const handleMouseLeave = () => {
@@ -218,6 +223,7 @@ export function Portfolio() {
     : activeProjectIndex !== null && activeProjectIndex >= 0 && activeProjectIndex < projects.length
     ? projects[activeProjectIndex]
     : null;
+    
     return (
       <section className="portfolio" id="portfolio" data-scroll-container="true">
         <div className="portfolio-container container">

@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 
 // Importing Icons
-import { WebsiteIcon } from "./Images";
+import { WebsiteIcon, NewLinkIcon } from "./Images";
 
 const Header = forwardRef<HTMLElement>((props, ref) => {
   return (
@@ -14,6 +14,12 @@ const Header = forwardRef<HTMLElement>((props, ref) => {
             <p>Studio Haquin</p>
           </a>
           <a className="button-contact" href="mailto:andy@studiohaquin.com">👉 Me contacter</a>
+          {/*<span>
+            <a className="button-contact" href="mailto:andy@studiohaquin.com">👉 Me contacter</a>
+            <div>
+              <NewLinkIcon className=" "/>
+            </div>
+          </span>*/}
         </div>
       </header>
     </>

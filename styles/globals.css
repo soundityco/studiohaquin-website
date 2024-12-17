@@ -458,6 +458,16 @@ header {
   /*background: var(--primary-color);*/
 }
 
+.header-container span {
+  display: flex;
+  gap: var(--container-padding);
+}
+
+.header-container span svg {
+  height: 100% !important;
+  fill: unset;
+}
+
 .rounded-top-right-shape {
   width: 30px;
   height: 30px;
