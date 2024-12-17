@@ -1546,11 +1546,11 @@ input[type="range"]::-ms-thumb {
   transition: width .2s cubic-bezier(.7,0,.4,1.01);
   background: var(--primary-color);
   margin-top: 0.75vw;
-  margin-left: 1%;
+  margin-left: 1.5%;
 }
 
 .footer-link:hover::after {
-  width: 98%;
+  width: 97%;
 }
 
 .footer-cc {
