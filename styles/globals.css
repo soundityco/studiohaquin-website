@@ -1139,7 +1139,7 @@ input[type="range"]::-ms-thumb {
 .portfolio-container div {
   display: flex;
   flex-direction: column;
-  gap: 1.5vw;
+  /*gap: 1.5vw;*/
 }
 
 .portfolio-container div a {
@@ -1164,6 +1164,10 @@ input[type="range"]::-ms-thumb {
 
 .portfolio-container div a span:last-child {
   text-align: end;
+}
+
+.div-to-click {
+  padding: 1vw 0;
 }
 
 .portfolio-popup {

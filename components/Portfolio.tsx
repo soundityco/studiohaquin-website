@@ -29,6 +29,10 @@ export function Portfolio() {
   const [hiddenThumbnails, setHiddenThumbnails] = useState<string[]>([]);
   const [activeVideoId, setActiveVideoId] = useState<string | null>(null);
 
+  const [hoveredProjectIndex, setHoveredProjectIndex] = useState<number | null>(null);
+
+
+
   const popupRef = useRef<HTMLDivElement | null>(null);
   const scrollContainerRef = useRef<HTMLDivElement | null>(null);
 
@@ -132,6 +136,15 @@ export function Portfolio() {
 
   const handleClick = (index: number) => {
     setActiveProjectIndex(index);
+    setHoveredProjectIndex(null); // S'assurer que le clic désactive le hover temporaire
+  };
+
+  const handleMouseEnter = (index: number) => {
+    setHoveredProjectIndex(index);
+  };
+
+  const handleMouseLeave = () => {
+    setHoveredProjectIndex(null);
   };
 
   const handleNextProject = () => {
@@ -199,114 +212,132 @@ export function Portfolio() {
     isDragging.current = false;
   };
 
-  const activeProject =
-    activeProjectIndex !== null ? projects[activeProjectIndex] : null;
-
-  return (
-    <section className="portfolio" id="portfolio" data-scroll-container="true">
-      <div className="portfolio-container container">
-        <nav>
-          <ul>
-            <li>Crédits</li>
-            <li>Projets</li>
-            <li>Date</li>
-          </ul>
-        </nav>
-        <div>
-          {projects.map((project, index) => (
-            <a
-              key={project.name}
-              className={`div-to-click show-me ${
-                activeProjectIndex === index ? "activeProject" : ""
-              }`}
-              onClick={() => handleClick(index)}
-            >
-              <span>{project.name}</span>
-              <span>{project.description}</span>
-              <span>{project.date}</span>
-            </a>
-          ))}
-        </div>
-      </div>
-
-      {activeProject && (
-        <div
-          className={`portfolio-popup-container ${
-            isPopupActive ? "active" : ""
-          } ${isClosing ? "closing" : ""}`}
-          ref={popupRef}
-        >
-          <div className="portfolio-popup-container-overlay"></div>
-          <div className="portfolio-popup-content">
-            <div className="portfolio-popup-content-header">
-                  <div className="portfolio-popup-content-header-block">
-                    <h2>{activeProject.name}</h2>
-                    <div className="portfolio-popuselection-block">
-                      <span onClick={handlePrevProject}>
-                        <ArrowLeftIcon className="portfolio-icon" />
-                      </span>
-                      <span onClick={handleNextProject}>
-                        <ArrowRightIcon className="portfolio-icon" />
-                      </span>
-                    </div>
-                  </div>
-                  <div className="portfolio-popup-content-header-block">
-                    <h3>{activeProject.description} • {activeProject.date}</h3>
-                    {activeProject.content.text && (
-                      <>
-                        {activeProject.content.text.title && <h3>{activeProject.content.text.title}</h3>}
-                        {activeProject.content.text.subtitle && <h4>{activeProject.content.text.subtitle}</h4>}
-                        {activeProject.content.text.description && <p>{activeProject.content.text.description}</p>}
-                        {activeProject.content.text.links?.map((link, i) => (
-                          <a key={i} href={link.url} target="_blank" rel="noopener noreferrer">
-                            {link.label}
-                          </a>
-                        ))}
-                      </>
-                    )}
-                  </div>
-              </div>
-            <div
-              className="portfolio-popup-dynamic-content horizontal-scroll"
-              ref={scrollContainerRef}
-              onMouseDown={handleDragStart}
-              onMouseMove={handleDragMove}
-              onMouseUp={handleDragEnd}
-              onMouseLeave={handleDragEnd}
-            >
-              {activeProject.content.videoIds?.map((videoId, i) => (
-                <div key={i} className="portfolio-popup-dynamic-content-video">
-                  {!hiddenThumbnails.includes(videoId) && (
-                    <div className="portfolio-popup-dynamic-content-thumbnail-block">
-                      <PlayerPlayButton className="portfolio-video-play-button" />
-                      <img
-                        src={`https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`}
-                        alt={`Thumbnail for Video ${i + 1}`}
-                        style={{ cursor: "pointer" }}
-                        onClick={() => handleThumbnailClick(videoId)}
-                        draggable="false"
-                      />
-                    </div>
-                  )}
-                  {activeVideoId === videoId && (
-                    <iframe
-                      src={`https://www.youtube.com/embed/${videoId}?rel=0&controls=1&modestbranding=1&autoplay=1`}
-                      title={`Video ${i + 1}`}
-                      width="100%"
-                      frameBorder="0"
-                      allow="autoplay; encrypted-media"
-                      allowFullScreen
-                    ></iframe>
-                  )}
-                </div>
-              ))}
-            </div>
-            <p className="portfolio-scroll">
-              (&nbsp;SCROLL&nbsp;<ArrowRightIcon />&nbsp;)
-            </p>
+  const activeProject: Project | null =
+  hoveredProjectIndex !== null && hoveredProjectIndex >= 0 && hoveredProjectIndex < projects.length
+    ? projects[hoveredProjectIndex]
+    : activeProjectIndex !== null && activeProjectIndex >= 0 && activeProjectIndex < projects.length
+    ? projects[activeProjectIndex]
+    : null;
+    return (
+      <section className="portfolio" id="portfolio" data-scroll-container="true">
+        <div className="portfolio-container container">
+          <nav>
+            <ul>
+              <li>Crédits</li>
+              <li>Projets</li>
+              <li>Date</li>
+            </ul>
+          </nav>
+          <div>
+            {projects.map((project, index) => (
+              <a
+                key={project.name}
+                className={`div-to-click show-me ${
+                  activeProjectIndex === index ? "activeProject" : ""
+                }`}
+                onClick={() => handleClick(index)}
+                onMouseEnter={() => handleMouseEnter(index)}
+                onMouseLeave={handleMouseLeave}
+              >
+                <span>{project.name}</span>
+                <span>{project.description}</span>
+                <span>{project.date}</span>
+              </a>
+            ))}
           </div>
         </div>
-      )}
-    </section>
-  );
-}
+  
+        {activeProject && (
+          <div
+            className={`portfolio-popup-container ${
+              isPopupActive ? "active" : ""
+            } ${isClosing ? "closing" : ""}`}
+            ref={popupRef}
+          >
+            <div className="portfolio-popup-container-overlay"></div>
+            <div className="portfolio-popup-content">
+              <div className="portfolio-popup-content-header">
+                <div className="portfolio-popup-content-header-block">
+                  <h2>{activeProject.name}</h2>
+                  <div className="portfolio-popuselection-block">
+                    <span onClick={handlePrevProject}>
+                      <ArrowLeftIcon className="portfolio-icon" />
+                    </span>
+                    <span onClick={handleNextProject}>
+                      <ArrowRightIcon className="portfolio-icon" />
+                    </span>
+                  </div>
+                </div>
+                <div className="portfolio-popup-content-header-block">
+                  <h3>
+                    {activeProject.description} • {activeProject.date}
+                  </h3>
+                  {activeProject.content.text && (
+                    <>
+                      {activeProject.content.text.title && (
+                        <h3>{activeProject.content.text.title}</h3>
+                      )}
+                      {activeProject.content.text.subtitle && (
+                        <h4>{activeProject.content.text.subtitle}</h4>
+                      )}
+                      {activeProject.content.text.description && (
+                        <p>{activeProject.content.text.description}</p>
+                      )}
+                      {activeProject.content.text.links?.map((link, i) => (
+                        <a
+                          key={i}
+                          href={link.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {link.label}
+                        </a>
+                      ))}
+                    </>
+                  )}
+                </div>
+              </div>
+              <div
+                className="portfolio-popup-dynamic-content horizontal-scroll"
+                ref={scrollContainerRef}
+                onMouseDown={handleDragStart}
+                onMouseMove={handleDragMove}
+                onMouseUp={handleDragEnd}
+                onMouseLeave={handleDragEnd}
+              >
+                {activeProject.content.videoIds?.map((videoId, i) => (
+                  <div key={i} className="portfolio-popup-dynamic-content-video">
+                    {!hiddenThumbnails.includes(videoId) && (
+                      <div className="portfolio-popup-dynamic-content-thumbnail-block">
+                        <PlayerPlayButton className="portfolio-video-play-button" />
+                        <img
+                          src={`https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`}
+                          alt={`Thumbnail for Video ${i + 1}`}
+                          style={{ cursor: "pointer" }}
+                          onClick={() => handleThumbnailClick(videoId)}
+                          draggable="false"
+                        />
+                      </div>
+                    )}
+                    {activeVideoId === videoId && (
+                      <iframe
+                        src={`https://www.youtube.com/embed/${videoId}?rel=0&controls=1&modestbranding=1&autoplay=1`}
+                        title={`Video ${i + 1}`}
+                        width="100%"
+                        frameBorder="0"
+                        allow="autoplay; encrypted-media"
+                        allowFullScreen
+                      ></iframe>
+                    )}
+                  </div>
+                ))}
+              </div>
+              <p className="portfolio-scroll">
+                (&nbsp;SCROLL&nbsp;<ArrowRightIcon />&nbsp;)
+              </p>
+            </div>
+          </div>
+        )}
+      </section>
+    );
+  }
