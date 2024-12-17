@@ -1,6 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
-import { ArrowLeftIcon, ArrowRightIcon, CloseIcon, ArrowCornerIcon, PlayerPlayButton } from "./Images";
-import VideoPlayer from "@/components/VideoPlayer";
+import {
+  ArrowLeftIcon,
+  ArrowRightIcon,
+  PlayerPlayButton,
+} from "./Images";
 
 interface Project {
   name: string;
@@ -19,15 +22,19 @@ interface Project {
 }
 
 export function Portfolio() {
-  //const [activeProjectIndex, setActiveProjectIndex] = useState<number | null>(null);
   const [activeProjectIndex, setActiveProjectIndex] = useState(0);
   const [isPopupActive, setIsPopupActive] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
-  const [isLeftPressed, setIsLeftPressed] = useState(false);
-  const [isRightPressed, setIsRightPressed] = useState(false);
   const [hiddenThumbnails, setHiddenThumbnails] = useState<string[]>([]);
   const [activeVideoId, setActiveVideoId] = useState<string | null>(null);
+
   const popupRef = useRef<HTMLDivElement | null>(null);
+  const scrollContainerRef = useRef<HTMLDivElement | null>(null);
+
+  const isDragging = useRef(false);
+  const startX = useRef(0);
+  const scrollLeft = useRef(0);
+  const dragDistance = useRef(0); // Pour mesurer la distance du drag
 
   const projects: Project[] = [
     {
@@ -126,75 +133,17 @@ export function Portfolio() {
     setActiveProjectIndex(index);
   };
 
-  /*const handleClosePopup = () => {
-    setIsClosing(true);
-    setTimeout(() => {
-      setActiveProjectIndex(null);
-      setIsClosing(false);
-    }, 300);
-  };*/
-
   const handleNextProject = () => {
-    setActiveProjectIndex((prevIndex) => {
-      if (prevIndex === null) return 0;
-      return prevIndex === projects.length - 1 ? 0 : prevIndex + 1;
-    });
+    setActiveProjectIndex((prevIndex) =>
+      prevIndex === projects.length - 1 ? 0 : prevIndex + 1
+    );
   };
 
   const handlePrevProject = () => {
-    setActiveProjectIndex((prevIndex) => {
-      if (prevIndex === null) return projects.length - 1;
-      return prevIndex === 0 ? projects.length - 1 : prevIndex - 1;
-    });
+    setActiveProjectIndex((prevIndex) =>
+      prevIndex === 0 ? projects.length - 1 : prevIndex - 1
+    );
   };
-
-  /*const handleKeyDown = (e: KeyboardEvent) => {
-    if (activeProjectIndex !== null) {
-      if (e.key === "ArrowRight") {
-        setIsRightPressed(true);
-        handleNextProject();
-      } else if (e.key === "ArrowLeft") {
-        setIsLeftPressed(true);
-        handlePrevProject();
-      }
-    }
-  };
-
-  const handleKeyUp = (e: KeyboardEvent) => {
-    if (e.key === "ArrowRight") {
-      setIsRightPressed(false);
-    } else if (e.key === "ArrowLeft") {
-      setIsLeftPressed(false);
-    }
-  };
-
-  useEffect(() => {
-    window.addEventListener("keydown", handleKeyDown);
-    window.addEventListener("keyup", handleKeyUp);
-
-    return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-      window.removeEventListener("keyup", handleKeyUp);
-    };
-  }, [activeProjectIndex]);*/
-
-  /*const handleOutsideClick = (e: MouseEvent) => {
-    if (popupRef.current && !popupRef.current.contains(e.target as Node)) {
-      handleClosePopup();
-    }
-  };*/
-
-  /*useEffect(() => {
-    if (activeProjectIndex !== null) {
-      window.addEventListener("mousedown", handleOutsideClick);
-    } else {
-      window.removeEventListener("mousedown", handleOutsideClick);
-    }
-
-    return () => {
-      window.removeEventListener("mousedown", handleOutsideClick);
-    };
-  }, [activeProjectIndex]);*/
 
   useEffect(() => {
     if (activeProjectIndex !== null) {
@@ -205,34 +154,52 @@ export function Portfolio() {
     }
   }, [activeProjectIndex]);
 
-  // Réinitialiser les vidéos quand on change de projet
   useEffect(() => {
     if (activeProjectIndex !== null) {
-      setHiddenThumbnails([]); // Réinitialise la visibilité des miniatures
-      setActiveVideoId(null);   // Réinitialise la vidéo active
+      setHiddenThumbnails([]);
+      setActiveVideoId(null);
     }
-  }, [activeProjectIndex]); // Cet effet se déclenche lorsque le projet change
+  }, [activeProjectIndex]);
 
   const handleThumbnailClick = (videoId: string) => {
-    // Si la vidéo cliquée est déjà celle active, on ne fait rien
+    if (dragDistance.current > 5) {
+      // Ignorer les clics si un drag a été détecté
+      return;
+    }
+
     if (activeVideoId === videoId) return;
-  
-    // Réinitialiser la liste des miniatures visibles, réapparaître la vidéo précédente
+
     setHiddenThumbnails((prev) => {
-      // Enlever l'ancienne vidéo de la liste des miniatures masquées
       const updatedThumbnails = prev.filter((id) => id !== activeVideoId);
-  
-      // Ajouter la nouvelle vidéo à la liste des vidéos masquées
       updatedThumbnails.push(videoId);
-  
       return updatedThumbnails;
     });
-  
-    // Définir la nouvelle vidéo comme active
+
     setActiveVideoId(videoId);
   };
 
-  const activeProject = activeProjectIndex !== null ? projects[activeProjectIndex] : null;
+  const handleDragStart = (e: React.MouseEvent<HTMLDivElement>) => {
+    isDragging.current = true;
+    dragDistance.current = 0; // Réinitialiser la distance au début du drag
+    startX.current = e.pageX - (scrollContainerRef.current?.offsetLeft || 0);
+    scrollLeft.current = scrollContainerRef.current?.scrollLeft || 0;
+  };
+
+  const handleDragMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!isDragging.current || !scrollContainerRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - (scrollContainerRef.current.offsetLeft || 0);
+    const walk = (x - startX.current) * 1.5; // Multiplier pour ajuster la vitesse
+    dragDistance.current += Math.abs(x - startX.current); // Calculer la distance parcourue
+    scrollContainerRef.current.scrollLeft = scrollLeft.current - walk;
+  };
+
+  const handleDragEnd = () => {
+    isDragging.current = false;
+  };
+
+  const activeProject =
+    activeProjectIndex !== null ? projects[activeProjectIndex] : null;
 
   return (
     <section className="portfolio" id="portfolio" data-scroll-container="true">
@@ -249,7 +216,7 @@ export function Portfolio() {
             <a
               key={project.name}
               className={`div-to-click show-me ${
-                activeProjectIndex === index ? 'activeProject' : ''
+                activeProjectIndex === index ? "activeProject" : ""
               }`}
               onClick={() => handleClick(index)}
             >
@@ -261,90 +228,84 @@ export function Portfolio() {
         </div>
       </div>
 
-      {/* Popup Section */}
       {activeProject && (
-          <div
-            className={`portfolio-popup-container ${isPopupActive ? 'active' : ''} ${isClosing ? 'closing' : ''}`}
-            ref={popupRef}
-          >
-            <div className="portfolio-popup-container-overlay"></div>
-            <div className="portfolio-popup-content">
-              <div className="portfolio-popup-content-header">
-                <div>
+        <div
+          className={`portfolio-popup-container ${
+            isPopupActive ? "active" : ""
+          } ${isClosing ? "closing" : ""}`}
+          ref={popupRef}
+        >
+          <div className="portfolio-popup-container-overlay"></div>
+          <div className="portfolio-popup-content">
+            <div className="portfolio-popup-content-header">
                   <div className="portfolio-popup-content-header-block">
                     <h2>{activeProject.name}</h2>
-                    <div>
-                      <h3>{activeProject.description} • {activeProject.date}</h3>
-                      {/*<p>{activeProject.date}</p>*/}
+                    <div className="portfolio-popuselection-block">
+                      <span onClick={handlePrevProject}>
+                        <ArrowLeftIcon className="portfolio-icon" />
+                      </span>
+                      <span onClick={handleNextProject}>
+                        <ArrowRightIcon className="portfolio-icon" />
+                      </span>
                     </div>
                   </div>
                   <div className="portfolio-popup-content-header-block">
-                    {/*<span onClick={handleClosePopup}>
-                      <CloseIcon className="portfolio-icon" />
-                    </span>*/}
-                    <div>
-                      <span onClick={handlePrevProject}>
-                        <ArrowLeftIcon className={`portfolio-icon ${isLeftPressed ? 'pressed' : ''}`} />
-                      </span>
-                      <span onClick={handleNextProject}>
-                        <ArrowRightIcon className={`portfolio-icon ${isRightPressed ? 'pressed' : ''}`} />
-                      </span>
-                    </div>
+                    <h3>{activeProject.description} • {activeProject.date}</h3>
+                    {activeProject.content.text && (
+                      <>
+                        {activeProject.content.text.title && <h3>{activeProject.content.text.title}</h3>}
+                        {activeProject.content.text.subtitle && <h4>{activeProject.content.text.subtitle}</h4>}
+                        {activeProject.content.text.description && <p>{activeProject.content.text.description}</p>}
+                        {activeProject.content.text.links?.map((link, i) => (
+                          <a key={i} href={link.url} target="_blank" rel="noopener noreferrer">
+                            {link.label}
+                          </a>
+                        ))}
+                      </>
+                    )}
                   </div>
-                </div>
-                <div>
-                  {activeProject.content.text && (
-                    <>
-                      {activeProject.content.text.title && <h3>{activeProject.content.text.title}</h3>}
-                      {activeProject.content.text.subtitle && <h4>{activeProject.content.text.subtitle}</h4>}
-                      {activeProject.content.text.description && <p>{activeProject.content.text.description}</p>}
-                      {activeProject.content.text.links?.map((link, i) => (
-                        <a key={i} href={link.url} target="_blank" rel="noopener noreferrer">
-                          {link.label}
-                        </a>
-                      ))}
-                    </>
+              </div>
+            <div
+              className="portfolio-popup-dynamic-content"
+              ref={scrollContainerRef}
+              onMouseDown={handleDragStart}
+              onMouseMove={handleDragMove}
+              onMouseUp={handleDragEnd}
+              onMouseLeave={handleDragEnd}
+            >
+              {activeProject.content.videoIds?.map((videoId, i) => (
+                <div key={i} className="portfolio-popup-dynamic-content-video">
+                  {!hiddenThumbnails.includes(videoId) && (
+                    <div className="portfolio-popup-dynamic-content-thumbnail-block">
+                      <PlayerPlayButton className="portfolio-video-play-button" />
+                      <img
+                        src={`https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`}
+                        alt={`Thumbnail for Video ${i + 1}`}
+                        style={{ cursor: "pointer" }}
+                        onClick={() => handleThumbnailClick(videoId)}
+                        draggable="false"
+                      />
+                    </div>
+                  )}
+                  {activeVideoId === videoId && (
+                    <iframe
+                      src={`https://www.youtube.com/embed/${videoId}?rel=0&controls=1&modestbranding=1&autoplay=1`}
+                      title={`Video ${i + 1}`}
+                      width="100%"
+                      frameBorder="0"
+                      allow="autoplay; encrypted-media"
+                      allowFullScreen
+                    ></iframe>
                   )}
                 </div>
-              </div>
-
-              {/* Dynamic content */}
-              <div className="portfolio-popup-dynamic-content">
-                {activeProject.content.videoIds?.map((videoId, i) => (
-                  <div key={i} className="portfolio-popup-dynamic-content-video">
-                    {/* Afficher la miniature si elle n'est pas masquée */}
-                    {!hiddenThumbnails.includes(videoId) && (
-                      <div className="portfolio-popup-dynamic-content-thumbnail-block">
-                          <PlayerPlayButton className="portfolio-video-play-button" />
-                        <img
-                          src={`https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`}
-                          alt={`Thumbnail for Video ${i + 1}`}
-                          style={{ cursor: "pointer" }}
-                          onClick={() => handleThumbnailClick(videoId)} // Masquer l'image au clic
-                          draggable="false"
-                        />
-                      </div>
-                    )}
-
-                    {/* Afficher l'iframe avec autoplay si c'est la vidéo active */}
-                    {activeVideoId === videoId && (
-                      <iframe
-                        src={`https://www.youtube.com/embed/${videoId}?rel=0&controls=1&modestbranding=1&autoplay=1`} // Ajout du paramètre autoplay
-                        title={`Video ${i + 1}`}
-                        width="100%"
-                        frameBorder="0"
-                        allow="autoplay; encrypted-media"
-                        allowFullScreen
-                      ></iframe>
-                    )}
-                  </div>
-                ))}
-              </div>
-              <p className="portfolio-scroll">(&nbsp;SCROLL&nbsp;<ArrowRightIcon/>&nbsp;)</p>
+              ))}
             </div>
+            <p className="portfolio-scroll">
+              (&nbsp;SCROLL&nbsp;<ArrowRightIcon />&nbsp;)
+            </p>
           </div>
+        </div>
       )}
-
     </section>
   );
 }
