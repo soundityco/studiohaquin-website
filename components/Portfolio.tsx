@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+
 import {
   ArrowLeftIcon,
   ArrowRightIcon,
@@ -266,7 +267,7 @@ export function Portfolio() {
                   </div>
               </div>
             <div
-              className="portfolio-popup-dynamic-content"
+              className="portfolio-popup-dynamic-content horizontal-scroll"
               ref={scrollContainerRef}
               onMouseDown={handleDragStart}
               onMouseMove={handleDragMove}

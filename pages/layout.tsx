@@ -23,7 +23,9 @@ export default function Layout({
     <ReactLenis root>
       <div className={inter.className}>
         <Loader />
-        <StickyCursor stickyElement={stickyElement} />
+        <div ref={stickyElement}> {/* Ajout de ref ici */}
+          <StickyCursor stickyElement={stickyElement} />
+        </div>
         {children}
         <Footer />
       </div>
