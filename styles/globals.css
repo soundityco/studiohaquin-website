@@ -1540,6 +1540,7 @@ input[type="range"]::-ms-thumb {
   margin-top: 0.75vw;*/
 
   content: "";
+  width: 0;
   height: .25vw;
   display: flex;
   transition: width .2s cubic-bezier(.7,0,.4,1.01);
