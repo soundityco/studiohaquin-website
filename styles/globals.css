@@ -1167,7 +1167,7 @@ input[type="range"]::-ms-thumb {
 }
 
 .div-to-click {
-  padding: 1vw 0;
+  padding: 0.75vw 0;
 }
 
 .portfolio-popup {
