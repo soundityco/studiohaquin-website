@@ -40,6 +40,8 @@ const StickyCursor: React.FC<StickyCursorProps> = ({ stickyElement }) => {
     // Définir un tableau des classes et l'emoji associé
     const classEmojiMap: { [key: string]: React.ReactNode } = {
       'button-contact': <Image src={EmojiContact} alt="Emoji" width={50} height={50} draggable="false" />,
+      //'button-contact-img': <Image src={EmojiContact} alt="Emoji" width={50} height={50} draggable="false" />,
+      //'header-button': <Image src={EmojiContact} alt="Emoji" width={50} height={50} draggable="false" />,
       //'button-discover': <Image src={EmojiHandFinger} alt="Emoji" width={50} height={50} draggable="false" />,
       'button-footer': <Image src={EmojiContact} alt="Emoji" width={50} height={50} draggable="false" />,
       'button-footer-reveal': <Image src={EmojiCute} alt="Emoji" width={50} height={50} draggable="false" />,

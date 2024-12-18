@@ -13,7 +13,10 @@ const Header = forwardRef<HTMLElement>((props, ref) => {
             <WebsiteIcon className="header-menu-icon"/>
             <p>Studio Haquin</p>
           </a>
-          <a className="button-contact" href="mailto:andy@studiohaquin.com">👉 Me contacter</a>
+          <div className="header-button">
+            <a className="button-contact" href="mailto:andy@studiohaquin.com">👉 Me contacter</a>
+            <a className="button-contact-img" href="https://instagram.com/studiohaquin"><NewLinkIcon/></a>
+          </div>
           {/*<span>
             <a className="button-contact" href="mailto:andy@studiohaquin.com">👉 Me contacter</a>
             <div>
