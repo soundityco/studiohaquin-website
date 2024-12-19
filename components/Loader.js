@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import Typewriter from "typewriter-effect";
 
-export function Loader({ lenis }) { // Lenis est passé en prop
+export function Loader({ lenis }) {
   const [isAnimating, setIsAnimating] = useState(true);
 
   useEffect(() => {
+    // Forcer le scroll en haut de page dès que le Loader est monté
+    window.scrollTo(0, 0);
+
     // Désactiver le scroll via Lenis
     if (lenis) lenis.stop();
 
