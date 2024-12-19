@@ -133,6 +133,27 @@ export function Portfolio() {
         }
       }
     },
+    {
+      name: "blurblur",
+      description: "Composition & sound design",
+      date: "Depuis 2018",
+      content: {
+        videoIds: [
+          "07ajNa0HyOM",
+          "AyXlc-wf31U",
+          "MAySC0NqGdI",
+          "UcdPqI6maG4",
+          "vE2-2ohxaT0",
+          "aGkHU2nwyqU",
+          "f59vXG2g5iQ",
+          "Wlwl-Fdsmss",
+        ],
+        iframes: [],
+        text: {
+          description: "blurblur est mon projet d'artiste ou j'exerce composition, écriture, enregistrement, mixage et mastering. Clips réalisés par Josic Jegu."
+        }
+      }
+    },
   ];
 
   const handleClick = (index: number) => {

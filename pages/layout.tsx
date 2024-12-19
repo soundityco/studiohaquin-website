@@ -2,10 +2,10 @@ import React, { useEffect, useRef } from 'react';
 import Loader from "@/components/Loader";
 import Footer from "@/components/Footer";
 import StickyCursor from '@/components/stickyCursor';
-import { Inter } from 'next/font/google';
 import { ReactLenis, useLenis } from '@/components/utils/lenis';
 import 'lenis/dist/lenis.css';
 
+import { Inter } from 'next/font/google';
 const inter = Inter({ subsets: ['latin'] });
 
 export default function Layout({ children }: { children: React.ReactNode }) {

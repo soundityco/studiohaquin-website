@@ -2,9 +2,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import Head from "next/head";
 
 // Importing components
-import { Portfolio } from '../components/Portfolio';
-import { Hero } from '../components/Hero';
-import Intro from "../components/Intro";
+import { Portfolio } from '@/components/Portfolio';
+import { Hero } from '@/components/Hero';
+import Intro from "@/components/Intro";
 
 export function Home() {
 
