@@ -9,7 +9,7 @@ import { Inter } from 'next/font/google';
 const inter = Inter({ subsets: ['latin'] });
 
 // Smooth Scroll
-import { ReactLenis } from '@/components/utils/lenis';
+import { ReactLenis, useLenis } from '@/components/utils/lenis';
 import 'lenis/dist/lenis.css';
 
 export default function Layout({
@@ -18,11 +18,12 @@ export default function Layout({
   children: React.ReactNode;
 }) {
   const stickyElement = useRef(null);
+  const lenis = useLenis();
 
   return (
     <ReactLenis root>
       <div className={inter.className}>
-        <Loader />
+        <Loader lenis={lenis} />
         <div ref={stickyElement}> {/* Ajout de ref ici */}
           <StickyCursor stickyElement={stickyElement} />
         </div>

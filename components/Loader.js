@@ -1,30 +1,39 @@
-// Importing Dependencies //
-import React from "react";
-import Image from 'next/image';
+import React, { useEffect, useState } from "react";
+import Typewriter from "typewriter-effect";
 
-// TYPE WRITER EFFECT
-import Typewriter from 'typewriter-effect';
+export function Loader({ lenis }) { // Lenis est passé en prop
+  const [isAnimating, setIsAnimating] = useState(true);
 
-// Importing Images SRC
+  useEffect(() => {
+    // Désactiver le scroll via Lenis
+    if (lenis) lenis.stop();
 
-export function Loader() {;
+    // Activer la suppression du loader après l'animation
+    const timer = setTimeout(() => {
+      setIsAnimating(false);
+      if (lenis) lenis.start(); // Réactiver le scroll
+    }, 6500); // 6.5s : durée totale de l'animation
+
+    return () => clearTimeout(timer);
+  }, [lenis]);
 
   return (
-    <section className="loader" id="loader">
-        <h1 className="loader-title">{/*STUDIO HAQUIN © FILMMAKER & SOUNDDESIGNER*/}
+    isAnimating && (
+      <section className="loader">
+        <h1 className="loader-title">
           <Typewriter
             options={{
-              strings: ['STUDIO HAQUIN ©', 'FILMMAKER & SOUND DESIGNER'],
+              strings: ["STUDIO HAQUIN ©", "FILMMAKER & SOUND DESIGNER"],
               autoStart: true,
               loop: false,
-              delay: 70, // Réduit le délai pour l'apparition de chaque caractère
-              deleteSpeed: 35, // Réduit la vitesse de suppression des caractères
-              pauseFor: 700, // Réduit la pause entre les phrases
+              delay: 70,
+              deleteSpeed: 35,
+              pauseFor: 700,
             }}
           />
-        </h1> {/* HI, WELCOME! */}
-        {/*<Image className="loader-logo" alt="blurblur Logo Chrome" src={blurblurLogo}/>*/}
-    </section>
+        </h1>
+      </section>
+    )
   );
 }
 

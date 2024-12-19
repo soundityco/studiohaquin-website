@@ -336,39 +336,27 @@ a {
 }
 
 /* LOADER */
+body.no-scroll {
+  overflow: hidden !important;
+}
+
 .loader {
   width: 100%;
   height: 100vh;
-  position: relative;
   background: var(--foreground);
-  top: 0;
-  left: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: var(--container-padding);
-  box-sizing: border-box;
-  -webkit-backdrop-filter: blur(100px);
-  z-index: 1000;
-  animation: loaderToTop .75s cubic-bezier(.7,0,.4,1.01) 5.75s forwards;
   color: var(--background);
-  opacity: 1;
-  visibility: visible;
-  overflow: hidden;
-  /*background: linear-gradient(to bottom, var(--foreground), var(--secondary-color));*/
-  overflow: hidden;
+  z-index: 1000;
+  animation: slideUp 0.75s cubic-bezier(.7, 0, .4, 1.01) 5.75s forwards;
 }
 
-@keyframes loaderToTop {
+@keyframes slideUp {
   from {
-    /*opacity: 1;
-    visibility: visible;*/
-    marfgin: 0;
+    margin-top: 0;
   }
-
   to {
-    /*opacity: 0;
-    visibility: hidden;*/
     margin-top: -100vh;
   }
 }
@@ -378,19 +366,16 @@ a {
   transform: translateY(20px);
   opacity: 0;
   visibility: hidden;
-  user-select: none;
-  animation: loaderTitleEntry .5s cubic-bezier(.7,0,.4,1.01) 0.3s forwards,
-             loaderTitleExit 2s cubic-bezier(.7,0,.4,1.01) 5.25s forwards; 
-  text-align: center;
+  animation: loaderTitleEntry 0.5s cubic-bezier(.7, 0, .4, 1.01) 0.3s forwards,
+             loaderTitleExit 2s cubic-bezier(.7, 0, .4, 1.01) 5.25s forwards;
 }
 
 @keyframes loaderTitleEntry {
   from {
-   transform: translateY(2vw);
+    transform: translateY(2vw);
     opacity: 0;
     visibility: hidden;
   }
-
   to {
     transform: translateY(0px);
     opacity: 1;
@@ -401,16 +386,12 @@ a {
 @keyframes loaderTitleExit {
   0% {
     filter: blur(0);
-    -webkit-filter: blur(0px);
     opacity: 1;
   }
-
   95% {
     filter: blur(50px);
-    -webkit-filter: blur(50px);
     opacity: 0;
   }
-
   100% {
     display: none;
     opacity: 0;
@@ -419,12 +400,7 @@ a {
 }
 
 
-.loader-logo {
-  max-width: 15rem;
-  width: 100%;
-  transform: rotate(3deg);
-}
-
+/* MAIN */
 .container {
   /*max-width: 1920px;*/
   padding: var(--container-padding);
@@ -1329,7 +1305,7 @@ input[type="range"]::-ms-thumb {
   left: 0%;
   right: 0%;
   pointer-events: none;
-  border-radius: var(--border-radius);
+  /*border-radius: var(--border-radius);*/
 }
 
 
