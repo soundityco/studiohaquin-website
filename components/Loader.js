@@ -1,24 +1,25 @@
 import React, { useEffect, useState } from "react";
 import Typewriter from "typewriter-effect";
 
-export function Loader({ lenis }) {
+export function Loader({ lenis, onLoaderComplete }) { // Ajout de onLoaderComplete
   const [isAnimating, setIsAnimating] = useState(true);
 
   useEffect(() => {
-    // Forcer le scroll en haut de page dès que le Loader est monté
-    window.scrollTo(0, 0);
-
-    // Désactiver le scroll via Lenis
-    if (lenis) lenis.stop();
+    // Désactiver le scroll avec Lenis
+    if (lenis) {
+      lenis.stop();
+      lenis.scrollTo(0, { immediate: true }); // Forcer en haut pour le Loader
+    }
 
     // Activer la suppression du loader après l'animation
     const timer = setTimeout(() => {
       setIsAnimating(false);
+      if (onLoaderComplete) onLoaderComplete(); // Callback après l'animation
       if (lenis) lenis.start(); // Réactiver le scroll
-    }, 6500); // 6.5s : durée totale de l'animation
+    }, 6500); // Durée totale de l'animation
 
     return () => clearTimeout(timer);
-  }, [lenis]);
+  }, [lenis, onLoaderComplete]);
 
   return (
     isAnimating && (
