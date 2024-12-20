@@ -368,6 +368,7 @@ body.no-scroll {
   visibility: hidden;
   animation: loaderTitleEntry 0.5s cubic-bezier(.7, 0, .4, 1.01) 0.3s forwards,
              loaderTitleExit 2s cubic-bezier(.7, 0, .4, 1.01) 5.25s forwards;
+  text-align: center;
 }
 
 @keyframes loaderTitleEntry {
