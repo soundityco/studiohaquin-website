@@ -54,7 +54,7 @@ export function Portfolio() {
         iframes: [],
         text: {
           description:
-            "Réalisation d'une série de vidéos promotionnelles et divertissantes destinées aux réseaux sociaux pour Decathlon Les Ponts-de-Cé.",
+            "Réalisation d'une série de 11 vidéos afin de mettre en avant les réussites du magasin des Ponts-de-Cé sur l'année 2024.",
         },
       },
     },
@@ -340,7 +340,7 @@ export function Portfolio() {
                         <img
                           src={`https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`}
                           alt={`Thumbnail for Video ${i + 1}`}
-                          style={{ cursor: "pointer" }}
+                          //style={{ cursor: "pointer" }}
                           onClick={() => handleThumbnailClick(videoId)}
                           draggable="false"
                         />

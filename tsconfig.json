@@ -16,6 +16,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "components/stickyCursor.jsx", "components/useMagnifierEffect.js", "components/Hero.js", "pages/index.js", "pages/layout.js", "pages/layout.js", "pages/layout.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "components/stickyCursor.jsx", "components/useMagnifierEffect.js", "components/Hero.js", "pages/index.js", "pages/layout.js", "pages/layout.js", "pages/layout.js", "components/Intro.js"],
   "exclude": ["node_modules"]
 }

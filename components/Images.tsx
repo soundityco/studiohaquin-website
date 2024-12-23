@@ -118,6 +118,34 @@ export const NewLinkIcon = ({ className = '' }: { className?: string }) => (
 </svg>
 );
 
+export const ArrowRightNavIcon = ({ className = '' }: { className?: string }) => (
+  <svg
+    className={className}
+    viewBox="0 0 200 200" 
+    xmlns="http://www.w3.org/2000/svg"
+    //width="15px"
+    //height="15px"
+    fill="none"
+  >
+    <circle cx="100" cy="100" r="100" fill="#fff"/>
+    <path d="M141.4,105.3H34.9v-14.1h106.5l-27.9-27.9,10.2-10.2,45.1,45.1-45,45-10.2-10.2,27.8-27.8Z" fill="#000"/>
+</svg>
+);
+
+export const ArrowLeftNavIcon = ({ className = '' }: { className?: string }) => (
+  <svg
+    className={className}
+    viewBox="0 0 200 200" 
+    xmlns="http://www.w3.org/2000/svg"
+    //width="15px"
+    //height="15px"
+    fill="none"
+  >
+    <circle cx="100" cy="100" r="100" fill="#fff"/>
+    <path d="M58.6,94.7h106.5v14.1H58.6l27.9,27.9-10.2,10.2-45.1-45.1,45-45,10.2,10.2-27.8,27.8Z" fill="#000"/>
+  </svg>
+);
+
 export const ArrowRightIcon = ({ className = '' }: { className?: string }) => (
   <svg
     className={className}
