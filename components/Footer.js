@@ -8,14 +8,14 @@ export function Footer() {
         <div className="footer-container container">
           <div className="footer-container-block">
             <h1 className="section-title footer-title">Parlez moi de votre projet !</h1>
-            <a className="button-contact" href="mailto:mailto:andy@studiohaquin.com?subject=J'ai un super projet à vous te proposer ! 😎&body=Hello Andy ! (très beau prénom), J'ai pour projet de…">Me contacter</a>{/* 👉 */}
+            <a className="button-contact hover-sound-contact" href="mailto:mailto:andy@studiohaquin.com?subject=J'ai un super projet à vous te proposer ! 😎&body=Hello Andy ! (très beau prénom), J'ai pour projet de…">Me contacter</a>{/* 👉 */}
           </div>
           <div className="footer-container-block">
             <nav className="footer-links">
               <ul>
-                <li><a className="footer-link show-me" href="https://linkedin.com/in/andyhaquin" target="_blank">LinkedIn</a></li>
-                <li><a className="footer-link show-me" href="https://instagram.com/studiohaquin" target="_blank">Instagram</a></li>
-                <li><a className="footer-link show-me" href="https://be.net/studiohaquin" target="_blank">Behance</a></li>
+                <li><a className="footer-link show-me hover-sound-instagram" href="https://instagram.com/studiohaquin" target="_blank">Instagram</a></li>
+                <li><a className="footer-link show-me hover-sound-linkedin" href="https://linkedin.com/in/andyhaquin" target="_blank">LinkedIn</a></li>
+                <li><a className="footer-link show-me hover-sound-behance" href="https://be.net/studiohaquin" target="_blank">Behance</a></li>
               </ul>
             </nav>
           </div>

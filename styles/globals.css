@@ -187,6 +187,10 @@ a {
   pointer-events: none;
 }
 
+audio {
+  display: none;
+}
+
 .cursor {
   position: fixed;
   width: 20px;

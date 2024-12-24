@@ -2,8 +2,10 @@ import React, { useEffect, useRef } from 'react';
 import Loader from "@/components/Loader";
 import Footer from "@/components/Footer";
 import StickyCursor from '@/components/stickyCursor';
-import { ReactLenis, useLenis } from '@/components/utils/lenis';
+import SoundManager from '@/components/utils/SoundManager'; // Import du composant externe
 import 'lenis/dist/lenis.css';
+
+import { ReactLenis, useLenis } from '@/components/utils/lenis';
 
 import { Inter } from 'next/font/google';
 const inter = Inter({ subsets: ['latin'] });
@@ -28,6 +30,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <ReactLenis root>
       <div className={inter.className}>
+        {/* Ajouter SoundManager ici */}
+        <SoundManager />
         <Loader lenis={lenis} onLoaderComplete={handleLoaderComplete} />
         <div ref={stickyElement}>
           <StickyCursor stickyElement={stickyElement} />
@@ -38,40 +42,3 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     </ReactLenis>
   );
 }
-
-
-
-
-{/*import React, { useState, useEffect, useRef } from 'react';
-
-// Importing main components
-import Loader from "../components/Loader";
-import Footer from "../components/Footer";
-import StickyCursor from '../components/stickyCursor';
-
-export default function Layout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-
-  const stickyElement = useRef(null);
-
-  useEffect( () => {
-    (
-      async () => {
-          const LocomotiveScroll = (await import('locomotive-scroll')).default
-          const locomotiveScroll = new LocomotiveScroll();
-      }
-    )()
-  }, [])
-
-  return (
-    <>
-      <Loader />
-      <StickyCursor stickyElement={stickyElement}/>
-      {children}
-      <Footer/>
-    </>
-  );
-}*/}
