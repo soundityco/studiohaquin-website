@@ -4,47 +4,45 @@ import { Howl } from 'howler';
 const SoundManager = () => {
   // Créer des instances de Howl pour différents sons
   const sounds = {
-    click: new Howl({ src: ['/sounds/click-sound.mp3'], volume: 0.15 }), // Son pour les clics
-    hoverClick: new Howl({ src: ['/sounds/hover-click-sound.mp3'], volume: 0.15 }),
-    instagram: new Howl({ src: ['/sounds/hover-sound-instagram.mp3'], volume: 0.15 }),
-    linkedin: new Howl({ src: ['/sounds/hover-sound-linkedin.mp3'], volume: 0.15 }),
-    behance: new Howl({ src: ['/sounds/hover-sound-behance.mp3'], volume: 0.15 }),
-    contact: new Howl({ src: ['/sounds/hover-sound-contact.mp3'], volume: 0.15 }),
-    mario: new Howl({ src: ['/sounds/hover-sound-mario.mp3'], volume: 0.15 }),
-    whoosh: new Howl({ src: ['/sounds/hover-sound-whoosh.mp3'], volume: 0.05 }),
+    click: new Howl({ src: ['/sounds/click-sound.wav'], volume: 0.15 }),
+    hoverClick: new Howl({ src: ['/sounds/hover-click-sound.wav'], volume: 0.15 }),
+    instagram: new Howl({ src: ['/sounds/hover-sound-instagram.wav'], volume: 0.15 }),
+    linkedin: new Howl({ src: ['/sounds/hover-sound-linkedin.wav'], volume: 0.15 }),
+    behance: new Howl({ src: ['/sounds/hover-sound-behance.wav'], volume: 0.15 }),
+    contact: new Howl({ src: ['/sounds/hover-sound-contact.wav'], volume: 0.15 }),
+    mario: new Howl({ src: ['/sounds/hover-sound-mario.wav'], volume: 0.15 }),
+    whoosh: new Howl({ src: ['/sounds/hover-sound-whoosh.wav'], volume: 0.05 }),
   };
 
   // Références pour gérer les sons
   const currentSoundRef = useRef<Howl | null>(null); // Le son en cours
-  const isFadingOutRef = useRef(false); // Éviter les conflits entre fade-out et nouvelle lecture
+  const lastHoveredSoundRef = useRef<Howl | null>(null); // Le dernier son joué, pour vérifier si c'est le même
+  const soundFinishedRef = useRef(true); // Indicateur pour savoir si le son est terminé
 
   const playSound = (newSound: Howl) => {
-    if (currentSoundRef.current && currentSoundRef.current !== newSound) {
-      // Si un autre son est en cours, le fade-out avant de jouer le nouveau
-      if (isFadingOutRef.current) return; // Empêche d’empiler plusieurs fade-out
-
-      isFadingOutRef.current = true;
-      currentSoundRef.current.fade(0.15, 0, 300); // Fade-out rapide
-      setTimeout(() => {
-        currentSoundRef.current?.stop();
-        currentSoundRef.current = null;
-        isFadingOutRef.current = false;
-
-        // Joue le nouveau son
-        newSound.volume(0.15);
-        newSound.play();
-        currentSoundRef.current = newSound;
-      }, 300); // Durée du fade-out
-    } else if (currentSoundRef.current === newSound) {
-      // Si le son est déjà en cours, rejoue-le depuis le début
-      newSound.stop();
-      newSound.play();
-    } else {
-      // Si aucun son n'est en cours, joue directement
-      newSound.volume(0.15);
-      newSound.play();
-      currentSoundRef.current = newSound;
+    if (lastHoveredSoundRef.current === newSound && !soundFinishedRef.current) {
+      // Si le même son est déjà en train de jouer, mais pas terminé, on ne rejoue pas
+      return;
     }
+
+    // Arrêter l'ancien son si un nouveau son est joué
+    if (currentSoundRef.current && currentSoundRef.current !== newSound) {
+      currentSoundRef.current.stop();
+    }
+
+    // Jouer le nouveau son
+    newSound.volume(0.15);
+    newSound.play();
+
+    // Mettre à jour les références
+    currentSoundRef.current = newSound;
+    lastHoveredSoundRef.current = newSound;
+    soundFinishedRef.current = false; // Indiquer que le son n'est pas encore terminé
+
+    // Détecter quand le son est terminé
+    newSound.on('end', () => {
+      soundFinishedRef.current = true; // Le son est terminé
+    });
   };
 
   useEffect(() => {
