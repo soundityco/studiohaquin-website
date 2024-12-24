@@ -10,6 +10,8 @@ const SoundManager = () => {
     linkedin: new Howl({ src: ['/sounds/hover-sound-linkedin.mp3'], volume: 0.15 }),
     behance: new Howl({ src: ['/sounds/hover-sound-behance.mp3'], volume: 0.15 }),
     contact: new Howl({ src: ['/sounds/hover-sound-contact.mp3'], volume: 0.15 }),
+    mario: new Howl({ src: ['/sounds/hover-sound-mario.mp3'], volume: 0.15 }),
+    whoosh: new Howl({ src: ['/sounds/hover-sound-whoosh.mp3'], volume: 0.05 }),
   };
 
   // Références pour gérer les sons
@@ -61,6 +63,10 @@ const SoundManager = () => {
           playSound(sounds.behance);
         } else if (target.classList.contains('hover-sound-contact')) {
           playSound(sounds.contact);
+        } else if (target.classList.contains('hover-sound-mario')) {
+          playSound(sounds.mario);
+        } else if (target.classList.contains('hover-sound-whoosh')) {
+          playSound(sounds.whoosh);
         }
       }
     };

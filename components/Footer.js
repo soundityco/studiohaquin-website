@@ -23,7 +23,7 @@ export function Footer() {
             <p className="footer-cc">
               Studio Haquin © 2024
             </p>
-            <p className="footer-cc">Designed & dev by&nbsp;<span><a class="button-footer-reveal">Studio Haquin</a></span></p>
+            <p className="footer-cc">Designed & dev by&nbsp;<span><a class="button-footer-reveal hover-sound-mario">Studio Haquin</a></span></p>
           </div>
         </div>
       </footer>
