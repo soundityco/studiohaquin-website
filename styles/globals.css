@@ -883,7 +883,6 @@ input[type="range"]::-ms-thumb {
   width: 100%;
   /*background: var(--foreground);*/
   /*padding: calc(var(--container-padding)*4) var(--container-padding);*/
-  padding: var(--container-padding);
   box-sizing: border-box;
   /*border-top: 0.5px solid var(--dark-grey);
   border-bottom: 0.5px solid var(--dark-grey);*/
@@ -1155,7 +1154,6 @@ input[type="range"]::-ms-thumb {
   display: flex;
   overflow: hidden;
   position: relative;
-  padding: calc(var(--container-padding)* 4) 0;
   box-sizing: border-box;
 }
 
@@ -1165,6 +1163,7 @@ input[type="range"]::-ms-thumb {
   display: flex;
   flex-wrap: nowrap;
   width: max-content;
+  padding: calc(var(--container-padding)* 4) var(--container-padding);
 }
 
 .intro-container-item {
@@ -1172,7 +1171,6 @@ input[type="range"]::-ms-thumb {
   grid-template-columns: 30vw auto;
   gap: 2vw;
   box-sizing: border-box;
-  padding: 0 var(--container-padding);
   height: min-content;
   min-width: 100%;
 }
@@ -2157,8 +2155,10 @@ input[type="range"]::-ms-thumb {
   }
 
   .portfolio-popup-dynamic-content div {
-    min-width: 100%;
-    max-width: 100%;
+    /*min-width: 100%;
+    max-width: 100%;*/
+    min-width: 75vw;
+    max-width: 75vw;
   }
 
   .portfolio-popup-content-header-block h2 {
