@@ -277,6 +277,19 @@ a {
   line-height: 5vw;
 }*/
 
+/* CSS de base pour les animations */
+.section {
+  opacity: 0;
+  transform: translateY(100px);
+  transition: opacity 1s cubic-bezier(.7,0,.4,1.01),
+              transform 1s cubic-bezier(.7,0,.4,1.01);
+}
+
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .section-title {
   font-family: 'Inter', sans-serif;
   text-transform: uppercase;
