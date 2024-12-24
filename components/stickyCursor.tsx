@@ -36,8 +36,8 @@ const StickyCursor: React.FC<StickyCursorProps> = ({ stickyElement }) => {
     'button-footer-reveal': <Image src={EmojiCute} alt="Emoji" draggable="false" />,
     'proud': <Image src={EmojiProud} alt="Emoji" draggable="false" />,
     'show-me': <NewLinkIcon className="new-link" />,
-    'portfolio-start': <ArrowLeftNavIcon className="new-link start" />,
-    'portfolio-end': <ArrowRightNavIcon className="new-link end" />,
+    'portfolio-start': <ArrowLeftNavIcon className="new-link new-link-start" />,
+    'portfolio-end': <ArrowRightNavIcon className="new-link new-link-end" />,
     //'play': <ArrowRightNavIcon className="new-link end" />,
   };
 

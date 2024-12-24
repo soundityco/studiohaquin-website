@@ -333,14 +333,20 @@ export function Portfolio() {
                 onMouseLeave={handleDragEnd}
               >
                 {activeProject.content.videoIds?.map((videoId, i) => (
-                  <div key={i} className="portfolio-popup-dynamic-content-video">
+                  <div
+                    key={i}
+                    className={`portfolio-popup-dynamic-content-video ${
+                      hoveredVideoId && hoveredVideoId !== videoId ? 'darkened' : ''
+                    }`}
+                    onMouseEnter={() => setHoveredVideoId(videoId)}
+                    onMouseLeave={() => setHoveredVideoId(null)}
+                  >
                     {!hiddenThumbnails.includes(videoId) && (
                       <div className="portfolio-popup-dynamic-content-thumbnail-block">
                         <PlayerPlayButton className="portfolio-video-play-button" />
                         <img
                           src={`https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`}
                           alt={`Thumbnail for Video ${i + 1}`}
-                          //style={{ cursor: "pointer" }}
                           onClick={() => handleThumbnailClick(videoId)}
                           draggable="false"
                         />
@@ -359,6 +365,7 @@ export function Portfolio() {
                   </div>
                 ))}
               </div>
+
               <p className="portfolio-scroll">
                 (&nbsp;SCROLL&nbsp;<ArrowRightIcon />&nbsp;)
               </p>

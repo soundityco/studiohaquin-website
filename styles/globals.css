@@ -446,7 +446,15 @@ body.no-scroll {
 /*.new-link {
   width: auto;
   height: 5rem;
+}
+.new-link-start {
+  transform: rotate(+45deg);
+}
+
+.new-link-end {
+  transform: rotate(-45deg);
 }*/
+
 
 .hero-block {
   min-height: min-content;
@@ -1395,7 +1403,7 @@ input[type="range"]::-ms-thumb {
 }
 
 .portfolio-popup-dynamic-content {
-  width: 100%;
+  max-width: min-content;
   height: 100%;
   cursor: none !important;
 
@@ -1409,6 +1417,8 @@ input[type="range"]::-ms-thumb {
   scrollbar-width: none;
   /*mask-image: linear-gradient(to right, black 95%, transparent 100%);*/
 }
+
+
 
 .portfolio-popup-dynamic-content > * {
   flex-shrink: 0;
@@ -1464,6 +1474,16 @@ input[type="range"]::-ms-thumb {
   max-width: 35vw
 }
 
+.portfolio-popup-dynamic-content-video.darkened {
+  filter: brightness(0.5);
+  transition: filter 0.3s cubic-bezier(.7,0,.4,1.01);
+}
+
+.portfolio-popup-dynamic-content-video {
+  filter: brightness(1);
+  transition: filter 0.3s cubic-bezier(.7,0,.4,1.01);
+}
+
 .portfolio-popup-dynamic-content-video img {
   position: absolute;
   top: 0;
@@ -1480,7 +1500,7 @@ input[type="range"]::-ms-thumb {
 
 .portfolio-popup-dynamic-content-video img:hover {
   transform: scale(1.025);
-  filter: brightness(0.75);
+  /*filter: brightness(0.75);*/
 }
 
 .portfolio-popup-dynamic-content-video:hover .portfolio-video-play-button {
