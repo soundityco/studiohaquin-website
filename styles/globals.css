@@ -882,7 +882,6 @@ input[type="range"]::-ms-thumb {
 .hero {
   width: 100%;
   /*background: var(--foreground);*/
-  /*padding: calc(var(--container-padding)*4) var(--container-padding);*/
   box-sizing: border-box;
   /*border-top: 0.5px solid var(--dark-grey);
   border-bottom: 0.5px solid var(--dark-grey);*/
@@ -890,6 +889,7 @@ input[type="range"]::-ms-thumb {
   max-height: 100vh;
   display: flex;
   flex-direction: column;
+  padding: 0 var(--container-padding) var(--container-padding);
 }
 
 .hero-container {
@@ -1205,7 +1205,7 @@ input[type="range"]::-ms-thumb {
   display: flex;
   flex-direction: column;
   padding: var(--container-padding);
-  margin-top: calc(var(--container-padding)*4);
+  margin-top: calc(var(--container-padding)*2);
   gap: calc(var(--container-padding)*1.5);
   position: sticky;
   top: 0;
