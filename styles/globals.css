@@ -377,6 +377,7 @@ body.no-scroll {
   color: var(--background);
   z-index: 1000;
   animation: slideUp 0.75s cubic-bezier(.7, 0, .4, 1.01) 5.75s forwards;
+  user-select: none;
 }
 
 @keyframes slideUp {
