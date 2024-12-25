@@ -1,11 +1,14 @@
 import React, { useEffect, useRef } from 'react';
+
+// Import components
 import Loader from "@/components/Loader";
 import Footer from "@/components/Footer";
-import StickyCursor from '@/components/stickyCursor';
-import SoundManager from '@/components/utils/SoundManager'; // Import du composant externe
-import 'lenis/dist/lenis.css';
 
+// Import utils components
+import StickyCursor from '@/components/utils/stickyCursor'; // Import du composant externe
+import SoundManager from '@/components/utils/soundManager'; // Import du composant externe
 import { ReactLenis, useLenis } from '@/components/utils/lenis';
+import 'lenis/dist/lenis.css';
 
 import { Inter } from 'next/font/google';
 const inter = Inter({ subsets: ['latin'] });

@@ -302,12 +302,12 @@ export function Portfolio() {
                 <div className="portfolio-popup-content-header-block">
                   <h2>{activeProject.name}</h2>
                   <div className="portfolio-popuselection-block">
-                    <span onClick={handlePrevProject}>
+                    <button className="clickable" onClick={handlePrevProject}>
                       <ArrowLeftIcon className="portfolio-icon" />
-                    </span>
-                    <span onClick={handleNextProject}>
+                    </button>
+                    <button className="clickable"   onClick={handleNextProject}>
                       <ArrowRightIcon className="portfolio-icon" />
-                    </span>
+                    </button>
                   </div>
                 </div>
                 <div className="portfolio-popup-content-header-block">

@@ -26,6 +26,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+  user-select: none;
 }
 ol, ul {
 	list-style: none;
@@ -45,6 +46,12 @@ table {
 a {
   text-decoration: none;
   color: unset;
+}
+button { 
+  all: unset;
+  display: flex;
+  align-items: center;
+  height: min-content;
 }
 
 @font-face {

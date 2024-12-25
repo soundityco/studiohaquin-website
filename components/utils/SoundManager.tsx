@@ -4,7 +4,7 @@ import { Howl } from 'howler';
 const SoundManager = () => {
   // Créer des instances de Howl pour différents sons
   const sounds = {
-    //click: new Howl({ src: ['/sounds/click-sound.wav'], volume: 1 }),
+    click: new Howl({ src: ['/sounds/click-sound.wav'], volume: 1 }),
     hoverClick: new Howl({ src: ['/sounds/hover-click-sound.wav'], volume: 1 }),
     instagram: new Howl({ src: ['/sounds/hover-sound-instagram.wav'], volume: 1 }),
     linkedin: new Howl({ src: ['/sounds/hover-sound-linkedin.wav'], volume: 1 }),
@@ -40,7 +40,7 @@ const SoundManager = () => {
     soundFinishedRef.current = false; // Indiquer que le son n'est pas encore terminé
 
     // Détecter quand le son est terminé
-    newSound.on('end', () => {
+    newSound.once('end', () => {
       soundFinishedRef.current = true; // Le son est terminé
     });
   };
@@ -48,40 +48,66 @@ const SoundManager = () => {
   useEffect(() => {
     // Gérer le hover avec différents sons pour différentes classes
     const handleMouseOver = (event: MouseEvent) => {
-      const target = event.target as HTMLElement;
+      let target = event.target as HTMLElement;
 
-      if (target) {
+      // Remonter dans la hiérarchie pour trouver un élément interactif
+      while (target && target !== document.body) {
         if (target.classList.contains('hover-click-sound')) {
           playSound(sounds.hoverClick);
+          return;
         } else if (target.classList.contains('hover-sound-instagram')) {
           playSound(sounds.instagram);
+          return;
         } else if (target.classList.contains('hover-sound-linkedin')) {
           playSound(sounds.linkedin);
+          return;
         } else if (target.classList.contains('hover-sound-behance')) {
           playSound(sounds.behance);
+          return;
         } else if (target.classList.contains('hover-sound-contact')) {
           playSound(sounds.contact);
+          return;
         } else if (target.classList.contains('hover-sound-mario')) {
           playSound(sounds.mario);
+          return;
         } else if (target.classList.contains('hover-sound-whoosh')) {
           playSound(sounds.whoosh);
+          return;
         }
+        target = target.parentElement as HTMLElement;
       }
     };
 
-    // Gérer le son au clic de souris (mousedown)
-    /*const handleMouseDown = () => {
-      sounds.click.play();
-    };*/
-
-    // Ajouter les écouteurs d'événements
     document.addEventListener('mouseover', handleMouseOver);
-    //document.addEventListener('mousedown', handleMouseDown);
 
-    // Nettoyer les écouteurs d'événements lors du démontage du composant
     return () => {
       document.removeEventListener('mouseover', handleMouseOver);
-      //document.removeEventListener('mousedown', handleMouseDown);
+    };
+  }, [sounds]);
+
+  useEffect(() => {
+    const handleMouseDown = (event: MouseEvent) => {
+      let target = event.target as HTMLElement;
+
+      // Remonter dans la hiérarchie pour trouver un élément interactif
+      while (target && target !== document.body) {
+        if (
+          target.tagName === 'A' || // Lien
+          target.tagName === 'BUTTON' || // Bouton
+          target.tagName === 'VIDEO' || // Video
+          target.classList.contains('clickable') // Classe spécifique
+        ) {
+          playSound(sounds.click);
+          return; // Arrêter la recherche une fois trouvé
+        }
+        target = target.parentElement as HTMLElement; // Remonter au parent
+      }
+    };
+
+    document.addEventListener('mousedown', handleMouseDown);
+
+    return () => {
+      document.removeEventListener('mousedown', handleMouseDown);
     };
   }, [sounds]);
 
