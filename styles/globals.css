@@ -1502,8 +1502,8 @@ input[type="range"]::-ms-thumb {
   padding: 0.5vw 1.25vw;
   /*color: #171717 !important;
   background: #ffffff4b;*/
-  color: #818181 !important;
-  background: #ffffff2b;
+  color: #888888;
+  background: #353535;
   width: -moz-fit-content;
   width: fit-content;
   font-size: 1.25vw !important;
@@ -1512,12 +1512,20 @@ input[type="range"]::-ms-thumb {
   display: flex;
   align-items: center;
   user-select: none;
-  transition: all .3s cubic-bezier(.7,0,.4,1.01);
+  border: solid 1px transparent;
+  /*transition: color .3s cubic-bezier(.7,0,.4,1.01),
+              border .3s cubic-bezier(.7,0,.4,1.01);*/
 }
 
 .portfolio-project-tag::before {
   content: "#";
 }
+
+/*.portfolio-project-tag:hover {
+  background: linear-gradient(90deg, var(--secondary-color), violet);
+  border: solid 1px var(--secondary-color);
+  color: var(--background);
+}*/
 
 .activeProject {
   color: var(--primary-color);
