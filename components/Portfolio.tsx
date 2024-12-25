@@ -168,7 +168,7 @@ export function Portfolio() {
         iframes: [],
         text: {
           description: "blurblur est mon projet d'artiste ou j'exerce composition, écriture, enregistrement, mixage et mastering.",
-          tags: ["Composition", "chant", "mixage", "mastering", "sound-design"],
+          tags: ["Composition", "chant", "mixage", "mastering", "sound design"],
         },
       },
     },

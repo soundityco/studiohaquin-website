@@ -58,22 +58,16 @@ button {
   display: inline-flex;
   min-width: 100%;
   gap: var(--container-padding);
-  transition: filter 0.3s cubic-bezier(.7,0,.4,1.01)
-              color 0.3s cubic-bezier(.7,0,.4,1.01)
-              background 0.3s cubic-bezier(.7,0,.4,1.01) !important;
+  transition: filter 0.3s cubic-bezier(.7,0,.4,1.01)!important;
 }
 
 .hoverable-group > *:not(.darkened) {
-  transition: filter 0.3s cubic-bezier(.7,0,.4,1.01)
-              color 0.3s cubic-bezier(.7,0,.4,1.01)
-              background 0.3s cubic-bezier(.7,0,.4,1.01) !important;
+  transition: filter 0.3s cubic-bezier(.7,0,.4,1.01)!important;
 }
 
 .hoverable-group > *.darkened {
   filter: brightness(0.5) !important;
-  transition: filter 0.3s cubic-bezier(.7,0,.4,1.01)
-              color 0.3s cubic-bezier(.7,0,.4,1.01)
-              background 0.3s cubic-bezier(.7,0,.4,1.01) !important;
+  transition: filter 0.3s cubic-bezier(.7,0,.4,1.01)!important;
 }
 
 /*.darkened {
@@ -1523,11 +1517,6 @@ input[type="range"]::-ms-thumb {
 
 .portfolio-project-tag::before {
   content: "#";
-}
-
-.portfolio-project-tag:hover {
-  color: var(--background) !important;
-  /*background: linear-gradient(90deg, var(--secondary-color), violet);*/
 }
 
 .activeProject {
