@@ -11,7 +11,7 @@ const SoundManager = () => {
     behance: new Howl({ src: ['/sounds/hover-sound-behance.wav'], volume: 1 }),
     contact: new Howl({ src: ['/sounds/hover-sound-contact.wav'], volume: 1 }),
     mario: new Howl({ src: ['/sounds/hover-sound-mario.wav'], volume: 1 }),
-    whoosh: new Howl({ src: ['/sounds/hover-sound-whoosh.wav'], volume: 0.05 }),
+    whoosh: new Howl({ src: ['/sounds/hover-sound-whoosh.wav'], volume: 1 }),
   };
 
   // Références pour gérer les sons
