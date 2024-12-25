@@ -367,7 +367,7 @@ export function Portfolio() {
                       <div className="portfolio-popup-dynamic-content-thumbnail-block">
                         <PlayerPlayButton className="portfolio-video-play-button" />
                         <img
-                          src={`https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`}
+                          src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
                           alt={`Thumbnail for Video ${i + 1}`}
                           onClick={() => handleThumbnailClick(videoId)}
                           draggable="false"
