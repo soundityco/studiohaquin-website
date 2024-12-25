@@ -4,7 +4,7 @@ import { Howl } from 'howler';
 const SoundManager = () => {
   // Créer des instances de Howl pour différents sons
   const sounds = {
-    click: new Howl({ src: ['/sounds/click-sound.wav'], volume: 1 }),
+    //click: new Howl({ src: ['/sounds/click-sound.wav'], volume: 1 }),
     hoverClick: new Howl({ src: ['/sounds/hover-click-sound.wav'], volume: 1 }),
     instagram: new Howl({ src: ['/sounds/hover-sound-instagram.wav'], volume: 1 }),
     linkedin: new Howl({ src: ['/sounds/hover-sound-linkedin.wav'], volume: 1 }),
@@ -70,18 +70,18 @@ const SoundManager = () => {
     };
 
     // Gérer le son au clic de souris (mousedown)
-    const handleMouseDown = () => {
+    /*const handleMouseDown = () => {
       sounds.click.play();
-    };
+    };*/
 
     // Ajouter les écouteurs d'événements
     document.addEventListener('mouseover', handleMouseOver);
-    document.addEventListener('mousedown', handleMouseDown);
+    //document.addEventListener('mousedown', handleMouseDown);
 
     // Nettoyer les écouteurs d'événements lors du démontage du composant
     return () => {
       document.removeEventListener('mouseover', handleMouseOver);
-      document.removeEventListener('mousedown', handleMouseDown);
+      //document.removeEventListener('mousedown', handleMouseDown);
     };
   }, [sounds]);
 
