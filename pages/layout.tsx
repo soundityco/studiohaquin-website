@@ -5,7 +5,7 @@ import Loader from "@/components/Loader";
 import Footer from "@/components/Footer";
 
 // Import utils components
-import StickyCursor from '@/components/utils/StickyCursor'; // Import du composant externe
+import CustomCursor from '@/components/utils/CustomCursor'; // Import du composant externe
 import SoundManager from '@/components/utils/SoundManager'; // Import du composant externe
 
 import { ReactLenis, useLenis } from '@/components/utils/lenis';
@@ -38,7 +38,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <SoundManager />
         <Loader lenis={lenis} onLoaderComplete={handleLoaderComplete} />
         <div ref={stickyElement}>
-          <StickyCursor stickyElement={stickyElement} />
+          <CustomCursor stickyElement={stickyElement} />
         </div>
         {children}
         <Footer />
