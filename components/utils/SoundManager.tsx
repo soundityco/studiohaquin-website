@@ -4,13 +4,13 @@ import { Howl } from 'howler';
 const SoundManager = () => {
   // Créer des instances de Howl pour différents sons
   const sounds = {
-    click: new Howl({ src: ['/sounds/click-sound.wav'], volume: 0.15 }),
-    hoverClick: new Howl({ src: ['/sounds/hover-click-sound.wav'], volume: 0.15 }),
-    instagram: new Howl({ src: ['/sounds/hover-sound-instagram.wav'], volume: 0.15 }),
-    linkedin: new Howl({ src: ['/sounds/hover-sound-linkedin.wav'], volume: 0.15 }),
-    behance: new Howl({ src: ['/sounds/hover-sound-behance.wav'], volume: 0.15 }),
-    contact: new Howl({ src: ['/sounds/hover-sound-contact.wav'], volume: 0.15 }),
-    mario: new Howl({ src: ['/sounds/hover-sound-mario.wav'], volume: 0.15 }),
+    click: new Howl({ src: ['/sounds/click-sound.wav'], volume: 1 }),
+    hoverClick: new Howl({ src: ['/sounds/hover-click-sound.wav'], volume: 1 }),
+    instagram: new Howl({ src: ['/sounds/hover-sound-instagram.wav'], volume: 1 }),
+    linkedin: new Howl({ src: ['/sounds/hover-sound-linkedin.wav'], volume: 1 }),
+    behance: new Howl({ src: ['/sounds/hover-sound-behance.wav'], volume: 1 }),
+    contact: new Howl({ src: ['/sounds/hover-sound-contact.wav'], volume: 1 }),
+    mario: new Howl({ src: ['/sounds/hover-sound-mario.wav'], volume: 1 }),
     whoosh: new Howl({ src: ['/sounds/hover-sound-whoosh.wav'], volume: 0.05 }),
   };
 
@@ -31,7 +31,7 @@ const SoundManager = () => {
     }
 
     // Jouer le nouveau son
-    newSound.volume(0.15);
+    newSound.volume(1);
     newSound.play();
 
     // Mettre à jour les références

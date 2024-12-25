@@ -1184,7 +1184,7 @@ input[type="range"]::-ms-thumb {
 
 .intro-container-text {
   font-size: 3.5vw;
-  gap: 1rem;
+  gap: var(--container-padding);
   display: flex;
   flex-direction: column;
 }
