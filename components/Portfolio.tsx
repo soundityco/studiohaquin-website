@@ -16,6 +16,7 @@ interface Project {
     text?: {
       title?: string;
       subtitle?: string;
+      tags?: string[]; // Modification ici : un tableau de chaînes de caractères
       description: string;
       links?: { label: string; url: string }[];
     };
@@ -45,16 +46,20 @@ export function Portfolio() {
   const projects: Project[] = [
     {
       name: "Decathlon",
-      description: "Mini série 'Réussites'",
+      description: "Mini série 'Réussites' & Vidéos promotionnelles",
       date: "2024",
       content: {
-        videoIds: ["FIpooQI-Qko",
-                   "u3qvu__U6Wc",
-                   "0NhUkX7_qSA"],
+        videoIds: [
+          "FIpooQI-Qko",
+          "u3qvu__U6Wc",
+          "0NhUkX7_qSA",
+          "qr16wv-Dhdg",
+        ],
         iframes: [],
         text: {
           description:
-            "Réalisation d'une série de 11 vidéos afin de mettre en avant les réussites du magasin des Ponts-de-Cé sur l'année 2024.",
+            "Réalisation d'une série de 11 vidéos sur les réussites du magasin des Ponts-de-Cé sur l'année 2024 & vidéos promotionnelles.",
+          tags: ['Films institutionnels', 'Interviews', 'Vidéo Promotionnelles', 'Réseaux sociaux'],
         },
       },
     },
@@ -74,36 +79,43 @@ export function Portfolio() {
         ],
         iframes: [],
         text: {
-          description: "Réalisation d'une série de vidéos YouTube sur le divertissement et la vulgarisation du chant par Doris Oppenlander."
-        }
-      }
+          description: "Réalisation d'une série de vidéos YouTube sur le divertissement et la vulgarisation du chant par Doris Oppenlander.",
+          tags: ['Divertissement', 'Vulgarisation', 'Tutoriels', 'Réseaux sociaux'],
+        },
+      },
     },
     {
       name: "Galeries Lafayette",
       description: "Évènement 'Mère Fille'",
       date: "2024",
       content: {
-        videoIds: ["J2JJ-yZ2ujk"],
+        videoIds: [
+          "J2JJ-yZ2ujk",
+          "-AWQqfOAuQo"
+        ],
         iframes: [],
         text: {
           description:
             "Réalisation d'une vidéo promotionnelle pour l'évènement 'Mère et Fille' 2024 des Galeries Lafayette d'Angers.",
+            tags: ['Évènementiel', 'Réseaux sociaux'],
+          },
         },
       },
-    },
     {
       name: "L'Orange Bleue",
       description: "Pub + Interviews",
       date: "2024",
       content: {
         videoIds: [
-          "p5dpBF0kLKU"
+          "p5dpBF0kLKU",
+          "s5xjV93gEQY"
         ],
         iframes: [],
         text: {
-          description: "Réalisation d'une vidéo promotionnelle et d'interviews pour L'Orange Bleue d'Angers."
-        }
-      }
+          description: "Réalisation d'une vidéo promotionnelle et d'interviews pour L'Orange Bleue d'Angers.",
+          tags: ["Publicité", 'Interviews', 'Réseaux sociaux'],
+        },
+      },
     },
     {
       name: "La Cour",
@@ -115,9 +127,10 @@ export function Portfolio() {
         ],
         iframes: [],
         text: {
-          description: "Réalisation d'une vidéo promotionnelle pour la rénovation du bar & restaurant 'La Cour', situé à Angers."
-        }
-      }
+          description: "Réalisation d'une vidéo promotionnelle pour la rénovation du bar & restaurant 'La Cour', situé à Angers.",
+          tags: ["Vidéo promotionnelle", 'Réseaux sociaux'],
+        },
+      },
     },
     {
       name: "Faux Raccords Prod",
@@ -129,9 +142,10 @@ export function Portfolio() {
         ],
         iframes: [],
         text: {
-          description: "Réalisation, captation, montage et sound design du court métrage 'L'ERMITE'."
-        }
-      }
+          description: "Réalisation, captation, montage et sound design du court métrage 'L'ERMITE'.",
+          tags: ["Réalisation", "Court-métrage"],
+        },
+      },
     },
     {
       name: "blurblur",
@@ -150,9 +164,10 @@ export function Portfolio() {
         ],
         iframes: [],
         text: {
-          description: "blurblur est mon projet d'artiste ou j'exerce composition, écriture, enregistrement, mixage et mastering. Clips réalisés par Josic Jegu."
-        }
-      }
+          description: "blurblur est mon projet d'artiste ou j'exerce composition, écriture, enregistrement, mixage et mastering. Clips réalisés par Josic Jegu.",
+          tags: ["Composition", "chant", "mixage", "mastering", "sound-design"],
+        },
+      },
     },
   ];
 
@@ -310,6 +325,13 @@ export function Portfolio() {
                       {activeProject.content.text.description && (
                         <p>{activeProject.content.text.description}</p>
                       )}
+                      <div className="portfolio-project-tags">
+                        {activeProject.content.text.tags?.map((tag, index) => (
+                            <span key={index} className="portfolio-project-tag">
+                              {tag}
+                            </span>
+                        ))}
+                      </div>
                       {activeProject.content.text.links?.map((link, i) => (
                         <a
                           key={i}
