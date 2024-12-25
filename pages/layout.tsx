@@ -6,7 +6,8 @@ import Footer from "@/components/Footer";
 
 // Import utils components
 import StickyCursor from '@/components/utils/stickyCursor'; // Import du composant externe
-import SoundManager from '@/components/utils/soundManager'; // Import du composant externe
+import SoundManager from '@/components/utils/soundManager' // Import du composant externe
+
 import { ReactLenis, useLenis } from '@/components/utils/lenis';
 import 'lenis/dist/lenis.css';
 

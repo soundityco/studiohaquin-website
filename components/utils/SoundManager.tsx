@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { Howl } from 'howler';
 
-const SoundManager = () => {
+const soundManager = () => {
   // Créer des instances de Howl pour différents sons
   const sounds = {
     click: new Howl({ src: ['/sounds/click-sound.wav'], volume: 1 }),
@@ -114,4 +114,4 @@ const SoundManager = () => {
   return null; // Ce composant ne rend rien
 };
 
-export default SoundManager;
+export default soundManager;
