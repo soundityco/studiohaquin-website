@@ -1,5 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 
+// Import Utils Components
+import HoverableGroup from "@/components/utils/HoverableGroup";
+
 import {
   ArrowLeftIcon,
   ArrowRightIcon,
@@ -164,7 +167,7 @@ export function Portfolio() {
         ],
         iframes: [],
         text: {
-          description: "blurblur est mon projet d'artiste ou j'exerce composition, écriture, enregistrement, mixage et mastering. Clips réalisés par Josic Jegu.",
+          description: "blurblur est mon projet d'artiste ou j'exerce composition, écriture, enregistrement, mixage et mastering.",
           tags: ["Composition", "chant", "mixage", "mastering", "sound-design"],
         },
       },
@@ -326,11 +329,13 @@ export function Portfolio() {
                         <p>{activeProject.content.text.description}</p>
                       )}
                       <div className="portfolio-project-tags">
-                        {activeProject.content.text.tags?.map((tag, index) => (
-                            <span key={index} className="portfolio-project-tag">
-                              {tag}
-                            </span>
-                        ))}
+                        <HoverableGroup hoverClass="darkened">
+                          {activeProject.content.text.tags?.map((tag, index) => (
+                              <span key={index} className="portfolio-project-tag">
+                                {tag}
+                              </span>
+                          ))}
+                        </HoverableGroup>
                       </div>
                       {activeProject.content.text.links?.map((link, i) => (
                         <a
@@ -346,47 +351,78 @@ export function Portfolio() {
                   )}
                 </div>
               </div>
-              <div
-                className="portfolio-popup-dynamic-content horizontal-scroll"
-                ref={scrollContainerRef}
-                onMouseDown={handleDragStart}
-                onMouseMove={handleDragMove}
-                onMouseUp={handleDragEnd}
-                onMouseLeave={handleDragEnd}
-              >
-                {activeProject.content.videoIds?.map((videoId, i) => (
-                  <div
-                    key={i}
-                    className={`portfolio-popup-dynamic-content-video ${
-                      hoveredVideoId && hoveredVideoId !== videoId ? 'darkened' : ''
-                    }`}
-                    onMouseEnter={() => setHoveredVideoId(videoId)}
-                    onMouseLeave={() => setHoveredVideoId(null)}
-                  >
-                    {!hiddenThumbnails.includes(videoId) && (
-                      <div className="portfolio-popup-dynamic-content-thumbnail-block">
-                        <PlayerPlayButton className="portfolio-video-play-button" />
-                        <img
-                          src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
-                          alt={`Thumbnail for Video ${i + 1}`}
-                          onClick={() => handleThumbnailClick(videoId)}
-                          draggable="false"
-                        />
-                      </div>
-                    )}
-                    {activeVideoId === videoId && (
-                      <iframe
-                        src={`https://www.youtube.com/embed/${videoId}?rel=0&controls=1&modestbranding=1&autoplay=1`}
-                        title={`Video ${i + 1}`}
-                        width="100%"
-                        frameBorder="0"
-                        allow="autoplay; encrypted-media"
-                        allowFullScreen
-                      ></iframe>
-                    )}
-                  </div>
-                ))}
-              </div>
+                <div
+                  className="portfolio-popup-dynamic-content horizontal-scroll"
+                  ref={scrollContainerRef}
+                  onMouseDown={handleDragStart}
+                  onMouseMove={handleDragMove}
+                  onMouseUp={handleDragEnd}
+                  onMouseLeave={handleDragEnd}
+                >
+
+                <HoverableGroup hoverClass="darkened">
+                  {activeProject.content.videoIds?.map((videoId, i) => (
+                    <div
+                      key={i}
+                      className={`portfolio-popup-dynamic-content-video`}
+                    >
+                      {!hiddenThumbnails.includes(videoId) && (
+                        <div className="portfolio-popup-dynamic-content-thumbnail-block">
+                          <PlayerPlayButton className="portfolio-video-play-button" />
+                          <img
+                            src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
+                            alt={`Thumbnail for Video ${i + 1}`}
+                            onClick={() => handleThumbnailClick(videoId)}
+                            draggable="false"
+                          />
+                        </div>
+                      )}
+                      {activeVideoId === videoId && (
+                        <iframe
+                          src={`https://www.youtube.com/embed/${videoId}?rel=0&controls=1&modestbranding=1&autoplay=1`}
+                          title={`Video ${i + 1}`}
+                          width="100%"
+                          frameBorder="0"
+                          allow="autoplay; encrypted-media"
+                          allowFullScreen
+                        ></iframe>
+                      )}
+                    </div>
+                  ))}
+                </HoverableGroup>
+                  {/*{activeProject.content.videoIds?.map((videoId, i) => (
+                    <div
+                      key={i}
+                      className={`portfolio-popup-dynamic-content-video ${
+                        hoveredVideoId && hoveredVideoId !== videoId ? 'darkened' : ''
+                      }`}
+                      onMouseEnter={() => setHoveredVideoId(videoId)}
+                      onMouseLeave={() => setHoveredVideoId(null)}
+                    >
+                      {!hiddenThumbnails.includes(videoId) && (
+                        <div className="portfolio-popup-dynamic-content-thumbnail-block">
+                          <PlayerPlayButton className="portfolio-video-play-button" />
+                          <img
+                            src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
+                            alt={`Thumbnail for Video ${i + 1}`}
+                            onClick={() => handleThumbnailClick(videoId)}
+                            draggable="false"
+                          />
+                        </div>
+                      )}
+                      {activeVideoId === videoId && (
+                        <iframe
+                          src={`https://www.youtube.com/embed/${videoId}?rel=0&controls=1&modestbranding=1&autoplay=1`}
+                          title={`Video ${i + 1}`}
+                          width="100%"
+                          frameBorder="0"
+                          allow="autoplay; encrypted-media"
+                          allowFullScreen
+                        ></iframe>
+                      )}
+                    </div>
+                  ))}*/}
+                </div>
 
               <p className="portfolio-scroll">
                 (&nbsp;SCROLL&nbsp;<ArrowRightIcon />&nbsp;)
