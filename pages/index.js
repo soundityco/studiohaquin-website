@@ -12,7 +12,7 @@ export function Home() {
   return (
     <>
       <Head>
-        <title>STUDIO HAQUIN © FILMMAKER & SOUND DESIGNER, BASED IN ANGERS, FR.</title>
+        <title>STUDIO HAQUIN © FILMMAKER, VIDÉASTE & SOUND DESIGNER, BASÉ À ANGERS, FR.</title>
         <meta name="description" content="Studio de production audiovisuelle basé à Angers. De la prise de vue au montage, en passant par la conception graphique et sonore, je m’occupe de tout pour raconter votre histoire de manière authentique et impactante." />
         <meta name="application-name" content="Studio Haquin" />
 
