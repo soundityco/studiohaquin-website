@@ -1535,6 +1535,7 @@ input[type="range"]::-ms-thumb {
   color: #888888;
   background: #353535;
   width: -moz-fit-content;
+  text-wrap: nowrap;
   width: fit-content;
   font-size: 1.25vw !important;
   user-select: none;
@@ -2202,6 +2203,9 @@ input[type="range"]::-ms-thumb {
   }
 
   /* HEADER */
+  .header-container {
+    padding: var(--container-padding) 0;
+  }
   .header-logo {
     padding: 0rem;
   }
