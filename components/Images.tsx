@@ -104,6 +104,20 @@ export const VideoIcon = ({ className = '' }: { className?: string }) => (
 </svg>
 );
 
+export const CursorPlayIcon = ({ className = '' }: { className?: string }) => (
+  <svg
+    className={className}
+    viewBox="0 0 200 200"
+    xmlns="http://www.w3.org/2000/svg"
+    //width="15px"
+    //height="15px"
+    fill="none"
+  >
+    <circle fill="#fff" cx="100" cy="100" r="100"/>
+    <path fill="#000" d="M69.7,59.3c0-6.9,7.6-11.1,13.4-7.5l66.5,40.7c5.6,3.4,5.6,11.6,0,15l-66.5,40.7c-5.9,3.6-13.4-.6-13.4-7.5V59.3Z"/>
+  </svg>
+);
+
 export const NewLinkIcon = ({ className = '' }: { className?: string }) => (
   <svg
     className={className}

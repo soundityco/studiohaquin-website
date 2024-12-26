@@ -390,40 +390,7 @@ export function Portfolio() {
                     </div>
                   ))}
                 </HoverableGroup>
-                  {/*{activeProject.content.videoIds?.map((videoId, i) => (
-                    <div
-                      key={i}
-                      className={`portfolio-popup-dynamic-content-video ${
-                        hoveredVideoId && hoveredVideoId !== videoId ? 'darkened' : ''
-                      }`}
-                      onMouseEnter={() => setHoveredVideoId(videoId)}
-                      onMouseLeave={() => setHoveredVideoId(null)}
-                    >
-                      {!hiddenThumbnails.includes(videoId) && (
-                        <div className="portfolio-popup-dynamic-content-thumbnail-block">
-                          <PlayerPlayButton className="portfolio-video-play-button" />
-                          <img
-                            src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
-                            alt={`Thumbnail for Video ${i + 1}`}
-                            onClick={() => handleThumbnailClick(videoId)}
-                            draggable="false"
-                          />
-                        </div>
-                      )}
-                      {activeVideoId === videoId && (
-                        <iframe
-                          src={`https://www.youtube.com/embed/${videoId}?rel=0&controls=1&modestbranding=1&autoplay=1`}
-                          title={`Video ${i + 1}`}
-                          width="100%"
-                          frameBorder="0"
-                          allow="autoplay; encrypted-media"
-                          allowFullScreen
-                        ></iframe>
-                      )}
-                    </div>
-                  ))}*/}
                 </div>
-
               <p className="portfolio-scroll">
                 (&nbsp;SCROLL&nbsp;<ArrowRightIcon />&nbsp;)
               </p>
