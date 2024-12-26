@@ -71,7 +71,7 @@ export function Portfolio() {
   const projects: Project[] = [
     {
       name: "Decathlon",
-      description: "Mini série 'Réussites' & Vidéos promotionnelles",
+      description: "Mini série & vidéos promotionnelles",
       date: "2024",
       content: {
         videoIds: ["FIpooQI-Qko", "u3qvu__U6Wc", "0NhUkX7_qSA", "qr16wv-Dhdg"],
@@ -138,7 +138,7 @@ export function Portfolio() {
       },
       {
         name: "L'Orange Bleue",
-        description: "Pub + Interviews",
+        description: "Publicité + Interviews",
         date: "2024",
         content: {
           videoIds: [
@@ -150,7 +150,7 @@ export function Portfolio() {
             "s5xjV93gEQY": ["Interviews", "Réseaux sociaux"],
           },
           text: {
-            description: "Réalisation d'une vidéo promotionnelle et d'interviews pour L'Orange Bleue d'Angers.",
+            description: "Réalisation d'une mini publicité et d'interviews pour L'Orange Bleue d'Angers.",
             tags: allAvailableTags,
           },
         },
