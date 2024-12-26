@@ -1648,6 +1648,11 @@ input[type="range"]::-ms-thumb {
   gap: 1vw;
   display: flex;
   align-items: center;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
 }
 
 .portfolio-popup-content-header-block h2 svg {
@@ -2242,10 +2247,6 @@ input[type="range"]::-ms-thumb {
   .portfolio-popup-content-header-block h2 {
     font-size: 1.5rem;
     padding: 0.75rem 1.25rem;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    display: inline-block;
     
     /*max-width: fit-content;
     width: min-content;*/
@@ -2253,6 +2254,10 @@ input[type="range"]::-ms-thumb {
 
   .portfolio-icon {
     height: 1.25rem;
+  }
+
+  .portfolio-scroll {
+    display: none;
   }
   
   /* CLIENT */
