@@ -1428,10 +1428,11 @@ input[type="range"]::-ms-thumb {
   display: flex;
   align-items: center;
   height: 1rem;
+  color: #353535;
 }
 
 .portfolio-scroll svg {
-  fill: var(--background);
+  fill: #353535;;
   height: 80%;
 }
 

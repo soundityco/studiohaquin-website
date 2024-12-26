@@ -471,7 +471,7 @@ export function Portfolio() {
                 </HoverableGroup>
               </div>
               <p className="portfolio-scroll">
-                (&nbsp;SCROLL&nbsp;<ArrowRightIcon />&nbsp;)
+                DRAG OR SCROLL&nbsp;<ArrowRightIcon />
               </p>
             </div>
           </div>
