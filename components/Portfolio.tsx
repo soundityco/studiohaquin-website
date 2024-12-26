@@ -243,12 +243,14 @@ export function Portfolio() {
   };
 
   const handleNextProject = () => {
+    setActiveTag(null); // Réinitialiser le tag actif
     setActiveProjectIndex((prevIndex) =>
       prevIndex === projects.length - 1 ? 0 : prevIndex + 1
     );
   };
-
+  
   const handlePrevProject = () => {
+    setActiveTag(null); // Réinitialiser le tag actif
     setActiveProjectIndex((prevIndex) =>
       prevIndex === 0 ? projects.length - 1 : prevIndex - 1
     );
