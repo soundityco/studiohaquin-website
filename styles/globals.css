@@ -2232,6 +2232,8 @@ input[type="range"]::-ms-thumb {
   .portfolio-popup-content-header-block h2 {
     font-size: 1.5rem;
     padding: 0.75rem 1.25rem;
+    
+    max-width: fit-content;
     width: min-content;
   }
 
