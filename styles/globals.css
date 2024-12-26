@@ -227,7 +227,7 @@ audio {
   border-radius: 50%;
   pointer-events: none;
   z-index: 99999999999999999;
-  mix-blend-mode: difference;
+  /*mix-blend-mode: difference;*/
   transform: scale(1);
   transition: transform .2s cubic-bezier(.7,0,.4,1.01);
 }
@@ -1513,12 +1513,18 @@ input[type="range"]::-ms-thumb {
   align-items: center;
   user-select: none;
   border: solid 1px transparent;
+  gap: calc(var(--container-padding)/2);
   /*transition: color .3s cubic-bezier(.7,0,.4,1.01),
               border .3s cubic-bezier(.7,0,.4,1.01);*/
 }
 
-.portfolio-project-tag::before {
+/*.portfolio-project-tag::before {
   content: "#";
+}*/
+
+.portfolio-project-tag.active {
+  background-color: #a1a1a1;
+  color: #ffffff;
 }
 
 /*.portfolio-project-tag:hover {

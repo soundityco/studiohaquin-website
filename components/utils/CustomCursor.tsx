@@ -68,16 +68,19 @@ const CustomCursor: React.FC<StickyCursorProps> = ({ stickyElement }) => {
       setCurrentCursor(<Image src={EmojiEyes} alt="Default Emoji" width={50} height={50} draggable="false" />);
     }
   };
-
+  
   const handleMouseLeave = () => {
+    // Réinitialiser les états pour revenir au curseur initial
     setIsHovered(false);
     setCurrentCursor(null);
+  
+    // Annuler tout timeout en cours
     if (timeoutId) {
       clearTimeout(timeoutId);
       setTimeoutId(null);
     }
   };
-
+  
   const handlePortfolioHover = (e: MouseEvent) => {
     const containerRect = stickyElement.current?.getBoundingClientRect();
     if (!containerRect) return;
@@ -86,55 +89,32 @@ const CustomCursor: React.FC<StickyCursorProps> = ({ stickyElement }) => {
     const isLeftSide = mouseX < containerRect.width * 0.5;
   
     const newCursor = classEmojiMap[isLeftSide ? 'portfolio-start' : 'portfolio-end'] || null;
-  
-    // Unscale d'abord
-    setIsTransitioningScale(true);
-  
-    // Changer l'icône après unscale
-    setTimeout(() => {
-      setCurrentCursor(newCursor);
-      setIsTransitioningScale(false); // Rescale après changement d'icône
-    }, 100); // Attendre 200ms pour que l'unscale soit visible
-  
+    
+    // Appliquer l'effet de hover
     setIsHovered(true);
+    setCurrentCursor(newCursor);
   
+    // Gestion des enfants spécifiques
     const child = (e.target as HTMLElement).closest('.portfolio-popup-dynamic-content-video');
     if (child) {
       if (timeoutId) clearTimeout(timeoutId);
-      const newTimeoutId = setTimeout(() => {
-        // Transition avec unscale, changement d'icône, puis rescale
-        setIsTransitioningScale(true);
   
-        setTimeout(() => {
-          setCurrentCursor(classEmojiMap['hovered-child']);
-          setIsTransitioningScale(false);
-        }, 200);
-      }, 300); // Attendre 500ms avant de déclencher cette animation
+      const newTimeoutId = setTimeout(() => {
+        setIsHovered(true);
+        setCurrentCursor(classEmojiMap['hovered-child']);
+      }, 300); // Délai pour changer l'icône
       setTimeoutId(newTimeoutId);
-    } else if (timeoutId) {
-      clearTimeout(timeoutId);
-      setTimeoutId(null);
     }
   };
-
-  const triggerScaleTransition = () => {
-    // Déclenche la transition temporaire
-    setIsTransitioningScale(true);
-
-    // Revenir au scale "hover" après 200ms
-    setTimeout(() => {
-      setIsTransitioningScale(false);
-    }, 200);
-  };
-
+  
   useEffect(() => {
     const handleMouseMoveWrapper = (e: MouseEvent) => handleMouseMove(e);
     const handleMouseOverWrapper = (e: Event) => handleMouseOver(e);
     const handleMouseLeaveWrapper = () => handleMouseLeave();
     const handlePortfolioHoverWrapper = (e: MouseEvent) => handlePortfolioHover(e);
-
+  
     window.addEventListener('mousemove', handleMouseMoveWrapper);
-
+  
     const hoverableElements = document.querySelectorAll('a, .horizontal-scroll');
     hoverableElements.forEach(el => {
       if (el instanceof HTMLElement) {
@@ -147,7 +127,7 @@ const CustomCursor: React.FC<StickyCursorProps> = ({ stickyElement }) => {
         }
       }
     });
-
+  
     return () => {
       window.removeEventListener('mousemove', handleMouseMoveWrapper);
       hoverableElements.forEach(el => {
@@ -163,7 +143,7 @@ const CustomCursor: React.FC<StickyCursorProps> = ({ stickyElement }) => {
       });
     };
   }, [timeoutId]);
-
+  
   return (
     <motion.div
       style={{
@@ -175,11 +155,10 @@ const CustomCursor: React.FC<StickyCursorProps> = ({ stickyElement }) => {
         alignItems: 'center',
         pointerEvents: 'none',
         background: isHovered ? 'none' : 'rgba(255, 255, 255, 1)',
-        mixBlendMode: isHovered ? 'normal' : 'difference',
       }}
       transition={{
-        duration: 0.2, // Durée de la transition
-        ease: [0.25, 0.1, 0.25, 1], // Easing personnalisé (équivalent à "ease-in-out")
+        duration: 0.2,
+        ease: [0.25, 0.1, 0.25, 1],
       }}
       className="cursor"
     >

@@ -9,18 +9,38 @@ import {
   PlayerPlayButton,
 } from "./Images";
 
+const allAvailableTags = [
+ 'Composition',
+ 'Court-métrage',
+ 'Covers',
+ 'Divertissement',
+ 'Films institutionnels',
+ 'Interviews',
+ 'Lyrics Video',
+ 'Publicité',
+ 'Réalisation',
+ 'Réseaux sociaux',
+ 'Tutoriels',
+ 'Vidéo Promotionnelles',
+ 'Vidéo promotionnelle',
+ 'Vulgarisation',
+ 'chant',
+ 'mastering',
+ 'mixage',
+ 'Évènementiel',
+];
+
 interface Project {
   name: string;
   description: string;
   date: string;
   content: {
     videoIds?: string[];
-    iframes?: string[];
-    text?: {
-      title?: string;
-      subtitle?: string;
-      tags?: string[]; // Modification ici : un tableau de chaînes de caractères
+    videoTags?: { [key: string]: string[] };  // Définition de videoTags
+    text: {
       description: string;
+      tags?: string[];
+      videoTags?: { [key: string]: string[] }; // Si tu veux aussi ici
       links?: { label: string; url: string }[];
     };
   };
@@ -28,6 +48,7 @@ interface Project {
 
 export function Portfolio() {
   const [activeProjectIndex, setActiveProjectIndex] = useState(0);
+  
   const [isPopupActive, setIsPopupActive] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
   const [hiddenThumbnails, setHiddenThumbnails] = useState<string[]>([]);
@@ -36,6 +57,7 @@ export function Portfolio() {
   const [hoveredProjectIndex, setHoveredProjectIndex] = useState<number | null>(null);
   const [hoveredVideoId, setHoveredVideoId] = useState<string | null>(null);
 
+  const [activeTag, setActiveTag] = useState<string | null>(null);
 
 
   const popupRef = useRef<HTMLDivElement | null>(null);
@@ -52,17 +74,16 @@ export function Portfolio() {
       description: "Mini série 'Réussites' & Vidéos promotionnelles",
       date: "2024",
       content: {
-        videoIds: [
-          "FIpooQI-Qko",
-          "u3qvu__U6Wc",
-          "0NhUkX7_qSA",
-          "qr16wv-Dhdg",
-        ],
-        iframes: [],
+        videoIds: ["FIpooQI-Qko", "u3qvu__U6Wc", "0NhUkX7_qSA", "qr16wv-Dhdg"],
+        videoTags: {
+          "FIpooQI-Qko": ["Films institutionnels", "Interviews"],
+          "u3qvu__U6Wc": ["Films institutionnels", "Interviews"],
+          "0NhUkX7_qSA": ["Films institutionnels", "Interviews"],
+          "qr16wv-Dhdg": ["Réseaux sociaux", "Vidéo Promotionnelles"],
+        },
         text: {
-          description:
-            "Réalisation d'une série de 11 vidéos sur les réussites du magasin des Ponts-de-Cé sur l'année 2024 & vidéos promotionnelles.",
-          tags: ['Films institutionnels', 'Interviews', 'Vidéo Promotionnelles', 'Réseaux sociaux'],
+          description: "Réalisation d'une série de 11 vidéos...",
+          tags: allAvailableTags,
         },
       },
     },
@@ -80,10 +101,18 @@ export function Portfolio() {
           "ZbT4yy6ZU6I",
           "Dwnl_BvyhdY"
         ],
-        iframes: [],
+        videoTags: {
+          "H6wkoTE8oyo": ["Divertissement", "Covers"],
+          "IFKT_fekZw4": ["Vulgarisation", "Tutoriels"],
+          "QTpHOYt04QU": ["Divertissement", "Covers"],
+          "DhnqP_J-MoQ": ["Vulgarisation", "Tutoriels"],
+          "YB3SCKTtBLM": ["Divertissement", "Covers"],
+          "ZbT4yy6ZU6I": ["Vulgarisation", "Tutoriels"],
+          "Dwnl_BvyhdY": ["Divertissement"],
+        },
         text: {
           description: "Réalisation d'une série de vidéos YouTube sur le divertissement et la vulgarisation du chant par Doris Oppenlander.",
-          tags: ['Divertissement', 'Vulgarisation', 'Tutoriels', 'Réseaux sociaux'],
+          tags: allAvailableTags,
         },
       },
     },
@@ -96,95 +125,117 @@ export function Portfolio() {
           "J2JJ-yZ2ujk",
           "-AWQqfOAuQo"
         ],
-        iframes: [],
+        videoTags: {
+          "J2JJ-yZ2ujk": ["Évènementiel", "Réseaux sociaux"],
+          "-AWQqfOAuQo": ["Évènementiel", "Réseaux sociaux"],
+        },
         text: {
           description:
             "Réalisation d'une vidéo promotionnelle pour l'évènement 'Mère et Fille' 2024 des Galeries Lafayette d'Angers.",
-            tags: ['Évènementiel', 'Réseaux sociaux'],
+            tags: allAvailableTags,
           },
         },
       },
-    {
-      name: "L'Orange Bleue",
-      description: "Pub + Interviews",
-      date: "2024",
-      content: {
-        videoIds: [
-          "p5dpBF0kLKU",
-          "s5xjV93gEQY"
-        ],
-        iframes: [],
-        text: {
-          description: "Réalisation d'une vidéo promotionnelle et d'interviews pour L'Orange Bleue d'Angers.",
-          tags: ["Publicité", 'Interviews', 'Réseaux sociaux'],
+      {
+        name: "L'Orange Bleue",
+        description: "Pub + Interviews",
+        date: "2024",
+        content: {
+          videoIds: [
+            "p5dpBF0kLKU",
+            "s5xjV93gEQY"
+          ],
+          videoTags: {
+            "p5dpBF0kLKU": ["Publicité", "Réseaux sociaux"],
+            "s5xjV93gEQY": ["Interviews", "Réseaux sociaux"],
+          },
+          text: {
+            description: "Réalisation d'une vidéo promotionnelle et d'interviews pour L'Orange Bleue d'Angers.",
+            tags: allAvailableTags,
+          },
         },
       },
-    },
-    {
-      name: "La Cour",
-      description: "Rénovation du restaurant",
-      date: "2024",
-      content: {
-        videoIds: [
-          "P4d_1Tb2uAw"
-        ],
-        iframes: [],
-        text: {
-          description: "Réalisation d'une vidéo promotionnelle pour la rénovation du bar & restaurant 'La Cour', situé à Angers.",
-          tags: ["Vidéo promotionnelle", 'Réseaux sociaux'],
+      {
+        name: "La Cour",
+        description: "Rénovation du restaurant",
+        date: "2024",
+        content: {
+          videoIds: [
+            "P4d_1Tb2uAw"
+          ],
+          videoTags: {
+            "P4d_1Tb2uAw": ["Vidéo promotionnelle", "Réseaux sociaux"],
+          },
+          text: {
+            description: "Réalisation d'une vidéo promotionnelle pour la rénovation du bar & restaurant 'La Cour', situé à Angers.",
+            tags: allAvailableTags,
+          },
         },
       },
-    },
-    {
-      name: "Faux Raccords Prod",
-      description: "Court métrage 'L'ERMITE'",
-      date: "2023",
-      content: {
-        videoIds: [
-          "JmFNhAO9LEs"
-        ],
-        iframes: [],
-        text: {
-          description: "Réalisation, captation, montage et sound design du court métrage 'L'ERMITE'.",
-          tags: ["Réalisation", "Court-métrage"],
+      {
+        name: "Faux Raccords Prod",
+        description: "Court métrage 'L'ERMITE'",
+        date: "2023",
+        content: {
+          videoIds: [
+            "JmFNhAO9LEs"
+          ],
+          videoTags: {
+            "JmFNhAO9LEs": ["Réalisation", "Court-métrage"],
+          },
+          text: {
+            description: "Réalisation, captation, montage et sound design du court métrage 'L'ERMITE'.",
+            tags: allAvailableTags,
+          },
         },
       },
-    },
-    {
-      name: "blurblur",
-      description: "Composition & sound design",
-      date: "Depuis 2018",
-      content: {
-        videoIds: [
-          "07ajNa0HyOM",
-          "AyXlc-wf31U",
-          "MAySC0NqGdI",
-          "UcdPqI6maG4",
-          "vE2-2ohxaT0",
-          "aGkHU2nwyqU",
-          "f59vXG2g5iQ",
-          "Wlwl-Fdsmss",
-        ],
-        iframes: [],
-        text: {
-          description: "blurblur est mon projet d'artiste ou j'exerce composition, écriture, enregistrement, mixage et mastering.",
-          tags: ["Composition", "chant", "mixage", "mastering", "sound design"],
+      {
+        name: "blurblur",
+        description: "Composition & sound design",
+        date: "Depuis 2018",
+        content: {
+          videoIds: [
+            "07ajNa0HyOM",
+            "AyXlc-wf31U",
+            "MAySC0NqGdI",
+            "UcdPqI6maG4",
+            "vE2-2ohxaT0",
+            "aGkHU2nwyqU",
+            "f59vXG2g5iQ",
+            "Wlwl-Fdsmss",
+          ],
+          videoTags: {
+            "07ajNa0HyOM": ["Composition", "chant", "mixage", "mastering"],
+            "AyXlc-wf31U": ["Composition", "chant", "mixage", "mastering"],
+            "MAySC0NqGdI": ["Composition", "chant", "mixage", "mastering", "Lyrics Video"],
+            "UcdPqI6maG4": ["Composition", "chant", "mixage", "mastering"],
+            "vE2-2ohxaT0": ["Composition", "chant", "mixage", "mastering"],
+            "aGkHU2nwyqU": ["Composition", "chant", "mixage", "mastering"],
+            "f59vXG2g5iQ": ["Composition", "chant", "mixage", "mastering"],
+            "Wlwl-Fdsmss": ["Composition", "chant", "mixage", "mastering"],
+          },
+          text: {
+            description: "blurblur est mon projet d'artiste ou j'exerce composition, écriture, enregistrement, mixage et mastering.",
+            tags: allAvailableTags,
+          },
         },
       },
-    },
   ];
 
   const handleClick = (index: number) => {
     setActiveProjectIndex(index);
     setHoveredProjectIndex(null); // S'assurer que le clic désactive le hover temporaire
+    setActiveTag("All");  // Réinitialiser le filtre lorsqu'un projet est sélectionné
   };
 
   const handleMouseEnter = (index: number) => {
     setHoveredProjectIndex(index);
-  
+    
     // Réinitialiser les vidéos actives et les miniatures
     setHiddenThumbnails([]);
     setActiveVideoId(null);
+    
+    setActiveTag("All");  // Réinitialiser le filtre lorsqu'un projet est survolé
   };
 
   const handleMouseLeave = () => {
@@ -256,12 +307,31 @@ export function Portfolio() {
     isDragging.current = false;
   };
 
+  const handleTagClick = (tag: string) => {
+    // Réinitialiser la vidéo en cours et les miniatures
+    setActiveVideoId(null);
+    setHiddenThumbnails([]);  // Réinitialiser toutes les miniatures visibles
+  
+    if (tag === activeTag) {
+      setActiveTag("All");  // Si le tag sélectionné est déjà actif, on annule le filtre
+    } else {
+      setActiveTag(tag);
+    }
+  };
+
   const activeProject: Project | null =
   hoveredProjectIndex !== null && hoveredProjectIndex >= 0 && hoveredProjectIndex < projects.length
     ? projects[hoveredProjectIndex]
     : activeProjectIndex !== null && activeProjectIndex >= 0 && activeProjectIndex < projects.length
     ? projects[activeProjectIndex]
     : null;
+
+    const filteredVideos = activeTag
+    ? activeProject?.content?.videoIds?.filter((videoId) => {
+        const videoTags = activeProject?.content?.videoTags?.[videoId] || [];
+        return videoTags.includes(activeTag) || activeTag === "All";
+      })
+    : activeProject?.content?.videoIds;
     
     return (
       <section className="portfolio" id="portfolio" data-scroll-container="true">
@@ -291,7 +361,7 @@ export function Portfolio() {
             ))}
           </div>
         </div>
-  
+
         {activeProject && (
           <div
             className={`portfolio-popup-container ${
@@ -308,7 +378,7 @@ export function Portfolio() {
                     <button className="clickable" onClick={handlePrevProject}>
                       <ArrowLeftIcon className="portfolio-icon" />
                     </button>
-                    <button className="clickable"   onClick={handleNextProject}>
+                    <button className="clickable" onClick={handleNextProject}>
                       <ArrowRightIcon className="portfolio-icon" />
                     </button>
                   </div>
@@ -317,26 +387,35 @@ export function Portfolio() {
                   <h3>
                     {activeProject.description} • {activeProject.date}
                   </h3>
+
+                  {/* Affichage des tags correspondant aux vidéos du projet */}
                   {activeProject.content.text && (
                     <>
-                      {activeProject.content.text.title && (
-                        <h3>{activeProject.content.text.title}</h3>
-                      )}
-                      {activeProject.content.text.subtitle && (
-                        <h4>{activeProject.content.text.subtitle}</h4>
-                      )}
-                      {activeProject.content.text.description && (
-                        <p>{activeProject.content.text.description}</p>
-                      )}
                       <div className="portfolio-project-tags">
                         <HoverableGroup hoverClass="darkened">
-                          {activeProject.content.text.tags?.map((tag, index) => (
-                              <span key={index} className="portfolio-project-tag">
-                                {tag}
-                              </span>
+                          {/* Extraire les tags associés aux vidéos du projet */}
+                          {activeProject.content.videoIds?.reduce((uniqueTags: string[], videoId) => {
+                            const videoTagList = activeProject.content.videoTags?.[videoId] || [];
+                            videoTagList.forEach(tag => {
+                              if (!uniqueTags.includes(tag)) {
+                                uniqueTags.push(tag);
+                              }
+                            });
+                            return uniqueTags;
+                          }, []).map((tag, index) => (
+                            <button
+                              key={index}
+                              className={`portfolio-project-tag ${activeTag === tag ? "active" : ""}`}
+                              onClick={() => handleTagClick(tag)}
+                            >
+                              {tag}
+                              {activeTag === tag && <span className="close-icon">✕</span>}
+                            </button>
                           ))}
                         </HoverableGroup>
                       </div>
+
+                      {/* Affichage des liens supplémentaires */}
                       {activeProject.content.text.links?.map((link, i) => (
                         <a
                           key={i}
@@ -351,21 +430,18 @@ export function Portfolio() {
                   )}
                 </div>
               </div>
-                <div
-                  className="portfolio-popup-dynamic-content horizontal-scroll"
-                  ref={scrollContainerRef}
-                  onMouseDown={handleDragStart}
-                  onMouseMove={handleDragMove}
-                  onMouseUp={handleDragEnd}
-                  onMouseLeave={handleDragEnd}
-                >
 
+              <div
+                className="portfolio-popup-dynamic-content horizontal-scroll"
+                ref={scrollContainerRef}
+                onMouseDown={handleDragStart}
+                onMouseMove={handleDragMove}
+                onMouseUp={handleDragEnd}
+                onMouseLeave={handleDragEnd}
+              >
                 <HoverableGroup hoverClass="darkened">
-                  {activeProject.content.videoIds?.map((videoId, i) => (
-                    <div
-                      key={i}
-                      className={`portfolio-popup-dynamic-content-video`}
-                    >
+                  {filteredVideos?.map((videoId, i) => (
+                    <div key={i} className={`portfolio-popup-dynamic-content-video`}>
                       {!hiddenThumbnails.includes(videoId) && (
                         <div className="portfolio-popup-dynamic-content-thumbnail-block">
                           <PlayerPlayButton className="portfolio-video-play-button" />
@@ -390,7 +466,7 @@ export function Portfolio() {
                     </div>
                   ))}
                 </HoverableGroup>
-                </div>
+              </div>
               <p className="portfolio-scroll">
                 (&nbsp;SCROLL&nbsp;<ArrowRightIcon />&nbsp;)
               </p>
@@ -398,5 +474,7 @@ export function Portfolio() {
           </div>
         )}
       </section>
+
+
     );
   }
