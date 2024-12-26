@@ -82,7 +82,7 @@ export function Portfolio() {
           "qr16wv-Dhdg": ["Réseaux sociaux", "Vidéo Promotionnelles"],
         },
         text: {
-          description: "Réalisation d'une série de 11 vidéos...",
+          description: "Réalisation d'une série de 11 vidéos sur les réussites du magasin des Ponts-de-Cé sur l'année 2024 & vidéos promotionnelles.",
           tags: allAvailableTags,
         },
       },
@@ -389,6 +389,7 @@ export function Portfolio() {
                   <h3>
                     {activeProject.description} • {activeProject.date}
                   </h3>
+                  <p>{activeProject.content.text.description}</p>
 
                   {/* Affichage des tags correspondant aux vidéos du projet */}
                   {activeProject.content.text && (
