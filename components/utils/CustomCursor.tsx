@@ -102,7 +102,7 @@ const CustomCursor: React.FC<StickyCursorProps> = ({ stickyElement }) => {
       const newTimeoutId = setTimeout(() => {
         setIsHovered(true);
         setCurrentCursor(classEmojiMap['hovered-child']);
-      }, 300); // Délai pour changer l'icône
+      }, 500); // Délai pour changer l'icône
       setTimeoutId(newTimeoutId);
     }
   };

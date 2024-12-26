@@ -387,7 +387,7 @@ export function Portfolio() {
                 </div>
                 <div className="portfolio-popup-content-header-block">
                   <h3>
-                    {activeProject.description} • {activeProject.date}
+                    <span>{activeProject.description}</span> <span>•</span> <span>{activeProject.date}</span>
                   </h3>
                   <p>{activeProject.content.text.description}</p>
 
