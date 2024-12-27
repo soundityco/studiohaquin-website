@@ -405,16 +405,17 @@ export function Portfolio() {
                               }
                             });
                             return uniqueTags;
-                          }, []).map((tag, index) => (
-                            <button
-                              key={index}
-                              className={`portfolio-project-tag ${activeTag === tag ? "active" : ""}`}
-                              onClick={() => handleTagClick(tag)}
-                            >
-                              {tag}
-                              {activeTag === tag && <span className="close-icon">✕</span>}
-                            </button>
-                          ))}
+                          }, []).sort((a, b) => a.localeCompare(b)) // Trie les tags par ordre alphabétique
+                            .map((tag, index) => (
+                              <button
+                                key={index}
+                                className={`portfolio-project-tag ${activeTag === tag ? "active" : ""}`}
+                                onClick={() => handleTagClick(tag)}
+                              >
+                                {tag}
+                                {activeTag === tag && <span className="close-icon">✕</span>}
+                              </button>
+                            ))}
                         </HoverableGroup>
                       </div>
 

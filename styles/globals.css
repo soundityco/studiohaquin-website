@@ -58,16 +58,17 @@ button {
   display: inline-flex;
   min-width: 100%;
   gap: var(--container-padding);
-  transition: filter 0.3s cubic-bezier(.7,0,.4,1.01)!important;
+  transition: opacity 0.3s cubic-bezier(.7,0,.4,1.01)!important;
 }
 
 .hoverable-group > *:not(.darkened) {
-  transition: filter 0.3s cubic-bezier(.7,0,.4,1.01)!important;
+  transition: opacity 0.3s cubic-bezier(.7,0,.4,1.01)!important;
 }
 
 .hoverable-group > *.darkened {
-  filter: brightness(0.5) !important;
-  transition: filter 0.3s cubic-bezier(.7,0,.4,1.01)!important;
+  opacity: 0.5 !important;
+  transition: opacity 0.3s cubic-bezier(.7,0,.4,1.01)!important;
+
 }
 
 /*.darkened {
@@ -2181,6 +2182,9 @@ input[type="range"]::-ms-thumb {
   .button-contact-img {
     display: none;
   }
+  .portfolio-popup-content-header div {
+    gap: var(--container-padding);
+  }
 }
 
 @media only screen and (max-width: 500px) {
@@ -2254,9 +2258,6 @@ input[type="range"]::-ms-thumb {
   .portfolio-popup-content,
   .portfolio-popup-content-header {
     gap: 2rem;
-  }
-  .portfolio-popup-content-header div {
-    gap: var(--container-padding);
   }
 
   /*.portfolio-popup-content-header div:last-child {
