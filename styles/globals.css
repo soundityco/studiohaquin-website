@@ -1524,6 +1524,7 @@ input[type="range"]::-ms-thumb {
 
 .portfolio-project-tags div {
   justify-content: start !important;
+  gap: calc(var(--container-padding)/1.5) !important;
 }
 
 .portfolio-project-tag {
@@ -1696,7 +1697,7 @@ input[type="range"]::-ms-thumb {
 
 .portfolio-popup-content-header-block div {
   display: flex;
-  gap: calc(var(--container-padding)/2);
+  gap: calc(var(--container-padding)/1.25);
 }
 
 .portfolio-icon {
