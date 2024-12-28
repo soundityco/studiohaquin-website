@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 
 // Importing Icons
-import { EmojiContact, EmojiEyes, EmojiCute, EmojiProud, NewLinkIcon, ArrowLeftNavIcon, ArrowRightNavIcon, CursorPlayIcon, PlayerPlayButton } from "@/components/Images";
+import { EmojiContact, EmojiEyes, EmojiCute, EmojiProud, NewLinkIcon, ArrowLeftNavIcon, ArrowRightNavIcon, PlayerPlayIcon } from "@/components/Images";
 
 interface StickyCursorProps {
   stickyElement: React.RefObject<HTMLElement>;
@@ -40,7 +40,7 @@ const CustomCursor: React.FC<StickyCursorProps> = ({ stickyElement }) => {
     'show-me': <NewLinkIcon className="new-link" />,
     'portfolio-start': <ArrowLeftNavIcon className="new-link new-link-start" />,
     'portfolio-end': <ArrowRightNavIcon className="new-link new-link-end" />,
-    'hovered-child': <CursorPlayIcon className="new-link new-hovered-child" />,
+    'hovered-child': <PlayerPlayIcon className="new-link new-hovered-child" />,
   };
 
   const handleMouseMove = (e: MouseEvent) => {

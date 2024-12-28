@@ -6,7 +6,7 @@ import HoverableGroup from "@/components/utils/HoverableGroup";
 import {
   ArrowLeftIcon,
   ArrowRightIcon,
-  PlayerPlayButton,
+  PlayerPlayIcon,
 } from "./Images";
 
 const allAvailableTags = [
@@ -448,7 +448,7 @@ export function Portfolio() {
                     <div key={i} className={`portfolio-popup-dynamic-content-video`}>
                       {!hiddenThumbnails.includes(videoId) && (
                         <div className="portfolio-popup-dynamic-content-thumbnail-block">
-                          <PlayerPlayButton className="portfolio-video-play-button" />
+                          <PlayerPlayIcon className="portfolio-video-play-button" />
                           <img
                             src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
                             alt={`Thumbnail for Video ${i + 1}`}

@@ -84,15 +84,6 @@ button {
   font-style: normal;
 }
 
-/*@font-face {
-  font-family: 'Alinsa';
-  src: url('../content/fonts/Alinsa/Alinsa.woff2') format('woff2'),
-       url('../content/fonts/Alinsa/Alinsa.woff') format('woff'),
-       url('../content/fonts/Alinsa/Alinsa.ttf') format('truetype');
-  font-weight: 300;
-  font-style: normal;
-}*/
-
 @font-face {
   font-family: 'NaNJaune';
   src: url('../content/fonts/NaNJaune/NaNJauneMaxiBlack.woff2') format('woff2'),
@@ -102,32 +93,8 @@ button {
   font-style: normal;
 }
 
-/*@font-face {
-  font-family: 'ShineCoasty';
-  src: url('../content/fonts/ShineCoasty/ShineCoasty.ttf') format('truetype');
-  font-weight: 300;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Gondgir';
-  src: url('../content/fonts/Gondgir/GondgirItalic.woff2') format('woff2'),
-       url('../content/fonts/Gondgir/GondgirRegular.woff') format('woff'),
-       url('../content/fonts/Gondgir/GondgirRegular.ttf') format('truetype');
-  font-weight: 300;
-  font-style: normal;
-}
-
-
-@font-face {
-  font-family: 'CutieKitty';
-  src: url('../content/fonts/CutieKitty/CutieKitty.ttf') format('truetype');
-  font-weight: 300;
-  font-style: normal;
-}*/
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap');
+/*@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap');*/
 
 /* VARIABLES */
 :root {
@@ -135,8 +102,8 @@ button {
   
   --border-radius: 2.5rem;
 
-  --primary-color: #ccff00; /* #CCFF00 #00FFCF */
-  --secondary-color: #5C00FF; /* #3300FF #7f16ff #182721 */
+  --primary-color: #7323ff; /* #CCFF00 #00FFCF */
+  --secondary-color: #ccff00; /* #3300FF #7f16ff #182721 */
   --background: #fbfff5; /*#fffdf3*/
   --foreground: #010100; /* #090908 */
   --dark-grey: #ffffff1c;
@@ -145,7 +112,9 @@ button {
 }
 
 html, body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', sans-serif !important;
+  /*font-family: 'Bricolage Grotesque', sans-serif !important;
+  font-family: "Bricolage Grotesque", serif;*/
 }
 
 /* START OF THE CODE */
@@ -161,7 +130,7 @@ html {
 
 body {
   color: var(--primary-color);
-  /*font-family: Arial, sans-serif;*/
+
   background: var(--foreground);
   scrollbar-width: none;
   /*animation: scrollBlocked .5s cubic-bezier(.7,0,.4,1.01) 6s forwards;*/
@@ -307,35 +276,25 @@ audio {
   min-width: max-content;
   text-transform: uppercase;
   font-size: 1.5vw;
-  padding: 0.75vw;
+  padding: 0.75vw 1vw;
+  color: var(--foreground);
   background: var(--primary-color);
+
+  /*background: linear-gradient(90deg, var(--secondary-color), violet);*/
+  color: var(--background);
   transition: all .2s cubic-bezier(.7,0,.4,1.01);
   border-radius: 100px;
-  color: var(--foreground);
   transform: unset;
   height: min-content;
   justify-content: center;
   align-items: center;
-  display: flex
-;
+  display: flex;
 }
 
 .button-contact:hover {
   /*background: linear-gradient(90deg, rgba(255,0,0,1) 0%, rgba(255,248,0,1) 25%, rgba(0,255,226,1) 50%, rgba(0,18,255,1) 75%, rgba(218,0,255,1) 100%);*/
   transform: scale(1.05) rotate(-2deg);
 }
-
-/*.button:hover .button-icon {
-  transition: fill .15s cubic-bezier(.7,0,.4,1.01);
-  fill: var(--foreground);
-}*/
-
-/*.section-title {
-  font-family: 'NaNJaune', sans-serif;
-  text-transform: uppercase;
-  font-size: 5vw;
-  line-height: 5vw;
-}*/
 
 /* CSS de base pour les animations */
 .section {
@@ -351,7 +310,6 @@ audio {
 }
 
 .section-title {
-  font-family: 'Inter', sans-serif;
   text-transform: uppercase;
   font-size: 8vw;
   line-height: 8vw;
@@ -362,12 +320,6 @@ audio {
   font-size: 1.75vw;
   line-height: 2.25vw;
   display: none;
-}
-
-.section-subtitle span {
-  /*text-decoration: underline;
-  color: var(--primary-color);*/
-  font-family: 'ShineCoasty', sans-serif;
 }
 
 .main {
@@ -999,7 +951,6 @@ input[type="range"]::-ms-thumb {
 
 .hero-title {
   font-weight: 700;
-  font-family: 'Inter', sans-serif;
   text-transform: uppercase;
   font-size: 8vw;
   line-height: 8vw;
@@ -1012,30 +963,7 @@ input[type="range"]::-ms-thumb {
   text-transform: initial;
   font-weight: 100;
   line-height: 4vw;
-  /*font-family: "Kudry", serif;*/
-  font-family: "CutieKitty", serif;
-  /*font-family: "Quanta Grotesk Pro", serif;*/
-  /*font-family: "Popstone", serif;*/
-  /*font-size: 6vw;*/
 }
-
-.hero-title-special {
-  font-family: 'Inter' !important;
-  font-style: normal !important;
-}
-
-.hero-title-special-2 {
-  font-family: "Gondgir", serif !important;
-}
-
-.hero-title-special-3 {
-  font-family: 'Alinsa' !important;
-}
-
-.hero-title-special-4 {
-  font-family: serif !important;
-}
-
 
 .hero-title-line {
   overflow: hidden;
@@ -1319,6 +1247,14 @@ input[type="range"]::-ms-thumb {
               /*padding .2s cubic-bezier(.7,0,.4,1.01)*/;
 }
 
+.portfolio-container div a:first-child {
+  padding-top: 0;
+}
+
+.portfolio-container div a:last-child {
+  padding-bottom: 0;
+}
+
 .portfolio-container div a:hover {
   color: var(--primary-color);
   /*padding: calc(var(--container-padding)/4) 0;*/
@@ -1506,8 +1442,8 @@ input[type="range"]::-ms-thumb {
 }
 
 .portfolio-video-play-button {
-  fill: var(--primary-color);
-  width: 4vw;
+  fill: var(--background);
+  width: 5vw;
   position: absolute;
   z-index: 1;
   /*filter: drop-shadow(0 0 50px var(--foreground));*/
@@ -1546,27 +1482,20 @@ input[type="range"]::-ms-thumb {
   user-select: none;
   /*border: solid 1px transparent;*/
   gap: calc(var(--container-padding)/4);
-  /*transition: color .3s cubic-bezier(.7,0,.4,1.01),
-              border .3s cubic-bezier(.7,0,.4,1.01);*/
+  transition: color .3s ease-in-out,
+              background .3s ease-in-out;
 }
-
-/*.portfolio-project-tag::before {
-  content: "#";
-}*/
 
 .portfolio-project-tag.active {
-  background: linear-gradient(90deg, #838d5a, #70784f);
+  /*background: linear-gradient(90deg, #838d5a, #70784f);
   color: var(--background);
+
   background: var(--primary-color);
-  color: var(--foreground);
-}
+  color: var(--foreground);*/
 
-/*.portfolio-project-tag:hover {
-  background: linear-gradient(90deg, var(--secondary-color), violet);
-  border: solid 1px var(--secondary-color);
+  background: var(--primary-color);
   color: var(--background);
-}*/
-
+}
 .activeProject {
   color: var(--primary-color);
 }
@@ -1670,13 +1599,12 @@ input[type="range"]::-ms-thumb {
 }
 
 .portfolio-popup-content-header-block h2 {
-  /*font-family: 'NaNJaune', Arial, sans-serif;*/
   /*text-transform: uppercase;
   font-size: 3.5vw;
   color: var(--primary-color);*/
   text-transform: uppercase;
   font-size: 2.25vw;
-  color: var(--foreground);
+  color: var(--background);
   background: var(--primary-color);
   transition: all .2s cubic-bezier(.7,0,.4,1.01);
   border-radius: 100px;
@@ -1742,7 +1670,7 @@ input[type="range"]::-ms-thumb {
   align-items: start;
   gap: 6vw;
   border-top: 0.5px solid var(--dark-grey);
-  background: var(--secondary-color);
+  background: var(--primary-color);
 }
 
 .footer-container-block {
@@ -1759,9 +1687,13 @@ input[type="range"]::-ms-thumb {
 
 .footer-title {
   text-align: start;
-  font-family: Helvetica;
   font-size: 3.5vw;
   line-height: 3.5vw;
+}
+
+.footer-container-block .button-contact {
+  background: var(--background);
+  color: var(--primary-color)
 }
 
 .footer-links {
@@ -1876,7 +1808,7 @@ input[type="range"]::-ms-thumb {
   }
   .button-contact {
     font-size: 1.5vw;
-    padding: 0.8vw;
+    padding: 0.8vw 1vw;
   }
   .header-menu-icon {
     width: 2vw;
@@ -1965,7 +1897,7 @@ input[type="range"]::-ms-thumb {
   }
   .button-contact {
     font-size: 1.2rem;
-    padding: 0.8rem;
+    padding: 0.8rem 1rem;
   }
   .header-menu-icon {
     width: 1.75rem;
@@ -2129,7 +2061,7 @@ input[type="range"]::-ms-thumb {
   }*/
 
   .portfolio-video-play-button {
-    width: 6vw;
+    width: 3.5rem;
   }
   
  

@@ -104,7 +104,7 @@ export const VideoIcon = ({ className = '' }: { className?: string }) => (
 </svg>
 );
 
-export const CursorPlayIcon = ({ className = '' }: { className?: string }) => (
+export const PlayerPlayIcon = ({ className = '' }: { className?: string }) => (
   <svg
     className={className}
     viewBox="0 0 200 200"
