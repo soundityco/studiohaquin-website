@@ -1718,7 +1718,7 @@ input[type="range"]::-ms-thumb {
 }
 
 .footer-link:hover {
-  color: var(--primary-color);
+  /*color: var(--primary-color);*/
 }
 
 .footer-link::after {
@@ -1736,7 +1736,7 @@ input[type="range"]::-ms-thumb {
   height: .25vw;
   display: flex;
   transition: width .2s cubic-bezier(.7,0,.4,1.01);
-  background: var(--primary-color);
+  background: var(--background);
   margin-top: 0.75vw;
   margin-left: 1.5%;
 }
