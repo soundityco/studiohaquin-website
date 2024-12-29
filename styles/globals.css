@@ -102,7 +102,7 @@ button {
   
   --border-radius: 2.5rem;
 
-  --primary-color: #7323ff; /* #CCFF00 #00FFCF */
+  --primary-color: #7526ff; /* #CCFF00 #00FFCF */
   --secondary-color: #ccff00; /* #3300FF #7f16ff #182721 */
   --background: #fbfff5; /*#fffdf3*/
   --foreground: #010100; /* #090908 */
@@ -1535,6 +1535,10 @@ input[type="range"]::-ms-thumb {
 .portfolio-popup-dynamic-content-video img:hover {
   transform: scale(1.025);
   /*filter: brightness(0.75);*/
+}
+
+.portfolio-popup-dynamic-content-video img .cursor-behind  {
+  z-index: 0;
 }
 
 .portfolio-popup-dynamic-content-video:hover .portfolio-video-play-button {

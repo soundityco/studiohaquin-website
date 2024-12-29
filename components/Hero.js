@@ -2,7 +2,7 @@ import React from "react";
 
 // Importing Components
 import Header from "./Header";
-import VideoPlayer from "@/components/VideoPlayer";
+import VideoPlayer from "@/components/utils/VideoPlayer";
 
 export function Hero() {
   return (
