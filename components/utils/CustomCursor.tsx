@@ -30,6 +30,7 @@ const CustomCursor: React.FC<StickyCursorProps> = ({ stickyElement }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | null>(null);
   const [isMagnetized, setIsMagnetized] = useState(false);
+  const [currentMagnetTarget, setCurrentMagnetTarget] = useState<HTMLElement | null>(null);
 
   // Mapping between classes and cursor content
   const classEmojiMap: { [key: string]: React.ReactNode } = {
@@ -43,15 +44,45 @@ const CustomCursor: React.FC<StickyCursorProps> = ({ stickyElement }) => {
     'hovered-child': <PlayerPlayIcon className="new-link new-hovered-child" />,
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (isMagnetized) {
+        // Si l'élément ciblé a changé de position (après scroll), désactive le magnétisme
+        setIsMagnetized(false);
+        setCurrentCursor(null);
+        if (timeoutId) clearTimeout(timeoutId); // Réinitialise le timeout
+      }
+    };
+  
+    window.addEventListener('scroll', handleScroll);
+  
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [isMagnetized, timeoutId]);
+
   const handleMouseMove = (e: MouseEvent) => {
     const { clientX, clientY } = e;
-
+  
+    if (isMagnetized && currentMagnetTarget) {
+      const rect = currentMagnetTarget.getBoundingClientRect();
+  
+      // Si l'élément a changé de position, désactive le magnétisme
+      if (
+        rect.top > window.innerHeight ||
+        rect.bottom < 0 ||
+        rect.left > window.innerWidth ||
+        rect.right < 0
+      ) {
+        setIsMagnetized(false);
+        setCurrentMagnetTarget(null);
+        setCurrentCursor(null);
+      }
+    }
+  
     if (!isMagnetized) {
       mouse.x.set(clientX - cursorSize / 2);
       mouse.y.set(clientY - cursorSize / 2);
-    } else {
-      // If magnetized, prevent normal cursor movement
-      setIsMagnetized(false);
     }
   };
 
@@ -94,6 +125,7 @@ const CustomCursor: React.FC<StickyCursorProps> = ({ stickyElement }) => {
   
     const child = (e.target as HTMLElement).closest('.portfolio-popup-dynamic-content-video');
     if (child) {
+      setCurrentMagnetTarget(child as HTMLElement); // Enregistre l'élément ciblé
       if (timeoutId) clearTimeout(timeoutId);
   
       const newTimeoutId = setTimeout(() => {
@@ -101,17 +133,32 @@ const CustomCursor: React.FC<StickyCursorProps> = ({ stickyElement }) => {
         const centerX = childRect.left + childRect.width / 2 - cursorSize / 2;
         const centerY = childRect.top + childRect.height / 2 - cursorSize / 2;
   
-        // Animate position and scale together
+        // Vérifie si l'élément est toujours visible
+        if (
+          centerX < 0 || 
+          centerY < 0 || 
+          centerX > window.innerWidth || 
+          centerY > window.innerHeight
+        ) {
+          // Si l'élément n'est plus visible, désactive le magnétisme
+          setIsMagnetized(false);
+          setCurrentMagnetTarget(null);
+          return;
+        }
+  
+        // Sinon, applique le magnétisme
         mouse.x.set(centerX);
         mouse.y.set(centerY);
   
         setIsMagnetized(true);
   
-        // Set scale to 0 explicitly after a slight delay for smoother effect
+        // Optionnel : Cache le curseur après le magnétisme
         setTimeout(() => {
-          setCurrentCursor(null); // Optional: Hide the content
-        }, 300); // Small delay for scaling effect
-      }, 1000); // 1s delay before magnet effect starts
+          setCurrentCursor(null); // Réinitialise le contenu
+          setIsMagnetized(false); // Désactive le magnétisme
+          setCurrentMagnetTarget(null); // Nettoie la cible
+        }, 300);
+      }, 1000);
   
       setTimeoutId(newTimeoutId);
     }
@@ -159,7 +206,8 @@ const CustomCursor: React.FC<StickyCursorProps> = ({ stickyElement }) => {
       style={{
         left: smoothMouse.x,
         top: smoothMouse.y,
-        scale: isMagnetized ? 0 : isHovered ? 3.5 : 1, // Explicitly scale to 0 when magnetized
+        //scale: isMagnetized ? 0 : isHovered ? 3.5 : 1, // Explicitly scale to 0 when magnetized
+        scale: isMagnetized && currentCursor ? 0 : isHovered ? 3.5 : 1,
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
