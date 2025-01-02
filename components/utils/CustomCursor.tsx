@@ -80,6 +80,13 @@ const CustomCursor: React.FC<StickyCursorProps> = ({ stickyElement }) => {
       }
     }
   
+    // Si la souris bouge, désactive le magnétisme
+    if (isMagnetized) {
+      setIsMagnetized(false);
+      setCurrentMagnetTarget(null);
+      setCurrentCursor(null); // Réinitialise si nécessaire
+    }
+  
     if (!isMagnetized) {
       mouse.x.set(clientX - cursorSize / 2);
       mouse.y.set(clientY - cursorSize / 2);
@@ -104,11 +111,15 @@ const CustomCursor: React.FC<StickyCursorProps> = ({ stickyElement }) => {
   const handleMouseLeave = () => {
     setIsHovered(false);
     setCurrentCursor(null);
-
+  
     if (timeoutId) {
       clearTimeout(timeoutId);
       setTimeoutId(null);
     }
+  
+    // Désactive aussi le magnétisme
+    setIsMagnetized(false);
+    setCurrentMagnetTarget(null);
   };
 
   const handlePortfolioHover = (e: MouseEvent) => {
@@ -129,40 +140,37 @@ const CustomCursor: React.FC<StickyCursorProps> = ({ stickyElement }) => {
       if (timeoutId) clearTimeout(timeoutId);
   
       const newTimeoutId = setTimeout(() => {
+        if (!isHovered) return; // Si la souris n'est plus dessus, annule le magnétisme
+  
         const childRect = child.getBoundingClientRect();
         const centerX = childRect.left + childRect.width / 2 - cursorSize / 2;
         const centerY = childRect.top + childRect.height / 2 - cursorSize / 2;
   
-        // Vérifie si l'élément est toujours visible
         if (
-          centerX < 0 || 
-          centerY < 0 || 
-          centerX > window.innerWidth || 
+          centerX < 0 ||
+          centerY < 0 ||
+          centerX > window.innerWidth ||
           centerY > window.innerHeight
         ) {
-          // Si l'élément n'est plus visible, désactive le magnétisme
           setIsMagnetized(false);
           setCurrentMagnetTarget(null);
           return;
         }
   
-        // Sinon, applique le magnétisme
+        // Applique le magnétisme
         mouse.x.set(centerX);
         mouse.y.set(centerY);
   
         setIsMagnetized(true);
   
-        // Optionnel : Cache le curseur après le magnétisme
-        setTimeout(() => {
-          setCurrentCursor(null); // Réinitialise le contenu
-          setIsMagnetized(false); // Désactive le magnétisme
-          setCurrentMagnetTarget(null); // Nettoie la cible
-        }, 300);
+        // Change le style du curseur
+        setCurrentCursor(<PlayerPlayIcon />);
       }, 1000);
   
       setTimeoutId(newTimeoutId);
     }
   };
+  
 
   useEffect(() => {
     const handleMouseMoveWrapper = (e: MouseEvent) => handleMouseMove(e);
@@ -206,8 +214,7 @@ const CustomCursor: React.FC<StickyCursorProps> = ({ stickyElement }) => {
       style={{
         left: smoothMouse.x,
         top: smoothMouse.y,
-        //scale: isMagnetized ? 0 : isHovered ? 3.5 : 1, // Explicitly scale to 0 when magnetized
-        scale: isMagnetized && currentCursor ? 0 : isHovered ? 3.5 : 1,
+        scale: isMagnetized ? 4.5 : isHovered ? 3.5 : 1,
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
@@ -215,9 +222,9 @@ const CustomCursor: React.FC<StickyCursorProps> = ({ stickyElement }) => {
         background: isHovered ? 'none' : 'rgba(255, 255, 255, 1)',
       }}
       transition={{
-        left: { duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }, // Smooth position transition
+        left: { duration: 0.3, ease: [0.25, 0.1, 0.25, 1] },
         top: { duration: 0.3, ease: [0.25, 0.1, 0.25, 1] },
-        scale: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }, // Smooth scale transition
+        scale: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] },
       }}
       className="cursor"
     >
