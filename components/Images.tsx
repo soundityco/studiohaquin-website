@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Image from 'next/image'; // Pour gérer les images Next.js
+import ReactDOMServer from 'react-dom/server';
+
 
 // Importing Images
 import HeroPicture from '@/content/images/hero-picture.webp';
@@ -10,20 +12,6 @@ import EmojiHandFinger from '@/content/images/emojis/emoji-hand-finger.webp';
 import EmojiEyes from '@/content/images/emojis/emoji-eyes.webp';
 import EmojiCute from '@/content/images/emojis/emoji-cute.webp';
 import EmojiProud from '@/content/images/emojis/emoji-proud.webp';
-
-// Composant SVGs en tant que JSX
-/*export const WebsiteLogo = ({ className = '' }: { className?: string }) => (
-  <svg
-    className={className}
-    viewBox="0 0 28 28"
-    xmlns="http://www.w3.org/2000/svg"
-    width="29px"
-    height="29px"
-    fill="none"
-  >
-    <path d="M13.45.3a.66.67 0 0 1 1.1 0l1.65 2.5a.3.3 0 0 0 .38.08l2.52-1.61a.66.67 0 0 1 1.01.45l.5 2.96a.3.3 0 0 0 .3.23l2.96-.44a.66.67 0 0 1 .74.82l-.75 2.91a.3.3 0 0 0 .2.34l2.88.8a.66.67 0 0 1 .34 1.06l-1.86 2.35a.3.3 0 0 0 .04.39l2.3 1.9a.66.67 0 0 1-.11 1.11L25 17.54a.3.3 0 0 0-.12.37l1.33 2.68a.66.67 0 0 1-.55.97l-2.98.18a.3.3 0 0 0-.26.29l.13 3a.66.67 0 0 1-.9.65l-2.8-1.05a.3.3 0 0 0-.35.16l-1.1 2.8a.66.67 0 0 1-1.08.23L14.2 25.7a.3.3 0 0 0-.4 0l-2.12 2.1a.66.67 0 0 1-1.09-.23l-1.09-2.8a.3.3 0 0 0-.35-.15l-2.8 1.05a.66.67 0 0 1-.9-.65l.14-3a.3.3 0 0 0-.27-.3l-2.98-.17a.66.67 0 0 1-.55-.97l1.33-2.68a.3.3 0 0 0-.12-.37L.35 16.15a.66.67 0 0 1-.11-1.1l2.3-1.91a.3.3 0 0 0 .05-.4L.72 10.4a.66.67 0 0 1 .35-1.06l2.87-.8a.3.3 0 0 0 .2-.34l-.75-2.9a.66.67 0 0 1 .74-.83l2.95.44a.3.3 0 0 0 .32-.23l.49-2.96a.66.67 0 0 1 1.01-.45l2.52 1.61a.3.3 0 0 0 .38-.08z"/>
-  </svg>
-);*/
 
 // SVG Icons
 export const WebsiteIcon = ({ className = '' }: { className?: string }) => (
@@ -390,6 +378,67 @@ export const ArrowCornerIcon = ({ className = '' }: { className?: string }) => (
   </svg>
 );*/
 
+const svgIcons = [
+  WebsiteIcon,
+  WebDesignIcon,
+  GraphicDesignIcon,
+  ContactIcon,
+  VideoIcon,
+  PlayerPlayIcon,
+  NewLinkIcon,
+  ArrowRightNavIcon,
+  ArrowLeftNavIcon,
+  ArrowRightIcon,
+  ArrowLeftIcon,
+  CloseIcon,
+  DecathlonLogo,
+  GaleriesLafayetteLogo,
+  PolyphoniaLogo,
+  OrangeBleueLogo,
+  DorisOppenlanderLogo,
+  PlayerPauseButton,
+  PlayerPlayButton,
+  PlayerVolume1Button,
+  PlayerVolume2Button,
+  PlayerVolume3Button,
+  PlayerFullscreenButton,
+  ArrowCornerIcon
+];
+
+// Liste des images
+const images = [
+  HeroPicture,
+  EmojiContact,
+  EmojiHandFinger,
+  EmojiEyes,
+  EmojiCute,
+  EmojiProud,
+];
+
+// Préchargement des ressources
+const preloadResources = () => {
+  // Précharger les images
+  images.forEach((src) => {
+  const img = new window.Image(); // Explicitement lié au DOM
+  img.src = src.src; // Où src est une image importée
+});
+
+  // Précharger les SVG
+  svgIcons.forEach((Icon) => {
+    const div = document.createElement('div');
+    div.style.display = 'none';
+    div.innerHTML = ReactDOMServer.renderToString(<Icon />);
+    document.body.appendChild(div);
+  });
+};
+
+export const Images = () => {
+  useEffect(() => {
+    preloadResources(); // Précharger toutes les images et SVGs
+  }, []);
+
+  return <div>{/* Tes composants d'images ici */}</div>;
+};
 
 // Exporting Images
 export {
