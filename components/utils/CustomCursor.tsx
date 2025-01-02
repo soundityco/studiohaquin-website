@@ -165,7 +165,7 @@ const CustomCursor: React.FC<StickyCursorProps> = ({ stickyElement }) => {
   
         // Change le style du curseur
         setCurrentCursor(<PlayerPlayIcon />);
-      }, 1000);
+      }, 300);
   
       setTimeoutId(newTimeoutId);
     }
