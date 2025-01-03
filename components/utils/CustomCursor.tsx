@@ -34,6 +34,7 @@ const CustomCursor: React.FC<StickyCursorProps> = ({ stickyElement }) => {
 
   // Mapping between classes and cursor content
   const classEmojiMap: { [key: string]: React.ReactNode } = {
+    'link': <Image src={EmojiEyes} alt="Emoji" draggable="false" />,
     'button-contact': <Image src={EmojiContact} alt="Emoji" draggable="false" />,
     'button-footer': <Image src={EmojiContact} alt="Emoji" draggable="false" />,
     'button-footer-reveal': <Image src={EmojiCute} alt="Emoji" draggable="false" />,
@@ -42,6 +43,7 @@ const CustomCursor: React.FC<StickyCursorProps> = ({ stickyElement }) => {
     'portfolio-start': <ArrowLeftNavIcon className="new-link new-link-start" />,
     'portfolio-end': <ArrowRightNavIcon className="new-link new-link-end" />,
     'hovered-child': <PlayerPlayIcon className="new-link new-hovered-child" />,
+    'video-player': <PlayerPlayIcon className="new-link player-play-icon" />, // Ajouté
   };
 
   useEffect(() => {
@@ -103,8 +105,11 @@ const CustomCursor: React.FC<StickyCursorProps> = ({ stickyElement }) => {
 
     if (matchingClass) {
       setCurrentCursor(classEmojiMap[matchingClass]);
+    } else if (target.tagName === 'A' || target.tagName === 'BUTTON') {
+      // Si c'est un <a> ou <button> sans classe spécifique
+      setCurrentCursor(<NewLinkIcon className="new-link" />);
     } else {
-      setCurrentCursor(<Image src={EmojiEyes} alt="Default Emoji" width={50} height={50} draggable="false" />);
+      setCurrentCursor(null);
     }
   };
 
@@ -180,7 +185,7 @@ const CustomCursor: React.FC<StickyCursorProps> = ({ stickyElement }) => {
 
     window.addEventListener('mousemove', handleMouseMoveWrapper);
 
-    const hoverableElements = document.querySelectorAll('a, .horizontal-scroll');
+    const hoverableElements = document.querySelectorAll('.video-player, .show-me, .link, .button-contact, .horizontal-scroll, .button-footer-reveal');
     hoverableElements.forEach(el => {
       if (el instanceof HTMLElement) {
         if (el.classList.contains('horizontal-scroll')) {
