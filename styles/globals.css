@@ -276,7 +276,7 @@ audio {
   min-width: max-content;
   text-transform: uppercase;
   font-size: 1.5vw;
-  padding: 0.75vw 1vw;
+  padding: 0.75vw 1.25vw;
   color: var(--foreground);
   background: var(--primary-color);
 
@@ -715,6 +715,7 @@ header {
 
 .full-screen {
   border: unset;
+  border-radius: unset;
 }
 
 .fullscreen-video {
@@ -1811,7 +1812,7 @@ input[type="range"]::-ms-thumb {
   }
   .button-contact {
     font-size: 1.5vw;
-    padding: 0.8vw 1vw;
+    padding: 0.8vw 1.25vw;
   }
   .header-menu-icon {
     width: 2vw;
@@ -1900,7 +1901,7 @@ input[type="range"]::-ms-thumb {
   }
   .button-contact {
     font-size: 1.2rem;
-    padding: 0.8rem 1rem;
+    padding: 0.8rem 1.25rem;
   }
   .header-menu-icon {
     width: 1.75rem;
