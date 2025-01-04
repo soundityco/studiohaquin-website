@@ -82,7 +82,7 @@ export function Portfolio() {
           "qr16wv-Dhdg": ["Réseaux sociaux", "Vidéo Promotionnelles"],
         },
         text: {
-          description: "Réalisation d'une série de 11 vidéos sur les réussites du magasin des Ponts-de-Cé sur l'année 2024 & vidéos promotionnelles.",
+          description: "Réalisation de 11 vidéos sur les réussites 2024 du magasin des Ponts-de-Cé & vidéos promotionnelles, collaboration Super35.",
           tags: allAvailableTags,
         },
       },
@@ -131,7 +131,7 @@ export function Portfolio() {
         },
         text: {
           description:
-            "Réalisation d'une vidéo promotionnelle pour l'évènement 'Mère et Fille' 2024 des Galeries Lafayette d'Angers.",
+            "Réalisation d'une vidéo récap' pour l'évènement 'Mère et Fille' 2024 des Galeries Lafayette d'Angers, collaboration Super35.",
             tags: allAvailableTags,
           },
         },
@@ -150,7 +150,7 @@ export function Portfolio() {
             "s5xjV93gEQY": ["Interviews", "Réseaux sociaux"],
           },
           text: {
-            description: "Réalisation d'une mini publicité et d'interviews pour L'Orange Bleue d'Angers.",
+            description: "Réalisation d'une mini publicité et d'interviews pour L'Orange Bleue d'Angers, collaboration Super35.",
             tags: allAvailableTags,
           },
         },
@@ -167,7 +167,7 @@ export function Portfolio() {
             "P4d_1Tb2uAw": ["Vidéo promotionnelle", "Réseaux sociaux"],
           },
           text: {
-            description: "Réalisation d'une vidéo promotionnelle pour la rénovation du bar & restaurant 'La Cour', situé à Angers.",
+            description: "Réalisation d'une vidéo pour la rénovation du bar & restaurant 'La Cour', situé à Angers, collaboration Super35.",
             tags: allAvailableTags,
           },
         },

@@ -64,9 +64,9 @@ const soundManager = () => {
         } else if (target.classList.contains('hover-sound-behance')) {
           playSound(sounds.behance);
           return;
-        } else if (target.classList.contains('hover-sound-contact')) {
+        /*} else if (target.classList.contains('hover-sound-contact')) {
           playSound(sounds.contact);
-          return;
+          return;*/
         } else if (target.classList.contains('hover-sound-mario')) {
           playSound(sounds.mario);
           return;
