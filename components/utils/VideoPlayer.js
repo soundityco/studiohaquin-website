@@ -269,7 +269,7 @@ const VideoPlayer = ({ videoSrc, posterSrc }) => {
             onChange={handleProgressChange}
             className="progress-bar"
             style={{
-              background: `linear-gradient(to right, #7526ff ${progress}%, #ffffff80 ${progress}%)`,
+              background: `linear-gradient(to right, #ccff00 ${progress}%, #ffffff80 ${progress}%)`,
             }}
           />
         </div>

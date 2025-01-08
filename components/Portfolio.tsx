@@ -372,7 +372,7 @@ export function Portfolio() {
             ref={popupRef}
           >
             <div className="portfolio-popup-container-overlay"></div>
-            <div className="portfolio-popup-content">
+            <div className="portfolio-popup-content container">
               <div className="portfolio-popup-content-header">
                 <div className="portfolio-popup-content-header-block">
                   <h2>{activeProject.name}</h2>

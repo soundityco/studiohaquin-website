@@ -21,7 +21,7 @@ export function Footer() {
           </div>
           <div className="footer-container-block">
             <p className="footer-cc">
-              Studio Haquin © 2024
+              Studio Haquin © 2025
             </p>
             <p className="footer-cc">Designed & dev by&nbsp;<span><a class="button-footer-reveal hover-sound-mario">Studio Haquin</a></span></p>
           </div>
