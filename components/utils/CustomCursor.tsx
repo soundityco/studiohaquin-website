@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 
 // Importing Icons
-import { EmojiContact, EmojiEyes, EmojiCute, EmojiProud, NewLinkIcon, ArrowLeftNavIcon, ArrowRightNavIcon, PlayerPlayIcon } from "@/components/Images";
+import { EmojiContact, EmojiEyes, EmojiCute, EmojiProud, NewLinkIcon, ArrowLeftNavIcon, ArrowRightNavIcon, PlayerPlayIcon, ArrowDownIcon } from "@/components/Images";
 
 interface StickyCursorProps {
   stickyElement: React.RefObject<HTMLElement>;
@@ -43,7 +43,8 @@ const CustomCursor: React.FC<StickyCursorProps> = ({ stickyElement }) => {
     'portfolio-start': <ArrowLeftNavIcon className="new-link new-link-start" />,
     'portfolio-end': <ArrowRightNavIcon className="new-link new-link-end" />,
     'hovered-child': <PlayerPlayIcon className="new-link new-hovered-child" />,
-    'video-player': <PlayerPlayIcon className="new-link player-play-icon" />, // Ajouté
+    'video-player': <PlayerPlayIcon className="new-link player-play-icon" />,
+    'hero-scroll': <Image src={EmojiEyes} alt="Emoji" draggable="false" />,
   };
 
   useEffect(() => {
@@ -185,7 +186,7 @@ const CustomCursor: React.FC<StickyCursorProps> = ({ stickyElement }) => {
 
     window.addEventListener('mousemove', handleMouseMoveWrapper);
 
-    const hoverableElements = document.querySelectorAll('.video-player, .show-me, .link, .button-contact, .horizontal-scroll, .button-footer-reveal');
+    const hoverableElements = document.querySelectorAll('.video-player, .show-me, .link, .button-contact, .horizontal-scroll, .button-footer-reveal, .hero-scroll');
     hoverableElements.forEach(el => {
       if (el instanceof HTMLElement) {
         if (el.classList.contains('horizontal-scroll')) {

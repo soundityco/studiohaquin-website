@@ -1,6 +1,8 @@
 import React from "react";
+import { Link, Button, Element, Events, animateScroll as scroll, scrollSpy } from 'react-scroll';
 
-import { StudioHaquinLogo } from "@/components/Images";
+
+import { StudioHaquinLogo, ArrowDownIcon } from "@/components/Images";
 
 // Importing Components
 import Header from "./Header";
@@ -29,6 +31,10 @@ export function Hero() {
         posterSrc="/showreel-thumbnail.webp"
       />*/}
       <div className="hero-title-block">
+        {/*<div className="scroll-button"></div>*/}
+        <Link to="portfolio" smooth={true} duration={500} className="hero-scroll">
+          SCROLL&nbsp;<ArrowDownIcon />
+        </Link>
         <StudioHaquinLogo className="hero-title-block-logo" alt="Studio Haquin Logo" draggable="false"/>
         {/*<h1 className="hero-title">STUDIO HAQUIN ©</h1>*/}
       </div>

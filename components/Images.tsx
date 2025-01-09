@@ -379,6 +379,19 @@ export const ArrowCornerIcon = ({ className = '' }: { className?: string }) => (
   </svg>
 );
 
+export const ArrowDownIcon = ({ className = '' }: { className?: string }) => (
+  <svg
+    className={className}
+    viewBox="0 0 376 558"
+    xmlns="http://www.w3.org/2000/svg"
+    //width="15px"
+    //height="15px"
+    fill="none"
+  >
+    <path d="M157.917,443.75l-0,-443.75l58.75,-0l-0,443.75l116.25,-116.25l42.5,42.5l-187.917,187.917l-187.5,-187.5l42.5,-42.5l115.833,115.833l-0.416,0Z"/>
+  </svg>
+);
+
 /*export const ArrowRightIcon = ({ className = '' }: { className?: string }) => (
   <svg
     className={className}
