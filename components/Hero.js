@@ -1,5 +1,7 @@
 import React from "react";
 
+import { StudioHaquinLogo } from "@/components/Images";
+
 // Importing Components
 import Header from "./Header";
 import VideoPlayer from "@/components/utils/VideoPlayer";
@@ -8,11 +10,28 @@ export function Hero() {
   return (
     <section className="hero" id="hero">
       <Header/>
-      <VideoPlayer className="container"
+      <div className="hero-video-container">
+        <video className="hero-video"
+          playsInline
+          preload="auto"
+          //poster="/showreel-thumbnail.webp"
+          autoPlay
+          muted
+          loop
+        >
+          <source src="https://res.cloudinary.com/dqrkeb9bz/video/upload/q_auto/v1736446317/SHOWREEL_2024_STUDIOHAQUIN_FHD5_cq29ku.mp4" type="video/mp4" />
+        </video>
+      </div>
+
+      {/*<VideoPlayer className="container"
         videoSrc="https://res.cloudinary.com/dqrkeb9bz/video/upload/q_auto:best/v1736336766/SHOWREEL_2024_STUDIOHAQUIN_FHD4_h0klpd.mp4"
         //videoSrc="https://live.staticflickr.com/video/54204971545/1d3b0d6e19/1080p.mp4?s=eyJpIjo1NDIwNDk3MTU0NSwiZSI6MTczNDIxODkxNCwicyI6ImY1MTU5YWNhN2UyOTQ0MmEyMjMzY2RhMTA4NGVhNzY0MmY2NGE4Y2EiLCJ2IjoxfQ"
         posterSrc="/showreel-thumbnail.webp"
-      />
+      />*/}
+      <div className="hero-title-block">
+        <StudioHaquinLogo className="hero-title-block-logo" alt="Studio Haquin Logo" draggable="false"/>
+        {/*<h1 className="hero-title">STUDIO HAQUIN ©</h1>*/}
+      </div>
     </section>
   );
 }

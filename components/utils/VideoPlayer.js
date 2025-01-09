@@ -255,6 +255,7 @@ const VideoPlayer = ({ videoSrc, posterSrc }) => {
         onClick={togglePlayPause}
         autoPlay
         muted
+        loop
       >
         <source src={videoSrc} type="video/mp4" />
       </video>

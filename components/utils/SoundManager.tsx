@@ -94,7 +94,7 @@ const soundManager = () => {
         if (
           target.tagName === 'A' || // Lien
           target.tagName === 'BUTTON' || // Bouton
-          target.tagName === 'VIDEO' || // Video
+          //target.tagName === 'VIDEO' || // Video
           target.classList.contains('clickable') // Classe spécifique
         ) {
           playSound(sounds.click);
