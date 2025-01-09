@@ -2183,6 +2183,10 @@ footer {
   .portfolio-popup-content-header div {
     gap: var(--container-padding);
   }
+  .header-logo p,
+  .header-text {
+    display: none;
+  }
 }
 
 @media only screen and (max-width: 500px) {
@@ -2211,10 +2215,6 @@ footer {
   }*/
   .header-logo {
     padding: 0rem;
-  }
-  .header-logo p,
-  .header-text {
-    display: none;
   }
   
   /* HERO */

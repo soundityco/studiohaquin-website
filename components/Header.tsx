@@ -16,13 +16,13 @@ const Header = forwardRef<HTMLElement>((props, ref) => {
       } else {
         const currentHour = new Date().getHours();
         if (currentHour >= 0 && currentHour < 6) {
-          setDisplayText("Il est un peu tard, non ?");
+          setDisplayText("Il est un peu tard, non ? 🧐");
         } else if (currentHour >= 6 && currentHour < 12) {
-          setDisplayText("Bonjour !");
+          setDisplayText("Passez une bonne journée ! 😇");
         } else if (currentHour >= 12 && currentHour < 18) {
-          setDisplayText("Bon après-midi !");
+          setDisplayText("C'est l'heure de la sieste ! 😌");
         } else {
-          setDisplayText("Bonsoir !");
+          setDisplayText("Je vais pas tarder… 😴");
         }
         setTimeout(() => setIsGreeting(true), 5000); // Afficher le greeting pour 5 secondes
       }
