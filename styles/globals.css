@@ -2233,7 +2233,8 @@ footer {
   .header-logo {
     padding: 0rem;
   }
-  .header-logo p {
+  .header-logo p,
+  .header-text {
     display: none;
   }
   
