@@ -24,18 +24,20 @@ export function Loader({ lenis, onLoaderComplete }) { // Ajout de onLoaderComple
   return (
     isAnimating && (
       <section className="loader">
-        <h1 className="loader-title">
-          <Typewriter
-            options={{
-              strings: ["STUDIO HAQUIN ©", "FILMMAKER & SOUND DESIGNER"],
-              autoStart: true,
-              loop: false,
-              delay: 70,
-              deleteSpeed: 35,
-              pauseFor: 700,
-            }}
-          />
-        </h1>
+        <div className="container">
+          <h1 className="loader-title">
+            <Typewriter
+              options={{
+                strings: ["STUDIO HAQUIN ©", "FILMMAKER & SOUND DESIGNER"],
+                autoStart: true,
+                loop: false,
+                delay: 70,
+                deleteSpeed: 35,
+                pauseFor: 700,
+              }}
+            />
+          </h1>
+        </div>
       </section>
     )
   );

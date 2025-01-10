@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link, Button, Element, Events, animateScroll as scroll, scrollSpy } from 'react-scroll';
 
 
@@ -9,10 +9,36 @@ import Header from "./Header";
 import VideoPlayer from "@/components/utils/VideoPlayer";
 
 export function Hero() {
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(min-width: 1250px)");
+    
+    // Fonction pour mettre à jour l'état en fonction de la largeur
+    const handleMediaChange = (e) => setIsDesktop(e.matches);
+
+    // Initialisation de l'état
+    setIsDesktop(mediaQuery.matches);
+
+    // Ajouter un écouteur
+    mediaQuery.addEventListener("change", handleMediaChange);
+
+    // Nettoyer l'écouteur à la fin
+    return () => mediaQuery.removeEventListener("change", handleMediaChange);
+  }, []);
+
   return (
     <section className="hero" id="hero">
       <div className="hero-container container">
-        <Header/>
+        
+        {/* Rendre conditionnellement le header */}
+        {isDesktop ? (
+          <div className="header-parent">
+            <Header />
+          </div>
+        ) : (
+          <Header />
+        )}
         <div className="hero-video-container">
           <video className="hero-video"
             playsInline
@@ -24,6 +50,9 @@ export function Hero() {
           >
             <source src="https://res.cloudinary.com/dqrkeb9bz/video/upload/q_auto/v1736499832/SHOWREEL_2024_STUDIOHAQUIN_FHD5_be4yfu.mp4" type="video/mp4" />
           </video>
+          <div className="hero-video-container-shadow">
+
+          </div>
         </div>
 
         {/*<VideoPlayer className="container"
@@ -33,9 +62,9 @@ export function Hero() {
         />*/}
         <div className="hero-title-block">
           {/*<div className="scroll-button"></div>*/}
-          <Link to="portfolio" smooth={true} duration={500} className="hero-scroll">
+          {/*<Link to="portfolio" smooth={true} duration={500} className="hero-scroll">
             SCROLL&nbsp;<ArrowDownIcon />
-          </Link>
+          </Link>*/}
           <StudioHaquinLogo className="hero-title-block-logo" alt="Studio Haquin Logo" draggable="false"/>
           {/*<h1 className="hero-title">STUDIO HAQUIN ©</h1>*/}
         </div>
