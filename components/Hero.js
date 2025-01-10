@@ -22,7 +22,7 @@ export function Hero() {
             muted
             loop
           >
-            <source src="https://res.cloudinary.com/dqrkeb9bz/video/upload/q_auto/v1736446317/SHOWREEL_2024_STUDIOHAQUIN_FHD5_cq29ku.mp4" type="video/mp4" />
+            <source src="https://res.cloudinary.com/dqrkeb9bz/video/upload/q_auto/v1736499832/SHOWREEL_2024_STUDIOHAQUIN_FHD5_be4yfu.mp4" type="video/mp4" />
           </video>
         </div>
 
