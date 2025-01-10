@@ -477,6 +477,7 @@ body.no-scroll {
 
 .header-parent {
   height: 100%;
+  pointer-events: none;
 }
 
 header {
@@ -928,7 +929,7 @@ input[type="range"]::-ms-thumb {
 .hero-container {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - (var(--container-padding)*2));
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -1693,6 +1694,7 @@ input[type="range"]::-ms-thumb {
   transition: filter .15s cubic-bezier(.7,0,.4,1.01),
               transform .15s cubic-bezier(.7,0,.4,1.01);
   fill: var(--background);
+  
 }
 
 .portfolio-icon:active {
