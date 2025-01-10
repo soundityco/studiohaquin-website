@@ -18,8 +18,10 @@ const Header = forwardRef<HTMLElement>((props, ref) => {
         if (currentHour >= 0 && currentHour < 6) {
           setDisplayText("Il est un peu tard, non ? 🧐");
         } else if (currentHour >= 6 && currentHour < 12) {
-          setDisplayText("Passez une bonne journée ! 😇");
-        } else if (currentHour >= 12 && currentHour < 18) {
+          setDisplayText("Bonne journée ! 😇");
+        } else if (currentHour >= 12 && currentHour < 14) {
+          setDisplayText("Miam, bon appétit ! 🍕");
+        } else if (currentHour >= 14 && currentHour < 18) {
           setDisplayText("C'est l'heure de la sieste ! 😌");
         } else {
           setDisplayText("Je vais pas tarder… 😴");
