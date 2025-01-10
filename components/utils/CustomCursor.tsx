@@ -12,7 +12,7 @@ interface StickyCursorProps {
 }
 
 const CustomCursor: React.FC<StickyCursorProps> = ({ stickyElement }) => {
-  const cursorSize = 5;
+  const cursorSize = 10;
 
   // Mouse tracking
   const mouse = {
@@ -171,7 +171,7 @@ const CustomCursor: React.FC<StickyCursorProps> = ({ stickyElement }) => {
   
         // Change le style du curseur
         setCurrentCursor(<PlayerPlayIcon />);
-      }, 300);
+      }, 500);
   
       setTimeoutId(newTimeoutId);
     }
