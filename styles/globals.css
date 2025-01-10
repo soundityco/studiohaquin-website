@@ -922,6 +922,7 @@ input[type="range"]::-ms-thumb {
   min-height: 100vh;
   justify-content: space-between;
   border-bottom: solid 1px var(--dark-grey);
+  align-items: center;
 }
 
 .hero-container {
