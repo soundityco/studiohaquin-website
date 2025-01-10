@@ -1843,7 +1843,7 @@ footer {
 
   /* VARIABLES */
   :root {
-    --container-padding: 4rem;
+    --container-padding: 3rem;
   }
   .button {
     font-size: 1.35rem;
