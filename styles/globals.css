@@ -438,7 +438,7 @@ body.no-scroll {
 
 /* MAIN */
 .container {
-  max-width: 1620px !important;
+  max-width: 1950px !important;
   /*padding: var(--container-padding);
   box-sizing: border-box;*/
   margin-left: auto;
@@ -564,6 +564,7 @@ header {
   gap: var(--container-padding);
   transition: margin-right .2s cubic-bezier(.7,0,.4,1.01);
   height: 3.1vw;
+  align-items: center;
 }
 
 /*.header-button:hover {
@@ -1513,7 +1514,7 @@ input[type="range"]::-ms-thumb {
   width: -moz-fit-content;
   text-wrap: nowrap;
   width: fit-content;
-  font-size: 1.25vw !important;
+  font-size: 1.25vw;
   user-select: none;
   min-width: fit-content;
   display: flex;
@@ -1829,6 +1830,9 @@ footer {
 @media only screen and (min-width: 1950px) {
 
   /* VARIABLES */
+  :root {
+    --container-padding: 4rem;
+  }
   .button {
     font-size: 1.35rem;
     padding: 0.8rem 1.15rem 0.8rem 1.15rem;
@@ -1852,12 +1856,18 @@ footer {
     gap: 0.55vw;*/
   }
   .button-contact {
-    font-size: 1.5vw;
-    padding: 0.8vw 1.25vw;
+    font-size: 2rem;
+    padding: 1rem 1.5rem;
   }
   .header-menu-icon {
-    width: 2vw;
-    height: 2vw;
+    width: 3rem;
+    height: 3rem;
+  }
+  .header-logo {
+    font-size: 2.25rem;
+  }
+  .header-button {
+    height: 4rem;
   }
 
   /* HERO */
@@ -1894,13 +1904,77 @@ footer {
   .portfolio-popup-dynamic-content {
     grid-template-columns: repeat(auto-fill,minmax(700px,1fr));
   }
+  .portfolio-container nav ul {
+    font-size: 4rem;
+    gap: 2.5rem;
+    grid-template-columns: 35rem auto auto;
+  }
+  .portfolio-container div a {
+    font-size: 3rem;
+    grid-template-columns: 35rem auto auto;
+    gap: 2.5rem;
+  }
+  .div-to-click {
+    padding: 1rem 0;
+  }
+  .portfolio-popup-content-header-block h2 {
+    font-size: 3rem;
+    padding: 1.25rem 2rem;
+  }
+  .portfolio-icon {
+    height: 2rem;
+  }
+  .portfolio-popup-content-header div h3 {
+    line-height: 3rem;
+    font-size: 2.5rem;
+  }
+  .portfolio-popup-content-header div p {
+    line-height: 2.5rem;
+    font-size: 2rem;
+  }
+  .portfolio-project-tag {
+    padding: 1rem 1.5rem;
+    font-size: 1.75rem;
+  }
+  .portfolio-popup-dynamic-content-video {
+    min-width: 45rem;
+    max-width: 45rem;
+  }
+  .portfolio-video-play-button {
+    width: 7rem;
+  }
+
+  /* INTRO */
+  .intro-container-item {
+    grid-template-columns: 40rem auto;
+  }
+  .intro-container-title {
+    font-size: 3rem;
+  }
+  .intro-container-text {
+    font-size: 4.75rem;
+  }
 
   /* FOOTER */
+  .footer-container {
+    gap: 8rem;
+  }
+  .footer-container-block {
+    gap: 6rem;
+  }
+  .footer-title {
+    text-align: start;
+    font-size: 4.5rem;;
+    line-height: 4.5rem;
+  }
   .footer-links ul {
-    gap: 6vw;
+    gap: 8rem;
   }
   .footer-link {
-    font-size: 2.5vw;
+    font-size: 3.25rem;
+  }
+  .footer-cc {
+    font-size: 2rem;
   }
 }
 
