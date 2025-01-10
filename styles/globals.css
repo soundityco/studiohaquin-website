@@ -1965,7 +1965,6 @@ footer {
     padding: unset;
     justify-content: start;
     min-height: unset;
-    padding-bottom: var(--container-padding);
     border: unset;
   }
   .hero-container {
@@ -1986,9 +1985,8 @@ footer {
   }
   .hero-video-container {
     position: unset;
-    padding-top: 0;
-    padding-bottom: 0;
     max-height: min-content;
+    margin: var(--container-padding) 0;
   }
   .hero-title-block {
     padding: calc(var(--container-padding)*2) var(--container-padding);
