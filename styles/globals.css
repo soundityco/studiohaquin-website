@@ -477,7 +477,6 @@ body.no-scroll {
 
 .header-parent {
   height: 100%;
-  pointer-events: none;
 }
 
 header {
