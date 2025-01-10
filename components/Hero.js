@@ -50,22 +50,22 @@ export function Hero() {
           >
             <source src="https://res.cloudinary.com/dqrkeb9bz/video/upload/q_auto/v1736499832/SHOWREEL_2024_STUDIOHAQUIN_FHD5_be4yfu.mp4" type="video/mp4" />
           </video>
-          <div className="hero-video-container-shadow">
-
-          </div>
+          {/*<VideoPlayer className="container"
+            videoSrc="https://res.cloudinary.com/dqrkeb9bz/video/upload/q_auto/v1736499832/SHOWREEL_2024_STUDIOHAQUIN_FHD5_be4yfu.mp4"
+            //posterSrc="/showreel-thumbnail.webp"
+          />*/}
+          <div className="hero-video-container-shadow"></div>
         </div>
-
-        {/*<VideoPlayer className="container"
-          videoSrc="https://res.cloudinary.com/dqrkeb9bz/video/upload/q_auto/v1736499832/SHOWREEL_2024_STUDIOHAQUIN_FHD5_be4yfu.mp4"
-          //posterSrc="/showreel-thumbnail.webp"
-        />*/}
         <div className="hero-title-block">
           {/*<div className="scroll-button"></div>*/}
           {/*<Link to="portfolio" smooth={true} duration={500} className="hero-scroll">
             SCROLL&nbsp;<ArrowDownIcon />
           </Link>*/}
+          {/*<div className="hero-text-block">
+            <h1>[WHAT WE'RE GOOD AT]</h1>
+            <h2>Studio de création audiovisuelle et graphique basé à Angers, FR. </h2>
+          </div>*/}
           <StudioHaquinLogo className="hero-title-block-logo" alt="Studio Haquin Logo" draggable="false"/>
-          {/*<h1 className="hero-title">STUDIO HAQUIN ©</h1>*/}
         </div>
       </div>
     </section>

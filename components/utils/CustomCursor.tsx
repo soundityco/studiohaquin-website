@@ -12,7 +12,7 @@ interface StickyCursorProps {
 }
 
 const CustomCursor: React.FC<StickyCursorProps> = ({ stickyElement }) => {
-  const cursorSize = 20;
+  const cursorSize = 5;
 
   // Mouse tracking
   const mouse = {

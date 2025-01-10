@@ -245,7 +245,7 @@ const VideoPlayer = ({ videoSrc, posterSrc }) => {
   }, []);
 
   return (
-    <div ref={containerRef} className="video-player-container">
+    <div ref={containerRef}> {/* className="video-player-container" */}
       <video
         ref={videoRef}
         className={`video-player ${isFullScreen ? "fullscreen-video" : ""}`}
