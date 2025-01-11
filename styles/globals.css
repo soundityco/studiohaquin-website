@@ -993,15 +993,69 @@ input[type="range"]::-ms-thumb {
   justify-content: end;
   /*margin-bottom: -1px;*/
   display: flex;
-  flex-direction: column;
+  /*flex-direction: column;*/
   gap: var(--container-padding);
-  /*align-items: center;*/
+  align-items: center;
 }
 
 .hero-title-block-logo {
   fill: var(--background);
   width: 100%;
-  margin-bottom: -0.75vw;
+  /*margin-bottom: -0.75vw;*/
+}
+
+/*.hero-engaged-block {
+  display: flex;
+  align-items: center;
+  gap: var(--container-padding);
+  color: var(--background);
+}
+
+.hero-engaged-block p {
+  display: flex;
+  min-width: max-content;
+  align-items: center;
+  gap: calc(var(--container-padding)/2);
+}
+
+.hero-engaged-block p span {
+  width: 1.5vw;
+}
+
+.hero-engaged-block p span svg {
+  fill: var(--background);
+}*/
+
+.hero-engaged-roll {
+  height: 85%;
+  width: auto;
+  /*background: white;*/
+  aspect-ratio: 1 / 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--foreground);
+  animation: circleRoll 8s linear 0s infinite;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.hero-engaged-roll-onevoice {
+  background-image: url('../content/images/logos/one-voice-animal-logo.svg');
+}
+
+.hero-engaged-roll-teamfortheplanet {
+  background-image: url('../content/images/logos/team-for-the-planet-logo.svg');
+}
+
+@keyframes circleRoll {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .hero-text-block {

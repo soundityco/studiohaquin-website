@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 
 // Importing Icons
-import { EmojiContact, EmojiEyes, EmojiCute, EmojiProud, NewLinkIcon, ArrowLeftNavIcon, ArrowRightNavIcon, PlayerPlayIcon, ArrowDownIcon } from "@/components/Images";
+import { EmojiContact, EmojiEyes, EmojiCute, EmojiProud, EmojiPlanet, EmojiAnimal, NewLinkIcon, ArrowLeftNavIcon, ArrowRightNavIcon, PlayerPlayIcon, ArrowDownIcon } from "@/components/Images";
 
 interface StickyCursorProps {
   stickyElement: React.RefObject<HTMLElement>;
@@ -37,6 +37,8 @@ const CustomCursor: React.FC<StickyCursorProps> = ({ stickyElement }) => {
     'link': <Image src={EmojiEyes} alt="Emoji" draggable="false" />,
     'button-contact': <Image src={EmojiContact} alt="Emoji" draggable="false" />,
     'button-footer': <Image src={EmojiContact} alt="Emoji" draggable="false" />,
+    //'hero-engaged-roll-onevoice': <Image src={EmojiAnimal} alt="Emoji" draggable="false" />,
+    //'hero-engaged-roll-teamfortheplanet': <Image src={EmojiPlanet} alt="Emoji" draggable="false" />,
     'button-footer-reveal': <Image src={EmojiCute} alt="Emoji" draggable="false" />,
     'proud': <Image src={EmojiProud} alt="Emoji" draggable="false" />,
     'show-me': <NewLinkIcon className="new-link" />,
