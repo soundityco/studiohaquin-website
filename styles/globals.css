@@ -990,7 +990,7 @@ input[type="range"]::-ms-thumb {
   padding: var(--container-padding);
   /*height: 50vh;*/
   display: flex;
-  justify-content: end;
+  justify-content: space-between;
   /*margin-bottom: -1px;*/
   display: flex;
   /*flex-direction: column;*/
@@ -1025,6 +1025,13 @@ input[type="range"]::-ms-thumb {
 .hero-engaged-block p span svg {
   fill: var(--background);
 }*/
+
+.hero-engaged-roll-block {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: var(--container-padding);
+}
 
 .hero-engaged-roll {
   height: 85%;
