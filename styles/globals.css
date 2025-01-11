@@ -2161,7 +2161,7 @@ footer {
   .hero-video-container {
     position: unset;
     max-height: min-content;
-    margin: var(--container-padding) 0;
+    margin: var(--container-padding) 0 0;
   }
   .hero-video-container-shadow {
     display: none;
@@ -2170,9 +2170,8 @@ footer {
     border-radius: var(--border-radius);
   }
   .hero-title-block {
-    padding: calc(var(--container-padding)*2) var(--container-padding);
+    padding: calc(var(--container-padding)*2) 0;
     height: unset;
-    display: none;
   }
 
   /* INTRO */
