@@ -1028,6 +1028,7 @@ input[type="range"]::-ms-thumb {
 
 .hero-engaged-roll-block {
   height: 100%;
+  height: 7.25vw;
   display: flex;
   align-items: center;
   gap: var(--container-padding);
@@ -1992,6 +1993,9 @@ footer {
     flex-direction: row;
     justify-content: center;
     gap: 2vw;
+  }
+  .hero-engaged-roll-block{
+    height: 9.25rem;
   }
   /*.hero-picture {
     max-width: 400px;
