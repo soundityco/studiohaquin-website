@@ -50,8 +50,8 @@ interface Project {
 }
 
 type Media = 
-  | { type: "video"; id: string } // Vidéo avec son ID YouTube
-  | { type: "image"; url: string }; // Image avec son URL
+  | { type: "image"; url: string }
+  | { type: "video"; id: string; url?: string };
 
 export function Portfolio() {
 
@@ -397,16 +397,11 @@ export function Portfolio() {
     isDragging.current = false;
   };
 
-  const handleMediaClick = (index: number, filteredMedia: Media[]) => {
-    const mediaItem = filteredMedia[index];  // Récupère l'élément vidéo/image à partir de filteredMedia
-    setActiveMediaIndex(index);  // Met à jour l'index de l'élément sélectionné
+  const handleMediaClick = (index: number, mediaList: Media[]) => {
+    setActiveMediaIndex(index);
     setIsMediaPopupOpen(true);
-    
-    // Si c'est une vidéo, on définit l'ID de la vidéo, sinon on laisse null
-    if (mediaItem.type === "video") {
-      setActiveVideoId(mediaItem.id);
-    } else {
-      setActiveVideoId(null);  // Aucun ID si c'est une image
+    if (mediaList[index].type === "video") {
+      setActiveVideoId(mediaList[index].id); // Assure-toi que l'ID existe pour les vidéos
     }
   };
   
@@ -550,7 +545,7 @@ export function Portfolio() {
                     <div
                       key={`${media.type}-${index}`}
                       className={`portfolio-popup-dynamic-content-${media.type}`}
-                      onClick={() => handleMediaClick(index, filteredMedia)}  // Passe filteredMedia et l'index à la fonction
+                      onClick={() => handleMediaClick(index, filteredMedia)} // Passe filteredMedia et l'index à la fonction
                     >
                       {media.type === "video" ? (
                         <div className="portfolio-popup-dynamic-content-thumbnail-block">
@@ -602,8 +597,8 @@ export function Portfolio() {
                     <>
                       {filteredMedia && filteredMedia[activeMediaIndex]?.type === "video" ? (
                         <iframe
-                          src={`https://www.youtube.com/embed/${filteredMedia[activeMediaIndex].id}?rel=0&controls=1&modestbranding=1&autoplay=${
-                            activeVideoId === filteredMedia[activeMediaIndex].id ? 1 : 0
+                          src={`https://www.youtube.com/embed/${filteredMedia[activeMediaIndex]?.type === "video" ? filteredMedia[activeMediaIndex].id : ""}?rel=0&controls=1&modestbranding=1&autoplay=${
+                            activeVideoId === filteredMedia[activeMediaIndex]?.id ? 1 : 0
                           }`}
                           title={`Video ${activeMediaIndex + 1}`}
                           width="100%"
