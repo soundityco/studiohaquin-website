@@ -271,7 +271,7 @@ export function Portfolio() {
   const [activeTag, setActiveTag] = useState<string | null>(null);
   const popupRef = useRef<HTMLDivElement | null>(null);
   const scrollContainerRef = useRef<HTMLDivElement | null>(null);
-  const isDragging = useRef(false);
+  const [isDragging, setIsDragging] = useState(false);
   const startX = useRef(0);
   const scrollLeft = useRef(0);
   const dragDistance = useRef(0); // Pour mesurer la distance du drag
@@ -378,14 +378,14 @@ export function Portfolio() {
   }, [activeProjectIndex]);
 
   const handleDragStart = (e: React.MouseEvent<HTMLDivElement>) => {
-    isDragging.current = true;
+    setIsDragging(true);
     dragDistance.current = 0; // Réinitialiser la distance au début du drag
     startX.current = e.pageX - (scrollContainerRef.current?.offsetLeft || 0);
     scrollLeft.current = scrollContainerRef.current?.scrollLeft || 0;
   };
 
   const handleDragMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isDragging.current || !scrollContainerRef.current) return;
+    if (!isDragging || !scrollContainerRef.current) return;
     e.preventDefault();
     const x = e.pageX - (scrollContainerRef.current.offsetLeft || 0);
     const walk = (x - startX.current) * 1.5; // Multiplier pour ajuster la vitesse
@@ -393,15 +393,21 @@ export function Portfolio() {
     scrollContainerRef.current.scrollLeft = scrollLeft.current - walk;
   };
 
-  const handleDragEnd = () => {
-    isDragging.current = false;
+  const handleDragEnd = (e: React.MouseEvent) => {
+    setTimeout(() => setIsDragging(false), 100);
   };
 
-  const handleMediaClick = (index: number, mediaList: Media[]) => {
-    setActiveMediaIndex(index);
+  const handleMediaClick = (index: number, filteredMedia: Media[]) => {
+    if (isDragging) return;
+    const mediaItem = filteredMedia[index];  // Récupère l'élément vidéo/image à partir de filteredMedia
+    setActiveMediaIndex(index);  // Met à jour l'index de l'élément sélectionné
     setIsMediaPopupOpen(true);
-    if (mediaList[index].type === "video") {
-      setActiveVideoId(mediaList[index].id); // Assure-toi que l'ID existe pour les vidéos
+    
+    // Si c'est une vidéo, on définit l'ID de la vidéo, sinon on laisse null
+    if (mediaItem.type === "video") {
+      setActiveVideoId(mediaItem.id);
+    } else {
+      setActiveVideoId(null);  // Aucun ID si c'est une image
     }
   };
   
@@ -545,7 +551,7 @@ export function Portfolio() {
                     <div
                       key={`${media.type}-${index}`}
                       className={`portfolio-popup-dynamic-content-${media.type}`}
-                      onClick={() => handleMediaClick(index, filteredMedia)} // Passe filteredMedia et l'index à la fonction
+                      onClick={() => handleMediaClick(index, filteredMedia)}  // Passe filteredMedia et l'index à la fonction
                     >
                       {media.type === "video" ? (
                         <div className="portfolio-popup-dynamic-content-thumbnail-block">
@@ -597,7 +603,11 @@ export function Portfolio() {
                     <>
                       {filteredMedia && filteredMedia[activeMediaIndex]?.type === "video" ? (
                         <iframe
-                          src={`https://www.youtube.com/embed/${filteredMedia[activeMediaIndex]?.type === "video" ? filteredMedia[activeMediaIndex].id : ""}?rel=0&controls=1&modestbranding=1&autoplay=${
+                          src={`https://www.youtube.com/embed/${
+                            filteredMedia[activeMediaIndex]?.type === "video" && 'id' in filteredMedia[activeMediaIndex]
+                              ? filteredMedia[activeMediaIndex].id
+                              : ""
+                          }?rel=0&controls=1&modestbranding=1&autoplay=${
                             activeVideoId === filteredMedia[activeMediaIndex]?.id ? 1 : 0
                           }`}
                           title={`Video ${activeMediaIndex + 1}`}
