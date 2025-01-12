@@ -596,34 +596,40 @@ export function Portfolio() {
               <div className="media-popup-content container">
                 <div className="media-popup-content-block">
                   <button className="media-popup-prev" onClick={handlePrevMedia}>
-                    <ArrowLeftIcon className=""/>
+                    <ArrowLeftIcon />
                   </button>
-                  {activeMediaIndex !== null && (
+                  {activeMediaIndex !== null && filteredMedia && (
                     <>
-                      {filteredMedia && filteredMedia[activeMediaIndex]?.type === "video" ? (
-                        <iframe
-                          src={`https://www.youtube.com/embed/${filteredMedia[activeMediaIndex].id}?rel=0&controls=1&modestbranding=1&autoplay=${
-                            activeVideoId === filteredMedia[activeMediaIndex].id ? 1 : 0
-                          }`}
-                          title={`Video ${activeMediaIndex + 1}`}
-                          width="100%"
-                          height="100%"
-                          frameBorder="0"
-                          allow="autoplay; encrypted-media"
-                          allowFullScreen
-                        ></iframe>
-                      ) : (
+                      {/* Extraction de l'ID pour la vidéo */}
+                      {filteredMedia[activeMediaIndex]?.type === "video" ? (
+                        (() => {
+                          const videoId = filteredMedia[activeMediaIndex]?.id;
+                          return (
+                            <iframe
+                              src={`https://www.youtube.com/embed/${videoId}?rel=0&controls=1&modestbranding=1&autoplay=${
+                                activeVideoId === videoId ? 1 : 0
+                              }`}
+                              title={`Video ${activeMediaIndex + 1}`}
+                              width="100%"
+                              height="100%"
+                              frameBorder="0"
+                              allow="autoplay; encrypted-media"
+                              allowFullScreen
+                            ></iframe>
+                          );
+                        })()
+                      ) : filteredMedia[activeMediaIndex]?.type === "image" ? (
                         <img
-                          src={filteredMedia && filteredMedia[activeMediaIndex]?.type === "image" ? filteredMedia[activeMediaIndex].url : ""}
+                          src={filteredMedia[activeMediaIndex]?.url || ""}
                           alt={`Image ${activeMediaIndex + 1}`}
                         />
-                      )}
+                      ) : null}
                     </>
                   )}
                   <button className="media-popup-next" onClick={handleNextMedia}>
                     <ArrowRightIcon />
                   </button>
-                  </div>
+                </div>
               </div>
             {/*</div>*/}
           </div>
