@@ -31,9 +31,11 @@ const allAvailableTags = [
  'mixage',
  'Évènementiel',
  'Design Graphique',
+ 'Illustration',
  'Motion Design',
  'Développement Web',
  'UX/UI Design',
+ 'Mise en page',
  '3D',
 ];
 
@@ -168,7 +170,7 @@ export function Portfolio() {
     },
     {
       name: "La Cour",
-      description: "Vidéo rénovation du restaurant",
+      description: "Vidéo rénovation restaurant",
       date: "2024",
       content: {
         media: [
@@ -315,23 +317,6 @@ export function Portfolio() {
       }
     },
     {
-      name: "Curieux",
-      description: "Conception logo + motion Design",
-      date: "2020",
-      content: {
-        media: [
-          { type: "video", "id": "_dfA-k8sQEU" },
-        ],
-        projectTags: {
-          "_dfA-k8sQEU": ["Design Graphique", "Motion Design"],
-        },
-        text: {
-          description: "Conception du logo et réalisation d'un motion design pour Curieux.",
-          tags: allAvailableTags,
-        }
-      }
-    },
-    {
       name: "Les Trans Musicales",
       description: "Identité visuelle festival",
       date: "2020",
@@ -342,9 +327,9 @@ export function Portfolio() {
           { type: "image", "url": "/assets/images/projets/trans-musicales/trans-musicales-tickets.webp" },
         ],
         projectTags: {
-          "/assets/images/projets/trans-musicales/trans-musicales-affiche.webp": ["Design Graphique"],
-          "/assets/images/projets/trans-musicales/trans-musicales-programmation.webp": ["Design Graphique"],
-          "/assets/images/projets/trans-musicales/trans-musicales-tickets.webp": ["Design Graphique"],
+          "/assets/images/projets/trans-musicales/trans-musicales-affiche.webp": ["Design Graphique", "Illustration"],
+          "/assets/images/projets/trans-musicales/trans-musicales-programmation.webp": ["Design Graphique", "Illustration"],
+          "/assets/images/projets/trans-musicales/trans-musicales-tickets.webp": ["Design Graphique", "Illustration"],
         },
         text: {
           description: "Création de l'identité visuelle (fictive) du festival de musique Les Trans Musicales.",
@@ -375,6 +360,23 @@ export function Portfolio() {
               url: "https://frenchkiwijuice.com/",
             },
           ],
+          tags: allAvailableTags,
+        }
+      }
+    },
+    {
+      name: "Curieux",
+      description: "Conception logo + motion Design",
+      date: "2020",
+      content: {
+        media: [
+          { type: "video", "id": "_dfA-k8sQEU" },
+        ],
+        projectTags: {
+          "_dfA-k8sQEU": ["Design Graphique", "Motion Design"],
+        },
+        text: {
+          description: "Conception du logo et réalisation d'un motion design pour Curieux.",
           tags: allAvailableTags,
         }
       }
