@@ -2255,6 +2255,7 @@ footer {
     background: var(--foreground);
     padding-left: 0;
     padding-right: 0;
+    padding: var(--container-padding) 0;
   }
   .header-logo {
     /*padding: 0.55rem 0.75rem 0.55rem 0.55rem;*/
@@ -2638,6 +2639,13 @@ footer {
 
   .portfolio-scroll {
     display: none;
+  }
+  .media-popup-content-block {
+    flex-direction: column;
+  }
+  .media-popup-content-block iframe,
+  .media-popup-content-block img {
+    max-width: 100%;
   }
   
   /* CLIENT */
