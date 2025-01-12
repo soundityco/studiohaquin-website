@@ -39,17 +39,19 @@ interface Project {
   description: string;
   date: string;
   content: {
-    videoIds?: string[];
-    imageUrls?: string[]; // Ajout pour les images
-    projectTags?: { [key: string]: string[] };
+    media: Media[]; // Tableau combiné pour les vidéos et images
+    projectTags?: { [key: string]: string[] }; // Tags associés aux médias
     text: {
       description: string;
-      tags?: string[];
-      projectTags?: { [key: string]: string[] };
-      links?: { label: string; url: string }[];
+      tags?: string[]; // Tags généraux du projet
+      links?: { label: string; url: string }[]; // Liens supplémentaires
     };
   };
 }
+
+type Media = 
+  | { type: "video"; id: string } // Vidéo avec son ID YouTube
+  | { type: "image"; url: string }; // Image avec son URL
 
 export function Portfolio() {
 
@@ -59,38 +61,38 @@ export function Portfolio() {
       description: "Mini série & vidéos promotionnelles",
       date: "2024",
       content: {
-        videoIds: ["FIpooQI-Qko", "u3qvu__U6Wc", "0NhUkX7_qSA", "qr16wv-Dhdg"],
-        imageUrls: [
-          
+        media: [
+          { type: "video", "id": "FIpooQI-Qko" },
+          { type: "video", "id": "u3qvu__U6Wc" },
+          { type: "video", "id": "0NhUkX7_qSA" },
+          { type: "video", "id": "qr16wv-Dhdg" }
         ],
         projectTags: {
-          // Tags associés aux vidéos
           "FIpooQI-Qko": ["Films institutionnels", "Interviews"],
           "u3qvu__U6Wc": ["Films institutionnels", "Interviews"],
           "0NhUkX7_qSA": ["Films institutionnels", "Interviews"],
-          "qr16wv-Dhdg": ["Réseaux sociaux", "Vidéos Promotionnelles"],
+          "qr16wv-Dhdg": ["Réseaux sociaux", "Vidéos Promotionnelles"]
         },
         text: {
           description: "Réalisation de 11 vidéos sur les réussites 2024 du magasin des Ponts-de-Cé & vidéos promotionnelles, collaboration Super35.",
           tags: allAvailableTags,
-        },
-      },
+        }
+      }
     },
     {
       name: "Doris Oppenlander",
       description: "Série de vidéos YouTube",
       date: "2023 — 2024",
       content: {
-        videoIds: [
-          "H6wkoTE8oyo",
-          "IFKT_fekZw4",
-          "QTpHOYt04QU",
-          "DhnqP_J-MoQ",
-          "YB3SCKTtBLM",
-          "ZbT4yy6ZU6I",
-          "Dwnl_BvyhdY"
+        media: [
+          { type: "video", "id": "H6wkoTE8oyo" },
+          { type: "video", "id": "IFKT_fekZw4" },
+          { type: "video", "id": "QTpHOYt04QU" },
+          { type: "video", "id": "DhnqP_J-MoQ" },
+          { type: "video", "id": "YB3SCKTtBLM" },
+          { type: "video", "id": "ZbT4yy6ZU6I" },
+          { type: "video", "id": "Dwnl_BvyhdY" }
         ],
-        imageUrls: [],
         projectTags: {
           "H6wkoTE8oyo": ["Divertissement", "Covers"],
           "IFKT_fekZw4": ["Vulgarisation", "Tutoriels"],
@@ -98,127 +100,153 @@ export function Portfolio() {
           "DhnqP_J-MoQ": ["Vulgarisation", "Tutoriels"],
           "YB3SCKTtBLM": ["Divertissement", "Covers"],
           "ZbT4yy6ZU6I": ["Vulgarisation", "Tutoriels"],
-          "Dwnl_BvyhdY": ["Divertissement"],
+          "Dwnl_BvyhdY": ["Divertissement"]
         },
         text: {
           description: "Réalisation d'une série de vidéos YouTube sur le divertissement et la vulgarisation du chant par Doris Oppenlander.",
           tags: allAvailableTags,
-        },
-      },
+        }
+      }
     },
     {
       name: "Galeries Lafayette",
       description: "Évènement 'Mère Fille'",
       date: "2024",
       content: {
-        videoIds: ["J2JJ-yZ2ujk", "-AWQqfOAuQo"],
-        imageUrls: [],
+        media: [
+          { type: "video", "id": "J2JJ-yZ2ujk" },
+          { type: "video", "id": "-AWQqfOAuQo" }
+        ],
         projectTags: {
           "J2JJ-yZ2ujk": ["Évènementiel", "Réseaux sociaux"],
-          "-AWQqfOAuQo": ["Évènementiel", "Réseaux sociaux"],
+          "-AWQqfOAuQo": ["Évènementiel", "Réseaux sociaux"]
         },
         text: {
           description: "Réalisation d'une vidéo récap' pour l'évènement 'Mère et Fille' 2024 des Galeries Lafayette d'Angers, collaboration Super35.",
           tags: allAvailableTags,
-        },
-      },
+        }
+      }
     },
     {
       name: "L'Orange Bleue",
       description: "Publicité + Interviews",
       date: "2024",
       content: {
-        videoIds: ["p5dpBF0kLKU", "s5xjV93gEQY"],
-        imageUrls: [],
+        media: [
+          { type: "video", "id": "p5dpBF0kLKU" },
+          { type: "video", "id": "s5xjV93gEQY" }
+        ],
         projectTags: {
           "p5dpBF0kLKU": ["Publicité", "Réseaux sociaux"],
-          "s5xjV93gEQY": ["Interviews", "Réseaux sociaux"],
+          "s5xjV93gEQY": ["Interviews", "Réseaux sociaux"]
         },
         text: {
           description: "Réalisation d'une mini publicité et d'interviews pour L'Orange Bleue d'Angers, collaboration Super35.",
           tags: allAvailableTags,
-        },
-      },
+        }
+      }
     },
     {
       name: "La Cour",
       description: "Rénovation du restaurant",
       date: "2024",
       content: {
-        videoIds: ["P4d_1Tb2uAw"],
-        imageUrls: [],
+        media: [
+          { type: "video", "id": "P4d_1Tb2uAw" }
+        ],
         projectTags: {
-          "P4d_1Tb2uAw": ["Vidéo promotionnelle", "Réseaux sociaux"],
+          "P4d_1Tb2uAw": ["Vidéo promotionnelle", "Réseaux sociaux"]
         },
         text: {
           description: "Réalisation d'une vidéo pour la rénovation du bar & restaurant 'La Cour', situé à Angers, collaboration Super35.",
           tags: allAvailableTags,
-        },
-      },
+        }
+      }
     },
     {
       name: "Noelse",
       description: "Design graphique et motion + 3D",
       date: "2021 — 2023",
       content: {
-        videoIds: [
-          "4M0I_Xca63A",
-          "CE05st8HUwc",
-          "OJJZDq-cCFk",
-        ],
-        imageUrls: [
-          "/assets/images/projets/noelse/noelse-app-major-update.webp",
-          "/assets/images/projets/noelse/noelse-couts-virements.webp",
-          "/assets/images/projets/noelse/noelse-card.webp",
-          "/assets/images/projets/noelse/noelse-3d-frozen-card.webp",
+        media: [
+          { type: "image", "url": "/assets/images/projets/noelse/noelse-app-major-update.webp" },
+          { type: "video", "id": "4M0I_Xca63A" },
+          { type: "image", "url": "/assets/images/projets/noelse/noelse-couts-virements.webp" },
+          { type: "video", "id": "CE05st8HUwc" },
+          { type: "image", "url": "/assets/images/projets/noelse/noelse-card.webp" },
+          { type: "video", "id": "OJJZDq-cCFk" },
+          { type: "image", "url": "/assets/images/projets/noelse/noelse-3d-frozen-card.webp" }
         ],
         projectTags: {
-          "4M0I_Xca63A": ["Motion Design"],
-          "CE05st8HUwc": ["Motion Design", "3D"],
-          "OJJZDq-cCFk": ["Motion Design", "3D"],
           "/assets/images/projets/noelse/noelse-app-major-update.webp": ["Design Graphique"],
+          "4M0I_Xca63A": ["Motion Design"],
           "/assets/images/projets/noelse/noelse-couts-virements.webp": ["Design Graphique"],
+          "CE05st8HUwc": ["Motion Design", "3D"],
           "/assets/images/projets/noelse/noelse-card.webp": ["Design Graphique"],
-          "/assets/images/projets/noelse/noelse-3d-frozen-card.webp": ["Design Graphique", "3D"],
+          "OJJZDq-cCFk": ["Motion Design", "3D"],
+          "/assets/images/projets/noelse/noelse-3d-frozen-card.webp": ["Design Graphique", "3D"]
         },
         text: {
-          description: "Diverses réalisations de design graphique et motion design pour la banque en ligne Noelse",
+          description: "Diverses réalisations de design graphique et motion design pour la banque en ligne Noelse.",
           tags: allAvailableTags,
-        },
-      },
+        }
+      }
     },
     {
       name: "Faux Raccords Prod",
       description: "Court métrage 'L'ERMITE'",
       date: "2023",
       content: {
-        videoIds: ["JmFNhAO9LEs"],
-        imageUrls: [],
+        media: [
+          { type: "video", "id": "JmFNhAO9LEs" }
+        ],
         projectTags: {
-          "JmFNhAO9LEs": ["Réalisation", "Court-métrage"],
+          "JmFNhAO9LEs": ["Réalisation", "Court-métrage"]
         },
         text: {
           description: "Réalisation, captation, montage et sound design du court métrage 'L'ERMITE'.",
           tags: allAvailableTags,
+        }
+      }
+    },
+    {
+      name: "ESA",
+      description: "Composition 3D d'un vin de Clisson",
+      date: "2022",
+      content: {
+        media: [
+          { type: "image", "url": "/assets/images/projets/esa/esa-affiche-3d-front-dark-blue.webp" },
+          { type: "image", "url": "/assets/images/projets/esa/esa-affiche-3d-front-gold.webp" },
+          { type: "image", "url": "/assets/images/projets/esa/esa-affiche-3d-side-dark-blue.webp" },
+          { type: "image", "url": "/assets/images/projets/esa/esa-affiche-3d-side-gold.webp" },
+        ],
+        projectTags: {
+          "/assets/images/projets/esa/esa-affiche-3d-front-dark-blue.webp": ["3D", "Design Graphique"],
+          "/assets/images/projets/esa/esa-affiche-3d-front-gold.webp": ["3D", "Design Graphique"],
+          "/assets/images/projets/esa/esa-affiche-3d-side-dark-blue.webp": ["3D", "Design Graphique"],
+          "/assets/images/projets/esa/esa-affiche-3d-side-gold.webp": ["3D", "Design Graphique"],
         },
-      },
+        text: {
+          description: "Composition 3D sous Blender, afin de mettre en avant une étiquette de bouteille de vin.",
+          tags: allAvailableTags,
+        }
+      }
     },
     {
       name: "blurblur",
       description: "Composition & sound design",
       date: "Depuis 2018",
       content: {
-        videoIds: [
-          "07ajNa0HyOM",
-          "AyXlc-wf31U",
-          "MAySC0NqGdI",
-          "UcdPqI6maG4",
-          "vE2-2ohxaT0",
-          "aGkHU2nwyqU",
-          "f59vXG2g5iQ",
-          "Wlwl-Fdsmss"
+        media: [
+          { type: "video", "id": "07ajNa0HyOM" },
+          { type: "video", "id": "AyXlc-wf31U" },
+          { type: "video", "id": "MAySC0NqGdI" },
+          { type: "video", "id": "UcdPqI6maG4" },
+          { type: "video", "id": "vE2-2ohxaT0" },
+          { type: "video", "id": "aGkHU2nwyqU" },
+          { type: "video", "id": "f59vXG2g5iQ" },
+          { type: "video", "id": "Wlwl-Fdsmss" },
         ],
-        imageUrls: [],
         projectTags: {
           "07ajNa0HyOM": ["Composition", "chant", "mixage", "mastering"],
           "AyXlc-wf31U": ["Composition", "chant", "mixage", "mastering"],
@@ -232,8 +260,8 @@ export function Portfolio() {
         text: {
           description: "blurblur est mon projet d'artiste où j'exerce composition, écriture, enregistrement, mixage et mastering.",
           tags: allAvailableTags,
-        },
-      },
+        }
+      }
     },
   ];
 
@@ -250,41 +278,31 @@ export function Portfolio() {
   const [isMediaPopupOpen, setIsMediaPopupOpen] = useState(false);
   const [activeMediaIndex, setActiveMediaIndex] = useState<number | null>(null);
 
-  // POP UP MEDIA
-  const handleVideoClick = (index: number) => {
-    setActiveMediaIndex(index);
-    setIsMediaPopupOpen(true);
-    setActiveVideoId(filteredVideos?.[index] || null); // Lance la vidéo uniquement au premier clic
-  };
-  
-  const handleImageClick = (index: number) => {
-    setActiveMediaIndex(index);
-    setIsMediaPopupOpen(true);
-    setActiveVideoId(null); // Désactive la lecture vidéo
-  };
-
+  // POP UP MEDIA  
   const handleNextMedia = () => {
     if (!activeProject || activeMediaIndex === null) return;
-    const mediaLength =
-      (filteredVideos?.length || 0) + (filteredImages?.length || 0);
+  
+    const mediaLength = activeProject.content.media.length;
     const nextIndex = (activeMediaIndex + 1) % mediaLength;
+  
     setActiveMediaIndex(nextIndex);
-    setActiveVideoId(
-      nextIndex < (filteredVideos?.length || 0) ? filteredVideos?.[nextIndex] || null : null
-    ); // Ne lance la vidéo que si elle est active
+  
+    const nextMedia = activeProject.content.media[nextIndex];
+    setActiveVideoId(nextMedia.type === "video" ? nextMedia.id : null); // Ne lance la vidéo que si le média suivant est une vidéo
   };
   
   const handlePrevMedia = () => {
     if (!activeProject || activeMediaIndex === null) return;
-    const mediaLength =
-      (filteredVideos?.length || 0) + (filteredImages?.length || 0);
-    const prevIndex =
-      (activeMediaIndex - 1 + mediaLength) % mediaLength; // Gérer boucle arrière
+  
+    const mediaLength = activeProject.content.media.length;
+    const prevIndex = (activeMediaIndex - 1 + mediaLength) % mediaLength; // Gère la boucle arrière
+  
     setActiveMediaIndex(prevIndex);
-    setActiveVideoId(
-      prevIndex < (filteredVideos?.length || 0) ? filteredVideos?.[prevIndex] || null : null
-    ); // Ne lance la vidéo que si elle est active
+  
+    const prevMedia = activeProject.content.media[prevIndex];
+    setActiveVideoId(prevMedia.type === "video" ? prevMedia.id : null); // Ne lance la vidéo que si le média précédent est une vidéo
   };
+  
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -379,6 +397,25 @@ export function Portfolio() {
     isDragging.current = false;
   };
 
+  const handleMediaClick = (index: number, filteredMedia: Media[]) => {
+    const mediaItem = filteredMedia[index];  // Récupère l'élément vidéo/image à partir de filteredMedia
+    setActiveMediaIndex(index);  // Met à jour l'index de l'élément sélectionné
+    setIsMediaPopupOpen(true);
+    
+    // Si c'est une vidéo, on définit l'ID de la vidéo, sinon on laisse null
+    if (mediaItem.type === "video") {
+      setActiveVideoId(mediaItem.id);
+    } else {
+      setActiveVideoId(null);  // Aucun ID si c'est une image
+    }
+  };
+  
+  const handleImageClick = (index: number) => {
+    setActiveMediaIndex(index);
+    setIsMediaPopupOpen(true);
+    setActiveVideoId(null); // Ensure no video is active
+  };
+
   const handleTagClick = (tag: string) => {
     // Réinitialiser la vidéo en cours et les miniatures
     setActiveVideoId(null);
@@ -397,19 +434,12 @@ export function Portfolio() {
     ? projects[activeProjectIndex]
     : null;
 
-    const filteredVideos = activeTag
-    ? activeProject?.content?.videoIds?.filter((videoId) => {
-        const projectTags = activeProject?.content?.projectTags?.[videoId] || [];
-        return projectTags.includes(activeTag) || activeTag === "All";
+    const filteredMedia = activeTag
+    ? activeProject?.content?.media.filter((media) => {
+        const mediaTags = activeProject?.content?.projectTags?.[media.type === "video" ? media.id : media.url] || [];
+        return mediaTags.includes(activeTag) || activeTag === "All";
       })
-    : activeProject?.content?.videoIds;
-
-    const filteredImages = activeTag
-    ? activeProject?.content?.imageUrls?.filter((imageUrl) => {
-        const projectTags = activeProject?.content?.projectTags?.[imageUrl] || [];
-        return projectTags.includes(activeTag) || activeTag === "All";
-      })
-    : activeProject?.content?.imageUrls;
+    : activeProject?.content?.media;
     
     return (
       <section className="portfolio" id="portfolio" data-scroll-container="true">
@@ -516,41 +546,32 @@ export function Portfolio() {
               >
                 <HoverableGroup hoverClass="darkened">
                   {/* Vidéos */}
-                  {filteredVideos?.map((videoId, i) => (
+                  {filteredMedia?.map((media, index) => (
                     <div
-                      key={`video-${i}`}
-                      className="portfolio-popup-dynamic-content-video"
-                      onClick={() => handleVideoClick(i)}
+                      key={`${media.type}-${index}`}
+                      className={`portfolio-popup-dynamic-content-${media.type}`}
+                      onClick={() => handleMediaClick(index, filteredMedia)}  // Passe filteredMedia et l'index à la fonction
                     >
-                      <div className="portfolio-popup-dynamic-content-thumbnail-block">
-                        <PlayerPlayIcon className="portfolio-video-play-button" />
+                      {media.type === "video" ? (
+                        <div className="portfolio-popup-dynamic-content-thumbnail-block">
+                          <PlayerPlayIcon className="portfolio-video-play-button" />
+                          <img
+                            src={`https://img.youtube.com/vi/${media.id}/maxresdefault.jpg`}
+                            alt={`Thumbnail for Video ${index + 1}`}
+                            draggable="false"
+                          />
+                        </div>
+                      ) : (
                         <img
-                          src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
-                          alt={`Thumbnail for Video ${i + 1}`}
+                          src={media.url}
+                          alt={`Image ${index + 1}`}
+                          className="portfolio-image"
                           draggable="false"
                         />
-                      </div>
+                      )}
                     </div>
                   ))}
 
-
-                  {/* Images */}
-                  {filteredImages?.map((imageUrl, i) => (
-                    <div
-                      key={`image-${i}`}
-                      className="portfolio-popup-dynamic-content-image"
-                      onClick={() =>
-                        handleImageClick(i + (filteredVideos?.length || 0))
-                      }
-                    >
-                      <img
-                        src={imageUrl}
-                        alt={`Image ${i + 1}`}
-                        className="portfolio-image"
-                        draggable="false"
-                      />
-                    </div>
-                  ))}
                 </HoverableGroup>
               </div>
 
@@ -564,7 +585,7 @@ export function Portfolio() {
         {isMediaPopupOpen && (
           <div className="media-popup">
             {/*<div className="media-popup-overlay" onClick={() => setIsMediaPopupOpen(false)}>*/}
-              <div className="media-popup-content-nav">
+              <div className="media-popup-content-nav container">
                 <button
                   className="media-popup-close"
                   onClick={() => setIsMediaPopupOpen(false)}
@@ -577,11 +598,13 @@ export function Portfolio() {
                   <button className="media-popup-prev" onClick={handlePrevMedia}>
                     <ArrowLeftIcon className=""/>
                   </button>
-                  {activeMediaIndex !== null &&
-                    activeMediaIndex < (filteredVideos?.length || 0) && (
-                      <div className="media-popup-block">
+                  {activeMediaIndex !== null && (
+                    <>
+                      {filteredMedia && filteredMedia[activeMediaIndex]?.type === "video" ? (
                         <iframe
-                          src={`https://www.youtube.com/embed/${filteredVideos?.[activeMediaIndex]}?rel=0&controls=1&modestbranding=1&autoplay=${activeVideoId === filteredVideos?.[activeMediaIndex] ? 1 : 0}`}
+                          src={`https://www.youtube.com/embed/${filteredMedia[activeMediaIndex].id}?rel=0&controls=1&modestbranding=1&autoplay=${
+                            activeVideoId === filteredMedia[activeMediaIndex].id ? 1 : 0
+                          }`}
                           title={`Video ${activeMediaIndex + 1}`}
                           width="100%"
                           height="100%"
@@ -589,20 +612,17 @@ export function Portfolio() {
                           allow="autoplay; encrypted-media"
                           allowFullScreen
                         ></iframe>
-                      </div>
-                    )}
-                  {activeMediaIndex !== null &&
-                    activeMediaIndex >= (filteredVideos?.length || 0) && (
-                      <div className="media-popup-block">
+                      ) : (
                         <img
-                          src={filteredImages?.[activeMediaIndex - (filteredVideos?.length || 0)]}
+                          src={filteredMedia && filteredMedia[activeMediaIndex]?.type === "image" ? filteredMedia[activeMediaIndex].url : ""}
                           alt={`Image ${activeMediaIndex + 1}`}
                         />
-                      </div>
-                    )}
-                    <button className="media-popup-next" onClick={handleNextMedia}>
-                      <ArrowRightIcon />
-                    </button>
+                      )}
+                    </>
+                  )}
+                  <button className="media-popup-next" onClick={handleNextMedia}>
+                    <ArrowRightIcon />
+                  </button>
                   </div>
               </div>
             {/*</div>*/}
