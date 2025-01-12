@@ -49,9 +49,8 @@ interface Project {
   };
 }
 
-type Media = 
-  | { type: "image"; url: string }
-  | { type: "video"; id: string; url?: string };
+type Media = { type: "video"; id: string } | 
+             { type: "image"; url: string };
 
 export function Portfolio() {
 
@@ -278,6 +277,7 @@ export function Portfolio() {
   const [isMediaPopupOpen, setIsMediaPopupOpen] = useState(false);
   const [activeMediaIndex, setActiveMediaIndex] = useState<number | null>(null);
 
+
   // POP UP MEDIA  
   const handleNextMedia = () => {
     if (!activeProject || activeMediaIndex === null) return;
@@ -394,7 +394,7 @@ export function Portfolio() {
   };
 
   const handleDragEnd = (e: React.MouseEvent) => {
-    setTimeout(() => setIsDragging(false), 100);
+-   setIsDragging(false);
   };
 
   const handleMediaClick = (index: number, filteredMedia: Media[]) => {
@@ -409,12 +409,6 @@ export function Portfolio() {
     } else {
       setActiveVideoId(null);  // Aucun ID si c'est une image
     }
-  };
-  
-  const handleImageClick = (index: number) => {
-    setActiveMediaIndex(index);
-    setIsMediaPopupOpen(true);
-    setActiveVideoId(null); // Ensure no video is active
   };
 
   const handleTagClick = (tag: string) => {
@@ -441,7 +435,9 @@ export function Portfolio() {
         return mediaTags.includes(activeTag) || activeTag === "All";
       })
     : activeProject?.content?.media;
-    
+
+    const activeMedia = filteredMedia && activeMediaIndex !== null ? filteredMedia[activeMediaIndex] : null;
+
     return (
       <section className="portfolio" id="portfolio" data-scroll-container="true">
         <div className="portfolio-container container">
@@ -601,14 +597,10 @@ export function Portfolio() {
                   </button>
                   {activeMediaIndex !== null && (
                     <>
-                      {filteredMedia && filteredMedia[activeMediaIndex]?.type === "video" ? (
+                      {activeMedia?.type === "video" ? (
                         <iframe
-                          src={`https://www.youtube.com/embed/${
-                            filteredMedia[activeMediaIndex]?.type === "video" && 'id' in filteredMedia[activeMediaIndex]
-                              ? filteredMedia[activeMediaIndex].id
-                              : ""
-                          }?rel=0&controls=1&modestbranding=1&autoplay=${
-                            activeVideoId === filteredMedia[activeMediaIndex]?.id ? 1 : 0
+                          src={`https://www.youtube.com/embed/${activeMedia.id}?rel=0&controls=1&modestbranding=1&autoplay=${
+                            activeVideoId === activeMedia.id ? 1 : 0
                           }`}
                           title={`Video ${activeMediaIndex + 1}`}
                           width="100%"
@@ -619,7 +611,7 @@ export function Portfolio() {
                         ></iframe>
                       ) : (
                         <img
-                          src={filteredMedia && filteredMedia[activeMediaIndex]?.type === "image" ? filteredMedia[activeMediaIndex].url : ""}
+                          src={activeMedia?.url || ""}
                           alt={`Image ${activeMediaIndex + 1}`}
                         />
                       )}
