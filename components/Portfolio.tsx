@@ -119,31 +119,6 @@ export function Portfolio() {
       }
     },
     {
-      name: "Galeries Lafayette",
-      description: "Vidéo récap évènement 'Mère Fille'",
-      date: "2024",
-      content: {
-        media: [
-          { type: "video", "id": "J2JJ-yZ2ujk" },
-          { type: "video", "id": "-AWQqfOAuQo" }
-        ],
-        projectTags: {
-          "J2JJ-yZ2ujk": ["Évènementiel", "Réseaux sociaux"],
-          "-AWQqfOAuQo": ["Évènementiel", "Réseaux sociaux"]
-        },
-        text: {
-          description: "Réalisation d'une vidéo récap' pour l'évènement 'Mère et Fille' 2024 des Galeries Lafayette d'Angers, collaboration ",
-          links: [
-            {
-              label: "Super35",
-              url: "https://super35.fr",
-            },
-          ],
-          tags: allAvailableTags,
-        }
-      }
-    },
-    {
       name: "L'Orange Bleue",
       description: "Vidéos publicité + interviews",
       date: "2024",
@@ -158,6 +133,31 @@ export function Portfolio() {
         },
         text: {
           description: "Réalisation d'une mini publicité et d'interviews pour L'Orange Bleue d'Angers, collaboration ",
+          links: [
+            {
+              label: "Super35",
+              url: "https://super35.fr",
+            },
+          ],
+          tags: allAvailableTags,
+        }
+      }
+    },
+    {
+      name: "Galeries Lafayette",
+      description: "Vidéo récap évènement 'Mère Fille'",
+      date: "2024",
+      content: {
+        media: [
+          { type: "video", "id": "J2JJ-yZ2ujk" },
+          { type: "video", "id": "-AWQqfOAuQo" }
+        ],
+        projectTags: {
+          "J2JJ-yZ2ujk": ["Évènementiel", "Réseaux sociaux"],
+          "-AWQqfOAuQo": ["Évènementiel", "Réseaux sociaux"]
+        },
+        text: {
+          description: "Réalisation d'une vidéo récap' pour l'évènement 'Mère et Fille' 2024 des Galeries Lafayette d'Angers, collaboration ",
           links: [
             {
               label: "Super35",
@@ -359,11 +359,11 @@ export function Portfolio() {
           "/assets/images/projets/fkj/fkj-magazine-3.webp": ["Design Graphique", "Mise en page"],
         },
         text: {
-          description: "Mise en page (fictive) d'un magazine retraçant la carrière et la vie de l'artiste ",
+          description: "Mise en page d'un magazine (fictif) retraçant la carrière et la vie de l'artiste ",
           links: [
             {
               label: "French Kiwi Juice (FKJ)",
-              url: "https://frenchkiwijuice.com/",
+              url: "https://frenchkiwijuice.com",
             },
           ],
           tags: allAvailableTags,
