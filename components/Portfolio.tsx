@@ -276,6 +276,7 @@ export function Portfolio() {
   const dragDistance = useRef(0); // Pour mesurer la distance du drag
   const [isMediaPopupOpen, setIsMediaPopupOpen] = useState(false);
   const [activeMediaIndex, setActiveMediaIndex] = useState<number | null>(null);
+  const [hasDragged, setHasDragged] = useState(false);
 
 
   // POP UP MEDIA  
@@ -379,7 +380,8 @@ export function Portfolio() {
 
   const handleDragStart = (e: React.MouseEvent<HTMLDivElement>) => {
     setIsDragging(true);
-    dragDistance.current = 0; // Réinitialiser la distance au début du drag
+    setHasDragged(false); // Réinitialiser hasDragged au début du drag
+    dragDistance.current = 0;
     startX.current = e.pageX - (scrollContainerRef.current?.offsetLeft || 0);
     scrollLeft.current = scrollContainerRef.current?.scrollLeft || 0;
   };
@@ -388,26 +390,28 @@ export function Portfolio() {
     if (!isDragging || !scrollContainerRef.current) return;
     e.preventDefault();
     const x = e.pageX - (scrollContainerRef.current.offsetLeft || 0);
-    const walk = (x - startX.current) * 1.5; // Multiplier pour ajuster la vitesse
-    dragDistance.current += Math.abs(x - startX.current); // Calculer la distance parcourue
+    const walk = (x - startX.current) * 1.5; 
+    dragDistance.current += Math.abs(x - startX.current);
     scrollContainerRef.current.scrollLeft = scrollLeft.current - walk;
+  
+    setHasDragged(true); // Marquer qu'un drag a bien eu lieu
   };
 
   const handleDragEnd = (e: React.MouseEvent) => {
--   setIsDragging(false);
+    setIsDragging(false);
   };
 
   const handleMediaClick = (index: number, filteredMedia: Media[]) => {
-    if (isDragging) return;
-    const mediaItem = filteredMedia[index];  // Récupère l'élément vidéo/image à partir de filteredMedia
-    setActiveMediaIndex(index);  // Met à jour l'index de l'élément sélectionné
+    if (isDragging || hasDragged) return; // Ignore le clic si un drag a eu lieu
+  
+    setActiveMediaIndex(index);
     setIsMediaPopupOpen(true);
-    
-    // Si c'est une vidéo, on définit l'ID de la vidéo, sinon on laisse null
+  
+    const mediaItem = filteredMedia[index];
     if (mediaItem.type === "video") {
       setActiveVideoId(mediaItem.id);
     } else {
-      setActiveVideoId(null);  // Aucun ID si c'est une image
+      setActiveVideoId(null);
     }
   };
 
