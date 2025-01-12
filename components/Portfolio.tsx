@@ -5,6 +5,7 @@ import Image from "next/image";
 import HoverableGroup from "@/components/utils/HoverableGroup";
 
 import {
+  ArrowCornerIcon,
   ArrowLeftIcon,
   ArrowRightIcon,
   PlayerPlayIcon,
@@ -31,6 +32,8 @@ const allAvailableTags = [
  'Évènementiel',
  'Design Graphique',
  'Motion Design',
+ 'Développement Web',
+ 'UX/UI Design',
  '3D',
 ];
 
@@ -73,7 +76,13 @@ export function Portfolio() {
           "qr16wv-Dhdg": ["Réseaux sociaux", "Vidéos Promotionnelles"]
         },
         text: {
-          description: "Réalisation de 11 vidéos sur les réussites 2024 du magasin des Ponts-de-Cé & vidéos promotionnelles, collaboration Super35.",
+          description: "Réalisation de 11 vidéos sur les réussites 2024 du magasin des Ponts-de-Cé & vidéos promotionnelles, collaboration ",
+          links: [
+            {
+              label: "Super35",
+              url: "https://super35.fr",
+            },
+          ],
           tags: allAvailableTags,
         }
       }
@@ -109,7 +118,7 @@ export function Portfolio() {
     },
     {
       name: "Galeries Lafayette",
-      description: "Évènement 'Mère Fille'",
+      description: "Vidéo récap évènement 'Mère Fille'",
       date: "2024",
       content: {
         media: [
@@ -121,14 +130,20 @@ export function Portfolio() {
           "-AWQqfOAuQo": ["Évènementiel", "Réseaux sociaux"]
         },
         text: {
-          description: "Réalisation d'une vidéo récap' pour l'évènement 'Mère et Fille' 2024 des Galeries Lafayette d'Angers, collaboration Super35.",
+          description: "Réalisation d'une vidéo récap' pour l'évènement 'Mère et Fille' 2024 des Galeries Lafayette d'Angers, collaboration ",
+          links: [
+            {
+              label: "Super35",
+              url: "https://super35.fr",
+            },
+          ],
           tags: allAvailableTags,
         }
       }
     },
     {
       name: "L'Orange Bleue",
-      description: "Publicité + Interviews",
+      description: "Vidéos publicité + interviews",
       date: "2024",
       content: {
         media: [
@@ -140,14 +155,20 @@ export function Portfolio() {
           "s5xjV93gEQY": ["Interviews", "Réseaux sociaux"]
         },
         text: {
-          description: "Réalisation d'une mini publicité et d'interviews pour L'Orange Bleue d'Angers, collaboration Super35.",
+          description: "Réalisation d'une mini publicité et d'interviews pour L'Orange Bleue d'Angers, collaboration ",
+          links: [
+            {
+              label: "Super35",
+              url: "https://super35.fr",
+            },
+          ],
           tags: allAvailableTags,
         }
       }
     },
     {
       name: "La Cour",
-      description: "Rénovation du restaurant",
+      description: "Vidéo rénovation du restaurant",
       date: "2024",
       content: {
         media: [
@@ -157,10 +178,72 @@ export function Portfolio() {
           "P4d_1Tb2uAw": ["Vidéo promotionnelle", "Réseaux sociaux"]
         },
         text: {
-          description: "Réalisation d'une vidéo pour la rénovation du bar & restaurant 'La Cour', situé à Angers, collaboration Super35.",
+          description: "Réalisation d'une vidéo pour la rénovation du bar & restaurant 'La Cour', situé à Angers, collaboration ",
+          links: [
+            {
+              label: "Super35",
+              url: "https://super35.fr",
+            },
+          ],
           tags: allAvailableTags,
         }
       }
+    },
+    {
+      name: "POLYPHONIA",
+      description: "Direction Artistique & UX/UI",
+      date: "2023",
+      content: {
+        media: [
+          { type: "video", "id": "h2CHHok1aPM" },
+          { type: "image", "url": "/assets/images/projets/polyphonia/polyphonia-playlists-covers.webp" },
+        ],
+        projectTags: {
+          "h2CHHok1aPM": ["Développement Web", "UX/UI Design"],
+          "/assets/images/projets/polyphonia/polyphonia-playlists-covers.webp": ["Design Graphique"],
+        },
+        text: {
+          description: "Direction artistique, web design et développement du site de ",
+          links: [
+            {
+              label: "POLYPHONIA",
+              url: "https://polyphoniamusic.com",
+            },
+          ],
+          tags: allAvailableTags,
+        },
+      },
+    },
+    {
+      name: "Soundity",
+      description: "Direction Artistique & UX/UI",
+      date: "2023",
+      content: {
+        media: [
+          { type: "image", "url": "/assets/images/projets/soundity/soundity-website-hero.webp" },
+          { type: "image", "url": "/assets/images/projets/soundity/soundity-website-setup-section.webp" },
+          { type: "image", "url": "/assets/images/projets/soundity/soundity-website-stats-section.webp" },
+          { type: "image", "url": "/assets/images/projets/soundity/soundity-website-pricing-section.webp" },
+          { type: "image", "url": "/assets/images/projets/soundity/soundity-website-footer.webp" },
+        ],
+        projectTags: {
+          "/assets/images/projets/soundity/soundity-website-hero.webp": ["UX/UI Design", "Design Graphique"],
+          "/assets/images/projets/soundity/soundity-website-setup-section.webp": ["UX/UI Design", "Design Graphique"],
+          "/assets/images/projets/soundity/soundity-website-stats-section.webp": ["UX/UI Design", "Design Graphique"],
+          "/assets/images/projets/soundity/soundity-website-pricing-section.webp": ["UX/UI Design", "Design Graphique"],
+          "/assets/images/projets/soundity/soundity-website-footer.webp": ["UX/UI Design", "Design Graphique"],
+        },
+        text: {
+          description: "Direction artistique, web design et développement du site de ",
+          links: [
+            {
+              label: "Soundity",
+              url: "https://soundity-website.vercel.app",
+            },
+          ],
+          tags: allAvailableTags,
+        },
+      },
     },
     {
       name: "Noelse",
@@ -495,7 +578,24 @@ export function Portfolio() {
                     <span>{activeProject.description}</span> <span>•</span>{" "}
                     <span>{activeProject.date}</span>
                   </h3>
-                  <p>{activeProject.content.text.description}</p>
+                  <p>
+                    {activeProject.content.text.description}
+                    {(activeProject.content.text.links ?? []).length > 0 && (
+                      <>
+                        {activeProject.content.text.links?.map((link, index) => (
+                          <a
+                            key={index}
+                            className="show-me"
+                            href={link.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            {link.label}<ArrowCornerIcon/>
+                          </a>
+                        ))}.
+                      </>
+                    )}
+                  </p>
 
                   {/* Tags combinés pour vidéos et images */}
                   {activeProject.content.projectTags && (
@@ -522,18 +622,6 @@ export function Portfolio() {
                       </HoverableGroup>
                     </div>
                   )}
-
-                  {/* Liens supplémentaires */}
-                  {activeProject.content.text.links?.map((link, i) => (
-                    <a
-                      key={i}
-                      href={link.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {link.label}
-                    </a>
-                  ))}
                 </div>
               </div>
 

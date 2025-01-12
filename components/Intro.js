@@ -8,11 +8,9 @@ function Intro() {
         <div className="intro-container-item">
           <h3 className="intro-container-title">01. ABOUT</h3>
           <p className="intro-container-text">
-            <span>Filmmaker, sound designer & compositeur, basé à Angers.</span>
+            <span>Studio de production graphique et audiovisuelle, basé à Angers.</span>
             <span>
-              De la prise de vue au montage, en passant par la conception sonore et graphique, j’apporte une attention
-              particulière aux détails pour vous offrir des créations qui reflètent votre identité, afin de raconter
-              votre histoire de façon authentique et impactante.
+              Spécialisé dans la création graphique, le web design et la production vidéo, j'accorde une attention particulière à comprendre vos besoins pour donner vie à vos projets, alliant esthétique et efficacité pour raconter votre histoire de manière authentique.
             </span>
           </p>
         </div>

@@ -1297,6 +1297,7 @@ input[type="range"]::-ms-thumb {
 
 .intro-container-text {
   font-size: 3.5vw;
+  line-height: 4.5vw;
   gap: var(--container-padding);
   display: flex;
   flex-direction: column;
@@ -1753,9 +1754,24 @@ input[type="range"]::-ms-thumb {
   height: 1.5vw;
 }
 
-/*.portfolio-popup-content-header-block p {
-  color: var(-);
-}*/
+.portfolio-popup-content-header-block p {
+  display: ruby;
+}
+
+.portfolio-popup-content-header-block p a {
+  color: var(--primary-color);
+  width: fit-content;
+  display: block;
+  text-decoration: var(--primary-color);
+  display: flex;
+  gap: calc(var(--container-padding) / 6);
+}
+
+.portfolio-popup-content-header-block p a svg {
+  fill: var(--primary-color);
+  height: 0.5rem;
+  transform: translateY(4px);
+}
 
 .portfolio-popup-content-header-block div {
   display: flex;
@@ -2167,6 +2183,7 @@ footer {
   }
   .intro-container-text {
     font-size: 4.75rem;
+    line-height: 5rem;
   }
 
   /* FOOTER */
@@ -2293,6 +2310,7 @@ footer {
   }
   .intro-container-text {
     font-size: 3.25rem;
+    line-height: 3.5rem;
   }
 
   /* CLIENTS */
@@ -2455,6 +2473,7 @@ footer {
   }
   .intro-container-text {
     font-size: 2.5rem;
+    line-height: 3rem;
   }
   
   /* FOOTER */
@@ -2548,6 +2567,7 @@ footer {
   /* INTRO */
   .intro-container-text {
     font-size: 2.25rem;
+    line-height: 2.75rem;
   }
 
   /* PORTFOLIO */
