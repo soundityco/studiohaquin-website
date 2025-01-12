@@ -218,25 +218,29 @@ export function Portfolio() {
     },
     {
       name: "Soundity",
-      description: "Direction artistique & UX/UI",
+      description: "Identité visuelle & UX/UI",
       date: "2023",
       content: {
         media: [
+          { type: "image", "url": "/assets/images/projets/soundity/soundity-logo.webp" },
+          { type: "image", "url": "/assets/images/projets/soundity/soundity-mobile-app.webp" },
           { type: "image", "url": "/assets/images/projets/soundity/soundity-website-hero.webp" },
-          { type: "image", "url": "/assets/images/projets/soundity/soundity-website-setup-section.webp" },
           { type: "image", "url": "/assets/images/projets/soundity/soundity-website-stats-section.webp" },
           { type: "image", "url": "/assets/images/projets/soundity/soundity-website-pricing-section.webp" },
           { type: "image", "url": "/assets/images/projets/soundity/soundity-website-footer.webp" },
+          { type: "image", "url": "/assets/images/projets/soundity/soundity-website-setup-section.webp" },
         ],
         projectTags: {
-          "/assets/images/projets/soundity/soundity-website-hero.webp": ["UX/UI Design", "Design Graphique"],
-          "/assets/images/projets/soundity/soundity-website-setup-section.webp": ["UX/UI Design", "Design Graphique"],
-          "/assets/images/projets/soundity/soundity-website-stats-section.webp": ["UX/UI Design", "Design Graphique"],
-          "/assets/images/projets/soundity/soundity-website-pricing-section.webp": ["UX/UI Design", "Design Graphique"],
-          "/assets/images/projets/soundity/soundity-website-footer.webp": ["UX/UI Design", "Design Graphique"],
+          "/assets/images/projets/soundity/soundity-logo.webp": ["Design Graphique"],
+          "/assets/images/projets/soundity/soundity-mobile-app.webp": ["UX/UI Design"],
+          "/assets/images/projets/soundity/soundity-website-hero.webp": ["UX/UI Design"],
+          "/assets/images/projets/soundity/soundity-website-stats-section.webp": ["UX/UI Design"],
+          "/assets/images/projets/soundity/soundity-website-pricing-section.webp": ["UX/UI Design"],
+          "/assets/images/projets/soundity/soundity-website-footer.webp": ["UX/UI Design"],
+          "/assets/images/projets/soundity/soundity-website-setup-section.webp": ["UX/UI Design"],
         },
         text: {
-          description: "Direction artistique, web design et développement du site de ",
+          description: "Identité visuelle, web design et développement du site et de l'application mobile et web de ",
           links: [
             {
               label: "Soundity",
@@ -747,6 +751,7 @@ export function Portfolio() {
         {isMediaPopupOpen && (
           <div className="media-popup">
             {/*<div className="media-popup-overlay" onClick={() => setIsMediaPopupOpen(false)}>*/}
+            <div className="media-popup-overlay"></div>
               <div className="media-popup-content-nav container">
                 <button
                   className="media-popup-close"

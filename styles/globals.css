@@ -1809,16 +1809,22 @@ input[type="range"]::-ms-thumb {
   overflow: hidden;
   padding: var(--container-padding);
   box-sizing: border-box;
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(50px);
 }
 
 .media-popup-overlay {
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 100%;
-  height: 100%;
+  opacity: 0.085;
+  background-image: url(https://i.ibb.co/DRRTGSJ/noise-overlay.gif);
+  background-position: 0 0;
+  background-size: 350px;
+  background-attachment: fixed;
+  position: absolute;
+  top: 0%;
+  bottom: 0%;
+  left: 0%;
+  right: 0%;
+  pointer-events: none;
+  z-index: -1;
 }
 
 .media-popup-content {
@@ -1876,14 +1882,15 @@ input[type="range"]::-ms-thumb {
   justify-content: center;
   max-height: 100%;
   border-radius: calc(var(--border-radius) / 3);
-  max-width: 70vw;
+  max-width: 75vw;
 }
 
 .media-popup-content-block img,
 .media-popup-content-block iframe {
   max-height: 100%;
-  border-radius: calc(var(--border-radius) / 3);
-  max-width: 70vw;
+  border-radius: calc(var(--border-radius) / 2);
+  max-width: 75vw;
+  border: solid 0.5px var(--dark-grey);
 }
 
 .media-popup-content-block iframe {
