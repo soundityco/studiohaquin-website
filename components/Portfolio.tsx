@@ -191,7 +191,7 @@ export function Portfolio() {
     },
     {
       name: "POLYPHONIA",
-      description: "Direction Artistique & UX/UI",
+      description: "Direction artistique & UX/UI",
       date: "2023",
       content: {
         media: [
@@ -216,7 +216,7 @@ export function Portfolio() {
     },
     {
       name: "Soundity",
-      description: "Direction Artistique & UX/UI",
+      description: "Direction artistique & UX/UI",
       date: "2023",
       content: {
         media: [
@@ -276,7 +276,7 @@ export function Portfolio() {
     },
     {
       name: "Faux Raccords Prod",
-      description: "Court métrage 'L'ERMITE'",
+      description: "Réalisation court métrage 'L'ERMITE'",
       date: "2023",
       content: {
         media: [
@@ -315,6 +315,71 @@ export function Portfolio() {
       }
     },
     {
+      name: "Curieux",
+      description: "Conception logo + motion Design",
+      date: "2020",
+      content: {
+        media: [
+          { type: "video", "id": "_dfA-k8sQEU" },
+        ],
+        projectTags: {
+          "_dfA-k8sQEU": ["Design Graphique", "Motion Design"],
+        },
+        text: {
+          description: "Conception du logo et réalisation d'un motion design pour Curieux.",
+          tags: allAvailableTags,
+        }
+      }
+    },
+    {
+      name: "Les Trans Musicales",
+      description: "Identité visuelle festival",
+      date: "2020",
+      content: {
+        media: [
+          { type: "image", "url": "/assets/images/projets/trans-musicales/trans-musicales-affiche.webp" },
+          { type: "image", "url": "/assets/images/projets/trans-musicales/trans-musicales-programmation.webp" },
+          { type: "image", "url": "/assets/images/projets/trans-musicales/trans-musicales-tickets.webp" },
+        ],
+        projectTags: {
+          "/assets/images/projets/trans-musicales/trans-musicales-affiche.webp": ["Design Graphique"],
+          "/assets/images/projets/trans-musicales/trans-musicales-programmation.webp": ["Design Graphique"],
+          "/assets/images/projets/trans-musicales/trans-musicales-tickets.webp": ["Design Graphique"],
+        },
+        text: {
+          description: "Création de l'identité visuelle (fictive) du festival de musique Les Trans Musicales.",
+          tags: allAvailableTags,
+        }
+      }
+    },
+    {
+      name: "FKJ",
+      description: "Mise en page magazine",
+      date: "2020",
+      content: {
+        media: [
+          { type: "image", "url": "/assets/images/projets/fkj/fkj-magazine-1.webp" },
+          { type: "image", "url": "/assets/images/projets/fkj/fkj-magazine-2.webp" },
+          { type: "image", "url": "/assets/images/projets/fkj/fkj-magazine-3.webp" },
+        ],
+        projectTags: {
+          "/assets/images/projets/fkj/fkj-magazine-1.webp": ["Design Graphique", "Mise en page"],
+          "/assets/images/projets/fkj/fkj-magazine-2.webp": ["Design Graphique", "Mise en page"],
+          "/assets/images/projets/fkj/fkj-magazine-3.webp": ["Design Graphique", "Mise en page"],
+        },
+        text: {
+          description: "Mise en page (fictive) d'un magazine retraçant la carrière et la vie de l'artiste ",
+          links: [
+            {
+              label: "French Kiwi Juice (FKJ)",
+              url: "https://frenchkiwijuice.com/",
+            },
+          ],
+          tags: allAvailableTags,
+        }
+      }
+    },
+    /*{
       name: "blurblur",
       description: "Composition & sound design",
       date: "Depuis 2018",
@@ -344,7 +409,7 @@ export function Portfolio() {
           tags: allAvailableTags,
         }
       }
-    },
+    },*/
   ];
 
   const [activeProjectIndex, setActiveProjectIndex] = useState(0);
