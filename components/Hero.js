@@ -67,20 +67,14 @@ export function Hero() {
             <h2>Studio de création audiovisuelle et graphique basé à Angers, FR. </h2>
           </div>*/}
           <StudioHaquinLogo className="hero-title-block-logo" alt="Studio Haquin Logo" draggable="false"/>
-          {/*<div className="hero-engaged-block">
-            <p>ENGAGÉ POUR <span><ArrowRightIcon/></span></p>
-            <a href="https://team-planet.com/fr/invites/uIteWnJAtr4" className="hero-engaged-roll">ENGAGÉ</a>
-          </div>*/}
-          <div className="hero-engaged-roll-block">
+          {/*<div className="hero-engaged-roll-block">
             <a href="https://one-voice.fr/faire-un-don/donner-en-tant-que-particulier/#form" target="_blank"
               className="hero-engaged-roll hero-engaged-roll-onevoice show-me">
-              {/*<Image src={OneVoiceAnimalLogo}/>*/}
             </a>
             <a href="https://team-planet.com/fr/invites/uIteWnJAtr4" target="_blank"
               className="hero-engaged-roll hero-engaged-roll-teamfortheplanet show-me">
-              {/*<Image src={TeamForThePlanetLogo}/>*/}
             </a>
-          </div>
+          </div>*/}
         </div>
       </div>
     </section>
