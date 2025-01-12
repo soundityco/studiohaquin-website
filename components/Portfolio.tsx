@@ -600,11 +600,10 @@ export function Portfolio() {
                   </button>
                   {activeMediaIndex !== null && filteredMedia && (
                     <>
-                      {/* Extraction de l'ID pour la vidéo */}
                       {filteredMedia[activeMediaIndex]?.type === "video" ? (
                         (() => {
                           const videoId = filteredMedia[activeMediaIndex]?.id;
-                          return (
+                          return videoId ? (
                             <iframe
                               src={`https://www.youtube.com/embed/${videoId}?rel=0&controls=1&modestbranding=1&autoplay=${
                                 activeVideoId === videoId ? 1 : 0
@@ -616,7 +615,7 @@ export function Portfolio() {
                               allow="autoplay; encrypted-media"
                               allowFullScreen
                             ></iframe>
-                          );
+                          ) : null;
                         })()
                       ) : filteredMedia[activeMediaIndex]?.type === "image" ? (
                         <img
