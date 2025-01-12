@@ -271,7 +271,13 @@ export function Portfolio() {
           "/assets/images/projets/noelse/noelse-3d-frozen-card.webp": ["Design Graphique", "3D"]
         },
         text: {
-          description: "Diverses réalisations de design graphique et motion design pour la banque en ligne Noelse.",
+          description: "Diverses réalisations de design graphique et motion design pour la banque en ligne ",
+          links: [
+            {
+              label: "Noelse",
+              url: "https://noelse.com",
+            },
+          ],
           tags: allAvailableTags,
         }
       }
