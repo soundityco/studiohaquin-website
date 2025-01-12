@@ -119,6 +119,41 @@ export function Portfolio() {
       }
     },
     {
+      name: "Soundity",
+      description: "Identité visuelle & UX/UI",
+      date: "2024",
+      content: {
+        media: [
+          { type: "image", "url": "/assets/images/projets/soundity/soundity-logo.webp" },
+          { type: "image", "url": "/assets/images/projets/soundity/soundity-mobile-app.webp" },
+          { type: "image", "url": "/assets/images/projets/soundity/soundity-website-hero.webp" },
+          { type: "image", "url": "/assets/images/projets/soundity/soundity-website-stats-section.webp" },
+          { type: "image", "url": "/assets/images/projets/soundity/soundity-website-pricing-section.webp" },
+          { type: "image", "url": "/assets/images/projets/soundity/soundity-website-footer.webp" },
+          { type: "image", "url": "/assets/images/projets/soundity/soundity-website-setup-section.webp" },
+        ],
+        projectTags: {
+          "/assets/images/projets/soundity/soundity-logo.webp": ["Design Graphique"],
+          "/assets/images/projets/soundity/soundity-mobile-app.webp": ["UX/UI Design"],
+          "/assets/images/projets/soundity/soundity-website-hero.webp": ["UX/UI Design"],
+          "/assets/images/projets/soundity/soundity-website-stats-section.webp": ["UX/UI Design"],
+          "/assets/images/projets/soundity/soundity-website-pricing-section.webp": ["UX/UI Design"],
+          "/assets/images/projets/soundity/soundity-website-footer.webp": ["UX/UI Design"],
+          "/assets/images/projets/soundity/soundity-website-setup-section.webp": ["UX/UI Design"],
+        },
+        text: {
+          description: "Identité visuelle, web design et développement du site et de l'application mobile et web de ",
+          links: [
+            {
+              label: "Soundity",
+              url: "https://soundity-website.vercel.app",
+            },
+          ],
+          tags: allAvailableTags,
+        },
+      },
+    },
+    {
       name: "L'Orange Bleue",
       description: "Vidéos publicité + interviews",
       date: "2024",
@@ -217,41 +252,6 @@ export function Portfolio() {
       },
     },
     {
-      name: "Soundity",
-      description: "Identité visuelle & UX/UI",
-      date: "2023",
-      content: {
-        media: [
-          { type: "image", "url": "/assets/images/projets/soundity/soundity-logo.webp" },
-          { type: "image", "url": "/assets/images/projets/soundity/soundity-mobile-app.webp" },
-          { type: "image", "url": "/assets/images/projets/soundity/soundity-website-hero.webp" },
-          { type: "image", "url": "/assets/images/projets/soundity/soundity-website-stats-section.webp" },
-          { type: "image", "url": "/assets/images/projets/soundity/soundity-website-pricing-section.webp" },
-          { type: "image", "url": "/assets/images/projets/soundity/soundity-website-footer.webp" },
-          { type: "image", "url": "/assets/images/projets/soundity/soundity-website-setup-section.webp" },
-        ],
-        projectTags: {
-          "/assets/images/projets/soundity/soundity-logo.webp": ["Design Graphique"],
-          "/assets/images/projets/soundity/soundity-mobile-app.webp": ["UX/UI Design"],
-          "/assets/images/projets/soundity/soundity-website-hero.webp": ["UX/UI Design"],
-          "/assets/images/projets/soundity/soundity-website-stats-section.webp": ["UX/UI Design"],
-          "/assets/images/projets/soundity/soundity-website-pricing-section.webp": ["UX/UI Design"],
-          "/assets/images/projets/soundity/soundity-website-footer.webp": ["UX/UI Design"],
-          "/assets/images/projets/soundity/soundity-website-setup-section.webp": ["UX/UI Design"],
-        },
-        text: {
-          description: "Identité visuelle, web design et développement du site et de l'application mobile et web de ",
-          links: [
-            {
-              label: "Soundity",
-              url: "https://soundity-website.vercel.app",
-            },
-          ],
-          tags: allAvailableTags,
-        },
-      },
-    },
-    {
       name: "Noelse",
       description: "Design graphique et motion + 3D",
       date: "2021 — 2023",
@@ -262,7 +262,6 @@ export function Portfolio() {
           { type: "image", "url": "/assets/images/projets/noelse/noelse-couts-virements.webp" },
           { type: "video", "id": "CE05st8HUwc" },
           { type: "image", "url": "/assets/images/projets/noelse/noelse-card.webp" },
-          { type: "video", "id": "OJJZDq-cCFk" },
           { type: "image", "url": "/assets/images/projets/noelse/noelse-3d-frozen-card.webp" }
         ],
         projectTags: {
@@ -271,7 +270,6 @@ export function Portfolio() {
           "/assets/images/projets/noelse/noelse-couts-virements.webp": ["Design Graphique"],
           "CE05st8HUwc": ["Motion Design", "3D"],
           "/assets/images/projets/noelse/noelse-card.webp": ["Design Graphique"],
-          "OJJZDq-cCFk": ["Motion Design", "3D"],
           "/assets/images/projets/noelse/noelse-3d-frozen-card.webp": ["Design Graphique", "3D"]
         },
         text: {
@@ -380,10 +378,12 @@ export function Portfolio() {
       date: "2020",
       content: {
         media: [
+          { type: "image", "url": "/assets/images/projets/curieux/curieux-logo.webp" },
           { type: "video", "id": "_dfA-k8sQEU" },
         ],
         projectTags: {
-          "_dfA-k8sQEU": ["Design Graphique", "Motion Design"],
+          "/assets/images/projets/curieux/curieux-logo.webp": ["Design Graphique"],
+          "_dfA-k8sQEU": ["Motion Design"],
         },
         text: {
           description: "Conception du logo et réalisation d'un motion design pour Curieux.",
