@@ -312,12 +312,12 @@ export function Portfolio() {
           { type: "image", "url": "/assets/images/projets/airvalstudio/airvalstudio-website-footer.webp" },
         ],
         projectTags: {
-          "/assets/images/projets/airvalstudio/polyphonia-logo.webp": ["Design Graphique"],
-          "/assets/images/projets/airvalstudio/polyphonia-website-hero.webp": ["UX/UI Design"],
-          "/assets/images/projets/airvalstudio/polyphonia-website-spotlight-section.webp": ["UX/UI Design"],
-          "/assets/images/projets/airvalstudio/polyphonia-website-pricing-section.webp": ["UX/UI Design"],
-          "/assets/images/projets/airvalstudio/polyphonia-website-gear-section.webp": ["UX/UI Design"],
-          "/assets/images/projets/airvalstudio/polyphonia-website-footer.webp": ["UX/UI Design"],
+          "/assets/images/projets/airvalstudio/airvalstudio-logo.webp": ["Design Graphique"],
+          "/assets/images/projets/airvalstudio/airvalstudio-website-hero.webp": ["UX/UI Design"],
+          "/assets/images/projets/airvalstudio/airvalstudio-website-spotlight-section.webp": ["UX/UI Design"],
+          "/assets/images/projets/airvalstudio/airvalstudio-website-pricing-section.webp": ["UX/UI Design"],
+          "/assets/images/projets/airvalstudio/airvalstudio-website-gear-section.webp": ["UX/UI Design"],
+          "/assets/images/projets/airvalstudio/airvalstudio-website-footer.webp": ["UX/UI Design"],
         },
         text: {
           description: "Identité visuelle, web design et développement du site de ",
