@@ -90,35 +90,6 @@ export function Portfolio() {
       }
     },
     {
-      name: "Doris Oppenlander",
-      description: "Série de vidéos YouTube",
-      date: "2023 — 2024",
-      content: {
-        media: [
-          { type: "video", "id": "H6wkoTE8oyo" },
-          { type: "video", "id": "IFKT_fekZw4" },
-          { type: "video", "id": "QTpHOYt04QU" },
-          { type: "video", "id": "DhnqP_J-MoQ" },
-          { type: "video", "id": "YB3SCKTtBLM" },
-          { type: "video", "id": "ZbT4yy6ZU6I" },
-          { type: "video", "id": "Dwnl_BvyhdY" }
-        ],
-        projectTags: {
-          "H6wkoTE8oyo": ["Divertissement", "Covers"],
-          "IFKT_fekZw4": ["Vulgarisation", "Tutoriels"],
-          "QTpHOYt04QU": ["Divertissement", "Covers"],
-          "DhnqP_J-MoQ": ["Vulgarisation", "Tutoriels"],
-          "YB3SCKTtBLM": ["Divertissement", "Covers"],
-          "ZbT4yy6ZU6I": ["Vulgarisation", "Tutoriels"],
-          "Dwnl_BvyhdY": ["Divertissement"]
-        },
-        text: {
-          description: "Réalisation d'une série de vidéos YouTube sur le divertissement et la vulgarisation du chant par Doris Oppenlander.",
-          tags: allAvailableTags,
-        }
-      }
-    },
-    {
       name: "Soundity",
       description: "Identité visuelle & UX/UI",
       date: "2024",
@@ -154,6 +125,35 @@ export function Portfolio() {
       },
     },
     {
+      name: "Doris Oppenlander",
+      description: "Série de vidéos YouTube",
+      date: "2023 — 2024",
+      content: {
+        media: [
+          { type: "video", "id": "H6wkoTE8oyo" },
+          { type: "video", "id": "IFKT_fekZw4" },
+          { type: "video", "id": "QTpHOYt04QU" },
+          { type: "video", "id": "DhnqP_J-MoQ" },
+          { type: "video", "id": "YB3SCKTtBLM" },
+          { type: "video", "id": "ZbT4yy6ZU6I" },
+          { type: "video", "id": "Dwnl_BvyhdY" }
+        ],
+        projectTags: {
+          "H6wkoTE8oyo": ["Divertissement", "Covers"],
+          "IFKT_fekZw4": ["Vulgarisation", "Tutoriels"],
+          "QTpHOYt04QU": ["Divertissement", "Covers"],
+          "DhnqP_J-MoQ": ["Vulgarisation", "Tutoriels"],
+          "YB3SCKTtBLM": ["Divertissement", "Covers"],
+          "ZbT4yy6ZU6I": ["Vulgarisation", "Tutoriels"],
+          "Dwnl_BvyhdY": ["Divertissement"]
+        },
+        text: {
+          description: "Réalisation d'une série de vidéos YouTube sur le divertissement et la vulgarisation du chant par Doris Oppenlander.",
+          tags: allAvailableTags,
+        }
+      }
+    },
+    {
       name: "L'Orange Bleue",
       description: "Vidéos publicité + interviews",
       date: "2024",
@@ -177,33 +177,7 @@ export function Portfolio() {
           tags: allAvailableTags,
         }
       }
-    },
-    {
-      name: "Galeries Lafayette",
-      description: "Vidéo récap évènement 'Mère Fille'",
-      date: "2024",
-      content: {
-        media: [
-          { type: "video", "id": "J2JJ-yZ2ujk" },
-          { type: "video", "id": "-AWQqfOAuQo" }
-        ],
-        projectTags: {
-          "J2JJ-yZ2ujk": ["Évènementiel", "Réseaux sociaux"],
-          "-AWQqfOAuQo": ["Évènementiel", "Réseaux sociaux"]
-        },
-        text: {
-          description: "Réalisation d'une vidéo récap' pour l'évènement 'Mère et Fille' 2024 des Galeries Lafayette d'Angers, collaboration ",
-          links: [
-            {
-              label: "Super35",
-              url: "https://super35.fr",
-            },
-          ],
-          tags: allAvailableTags,
-        }
-      }
-    },
-    {
+    },{
       name: "POLYPHONIA",
       description: "Identité visuelle, D.A. & UX/UI",
       date: "2023 — 2024",
@@ -241,6 +215,31 @@ export function Portfolio() {
           tags: allAvailableTags,
         },
       },
+    },
+    {
+      name: "Galeries Lafayette",
+      description: "Vidéo récap évènement 'Mère Fille'",
+      date: "2024",
+      content: {
+        media: [
+          { type: "video", "id": "J2JJ-yZ2ujk" },
+          { type: "video", "id": "-AWQqfOAuQo" }
+        ],
+        projectTags: {
+          "J2JJ-yZ2ujk": ["Évènementiel", "Réseaux sociaux"],
+          "-AWQqfOAuQo": ["Évènementiel", "Réseaux sociaux"]
+        },
+        text: {
+          description: "Réalisation d'une vidéo récap' pour l'évènement 'Mère et Fille' 2024 des Galeries Lafayette d'Angers, collaboration ",
+          links: [
+            {
+              label: "Super35",
+              url: "https://super35.fr",
+            },
+          ],
+          tags: allAvailableTags,
+        }
+      }
     },
     {
       name: "La Cour",
