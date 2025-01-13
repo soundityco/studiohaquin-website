@@ -272,6 +272,7 @@ export function Portfolio() {
         media: [
           { type: "image", "url": "/assets/images/projets/noelse/noelse-app-major-update.webp" },
           { type: "video", "id": "4M0I_Xca63A" },
+          { type: "image", "url": "/assets/images/projets/noelse/noelse-3D-lost-card.webp" },
           { type: "image", "url": "/assets/images/projets/noelse/noelse-couts-virements.webp" },
           { type: "video", "id": "CE05st8HUwc" },
           { type: "image", "url": "/assets/images/projets/noelse/noelse-card.webp" },
@@ -280,6 +281,7 @@ export function Portfolio() {
         projectTags: {
           "/assets/images/projets/noelse/noelse-app-major-update.webp": ["Design Graphique"],
           "4M0I_Xca63A": ["Motion Design"],
+          "/assets/images/projets/noelse/noelse-3D-lost-card.webp": ["3D"],
           "/assets/images/projets/noelse/noelse-couts-virements.webp": ["Design Graphique"],
           "CE05st8HUwc": ["Motion Design", "3D"],
           "/assets/images/projets/noelse/noelse-card.webp": ["Design Graphique"],
