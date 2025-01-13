@@ -1961,7 +1961,7 @@ footer {
   text-align: center;
   flex-direction: column;
   align-items: start;
-  gap: 8vw;
+  gap: 6vw;
   width: 100%;
   padding: var(--container-padding);
   color: var(--foreground);
@@ -1980,6 +1980,11 @@ footer {
   width: 100%;
 }
 
+.footer-logo {
+  fill: var(--foreground);
+  width: 100%;
+}
+
 .footer-block-copyright {
 
 }
@@ -1988,6 +1993,7 @@ footer {
   text-align: start;
   font-size: 3.5vw;
   line-height: 3.5vw;
+  display: none;
 }
 
 .footer-container-block .button-contact {
@@ -2407,6 +2413,9 @@ footer {
   }
 
   /* FOOTER */
+  .footer-container {
+    border-radius: calc(var(--border-radius)/1.5);
+  }
   .footer-links ul {
     gap: 4.5rem;
   }
@@ -2522,11 +2531,16 @@ footer {
   /* FOOTER */
   .footer-container {
     gap: 4rem;
-    border-radius: calc(var(--border-radius)/2);
+  }
+  .footer-logo {
+    display: none;
+  }
+  .footer-title {
+    display: flex;
   }
   .footer-container-block {
     gap: 4rem;
-    flex-direction: column;
+    flex-direction: column-reverse;
     align-items: start;
   }
   .footer-container-block:last-of-type {
