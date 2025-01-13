@@ -1361,6 +1361,7 @@ input[type="range"]::-ms-thumb {
 .portfolio-container div {
   display: flex;
   flex-direction: column;
+  -webkit-mask-image: -webkit-gradient(linear, left 25%, left bottom, from(rgb(0 0 0)), to(rgb(0 0 0 / 20%)));
   /*gap: 1.5vw;*/
 }
 
@@ -2338,6 +2339,9 @@ footer {
   }
 
   /* PORTFOLIO */
+  .portfolio-container div {
+    -webkit-mask-image: unset;
+  }
   .portfolio-popup-content-header div,
   .portfolio-popup-content-header {
     gap: 2rem;

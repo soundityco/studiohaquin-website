@@ -204,29 +204,6 @@ export function Portfolio() {
       }
     },
     {
-      name: "La Cour",
-      description: "Vidéo rénovation restaurant",
-      date: "2024",
-      content: {
-        media: [
-          { type: "video", "id": "P4d_1Tb2uAw" }
-        ],
-        projectTags: {
-          "P4d_1Tb2uAw": ["Vidéo promotionnelle", "Réseaux sociaux"]
-        },
-        text: {
-          description: "Réalisation d'une vidéo pour la rénovation du bar & restaurant 'La Cour', situé à Angers, collaboration ",
-          links: [
-            {
-              label: "Super35",
-              url: "https://super35.fr",
-            },
-          ],
-          tags: allAvailableTags,
-        }
-      }
-    },
-    {
       name: "POLYPHONIA",
       description: "Identité visuelle, D.A. & UX/UI",
       date: "2023 — 2024",
@@ -264,6 +241,29 @@ export function Portfolio() {
           tags: allAvailableTags,
         },
       },
+    },
+    {
+      name: "La Cour",
+      description: "Vidéo rénovation restaurant",
+      date: "2024",
+      content: {
+        media: [
+          { type: "video", "id": "P4d_1Tb2uAw" }
+        ],
+        projectTags: {
+          "P4d_1Tb2uAw": ["Vidéo promotionnelle", "Réseaux sociaux"]
+        },
+        text: {
+          description: "Réalisation d'une vidéo pour la rénovation du bar & restaurant 'La Cour', situé à Angers, collaboration ",
+          links: [
+            {
+              label: "Super35",
+              url: "https://super35.fr",
+            },
+          ],
+          tags: allAvailableTags,
+        }
+      }
     },
     {
       name: "Noelse",
