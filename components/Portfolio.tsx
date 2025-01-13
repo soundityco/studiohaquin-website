@@ -14,17 +14,11 @@ import {
 const allAvailableTags = [
  'Composition',
  'Court-métrage',
- 'Covers',
  'Divertissement',
- 'Films institutionnels',
- 'Interviews',
+ 'Vidéos Interviews',
  'Lyrics Video',
  'Publicité',
- 'Réalisation',
- 'Réseaux sociaux',
- 'Tutoriels',
  'Vidéo Promotionnelles',
- 'Vidéo promotionnelle',
  'Vulgarisation',
  'chant',
  'mastering',
@@ -72,10 +66,10 @@ export function Portfolio() {
           { type: "video", "id": "qr16wv-Dhdg" }
         ],
         projectTags: {
-          "FIpooQI-Qko": ["Films institutionnels", "Interviews"],
-          "u3qvu__U6Wc": ["Films institutionnels", "Interviews"],
-          "0NhUkX7_qSA": ["Films institutionnels", "Interviews"],
-          "qr16wv-Dhdg": ["Réseaux sociaux", "Vidéos Promotionnelles"]
+          "FIpooQI-Qko": ["Films institutionnels"],
+          "u3qvu__U6Wc": ["Films institutionnels"],
+          "0NhUkX7_qSA": ["Films institutionnels"],
+          "qr16wv-Dhdg": ["Vidéos Promotionnelles"]
         },
         text: {
           description: "Réalisation de 11 vidéos sur les réussites 2024 du magasin des Ponts-de-Cé & vidéos promotionnelles, collaboration ",
@@ -139,12 +133,12 @@ export function Portfolio() {
           { type: "video", "id": "Dwnl_BvyhdY" }
         ],
         projectTags: {
-          "H6wkoTE8oyo": ["Divertissement", "Covers"],
-          "IFKT_fekZw4": ["Vulgarisation", "Tutoriels"],
-          "QTpHOYt04QU": ["Divertissement", "Covers"],
-          "DhnqP_J-MoQ": ["Vulgarisation", "Tutoriels"],
-          "YB3SCKTtBLM": ["Divertissement", "Covers"],
-          "ZbT4yy6ZU6I": ["Vulgarisation", "Tutoriels"],
+          "H6wkoTE8oyo": ["Divertissement"],
+          "IFKT_fekZw4": ["Vulgarisation"],
+          "QTpHOYt04QU": ["Divertissement"],
+          "DhnqP_J-MoQ": ["Vulgarisation"],
+          "YB3SCKTtBLM": ["Divertissement"],
+          "ZbT4yy6ZU6I": ["Vulgarisation"],
           "Dwnl_BvyhdY": ["Divertissement"]
         },
         text: {
@@ -169,8 +163,8 @@ export function Portfolio() {
           { type: "video", "id": "s5xjV93gEQY" }
         ],
         projectTags: {
-          "p5dpBF0kLKU": ["Publicité", "Réseaux sociaux"],
-          "s5xjV93gEQY": ["Interviews", "Réseaux sociaux"]
+          "p5dpBF0kLKU": ["Publicité"],
+          "s5xjV93gEQY": ["Interviews"]
         },
         text: {
           description: "Réalisation d'une mini publicité et d'interviews pour L'Orange Bleue d'Angers, collaboration ",
@@ -232,8 +226,8 @@ export function Portfolio() {
           { type: "video", "id": "-AWQqfOAuQo" }
         ],
         projectTags: {
-          "J2JJ-yZ2ujk": ["Évènementiel", "Réseaux sociaux"],
-          "-AWQqfOAuQo": ["Évènementiel", "Réseaux sociaux"]
+          "J2JJ-yZ2ujk": ["Évènementiel"],
+          "-AWQqfOAuQo": ["Évènementiel"]
         },
         text: {
           description: "Réalisation d'une vidéo récap' pour l'évènement 'Mère et Fille' 2024 des Galeries Lafayette d'Angers, collaboration ",
@@ -256,7 +250,7 @@ export function Portfolio() {
           { type: "video", "id": "P4d_1Tb2uAw" }
         ],
         projectTags: {
-          "P4d_1Tb2uAw": ["Vidéo promotionnelle", "Réseaux sociaux"]
+          "P4d_1Tb2uAw": ["Vidéo promotionnelles"]
         },
         text: {
           description: "Réalisation d'une vidéo pour la rénovation du bar & restaurant 'La Cour', situé à Angers, collaboration ",
@@ -347,7 +341,7 @@ export function Portfolio() {
           { type: "video", "id": "JmFNhAO9LEs" }
         ],
         projectTags: {
-          "JmFNhAO9LEs": ["Réalisation", "Court-métrage"]
+          "JmFNhAO9LEs": ["Court-métrage"]
         },
         text: {
           description: "Réalisation, captation, montage et sound design du court métrage 'L'ERMITE'.",
@@ -389,9 +383,9 @@ export function Portfolio() {
           { type: "image", "url": "/assets/images/projets/trans-musicales/trans-musicales-tickets.webp" },
         ],
         projectTags: {
-          "/assets/images/projets/trans-musicales/trans-musicales-affiche.webp": ["Design Graphique", "Illustration"],
-          "/assets/images/projets/trans-musicales/trans-musicales-programmation.webp": ["Design Graphique", "Illustration"],
-          "/assets/images/projets/trans-musicales/trans-musicales-tickets.webp": ["Design Graphique", "Illustration"],
+          "/assets/images/projets/trans-musicales/trans-musicales-affiche.webp": ["Design Graphique"],
+          "/assets/images/projets/trans-musicales/trans-musicales-programmation.webp": ["Design Graphique", "Mise en page"],
+          "/assets/images/projets/trans-musicales/trans-musicales-tickets.webp": ["Design Graphique",  "Mise en page"],
         },
         text: {
           description: "Création de l'identité visuelle (fictive) de l'édition 2020 du festival de musique ",
@@ -416,9 +410,9 @@ export function Portfolio() {
           { type: "image", "url": "/assets/images/projets/fkj/fkj-magazine-3.webp" },
         ],
         projectTags: {
-          "/assets/images/projets/fkj/fkj-magazine-1.webp": ["Design Graphique", "Mise en page"],
-          "/assets/images/projets/fkj/fkj-magazine-2.webp": ["Design Graphique", "Mise en page"],
-          "/assets/images/projets/fkj/fkj-magazine-3.webp": ["Design Graphique", "Mise en page"],
+          "/assets/images/projets/fkj/fkj-magazine-1.webp": ["Mise en page"],
+          "/assets/images/projets/fkj/fkj-magazine-2.webp": ["Mise en page"],
+          "/assets/images/projets/fkj/fkj-magazine-3.webp": ["Mise en page"],
         },
         text: {
           description: "Mise en page d'un magazine (fictif) retraçant la carrière et la vie de l'artiste ",

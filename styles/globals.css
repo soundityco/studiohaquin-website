@@ -1297,7 +1297,7 @@ input[type="range"]::-ms-thumb {
 
 .intro-container-text {
   font-size: 3.5vw;
-  line-height: 4.5vw;
+  line-height: 4vw;
   gap: var(--container-padding);
   display: flex;
   flex-direction: column;
@@ -2346,8 +2346,8 @@ footer {
     font-size: 1.75rem;
   }
   .intro-container-text {
-    font-size: 3.25rem;
-    line-height: 3.5rem;
+    font-size: 2.75rem;
+    line-height: 3rem;
   }
 
   /* CLIENTS */
@@ -2440,8 +2440,8 @@ footer {
     /*gap: 3rem;*/
   }
   .section-title {
-    font-size: 3rem;
-    line-height: 3rem;
+    font-size: 2.25rem;
+    line-height: 2.5rem;
   }
 
   /* LOADER */
@@ -2515,13 +2515,14 @@ footer {
     font-size: 1.5rem;
   }
   .intro-container-text {
-    font-size: 2.5rem;
-    line-height: 3rem;
+    font-size: 2.25rem;
+    line-height: 2.5rem;
   }
   
   /* FOOTER */
   .footer-container {
     gap: 4rem;
+    border-radius: calc(var(--border-radius)/2);
   }
   .footer-container-block {
     gap: 4rem;
@@ -2571,7 +2572,7 @@ footer {
     display: none !important;
   }
   .section-title {
-    font-size: 2.5rem;
+    font-size: 2.25rem;
     line-height: 2.5rem;
   }
   .site-content {
@@ -2609,8 +2610,8 @@ footer {
 
   /* INTRO */
   .intro-container-text {
-    font-size: 2.25rem;
-    line-height: 2.75rem;
+    font-size: 2rem;
+    line-height: 2.5rem;
   }
 
   /* PORTFOLIO */
@@ -2698,7 +2699,7 @@ footer {
     gap: 0.5rem;
   }
   .footer-links ul {
-    gap: 2rem;
+    gap: 1.25rem;
   }
   .footer-link {
     font-size: 1.75rem;
