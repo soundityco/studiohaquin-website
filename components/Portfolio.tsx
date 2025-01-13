@@ -228,19 +228,33 @@ export function Portfolio() {
     },
     {
       name: "POLYPHONIA",
-      description: "Direction artistique & UX/UI",
-      date: "2023",
+      description: "Identité visuelle, D.A. & UX/UI",
+      date: "2023 — 2024",
       content: {
         media: [
-          { type: "video", "id": "h2CHHok1aPM" },
+          { type: "image", "url": "/assets/images/projets/polyphonia/polyphonia-logo.webp" },
           { type: "image", "url": "/assets/images/projets/polyphonia/polyphonia-playlists-covers.webp" },
+          { type: "image", "url": "/assets/images/projets/polyphonia/polyphonia-website-hero.webp" },
+          { type: "image", "url": "/assets/images/projets/polyphonia/polyphonia-website-spotlight-section.webp" },
+          { type: "image", "url": "/assets/images/projets/polyphonia/polyphonia-website-blog-page.webp" },
+          { type: "image", "url": "/assets/images/projets/polyphonia/polyphonia-website-booking-page.webp" },
+          { type: "image", "url": "/assets/images/projets/polyphonia/polyphonia-website-intro-section.webp" },
+          { type: "image", "url": "/assets/images/projets/polyphonia/polyphonia-website-footer.webp" },
+          { type: "video", "id": "h2CHHok1aPM" },
         ],
         projectTags: {
-          "h2CHHok1aPM": ["Développement Web", "UX/UI Design"],
+          "/assets/images/projets/polyphonia/polyphonia-logo.webp": ["Design Graphique"],
           "/assets/images/projets/polyphonia/polyphonia-playlists-covers.webp": ["Design Graphique"],
+          "/assets/images/projets/polyphonia/polyphonia-website-hero.webp": ["UX/UI Design"],
+          "/assets/images/projets/polyphonia/polyphonia-website-spotlight-section.webp": ["UX/UI Design"],
+          "/assets/images/projets/polyphonia/polyphonia-website-blog-page.webp": ["UX/UI Design"],
+          "/assets/images/projets/polyphonia/polyphonia-website-booking-page.webp": ["UX/UI Design"],
+          "/assets/images/projets/polyphonia/polyphonia-website-intro-section.webp": ["UX/UI Design"],
+          "/assets/images/projets/polyphonia/polyphonia-website-footer.webp": ["UX/UI Design"],
+          "h2CHHok1aPM": ["Développement Web", "UX/UI Design"],
         },
         text: {
-          description: "Direction artistique, web design et développement du site de ",
+          description: "Direction artistique, , identité visuelle, web design et développement du site de ",
           links: [
             {
               label: "POLYPHONIA",
@@ -283,6 +297,39 @@ export function Portfolio() {
           tags: allAvailableTags,
         }
       }
+    },
+    {
+      name: "Airval Studio",
+      description: "Identité visuelle & UX/UI",
+      date: "2023",
+      content: {
+        media: [
+          { type: "image", "url": "/assets/images/projets/airvalstudio/airvalstudio-logo.webp" },
+          { type: "image", "url": "/assets/images/projets/airvalstudio/airvalstudio-website-hero.webp" },
+          { type: "image", "url": "/assets/images/projets/airvalstudio/airvalstudio-website-spotlight-section.webp" },
+          { type: "image", "url": "/assets/images/projets/airvalstudio/airvalstudio-website-pricing-section.webp" },
+          { type: "image", "url": "/assets/images/projets/airvalstudio/airvalstudio-website-gear-section.webp" },
+          { type: "image", "url": "/assets/images/projets/airvalstudio/airvalstudio-website-footer.webp" },
+        ],
+        projectTags: {
+          "/assets/images/projets/airvalstudio/polyphonia-logo.webp": ["Design Graphique"],
+          "/assets/images/projets/airvalstudio/polyphonia-website-hero.webp": ["UX/UI Design"],
+          "/assets/images/projets/airvalstudio/polyphonia-website-spotlight-section.webp": ["UX/UI Design"],
+          "/assets/images/projets/airvalstudio/polyphonia-website-pricing-section.webp": ["UX/UI Design"],
+          "/assets/images/projets/airvalstudio/polyphonia-website-gear-section.webp": ["UX/UI Design"],
+          "/assets/images/projets/airvalstudio/polyphonia-website-footer.webp": ["UX/UI Design"],
+        },
+        text: {
+          description: "Identité visuelle, web design et développement du site de ",
+          links: [
+            {
+              label: "Airval Studio",
+              url: "https://airvalstudiostudio.com",
+            },
+          ],
+          tags: allAvailableTags,
+        },
+      },
     },
     {
       name: "Faux Raccords Prod",
