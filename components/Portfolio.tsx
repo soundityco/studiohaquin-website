@@ -361,10 +361,10 @@ export function Portfolio() {
           { type: "image", "url": "/assets/images/projets/esa/esa-affiche-3d-side-gold.webp" },
         ],
         projectTags: {
-          "/assets/images/projets/esa/esa-affiche-3d-front-dark-blue.webp": ["3D", "Design Graphique"],
-          "/assets/images/projets/esa/esa-affiche-3d-front-gold.webp": ["3D", "Design Graphique"],
-          "/assets/images/projets/esa/esa-affiche-3d-side-dark-blue.webp": ["3D", "Design Graphique"],
-          "/assets/images/projets/esa/esa-affiche-3d-side-gold.webp": ["3D", "Design Graphique"],
+          "/assets/images/projets/esa/esa-affiche-3d-front-dark-blue.webp": ["3D"],
+          "/assets/images/projets/esa/esa-affiche-3d-front-gold.webp": ["3D"],
+          "/assets/images/projets/esa/esa-affiche-3d-side-dark-blue.webp": ["3D"],
+          "/assets/images/projets/esa/esa-affiche-3d-side-gold.webp": ["3D"],
         },
         text: {
           description: "Composition 3D sous Blender, afin de mettre en avant une étiquette de bouteille de vin.",
