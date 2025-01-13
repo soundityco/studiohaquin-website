@@ -148,7 +148,13 @@ export function Portfolio() {
           "Dwnl_BvyhdY": ["Divertissement"]
         },
         text: {
-          description: "Réalisation d'une série de vidéos YouTube sur le divertissement et la vulgarisation du chant par Doris Oppenlander.",
+          description: "Réalisation d'une série de vidéos YouTube sur le divertissement et la vulgarisation du chant par ",
+          links: [
+            {
+              label: "Doris Oppenlander",
+              url: "https://www.youtube.com/@DorisOppenlanderCoachVocal",
+            },
+          ],
           tags: allAvailableTags,
         }
       }
@@ -351,7 +357,7 @@ export function Portfolio() {
     },
     {
       name: "ESA",
-      description: "Composition 3D d'un vin de Clisson",
+      description: "Composition 3D vin 'Sur Lie'",
       date: "2022",
       content: {
         media: [
@@ -367,14 +373,14 @@ export function Portfolio() {
           "/assets/images/projets/esa/esa-affiche-3d-side-gold.webp": ["3D"],
         },
         text: {
-          description: "Composition 3D sous Blender, afin de mettre en avant une étiquette de bouteille de vin.",
+          description: "Composition 3D, afin de mettre en avant une étiquette d'un vin 'Sur Lie' pour le Domaine de la Bernardière.",
           tags: allAvailableTags,
         }
       }
     },
     {
-      name: "Les Trans Musicales",
-      description: "Identité visuelle festival",
+      name: "Les Trans",
+      description: "Identité visuelle festival de musique",
       date: "2020",
       content: {
         media: [
@@ -388,7 +394,13 @@ export function Portfolio() {
           "/assets/images/projets/trans-musicales/trans-musicales-tickets.webp": ["Design Graphique", "Illustration"],
         },
         text: {
-          description: "Création de l'identité visuelle (fictive) du festival de musique Les Trans Musicales.",
+          description: "Création de l'identité visuelle (fictive) de l'édition 2020 du festival de musique ",
+          links: [
+            {
+              label: "Les Trans Musicales",
+              url: "https://lestrans.com",
+            },
+          ],
           tags: allAvailableTags,
         }
       }
@@ -489,27 +501,19 @@ export function Portfolio() {
 
   // POP UP MEDIA  
   const handleNextMedia = () => {
-    if (!activeProject || activeMediaIndex === null) return;
-  
-    const mediaLength = activeProject.content.media.length;
-    const nextIndex = (activeMediaIndex + 1) % mediaLength;
-  
-    setActiveMediaIndex(nextIndex);
-  
-    const nextMedia = activeProject.content.media[nextIndex];
-    setActiveVideoId(nextMedia.type === "video" ? nextMedia.id : null); // Ne lance la vidéo que si le média suivant est une vidéo
+    if (filteredMedia && activeMediaIndex !== null) {
+      setActiveMediaIndex((prevIndex) =>
+        prevIndex !== null && prevIndex === filteredMedia.length - 1 ? 0 : (prevIndex ?? 0) + 1
+      );
+    }
   };
   
   const handlePrevMedia = () => {
-    if (!activeProject || activeMediaIndex === null) return;
-  
-    const mediaLength = activeProject.content.media.length;
-    const prevIndex = (activeMediaIndex - 1 + mediaLength) % mediaLength; // Gère la boucle arrière
-  
-    setActiveMediaIndex(prevIndex);
-  
-    const prevMedia = activeProject.content.media[prevIndex];
-    setActiveVideoId(prevMedia.type === "video" ? prevMedia.id : null); // Ne lance la vidéo que si le média précédent est une vidéo
+    if (filteredMedia && activeMediaIndex !== null) {
+      setActiveMediaIndex((prevIndex) =>
+        prevIndex !== null && prevIndex === 0 ? filteredMedia.length - 1 : (prevIndex ?? 0) - 1
+      );
+    }
   };
   
 
@@ -815,8 +819,8 @@ export function Portfolio() {
                   <button className="media-popup-prev" onClick={handlePrevMedia}>
                     <ArrowLeftIcon className=""/>
                   </button>
-                  {activeMediaIndex !== null && (
-                    <>
+                  {activeMediaIndex !== null && filteredMedia?.[activeMediaIndex] && (
+  <>
                       {activeMedia?.type === "video" ? (
                         <iframe
                           src={`https://www.youtube.com/embed/${activeMedia.id}?rel=0&controls=1&modestbranding=1&autoplay=${
