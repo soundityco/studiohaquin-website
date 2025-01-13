@@ -284,8 +284,8 @@ export function Portfolio() {
           "/assets/images/projets/noelse/noelse-3D-lost-card.webp": ["3D"],
           "/assets/images/projets/noelse/noelse-couts-virements.webp": ["Design Graphique"],
           "CE05st8HUwc": ["Motion Design", "3D"],
-          "/assets/images/projets/noelse/noelse-card.webp": ["Design Graphique"],
-          "/assets/images/projets/noelse/noelse-3d-frozen-card.webp": ["Design Graphique", "3D"]
+          "/assets/images/projets/noelse/noelse-card.webp": ["3D"],
+          "/assets/images/projets/noelse/noelse-3d-frozen-card.webp": ["3D"]
         },
         text: {
           description: "Diverses réalisations de design graphique et motion design pour la banque en ligne ",
