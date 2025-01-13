@@ -1873,6 +1873,7 @@ input[type="range"]::-ms-thumb {
   gap: var(--container-padding);
   position: absolute;
   right: var(--container-padding);
+  width: unset;
 }
 
 .media-popup-content-nav-project {
