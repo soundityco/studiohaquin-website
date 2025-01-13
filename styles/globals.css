@@ -1324,7 +1324,17 @@ input[type="range"]::-ms-thumb {
   gap: calc(var(--container-padding)*1.5);
   position: sticky;
   top: 0;
-  padding-bottom: calc(var(--container-padding) - 0.75vw);
+
+
+  max-height: 100vh !important;
+  overflow: hidden;
+  box-sizing: border-box;
+  -webkit-mask-image: -webkit-gradient(
+    linear, left top, left bottom,
+    color-stop(25%, rgba(0, 0, 0, 1)),
+    color-stop(50%, rgba(0, 0, 0, 0.75)),
+    color-stop(100%, rgba(0, 0, 0, 0.1))
+  );
 }
 
 /*.portfolio-container {
@@ -1362,14 +1372,14 @@ input[type="range"]::-ms-thumb {
 .portfolio-container div {
   display: flex;
   flex-direction: column;
-  -webkit-mask-image: -webkit-gradient(
+  /*-webkit-mask-image: -webkit-gradient(
     linear,
     left top,
     left bottom,
     color-stop(25%, rgba(0, 0, 0, 1)),
     color-stop(50%, rgba(0, 0, 0, 0.75)),
     color-stop(100%, rgba(0, 0, 0, 0.1))
-  );
+  );*/
   /*gap: 1.5vw;*/
 }
 
@@ -1387,9 +1397,9 @@ input[type="range"]::-ms-thumb {
   padding-top: 0;
 }
 
-/*.portfolio-container div a:last-child {
+.portfolio-container div a:last-child {
   padding-bottom: 0;
-}*/
+}
 
 .portfolio-container div a:hover {
   color: var(--primary-color);
@@ -2348,13 +2358,7 @@ footer {
 
   /* PORTFOLIO */
   .portfolio-container {
-    padding-bottom: var(--container-padding);
-  }
-  .portfolio-container div {
     -webkit-mask-image: unset;
-  }
-  .portfolio-container div a:last-child {
-    padding-bottom: 0;
   }
   .portfolio-popup-content-header div,
   .portfolio-popup-content-header {
