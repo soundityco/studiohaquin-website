@@ -442,8 +442,8 @@ body.no-scroll {
   max-width: var(--container-max-width);
   /*padding: var(--container-padding);
   box-sizing: border-box;*/
-  margin-left: auto;
-  margin-right: auto;
+  margin: auto;
+  width: 100%;
 }
 
 
@@ -1337,6 +1337,10 @@ input[type="range"]::-ms-thumb {
   );
 }
 
+.portfolio-container-block {
+  gap: calc(var(--container-padding)* 1.5);
+}
+
 /*.portfolio-container {
   display: flex;
   flex-direction: column;
@@ -2169,7 +2173,7 @@ footer {
     gap: 2.5rem;
   }
   .div-to-click {
-    padding: 1rem 0;
+    padding: 0.6rem 0;
   }
   .portfolio-popup-content-header-block h2 {
     font-size: 3rem;

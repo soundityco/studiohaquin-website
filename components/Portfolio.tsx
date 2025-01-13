@@ -650,30 +650,32 @@ export function Portfolio() {
 
     return (
       <section className="portfolio" id="portfolio" data-scroll-container="true">
-        <div className="portfolio-container container">
-          <nav>
-            <ul>
-              <li>Crédits</li>
-              <li>Projets</li>
-              <li>Date</li>
-            </ul>
-          </nav>
-          <div>
-            {projects.map((project, index) => (
-              <a
-                key={project.name}
-                className={`div-to-click show-me hover-click-sound ${
-                  activeProjectIndex === index ? "activeProject" : ""
-                }`}
-                onClick={() => handleClick(index)}
-                onMouseEnter={() => handleMouseEnter(index)}
-                onMouseLeave={handleMouseLeave}
-              >
-                <span>{project.name}</span>
-                <span>{project.description}</span>
-                <span>{project.date}</span>
-              </a>
-            ))}
+        <div className="portfolio-container">
+          <div className="portfolio-container-block container">
+            <nav>
+              <ul>
+                <li>Crédits</li>
+                <li>Projets</li>
+                <li>Date</li>
+              </ul>
+            </nav>
+            <div>
+              {projects.map((project, index) => (
+                <a
+                  key={project.name}
+                  className={`div-to-click show-me hover-click-sound ${
+                    activeProjectIndex === index ? "activeProject" : ""
+                  }`}
+                  onClick={() => handleClick(index)}
+                  onMouseEnter={() => handleMouseEnter(index)}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  <span>{project.name}</span>
+                  <span>{project.description}</span>
+                  <span>{project.date}</span>
+                </a>
+              ))}
+            </div>
           </div>
         </div>
 
