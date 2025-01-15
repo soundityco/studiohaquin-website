@@ -59,7 +59,7 @@ const Header = forwardRef<HTMLElement>((props, ref) => {
         <div className="header-button">
           <a
             className="button-contact hover-sound-contact"
-            href="mailto:mailto:andy@studiohaquin.com?subject=J'ai un super projet à vous proposer ! 😎&body=Hello Andy ! (très beau prénom), J'ai pour projet de…"
+            href="mailto:mailto:hello@studiohaquin.com?subject=J'ai un super projet à vous proposer ! 😎&body=Hello Andy ! (très beau prénom), J'ai pour projet de…"
           >
             Me contacter
           </a>

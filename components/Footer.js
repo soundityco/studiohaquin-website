@@ -10,7 +10,7 @@ export function Footer() {
   return (
     <footer> {/* FOOTER PART */}
       <div className="footer-container container">
-        <a className="footer-logo show-me" href="mailto:andy@studiohaquin.com?subject=J'ai un super projet à vous proposer ! 😎&body=Hello Andy ! (très beau prénom), J'ai pour projet de…"><MailStudioHaquinLogo className="footer-logo" alt="Studio Haquin Logo" draggable="false"/></a>
+        <a className="footer-logo show-me" href="mailto:hello@studiohaquin.com?subject=J'ai un super projet à vous proposer ! 😎&body=Hello Andy ! (très beau prénom), J'ai pour projet de…"><MailStudioHaquinLogo className="footer-logo" alt="Studio Haquin Logo" draggable="false"/></a>
         <h1 className="section-title footer-title">Parlez-moi de votre projet !</h1>
         <div className="footer-container-block">
           <nav className="footer-links">
@@ -20,7 +20,7 @@ export function Footer() {
               <li><a className="footer-link show-me hover-sound-behance" href="https://be.net/studiohaquin" target="_blank" rel="noopener noreferrer">Behance</a></li>
             </ul>
           </nav>
-          <a className="button-contact hover-sound-contact" href="mailto:andy@studiohaquin.com?subject=J'ai un super projet à vous proposer ! 😎&body=Hello Andy ! (très beau prénom), J'ai pour projet de…">Me contacter</a>{/* 👉 */}
+          <a className="button-contact hover-sound-contact" href="mailto:hello@studiohaquin.com?subject=J'ai un super projet à vous proposer ! 😎&body=Hello Andy ! (très beau prénom), J'ai pour projet de…">Me contacter</a>{/* 👉 */}
         </div>
         <div className="footer-container-block">
           <p className="footer-cc">
