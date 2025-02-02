@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg id="Calque_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 200 200">
-  <!-- Generator: Adobe Illustrator 29.3.0, SVG Export Plug-In . SVG Version: 2.1.0 Build 56)  -->
+<svg id="Calque_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 90.1 133.9">
+  <!-- Generator: Adobe Illustrator 29.4.0, SVG Export Plug-In . SVG Version: 2.1.0 Build 2)  -->
   <defs>
     <style>
       .st0 {
@@ -8,6 +8,7 @@
       }
     </style>
   </defs>
-  <circle class="st0" cx="100" cy="100" r="100"/>
-  <path d="M141.4,105.3H34.9v-14.1h106.5l-27.9-27.9,10.2-10.2,45.1,45.1-45,45-10.2-10.2,27.8-27.8Z"/>
+  <circle class="st0" cx="401.2" cy="66.9" r="100"/>
+  <path d="M442.6,72.2h-106.5v-14.1h106.5l-27.9-27.9,10.2-10.2,45.1,45.1-45,45-10.2-10.2,27.8-27.8h0Z"/>
+  <path class="st0" d="M37.9,106.5V0h14.1v106.5l27.9-27.9,10.2,10.2-45.1,45.1L0,88.9l10.2-10.2,27.8,27.8h-.1Z"/>
 </svg>

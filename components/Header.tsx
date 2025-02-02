@@ -41,7 +41,7 @@ const Header = forwardRef<HTMLElement>((props, ref) => {
   return (
     <header className="header" ref={ref}>
       <div className="header-container container">
-        <a href="/" className="header-logo link">
+        {/*<a href="/" className="header-logo link">
           <WebsiteIcon className="header-menu-icon" />
           <div className="header-text">
             <Typewriter
@@ -55,17 +55,22 @@ const Header = forwardRef<HTMLElement>((props, ref) => {
               } as any}
             />
           </div>
+        </a>*/}
+        <a
+          className="button-contact link"
+          href="/"
+        >
+          STUDIO HAQUIN ©
         </a>
-        <div className="header-button">
+        <div className="header-button link">
           <a
             className="button-contact hover-sound-contact"
-            href="mailto:mailto:hello@studiohaquin.com?subject=J'ai un super projet à vous proposer ! 😎&body=Hello Andy ! (très beau prénom), J'ai pour projet de…"
           >
-            Me contacter
+            MENU
           </a>
           <a
             className="button-contact-img link"
-            href="https://instagram.com/studiohaquin"
+            href="mailto:mailto:hello@studiohaquin.com?subject=J'ai un super projet à vous proposer ! 😎&body=Hello Andy ! (très beau prénom), J'ai pour projet de…"
             target="_blank"
             rel="noopener noreferrer"
           >

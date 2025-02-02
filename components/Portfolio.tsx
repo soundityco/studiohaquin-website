@@ -55,6 +55,43 @@ export function Portfolio() {
 
   const projects: Project[] = [
     {
+      name: "Green Got",
+      description: "Motion design 3D offre 'Premium'",
+      date: "2025",
+      content: {
+        media: [
+          { type: "video", "id": "79vaHqkKxgg" },
+          { type: "video", "id": "uM0wrvgouJo" },
+          { type: "image", "url": "/assets/images/projets/greengot/greengot-card-premium-3D-1.jpg" },
+          { type: "image", "url": "/assets/images/projets/greengot/greengot-card-premium-3D-2.jpg" },
+          { type: "image", "url": "/assets/images/projets/greengot/greengot-card-premium-3D-3.jpg" },
+          { type: "image", "url": "/assets/images/projets/greengot/greengot-card-premium-3D-4.jpg" },
+          { type: "image", "url": "/assets/images/projets/greengot/greengot-card-premium-3D-5.jpg" },
+          { type: "image", "url": "/assets/images/projets/greengot/greengot-card-premium-3D-6.jpg" },
+        ],
+        projectTags: {
+          "79vaHqkKxgg": ["Motion Design", "3D"],
+          "uM0wrvgouJo": ["Motion Design", "3D"],
+          "/assets/images/projets/greengot/greengot-card-premium-3D-1.jpg": ["3D"],
+          "/assets/images/projets/greengot/greengot-card-premium-3D-2.jpg": ["3D"],
+          "/assets/images/projets/greengot/greengot-card-premium-3D-3.jpg": ["3D"],
+          "/assets/images/projets/greengot/greengot-card-premium-3D-4.jpg": ["3D"],
+          "/assets/images/projets/greengot/greengot-card-premium-3D-5.jpg": ["3D"],
+          "/assets/images/projets/greengot/greengot-card-premium-3D-6.jpg": ["3D"],
+        },
+        text: {
+          description: "Réalisation de motion designs 3D pour le lancement de la nouvelle offre 'Premium' de la banque en ligne ",
+          links: [
+            {
+              label: "Green Got",
+              url: "https://green-got.com",
+            },
+          ],
+          tags: allAvailableTags,
+        }
+      }
+    },
+    {
       name: "Decathlon",
       description: "Mini série & vidéos promotionnelles",
       date: "2024",
@@ -274,7 +311,7 @@ export function Portfolio() {
           { type: "video", "id": "4M0I_Xca63A" },
           { type: "image", "url": "/assets/images/projets/noelse/noelse-3D-lost-card.webp" },
           { type: "image", "url": "/assets/images/projets/noelse/noelse-couts-virements.webp" },
-          { type: "video", "id": "CE05st8HUwc" },
+          //{ type: "video", "id": "CE05st8HUwc" },
           { type: "image", "url": "/assets/images/projets/noelse/noelse-card.webp" },
           { type: "image", "url": "/assets/images/projets/noelse/noelse-3d-frozen-card.webp" }
         ],
@@ -283,7 +320,7 @@ export function Portfolio() {
           "4M0I_Xca63A": ["Motion Design"],
           "/assets/images/projets/noelse/noelse-3D-lost-card.webp": ["3D"],
           "/assets/images/projets/noelse/noelse-couts-virements.webp": ["Design Graphique"],
-          "CE05st8HUwc": ["Motion Design", "3D"],
+          //"CE05st8HUwc": ["Motion Design", "3D"],
           "/assets/images/projets/noelse/noelse-card.webp": ["3D"],
           "/assets/images/projets/noelse/noelse-3d-frozen-card.webp": ["3D"]
         },
@@ -771,14 +808,14 @@ export function Portfolio() {
                           <PlayerPlayIcon className="portfolio-video-play-button" />
                           <img
                             src={`https://img.youtube.com/vi/${media.id}/maxresdefault.jpg`}
-                            alt={`Thumbnail for Video ${index + 1}`}
+                            alt={`Miniature vidéo ${activeProject?.name} - ${activeProject?.description} ${index + 1}`}
                             draggable="false"
                           />
                         </div>
                       ) : (
                         <img
                           src={media.url}
-                          alt={`Image ${index + 1}`}
+                          alt={`${activeProject?.name} - ${activeProject?.description} ${index + 1}`}
                           className="portfolio-image"
                           draggable="false"
                         />

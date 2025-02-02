@@ -4,4 +4,4 @@ Disallow: /nogooglebot/
 User-agent: *
 Allow: /
 
-Sitemap: https://www.blurblurmusic.com/sitemap.xml
+Sitemap: https://www.studiohaquin.com/sitemap.xml

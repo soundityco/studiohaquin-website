@@ -35,6 +35,7 @@ const CustomCursor: React.FC<StickyCursorProps> = ({ stickyElement }) => {
   // Mapping between classes and cursor content
   const classEmojiMap: { [key: string]: React.ReactNode } = {
     'link': <Image src={EmojiEyes} alt="Emoji" draggable="false" />,
+    'mail': <Image src={EmojiContact} alt="Emoji" draggable="false" />,
     'button-contact': <Image src={EmojiContact} alt="Emoji" draggable="false" />,
     'button-footer': <Image src={EmojiContact} alt="Emoji" draggable="false" />,
     //'hero-engaged-roll-onevoice': <Image src={EmojiAnimal} alt="Emoji" draggable="false" />,
@@ -188,7 +189,7 @@ const CustomCursor: React.FC<StickyCursorProps> = ({ stickyElement }) => {
 
     window.addEventListener('mousemove', handleMouseMoveWrapper);
 
-    const hoverableElements = document.querySelectorAll('.video-player, .show-me, .link, .button-contact, .horizontal-scroll, .button-footer-reveal, .hero-scroll');
+    const hoverableElements = document.querySelectorAll('.video-player, .show-me, .link, .button-contact, .button-contact-img, .horizontal-scroll, .button-footer-reveal, .hero-scroll');
     hoverableElements.forEach(el => {
       if (el instanceof HTMLElement) {
         if (el.classList.contains('horizontal-scroll')) {
