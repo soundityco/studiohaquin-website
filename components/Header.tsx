@@ -97,7 +97,8 @@ const Header = forwardRef<HTMLElement>((props, ref) => {
             </a>
             <a
               className="button-contact-img link"
-              href="mailto:hello@studiohaquin.com?subject=J'ai un super projet à vous proposer ! 😎&body=Hello Andy ! (très beau prénom), J'ai pour projet de…"
+              //href="mailto:hello@studiohaquin.com?subject=J'ai un super projet à vous proposer ! 😎&body=Hello Andy ! (très beau prénom), J'ai pour projet de…"
+              href="https://linkedin.com/in/andyhaquin"
               target="_blank"
               rel="noopener noreferrer"
             >
