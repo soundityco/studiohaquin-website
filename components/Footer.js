@@ -1,14 +1,14 @@
 // Importing Dependencies //
 import React from "react";
 
-import { MailStudioHaquinLogo } from "./Images";
+import { MailStudioHaquinLogo } from "@/components/Images";
 
 export function Footer() {
   // Get the current year
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer> {/* FOOTER PART */}
+    <footer id="footer"> {/* FOOTER PART */}
       <div className="footer-container container">
         <a className="footer-logo show-me" href="mailto:hello@studiohaquin.com?subject=J'ai un super projet à vous proposer ! 😎&body=Hello Andy ! (très beau prénom), J'ai pour projet de…"><MailStudioHaquinLogo className="footer-logo" alt="Studio Haquin Logo" draggable="false"/></a>
         <h1 className="section-title footer-title">Parlez-moi de votre projet !</h1>

@@ -3,6 +3,7 @@ import React, { useEffect, useRef } from 'react';
 // Import components
 import Loader from "@/components/Loader";
 import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 
 // Import utils components
 import CustomCursor from '@/components/utils/CustomCursor'; // Import du composant externe
@@ -41,6 +42,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <div ref={stickyElement}>
           <CustomCursor stickyElement={stickyElement} />
         </div>
+        <Header />
         {children}
         <Footer />
       </div>

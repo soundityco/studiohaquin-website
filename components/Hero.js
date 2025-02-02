@@ -30,58 +30,60 @@ export function Hero() {
 
   return (
     <section className="hero" id="hero">
-      <div className="hero-container">
-        <Header />
-        {/* Rendre conditionnellement le header */}
-        {/*{isDesktop ? (
-          <div className="header-parent">
-            <Header />
-          </div>
-        ) : (
-          <Header />
-        )}*/}
+      <div className="hero-container-block">
         <div className="hero-video-container">
-          <video className="hero-video"
-            playsInline
-            preload="auto"
-            //poster="/showreel-thumbnail.webp"
-            autoPlay
-            muted
-            loop
-          >
-            <source src="https://res.cloudinary.com/dqrkeb9bz/video/upload/q_auto/v1738350956/SHOWREEL_2024_STUDIOHAQUIN_FHD6_pnvgrb.mp4" type="video/mp4" />
-          </video>
+            <video className="hero-video"
+              playsInline
+              preload="auto"
+              //poster="/showreel-thumbnail.webp"
+              autoPlay
+              muted
+              loop
+            >
+              <source src="https://res.cloudinary.com/dqrkeb9bz/video/upload/q_auto/v1738350956/SHOWREEL_2024_STUDIOHAQUIN_FHD6_pnvgrb.mp4" type="video/mp4" />
+            </video>
 
-          {/*<VideoPlayer className="container"
-            videoSrc="https://res.cloudinary.com/dqrkeb9bz/video/upload/q_auto/v1736499832/SHOWREEL_2024_STUDIOHAQUIN_FHD5_be4yfu.mp4"
-            //posterSrc="/showreel-thumbnail.webp"
-          />*/}
+            {/*<VideoPlayer className="container"
+              videoSrc="https://res.cloudinary.com/dqrkeb9bz/video/upload/q_auto/v1736499832/SHOWREEL_2024_STUDIOHAQUIN_FHD5_be4yfu.mp4"
+              //posterSrc="/showreel-thumbnail.webp"
+            />*/}
 
-          <div className="hero-video-container-shadow"></div>
+            <div className="hero-video-container-shadow"></div>
+          </div>
+        <div className="hero-container container">
+          {/* Rendre conditionnellement le header */}
+          {/*{isDesktop ? (
+            <div className="header-parent">
+              <Header />
+            </div>
+          ) : (
+            <Header />
+          )}*/}
+          
+        {/* <div className="hero-title-block">
+            <div className="scroll-button"></div>
+            
+            {/*<Link to="portfolio" smooth={true} duration={500} className="hero-scroll">
+              SCROLL&nbsp;<ArrowDownIcon />
+            </Link>*/}
+            
+            <div className="hero-text-block">
+              <h1>[STUDIO HAQUIN ©]</h1>
+              <p>Studio de création graphique et audiovisuelle, basé à Angers, FR.</p>
+            </div>
+
+            {/*<StudioHaquinLogo className="hero-title-block-logo" alt="Studio Haquin Logo" draggable="false"/>*/}
+            
+            {/*<div className="hero-engaged-roll-block">
+              <a href="https://one-voice.fr/faire-un-don/donner-en-tant-que-particulier/#form" target="_blank"
+                className="hero-engaged-roll hero-engaged-roll-onevoice show-me">
+              </a>
+              <a href="https://team-planet.com/fr/invites/uIteWnJAtr4" target="_blank"
+                className="hero-engaged-roll hero-engaged-roll-teamfortheplanet show-me">
+              </a>
+            </div>
+          </div>*/}
         </div>
-       {/* <div className="hero-title-block">
-          <div className="scroll-button"></div>
-          
-          {/*<Link to="portfolio" smooth={true} duration={500} className="hero-scroll">
-            SCROLL&nbsp;<ArrowDownIcon />
-          </Link>*/}
-          
-          <div className="hero-text-block">
-            <h1>[STUDIO HAQUIN ©]</h1>
-            <p>Studio de création graphique et audiovisuelle, basé à Angers, FR.</p>
-          </div>
-
-          {/*<StudioHaquinLogo className="hero-title-block-logo" alt="Studio Haquin Logo" draggable="false"/>*/}
-          
-          {/*<div className="hero-engaged-roll-block">
-            <a href="https://one-voice.fr/faire-un-don/donner-en-tant-que-particulier/#form" target="_blank"
-              className="hero-engaged-roll hero-engaged-roll-onevoice show-me">
-            </a>
-            <a href="https://team-planet.com/fr/invites/uIteWnJAtr4" target="_blank"
-              className="hero-engaged-roll hero-engaged-roll-teamfortheplanet show-me">
-            </a>
-          </div>
-        </div>*/}
       </div>
     </section>
   );
