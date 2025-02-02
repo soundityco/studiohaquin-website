@@ -1,12 +1,46 @@
 import React, { useState, useEffect, forwardRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Typewriter from "typewriter-effect";
 import { Link } from "react-scroll";
 
-import { MailStudioHaquinLogo, NewLinkIcon } from "@/components/Images";
+import { MailStudioHaquinLogo, NewLinkIcon, WebsiteIcon } from "@/components/Images";
 
 const Header = forwardRef<HTMLElement>((props, ref) => {
+
+  const [displayText, setDisplayText] = useState<string>("Studio Haquin ©"); // Texte affiché
+  const [isGreeting, setIsGreeting] = useState<boolean>(false); // Détermine si on affiche le greeting ou "Studio Haquin"
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
+
+  useEffect(() => {
+    const updateText = () => {
+      if (isGreeting) {
+        setDisplayText("Studio Haquin");
+        setTimeout(() => setIsGreeting(false), 15000); // Revenir à Studio Haquin pour 15 secondes
+      } else {
+        const currentHour = new Date().getHours();
+        if (currentHour >= 0 && currentHour < 6) {
+          setDisplayText("Il est un peu tard, non ? 🧐");
+        } else if (currentHour >= 6 && currentHour < 12) {
+          setDisplayText("Bonne journée ! 😇");
+        } else if (currentHour >= 12 && currentHour < 14) {
+          setDisplayText("Miam, bon appétit ! 🍕");
+        } else if (currentHour >= 14 && currentHour < 18) {
+          setDisplayText("Une petite sieste ? 😌");
+        } else {
+          setDisplayText("Je vais pas tarder… 😴");
+        }
+        setTimeout(() => setIsGreeting(true), 5000); // Afficher le greeting pour 5 secondes
+      }
+    };
+
+    updateText(); // Initialiser le cycle dès le chargement
+
+    // Met à jour le texte en boucle
+    const interval = setInterval(updateText, 20000); // 20s = 5s (greeting) + 15s (Studio Haquin)
+
+    return () => clearInterval(interval); // Nettoyage
+  }, [isGreeting]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,8 +73,23 @@ const Header = forwardRef<HTMLElement>((props, ref) => {
       <div className="header-container-master">
       <div className="header-container container">
         <div className="header-container-block">
-          <a className="button-contact link" href="/">
+          {/*<a className="button-contact link" href="/">
             STUDIO HAQUIN ©
+          </a>*/}
+          <a href="/" className="header-logo link">
+            <WebsiteIcon className="header-menu-icon" />
+            <div className="header-text">
+              <Typewriter
+                options={{
+                  strings: [displayText],
+                  autoStart: true,
+                  loop: false, // Pas de boucle pour chaque texte (géré par le cycle)
+                  delay: 70,
+                  deleteSpeed: 35,
+                  pauseFor: isGreeting ? 14000 : 4000, // Durée de pause pour chaque texte
+                } as any}
+              />
+            </div>
           </a>
           <div className="header-button link">
             <a className="button-contact hover-sound-contact" onClick={toggleMenu}>
