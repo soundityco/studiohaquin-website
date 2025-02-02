@@ -2673,6 +2673,9 @@ footer {
   .header-text {
     display: none;
   }
+  .header-menu-content {
+    font-size: 3rem;
+  }
 }
 
 @media only screen and (max-width: 500px) {
@@ -2699,9 +2702,6 @@ footer {
   /*.header-container {
     padding: var(--container-padding) 0;
   }*/
-  .header-menu-content {
-    font-size: 4rem;
-  }
   .header-logo {
     padding: 0rem;
   }

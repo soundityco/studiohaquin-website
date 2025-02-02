@@ -67,10 +67,10 @@ export function Hero() {
               SCROLL&nbsp;<ArrowDownIcon />
             </Link>*/}
             
-            <div className="hero-text-block">
+            {/*<div className="hero-text-block">
               <h1>[STUDIO HAQUIN ©]</h1>
               <p>Studio de création graphique et audiovisuelle, basé à Angers, FR.</p>
-            </div>
+            </div>*/}
 
             {/*<StudioHaquinLogo className="hero-title-block-logo" alt="Studio Haquin Logo" draggable="false"/>*/}
             
