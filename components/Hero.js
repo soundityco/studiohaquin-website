@@ -72,7 +72,7 @@ export function Hero() {
               <p>Studio de création graphique et audiovisuelle, basé à Angers, FR.</p>
             </div>*/}
 
-            {/*<StudioHaquinLogo className="hero-title-block-logo" alt="Studio Haquin Logo" draggable="false"/>*/}
+            <StudioHaquinLogo className="hero-title-block-logo" alt="Studio Haquin Logo" draggable="false"/>
             
             {/*<div className="hero-engaged-roll-block">
               <a href="https://one-voice.fr/faire-un-don/donner-en-tant-que-particulier/#form" target="_blank"

@@ -5,23 +5,41 @@ import { Link } from "react-scroll";
 import { NewLinkIcon, WebsiteIcon } from "@/components/Images";
 
 const Header = forwardRef<HTMLElement>((props, ref) => {
-  const [displayText, setDisplayText] = useState("Studio Haquin ©");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [isGreeting, setIsGreeting] = useState<boolean>(false); // Détermine si on affiche le greeting ou "Studio Haquin"
+  const [displayText, setDisplayText] = useState("Studio Haquin ©");
 
   useEffect(() => {
-    const greetings = [
-      { range: [0, 6], text: "Il est un peu tard, non ? 🧐" },
-      { range: [6, 12], text: "Bonne journée ! 😇" },
-      { range: [12, 14], text: "Miam, bon appétit ! 🍕" },
-      { range: [14, 18], text: "Une petite sieste ? 😌" },
-      { range: [18, 24], text: "Je vais pas tarder… 😴" },
-    ];
-    const currentHour = new Date().getHours();
-    const greeting = greetings.find(({ range }) => currentHour >= range[0] && currentHour < range[1]);
-    setDisplayText(greeting ? greeting.text : "Studio Haquin");
-  }, []);
+    const updateText = () => {
+      if (isGreeting) {
+        setDisplayText("Studio Haquin");
+        setTimeout(() => setIsGreeting(false), 15000); // Revenir à Studio Haquin pour 15 secondes
+      } else {
+        const currentHour = new Date().getHours();
+        if (currentHour >= 0 && currentHour < 6) {
+          setDisplayText("Il est un peu tard, non ? 🧐");
+        } else if (currentHour >= 6 && currentHour < 12) {
+          setDisplayText("Bonne journée ! 😇");
+        } else if (currentHour >= 12 && currentHour < 14) {
+          setDisplayText("Miam, bon appétit ! 🍕");
+        } else if (currentHour >= 14 && currentHour < 18) {
+          setDisplayText("Une petite sieste ? 😌");
+        } else {
+          setDisplayText("Je vais pas tarder… 😴");
+        }
+        setTimeout(() => setIsGreeting(true), 5000); // Afficher le greeting pour 5 secondes
+      }
+    };
+
+    updateText(); // Initialiser le cycle dès le chargement
+
+    // Met à jour le texte en boucle
+    const interval = setInterval(updateText, 20000); // 20s = 5s (greeting) + 15s (Studio Haquin)
+
+    return () => clearInterval(interval); // Nettoyage
+  }, [isGreeting]);
 
   useEffect(() => {
     const handleScroll = () => setHasScrolled(window.scrollY > 300);
@@ -60,14 +78,14 @@ const Header = forwardRef<HTMLElement>((props, ref) => {
               <WebsiteIcon className="header-menu-icon" />
               <div className="header-text">
               <Typewriter
-                options={{ autoStart: true, loop: false, delay: 70, deleteSpeed: 35 }}
-                onInit={(typewriter) => {
-                  typewriter
-                    .typeString(displayText)
-                    .pauseFor(4000) // Simulé par un setTimeout si nécessaire
-                    .deleteAll()
-                    .start();
-                }}
+                options={{
+                  strings: [displayText],
+                  autoStart: true,
+                  loop: false, // Pas de boucle pour chaque texte (géré par le cycle)
+                  delay: 70,
+                  deleteSpeed: 35,
+                  pauseFor: isGreeting ? 14000 : 4000, // Durée de pause pour chaque texte
+                } as any}
               />
               </div>
             </a>
