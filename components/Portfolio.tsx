@@ -686,6 +686,7 @@ export function Portfolio() {
     const activeMedia = filteredMedia && activeMediaIndex !== null ? filteredMedia[activeMediaIndex] : null;
 
     return (
+      <>
       <section className="portfolio" id="portfolio" data-scroll-container="true">
         <div className="portfolio-container section-top">
           <div className="portfolio-container-block container">
@@ -833,6 +834,8 @@ export function Portfolio() {
           </div>
         )}
 
+        
+      </section>
         {isMediaPopupOpen && (
           <div className="media-popup">
             {/*<div className="media-popup-overlay" onClick={() => setIsMediaPopupOpen(false)}>*/}
@@ -880,6 +883,6 @@ export function Portfolio() {
             {/*</div>*/}
           </div>
         )}
-      </section>
+      </>
     );
   }

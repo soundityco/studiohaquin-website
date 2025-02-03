@@ -1910,6 +1910,7 @@ input[type="range"]::-ms-thumb {
   height: 100vh;
   z-index: 10000;
   overflow: hidden;
+  color: var(--background);
   padding: var(--container-padding);
   box-sizing: border-box;
   backdrop-filter: blur(50px);
