@@ -12,6 +12,9 @@ const Header = forwardRef<HTMLElement>((props, ref) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
 
+  const [isAnimating, setIsAnimating] = useState(false);
+
+
   useEffect(() => {
     const updateText = () => {
       if (isGreeting) {
@@ -52,6 +55,9 @@ const Header = forwardRef<HTMLElement>((props, ref) => {
   }, []);
 
   const toggleMenu = () => {
+    if (!isMenuOpen) {
+      setIsAnimating(true); // Active le z-index immédiatement à l’ouverture
+    }
     setIsMenuOpen((prev) => !prev);
   };
 
@@ -62,13 +68,16 @@ const Header = forwardRef<HTMLElement>((props, ref) => {
   return (
     <motion.header
       ref={ref}
-      className={`header ${isMenuOpen ? "menu-open" : ""} ${hasScrolled ? "scrolled" : ""} ${isMenuOpen && hasScrolled ? "scrolled-no-blur" : ""}`}
+      className={`header ${isMenuOpen ? "menu-open" : ""}
+                        ${hasScrolled ? "scrolled" : ""}
+                        ${isMenuOpen && hasScrolled ? "scrolled-no-blur" : ""}`}
       animate={{
         height: isMenuOpen ? "100vh" : "auto",
         position: "fixed",
         backgroundColor: isMenuOpen ? "rgba(0, 0, 0, 1)" : "rgba(0, 0, 0, 0)",
       }}
-      transition={{ duration: 0.5, ease: "easeInOut" }}
+      style={{ zIndex: isAnimating ? 3 : 1 }} // Désactivé après animation exit
+      transition={{ duration: 0.35, ease: "easeInOut" }}
     >
       <div className="header-container-master">
       <div className="header-container container">
@@ -106,29 +115,29 @@ const Header = forwardRef<HTMLElement>((props, ref) => {
             </a>
           </div>
         </div>
-        <AnimatePresence>
-        {isMenuOpen && (
-          <motion.div
-          className="header-menu-content"
-          initial="hidden"
-          animate="visible"
-          exit="exit" // On crée une animation spécifique pour l'exit
-          variants={{
-            hidden: { opacity: 0, y: -100 },
-            visible: {
-              opacity: 1,
-              y: 0,
-              transition: {
-                duration: 0.5,
-                ease: "easeInOut",
-                delay: 0.2, // Delay uniquement à l'entrée
-                staggerChildren: 0.1,
-                delayChildren: 0.3,
+        <AnimatePresence onExitComplete={() => setIsAnimating(false)}>
+          {isMenuOpen && (
+            <motion.div
+            className="header-menu-content"
+            initial="hidden"
+            animate="visible"
+            exit="exit" // On crée une animation spécifique pour l'exit
+            variants={{
+              hidden: { opacity: 0, y: -100 },
+              visible: {
+                opacity: 1,
+                y: 0,
+                transition: {
+                  duration: 0.5,
+                  ease: "easeInOut",
+                  delay: 0.2, // Delay uniquement à l'entrée
+                  staggerChildren: 0.1,
+                  delayChildren: 0.3,
+                },
               },
-            },
-            exit: { opacity: 0, y: -100, transition: { duration: 0.3, ease: "easeInOut" } }, // Exit rapide, sans delay
-          }}
-        >
+              exit: { opacity: 0, y: -100, transition: { duration: 0.3, ease: "easeInOut" } }, // Exit rapide, sans delay
+            }}
+          >
             <nav>
               <ul>
                 <li>

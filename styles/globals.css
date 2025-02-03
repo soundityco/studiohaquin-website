@@ -1385,6 +1385,9 @@ input[type="range"]::-ms-thumb {
   border-bottom: 0.5px solid var(--dark-grey);
   border-top: 1px solid var(--dark-grey);
   width: 100%;
+  background: var(--foreground);
+  z-index: 2;
+  position: relative;
 }
 
 .portfolio-container {
@@ -1400,6 +1403,7 @@ input[type="range"]::-ms-thumb {
 
 
   max-height: calc(100vh - var(--container-padding)*3)!important;
+  max-height: 100vh !important;
   overflow: hidden;
   box-sizing: border-box;
   -webkit-mask-image: -webkit-gradient(
@@ -1526,6 +1530,7 @@ input[type="range"]::-ms-thumb {
 
 .portfolio-popup-container {
   color: var(--background);
+  position: relative;
   z-index: 1;
   border-bottom: unset;
   transition: transform 0.3s cubic-bezier(.7,0,.4,1.01) 0.3s, opacity 0.3s cubic-bezier(.7,0,.4,1.01) 0.3s;

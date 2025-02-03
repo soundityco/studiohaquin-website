@@ -687,7 +687,7 @@ export function Portfolio() {
 
     return (
       <section className="portfolio" id="portfolio" data-scroll-container="true">
-        <div className="portfolio-container section-top">
+        <div className="portfolio-container">
           <div className="portfolio-container-block container">
             <nav>
               <ul>
