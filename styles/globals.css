@@ -1405,7 +1405,7 @@ input[type="range"]::-ms-thumb {
 
 
   max-height: calc(100vh - var(--container-padding)*3)!important;
-  max-height: 100vh !important;
+  /*max-height: 100vh !important;*/
   overflow: hidden;
   box-sizing: border-box;
   -webkit-mask-image: -webkit-gradient(
