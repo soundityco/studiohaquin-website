@@ -66,8 +66,10 @@ const Header = forwardRef<HTMLElement>((props, ref) => {
   return (
     <motion.header
       ref={ref}
-      className={`header ${isMenuOpen ? "menu-open" : ""} ${hasScrolled ? "scrolled" : ""} ${isMenuOpen && hasScrolled ? "scrolled-no-blur" : ""}`}
-      animate={{ height: isMenuOpen ? "100svh" : "auto", backgroundColor: isMenuOpen ? "rgba(0, 0, 0, 1)" : "rgba(0, 0, 0, 0)" }}
+      className={`header ${isMenuOpen ? "menu-open" : ""}
+                         ${hasScrolled ? "scrolled" : ""} 
+                         ${isMenuOpen && hasScrolled ? "scrolled-no-blur" : ""}`}
+      animate={{ height: isMenuOpen ? "100svh" : "auto", backgroundColor: isMenuOpen ? "rgba(0, 0, 0, 1)" : "" }}
       style={{ zIndex: isAnimating ? 3 : 1 }}
       transition={{ duration: 0.5, ease: "easeInOut" }}
     >
