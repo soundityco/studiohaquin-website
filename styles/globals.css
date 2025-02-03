@@ -1852,6 +1852,7 @@ input[type="range"]::-ms-thumb {
   white-space: nowrap;
   overflow: hidden;
   display: inline-block;
+  border-radius: 1.25vw;
 }
 
 .portfolio-popup-content-header-block h2 svg {
@@ -2203,6 +2204,10 @@ footer {
   .button-contact {
     font-size: 2rem;
     padding: 1rem 1.5rem;
+    border-radius: 1.5rem;
+  }
+  .button-contact-img {
+    border-radius: 1.5rem;
   }
   .header-menu-icon {
     width: 3rem;
@@ -2271,6 +2276,7 @@ footer {
   .portfolio-popup-content-header-block h2 {
     font-size: 3rem;
     padding: 1.25rem 2rem;
+    border-radius: 1.75rem;
   }
   .portfolio-icon {
     height: 2rem;
@@ -2496,6 +2502,9 @@ footer {
     color: var(--light-grey);
     line-height: 1.75rem;
     font-size: 1.25rem;
+  }
+  .portfolio-popup-content-header-block h2 {
+    border-radius: 1rem;
   }
   .portfolio-project-tags div {
     gap: var(--container-padding);
