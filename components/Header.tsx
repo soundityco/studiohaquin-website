@@ -2,7 +2,7 @@ import React, { useState, useEffect, forwardRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Typewriter from "typewriter-effect";
 import { Link } from "react-scroll";
-import { NewLinkIcon, WebsiteIcon } from "@/components/Images";
+import { NewLinkIcon, WebsiteIcon, ArrowRightIcon } from "@/components/Images";
 
 const Header = forwardRef<HTMLElement>((props, ref) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -69,7 +69,8 @@ const Header = forwardRef<HTMLElement>((props, ref) => {
       className={`header ${isMenuOpen ? "menu-open" : ""}
                          ${hasScrolled ? "scrolled" : ""} 
                          ${isMenuOpen && hasScrolled ? "scrolled-no-blur" : ""}`}
-      animate={{ height: isMenuOpen ? "100svh" : "auto", backgroundColor: isMenuOpen ? "rgba(0, 0, 0, 1)" : "" }}
+      animate={{ height: isMenuOpen ? "100svh" : "auto",
+                 backgroundColor: isMenuOpen ? "rgba(0, 0, 0, 1)" : ""}}
       style={{ zIndex: isAnimating ? 3 : 1 }}
       transition={{ duration: 0.5, ease: "easeInOut" }}
     >
@@ -105,11 +106,13 @@ const Header = forwardRef<HTMLElement>((props, ref) => {
                   <ul>
                     {navLinks.map(({ to, label, duration }) => (
                       <li key={to}>
+                        <ArrowRightIcon className="header-menu-content-icon"/>
                         <Link to={to} smooth={true} duration={duration} onClick={() => setIsMenuOpen(false)} className="link">{label}</Link>
                       </li>
                     ))}
                     {externalLinks.map(({ href, label }) => (
                       <li key={href}>
+                        <ArrowRightIcon className="header-menu-content-icon"/>
                         <a href={href} target="_blank" rel="noopener noreferrer" className="link">{label}</a>
                       </li>
                     ))}
