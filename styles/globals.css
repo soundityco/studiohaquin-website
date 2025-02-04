@@ -602,6 +602,10 @@ header.scrolled {
   color: var(--primary-color);
 }
 
+.header-menu-content nav ul li a {
+  width: 100%;
+}
+
 .header-menu-content-icon {
   fill: var(--primary-color);
   width: 5.5vw;
