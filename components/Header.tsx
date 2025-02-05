@@ -12,10 +12,10 @@ const Header = forwardRef<HTMLElement>((props, ref) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
   const [isGreeting, setIsGreeting] = useState<boolean>(false); // Détermine si on affiche le greeting ou "Studio Haquin"
   const [displayText, setDisplayText] = useState("Studio Haquin ©");
 
-  // Gestion de l'affichage du texte en alternance
   useEffect(() => {
     const greetings = [
       { range: [0, 6], text: "Il est un peu tard, non ? 🧐" },
@@ -45,7 +45,12 @@ const Header = forwardRef<HTMLElement>((props, ref) => {
   }, []);
 
   const toggleMenu = () => {
-    if (!isMenuOpen) setIsAnimating(true);
+    if (isMenuOpen) {
+      // Si le menu est ouvert et qu'on le ferme, on active isClosing pour forcer le no-blur durant la fermeture
+      setIsClosing(true);
+    } else {
+      setIsAnimating(true);
+    }
     setIsMenuOpen((prev) => !prev);
   };
 
@@ -68,7 +73,9 @@ const Header = forwardRef<HTMLElement>((props, ref) => {
   return (
     <motion.header
       ref={ref}
-      className={`header ${isMenuOpen ? "menu-open" : ""} ${hasScrolled ? "scrolled" : ""} ${isMenuOpen && hasScrolled ? "scrolled-no-blur" : ""}`}
+      className={`header ${isMenuOpen ? "menu-open" : ""} ${
+        hasScrolled ? (isMenuOpen || isClosing ? "scrolled-no-blur" : "scrolled") : ""
+      }`}
       animate={{ 
         height: isMenuOpen ? "100svh" : "auto", 
         backgroundColor: isMenuOpen ? "rgba(0, 0, 0, 1)" : "" 
@@ -99,12 +106,22 @@ const Header = forwardRef<HTMLElement>((props, ref) => {
               <a className="button-contact hover-sound-contact" onClick={toggleMenu}>
                 {isMenuOpen ? "FERMER" : "MENU"}
               </a>
-              <a className="button-contact-img link" href="https://linkedin.com/in/andyhaquin" target="_blank" rel="noopener noreferrer">
+              <a
+                className="button-contact-img link"
+                href="https://linkedin.com/in/andyhaquin"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <NewLinkIcon />
               </a>
             </div>
           </div>
-          <AnimatePresence onExitComplete={() => setIsAnimating(false)}>
+          <AnimatePresence
+            onExitComplete={() => {
+              setIsAnimating(false);
+              setIsClosing(false);
+            }}
+          >
             {isMenuOpen && (
               <motion.div
                 className="header-menu-content"
@@ -113,8 +130,14 @@ const Header = forwardRef<HTMLElement>((props, ref) => {
                 exit="exit"
                 variants={{
                   hidden: { opacity: 0 },
-                  visible: { opacity: 1, transition: { duration: 0.5, ease: "easeInOut", delay: 0.3, staggerChildren: 0.35, delayChildren: 0.75 } },
-                  exit: { opacity: 0, transition: { duration: 0.2, ease: "easeInOut"} },
+                  visible: { 
+                    opacity: 1, 
+                    transition: { duration: 0.5, ease: "easeInOut", delay: 0.3, staggerChildren: 0.35, delayChildren: 0.75 } 
+                  },
+                  exit: { 
+                    opacity: 0, 
+                    transition: { duration: 0.2, ease: "easeInOut" } 
+                  },
                 }}
               >
                 <nav>
@@ -141,7 +164,12 @@ const Header = forwardRef<HTMLElement>((props, ref) => {
                               {link.label}
                             </Link>
                           ) : (
-                            <a href={link.href!} target="_blank" rel="noopener noreferrer" className="link">
+                            <a
+                              href={link.href!}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="link"
+                            >
                               {link.label}
                             </a>
                           )}
