@@ -17,25 +17,33 @@ const Header = forwardRef<HTMLElement>((props, ref) => {
   const [displayText, setDisplayText] = useState("Studio Haquin ©");
 
   useEffect(() => {
-    const greetings = [
-      { range: [0, 6], text: "Il est un peu tard, non ? 🧐" },
-      { range: [6, 12], text: "Bonne journée ! 😇" },
-      { range: [12, 14], text: "Miam, bon appétit ! 🍕" },
-      { range: [14, 18], text: "Une petite sieste ? 😌" },
-      { range: [18, 24], text: "Je vais pas tarder… 😴" },
-    ];
-    
-    const currentHour = new Date().getHours();
-    const greeting = greetings.find(({ range }) => currentHour >= range[0] && currentHour < range[1]);
-    let isStudioHaquin = true;
-    
-    const cycleText = () => {
-      setDisplayText(isStudioHaquin ? "Studio Haquin ©" : greeting?.text || "Studio Haquin ©");
-      isStudioHaquin = !isStudioHaquin;
-      setTimeout(cycleText, isStudioHaquin ? 15000 : 5000);
+    const updateText = () => {
+      if (isGreeting) {
+        setDisplayText("Studio Haquin");
+        setTimeout(() => setIsGreeting(false), 15000); // Revenir à Studio Haquin pour 15 secondes
+      } else {
+        const currentHour = new Date().getHours();
+        if (currentHour >= 0 && currentHour < 6) {
+          setDisplayText("Il est un peu tard, non ? 🧐");
+        } else if (currentHour >= 6 && currentHour < 12) {
+          setDisplayText("Bonne journée ! 😇");
+        } else if (currentHour >= 12 && currentHour < 14) {
+          setDisplayText("Miam, bon appétit ! 🍕");
+        } else if (currentHour >= 14 && currentHour < 18) {
+          setDisplayText("Une petite sieste ? 😌");
+        } else {
+          setDisplayText("Je vais pas tarder… 😴");
+        }
+        setTimeout(() => setIsGreeting(true), 5000); // Afficher le greeting pour 5 secondes
+      }
     };
 
-    cycleText();
+    updateText(); // Initialiser le cycle dès le chargement
+
+    // Met à jour le texte en boucle
+    const interval = setInterval(updateText, 20000); // 20s = 5s (greeting) + 15s (Studio Haquin)
+
+    return () => clearInterval(interval); // Nettoyage
   }, [isGreeting]);
 
   useEffect(() => {
