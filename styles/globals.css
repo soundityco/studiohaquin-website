@@ -2717,6 +2717,9 @@ footer {
   /*.button-contact-img {
     display: none;
   }*/
+  .intro {
+    padding: calc(var(--container-padding)* 5) 0;
+  }
   .portfolio-popup-content-header div {
     gap: var(--container-padding);
   }
