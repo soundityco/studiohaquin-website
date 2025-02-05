@@ -74,7 +74,7 @@ const Header = forwardRef<HTMLElement>((props, ref) => {
     <motion.header
       ref={ref}
       className={`header ${isMenuOpen ? "menu-open" : ""} ${
-        hasScrolled ? (isMenuOpen || isClosing ? "scrolled-no-blur" : "scrolled") : ""
+                        hasScrolled ? (isMenuOpen || isClosing ? "scrolled-no-blur" : "scrolled") : ""
       }`}
       animate={{ 
         height: isMenuOpen ? "100svh" : "auto", 

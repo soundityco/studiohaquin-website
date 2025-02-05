@@ -699,7 +699,7 @@ export function Portfolio() {
             </nav>
             <div>
               {projects.map((project, index) => (
-                <a
+                <a //href="#portfolio-block"
                   key={project.name}
                   className={`div-to-click show-me hover-click-sound ${
                     activeProjectIndex === index ? "activeProject" : ""
@@ -719,7 +719,8 @@ export function Portfolio() {
 
         {activeProject && (
           <div
-            className="portfolio-popup-container"
+            className="portfolio-popup-container" //section-top
+            //id="portfolio-block"
             ref={popupRef}
           >
             <div className="portfolio-popup-container-overlay"></div>

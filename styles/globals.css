@@ -530,7 +530,11 @@ header.scrolled {
   /*background: rgba(0, 0, 0, 0.7);*/
 }
 
-/*header.scrolled-no-blur {
+/*header.menu-open {
+  backdrop-filter: unset; 
+}
+
+header.scrolled-no-blur {
   border-bottom: unset;
   backdrop-filter: unset;
 }*/
@@ -596,6 +600,14 @@ header.scrolled {
   overflow: hidden;
   gap: var(--container-padding);
   padding: calc(var(--container-padding)/4.5) 0;
+}
+
+.header-menu-content nav ul li:first-of-type {
+  padding-top: 0;
+}
+
+.header-menu-content nav ul li:last-of-type {
+  padding-bottom: 0;
 }
 
 .header-menu-content nav ul li:hover {
@@ -1576,6 +1588,9 @@ input[type="range"]::-ms-thumb {
   -webkit-backdrop-filter: blur(50px);
   backdrop-filter: blur(50px);
   overflow: auto;
+
+  /*margin-top: calc(var(--container-padding)* 3);
+  transform: translateY(calc(- var(--container-padding)* 3));*/
 }
 
 /*.portfolio-popup-container {
