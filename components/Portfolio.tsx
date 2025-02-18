@@ -60,7 +60,7 @@ export function Portfolio() {
       date: "2025",
       content: {
         media: [
-          { type: "video", "id": "79vaHqkKxgg" },
+          { type: "video", "id": "pFpvw1KlgAo" },
           { type: "video", "id": "uM0wrvgouJo" },
           { type: "image", "url": "/assets/images/projets/greengot/greengot-card-premium-3D-1.jpg" },
           { type: "image", "url": "/assets/images/projets/greengot/greengot-card-premium-3D-2.jpg" },
@@ -70,7 +70,7 @@ export function Portfolio() {
           { type: "image", "url": "/assets/images/projets/greengot/greengot-card-premium-3D-6.jpg" },
         ],
         projectTags: {
-          "79vaHqkKxgg": ["Motion Design", "3D"],
+          "pFpvw1KlgAo": ["Motion Design", "3D"],
           "uM0wrvgouJo": ["Motion Design", "3D"],
           "/assets/images/projets/greengot/greengot-card-premium-3D-1.jpg": ["3D"],
           "/assets/images/projets/greengot/greengot-card-premium-3D-2.jpg": ["3D"],
