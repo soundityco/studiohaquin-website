@@ -738,7 +738,7 @@ header.scrolled-no-blur {
 }
 
 .header-menu-icon path {
-  fill: var(--background);
+  fill: var(--primary-color);
 }
 
 .custom-svg-class {

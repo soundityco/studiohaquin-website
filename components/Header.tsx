@@ -97,8 +97,9 @@ const Header = forwardRef<HTMLElement>((props, ref) => {
             <a href="/" className="header-logo link">
               <WebsiteIcon className="header-menu-icon" />
               <div className="header-text">
-                <Typewriter
+                {/*<Typewriter
                   options={{
+                    //strings: ['STUDIO HAQUIN', 'GRAPHIC & MOTION DESIGNER'],
                     strings: [displayText],
                     autoStart: true,
                     loop: false,
@@ -107,7 +108,8 @@ const Header = forwardRef<HTMLElement>((props, ref) => {
                     pauseFor: isGreeting ? 14000 : 4000,
                     cursor: "",
                   } as any}
-                />
+                />*/}
+                STUDIO HAQUIN
               </div>
             </a>
             <div className="header-button link">
