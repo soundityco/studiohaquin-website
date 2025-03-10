@@ -40,7 +40,7 @@ export function Hero() {
               muted
               loop
             >
-              <source src="https://res.cloudinary.com/dqrkeb9bz/video/upload/q_auto/v1738581568/SHOWREEL_2024_STUDIOHAQUIN_FHD6_fi2im4.mp4" type="video/mp4" />
+              <source src="https://res.cloudinary.com/dqrkeb9bz/video/upload/q_auto/v1741609599/SHOWREEL_2024_STUDIOHAQUIN_FHD8_fhgg1m.mp4" type="video/mp4" />
             </video>
 
             {/*<VideoPlayer className="container"

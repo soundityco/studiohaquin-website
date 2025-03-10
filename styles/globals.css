@@ -1076,7 +1076,6 @@ input[type="range"]::-ms-thumb {
   height: 100%;
   aspect-ratio: 16 / 9;
   object-fit: cover;
-  filter: contrast(1.1);
   /*transform: scale(1.005);*/
   display: flex;
   /*border-radius: var(--border-radius);

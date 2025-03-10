@@ -55,8 +55,32 @@ export function Portfolio() {
 
   const projects: Project[] = [
     {
+      name: "Dracula Technologies",
+      description: "Motion design 3D 'LAYER ®'",
+      date: "2025",
+      content: {
+        media: [
+          { type: "video", "id": "AROkpW1Kziw" },
+          //{ type: "image", "url": "/assets/images/projets/greengot/greengot-card-premium-3D-1.jpg" },
+        ],
+        projectTags: {
+          "AROkpW1Kziw": ["Motion Design", "3D"],
+          //"/assets/images/projets/greengot/greengot-card-premium-3D-1.jpg": ["3D"],
+        },
+        text: {
+          description: "Modélisation & réalisation d'un motion designs 3D pour le lancement du nouveau LAYER ® de ",
+          links: [
+            {
+              label: "Dracula Technologies",
+              url: "https://dracula-technologies.com",
+            },
+          ],
+          tags: allAvailableTags,
+        }
+      }
+    },{
       name: "Green Got",
-      description: "Motion design 3D offre 'Premium'",
+      description: "Motion design 3D 'Carte Premium'",
       date: "2025",
       content: {
         media: [
@@ -80,40 +104,11 @@ export function Portfolio() {
           "/assets/images/projets/greengot/greengot-card-premium-3D-6.jpg": ["3D"],
         },
         text: {
-          description: "Réalisation de motion designs 3D pour le lancement de la nouvelle offre 'Premium' de la banque en ligne ",
+          description: "Modélisation & réalisation d'un motion designs 3D pour le lancement de la nouvelle offre 'Premium' de la banque en ligne ",
           links: [
             {
               label: "Green Got",
               url: "https://green-got.com",
-            },
-          ],
-          tags: allAvailableTags,
-        }
-      }
-    },
-    {
-      name: "Decathlon",
-      description: "Mini série & vidéos promotionnelles",
-      date: "2024",
-      content: {
-        media: [
-          { type: "video", "id": "FIpooQI-Qko" },
-          { type: "video", "id": "u3qvu__U6Wc" },
-          { type: "video", "id": "0NhUkX7_qSA" },
-          { type: "video", "id": "qr16wv-Dhdg" }
-        ],
-        projectTags: {
-          "FIpooQI-Qko": ["Films institutionnels"],
-          "u3qvu__U6Wc": ["Films institutionnels"],
-          "0NhUkX7_qSA": ["Films institutionnels"],
-          "qr16wv-Dhdg": ["Vidéos Promotionnelles"]
-        },
-        text: {
-          description: "Réalisation de 11 vidéos sur les réussites 2024 du magasin des Ponts-de-Cé & vidéos promotionnelles, collaboration ",
-          links: [
-            {
-              label: "Super35",
-              url: "https://super35.fr",
             },
           ],
           tags: allAvailableTags,
@@ -154,6 +149,35 @@ export function Portfolio() {
           tags: allAvailableTags,
         },
       },
+    },
+    {
+      name: "Decathlon",
+      description: "Mini série & vidéos promotionnelles",
+      date: "2024",
+      content: {
+        media: [
+          { type: "video", "id": "FIpooQI-Qko" },
+          { type: "video", "id": "u3qvu__U6Wc" },
+          { type: "video", "id": "0NhUkX7_qSA" },
+          { type: "video", "id": "qr16wv-Dhdg" }
+        ],
+        projectTags: {
+          "FIpooQI-Qko": ["Films institutionnels"],
+          "u3qvu__U6Wc": ["Films institutionnels"],
+          "0NhUkX7_qSA": ["Films institutionnels"],
+          "qr16wv-Dhdg": ["Vidéos Promotionnelles"]
+        },
+        text: {
+          description: "Réalisation de 11 vidéos sur les réussites 2024 du magasin des Ponts-de-Cé & vidéos promotionnelles, collaboration ",
+          links: [
+            {
+              label: "Super35",
+              url: "https://super35.fr",
+            },
+          ],
+          tags: allAvailableTags,
+        }
+      }
     },
     {
       name: "Doris Oppenlander",
@@ -387,6 +411,39 @@ export function Portfolio() {
       }
     },
     {
+      name: "Selvea Nature",
+      description: "Identité visuelle & UX/UI",
+      date: "2022",
+      content: {
+        media: [
+          { type: "image", "url": "/assets/images/projets/airvalstudio/airvalstudio-logo.webp" },
+          { type: "image", "url": "/assets/images/projets/airvalstudio/airvalstudio-website-hero.webp" },
+          { type: "image", "url": "/assets/images/projets/airvalstudio/airvalstudio-website-spotlight-section.webp" },
+          { type: "image", "url": "/assets/images/projets/airvalstudio/airvalstudio-website-pricing-section.webp" },
+          { type: "image", "url": "/assets/images/projets/airvalstudio/airvalstudio-website-gear-section.webp" },
+          { type: "image", "url": "/assets/images/projets/airvalstudio/airvalstudio-website-footer.webp" },
+        ],
+        projectTags: {
+          "/assets/images/projets/airvalstudio/airvalstudio-logo.webp": ["Design Graphique"],
+          "/assets/images/projets/airvalstudio/airvalstudio-website-hero.webp": ["UX/UI Design"],
+          "/assets/images/projets/airvalstudio/airvalstudio-website-spotlight-section.webp": ["UX/UI Design"],
+          "/assets/images/projets/airvalstudio/airvalstudio-website-pricing-section.webp": ["UX/UI Design"],
+          "/assets/images/projets/airvalstudio/airvalstudio-website-gear-section.webp": ["UX/UI Design"],
+          "/assets/images/projets/airvalstudio/airvalstudio-website-footer.webp": ["UX/UI Design"],
+        },
+        text: {
+          description: "Co-réalisation de l'identité visuelle et concetption & web design du site de ",
+          links: [
+            {
+              label: "Selvea Nature",
+              url: "https://selvea-nature.fr/",
+            },
+          ],
+          tags: allAvailableTags,
+        },
+      },
+    },
+    {
       name: "ESA",
       description: "Composition 3D vin 'Sur Lie'",
       date: "2022",
@@ -411,7 +468,7 @@ export function Portfolio() {
     },
     {
       name: "Les Trans",
-      description: "Identité visuelle festival de musique",
+      description: "Identité visuelle & édition",
       date: "2020",
       content: {
         media: [
@@ -438,7 +495,7 @@ export function Portfolio() {
     },
     {
       name: "FKJ",
-      description: "Mise en page magazine",
+      description: "Mise en page & édition",
       date: "2020",
       content: {
         media: [
@@ -452,7 +509,7 @@ export function Portfolio() {
           "/assets/images/projets/fkj/fkj-magazine-3.webp": ["Mise en page"],
         },
         text: {
-          description: "Mise en page d'un magazine (fictif) retraçant la carrière et la vie de l'artiste ",
+          description: "Mise en page & édition d'un magazine (fictif) retraçant la carrière et la vie de l'artiste ",
           links: [
             {
               label: "French Kiwi Juice (FKJ)",
