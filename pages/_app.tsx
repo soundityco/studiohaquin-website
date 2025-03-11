@@ -9,7 +9,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <Layout>
       <Head>
         <title>STUDIO HAQUIN © FILMMAKER & SOUND DESIGNER, BASED IN ANGERS, FR.</title>
-        <meta name="description" content="Studio de production audiovisuelle basé à Angers. De la prise de vue au montage, en passant par la conception graphique et sonore, je m’occupe de tout pour raconter votre histoire de manière authentique et impactante." />
+        <meta name="description" content="Studio de production graphique et audiovisuelle, basé à Angers. Spécialisé dans la création graphique, le web design et la production vidéo, j'accorde une attention particulière à comprendre vos besoins pour donner vie à vos projets, alliant esthétique et efficacité pour raconter votre histoire de manière authentique." />
       </Head>
       <Component {...pageProps} />
     </Layout>

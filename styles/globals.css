@@ -1901,7 +1901,7 @@ input[type="range"]::-ms-thumb {
 }
 
 .portfolio-popup-content-header-block p {
-  display: ruby;
+  /*display: ruby;*/
 }
 
 .portfolio-popup-content-header-block p a {
@@ -1909,7 +1909,7 @@ input[type="range"]::-ms-thumb {
   width: fit-content;
   display: block;
   text-decoration: var(--primary-color);
-  display: flex;
+  display: inline-flex;
   gap: calc(var(--container-padding) / 6);
 }
 
