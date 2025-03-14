@@ -388,29 +388,27 @@ export function Portfolio() {
         }
       }
     },
-    /*{
+    {
       name: "Selvea Nature",
       description: "Identité visuelle & UX/UI",
       date: "2022",
       content: {
         media: [
-          { type: "image", "url": "/assets/images/projets/airvalstudio/airvalstudio-logo.webp" },
-          { type: "image", "url": "/assets/images/projets/airvalstudio/airvalstudio-website-hero.webp" },
-          { type: "image", "url": "/assets/images/projets/airvalstudio/airvalstudio-website-spotlight-section.webp" },
-          { type: "image", "url": "/assets/images/projets/airvalstudio/airvalstudio-website-pricing-section.webp" },
-          { type: "image", "url": "/assets/images/projets/airvalstudio/airvalstudio-website-gear-section.webp" },
-          { type: "image", "url": "/assets/images/projets/airvalstudio/airvalstudio-website-footer.webp" },
+          { type: "image", "url": "/assets/images/projets/selvea-nature/selvea-nature-website-hero.webp" },
+          { type: "image", "url": "/assets/images/projets/selvea-nature/selvea-nature-website-prestas-section.webp" },
+          { type: "image", "url": "/assets/images/projets/selvea-nature/selvea-nature-website-events-section.webp" },
+          { type: "image", "url": "/assets/images/projets/selvea-nature/selvea-nature-website-articles-section.webp" },
+          { type: "image", "url": "/assets/images/projets/selvea-nature/selvea-nature-website-footer.webp" },
         ],
         projectTags: {
-          "/assets/images/projets/airvalstudio/airvalstudio-logo.webp": ["Design Graphique"],
-          "/assets/images/projets/airvalstudio/airvalstudio-website-hero.webp": ["UX/UI Design"],
-          "/assets/images/projets/airvalstudio/airvalstudio-website-spotlight-section.webp": ["UX/UI Design"],
-          "/assets/images/projets/airvalstudio/airvalstudio-website-pricing-section.webp": ["UX/UI Design"],
-          "/assets/images/projets/airvalstudio/airvalstudio-website-gear-section.webp": ["UX/UI Design"],
-          "/assets/images/projets/airvalstudio/airvalstudio-website-footer.webp": ["UX/UI Design"],
+          "/assets/images/projets/selvea-nature/selvea-nature-website-hero.webp": ["UX/UI Design"],
+          "/assets/images/projets/selvea-nature/selvea-nature-website-prestas-section.webp": ["UX/UI Design"],
+          "/assets/images/projets/selvea-nature/selvea-nature-website-events-section.webp": ["UX/UI Design"],
+          "/assets/images/projets/selvea-nature/selvea-nature-website-articles-section.webp": ["UX/UI Design"],
+          "/assets/images/projets/selvea-nature/selvea-nature-website-footer.webp": ["UX/UI Design"],
         },
         text: {
-          description: "Co-réalisation de l'identité visuelle et concetption & web design du site de ",
+          description: "Co-réalisation de l'identité visuelle et concetption & web design du site de Karine Chardon, alias ",
           links: [
             {
               label: "Selvea Nature",
@@ -420,7 +418,7 @@ export function Portfolio() {
           tags: allAvailableTags,
         },
       },
-    },*/
+    },
     {
       name: "ESA",
       description: "Composition 3D vin 'Sur Lie'",
