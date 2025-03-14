@@ -27,7 +27,7 @@ export function Footer() {
             Studio Haquin © {currentYear}
           </p>
           <p className="footer-cc">
-            Designed & dev by&nbsp;<span><a className="button-footer-reveal hover-sound-mario" href="#">Studio Haquin</a></span>
+            Designed & dev by&nbsp;<span><a className="button-footer-reveal hover-sound-mario" href="/">Studio Haquin</a></span>
           </p>
         </div>
         

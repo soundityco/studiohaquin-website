@@ -215,30 +215,6 @@ export function Portfolio() {
       }
     },
     {
-      name: "L'Orange Bleue",
-      description: "Vidéos publicité + interviews",
-      date: "2024",
-      content: {
-        media: [
-          { type: "video", "id": "p5dpBF0kLKU" },
-          { type: "video", "id": "s5xjV93gEQY" }
-        ],
-        projectTags: {
-          "p5dpBF0kLKU": ["Publicité"],
-          "s5xjV93gEQY": ["Interviews"]
-        },
-        text: {
-          description: "Réalisation d'une mini publicité et d'interviews pour L'Orange Bleue d'Angers, collaboration ",
-          links: [
-            {
-              label: "Super35",
-              url: "https://super35.fr",
-            },
-          ],
-          tags: allAvailableTags,
-        }
-      }
-    },{
       name: "POLYPHONIA",
       description: "Identité visuelle, D.A. & UX/UI",
       date: "2023 — 2024",
@@ -278,6 +254,31 @@ export function Portfolio() {
       },
     },
     {
+      name: "L'Orange Bleue",
+      description: "Vidéos publicité + interviews",
+      date: "2024",
+      content: {
+        media: [
+          { type: "video", "id": "p5dpBF0kLKU" },
+          { type: "video", "id": "s5xjV93gEQY" }
+        ],
+        projectTags: {
+          "p5dpBF0kLKU": ["Publicité"],
+          "s5xjV93gEQY": ["Interviews"]
+        },
+        text: {
+          description: "Réalisation d'une mini publicité et d'interviews pour L'Orange Bleue d'Angers, collaboration ",
+          links: [
+            {
+              label: "Super35",
+              url: "https://super35.fr",
+            },
+          ],
+          tags: allAvailableTags,
+        }
+      }
+    },
+    /*{
       name: "Galeries Lafayette",
       description: "Vidéo récap évènement 'Mère Fille'",
       date: "2024",
@@ -301,30 +302,7 @@ export function Portfolio() {
           tags: allAvailableTags,
         }
       }
-    },
-    {
-      name: "La Cour",
-      description: "Vidéo rénovation restaurant",
-      date: "2024",
-      content: {
-        media: [
-          { type: "video", "id": "P4d_1Tb2uAw" }
-        ],
-        projectTags: {
-          "P4d_1Tb2uAw": ["Vidéo promotionnelles"]
-        },
-        text: {
-          description: "Réalisation d'une vidéo pour la rénovation du bar & restaurant 'La Cour', situé à Angers, collaboration ",
-          links: [
-            {
-              label: "Super35",
-              url: "https://super35.fr",
-            },
-          ],
-          tags: allAvailableTags,
-        }
-      }
-    },
+    },*/
     {
       name: "Noelse",
       description: "Design graphique et motion + 3D",
@@ -410,7 +388,7 @@ export function Portfolio() {
         }
       }
     },
-    {
+    /*{
       name: "Selvea Nature",
       description: "Identité visuelle & UX/UI",
       date: "2022",
@@ -442,7 +420,7 @@ export function Portfolio() {
           tags: allAvailableTags,
         },
       },
-    },
+    },*/
     {
       name: "ESA",
       description: "Composition 3D vin 'Sur Lie'",

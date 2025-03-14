@@ -60,18 +60,20 @@ export function Hero() {
             <Header />
           )}*/}
           
-        {/* <div className="hero-title-block">
+          {/*<div className="hero-title-block">
             <div className="scroll-button"></div>
-            
-            {/*<Link to="portfolio" smooth={true} duration={500} className="hero-scroll">
-              SCROLL&nbsp;<ArrowDownIcon />
-            </Link>*/}
+              <Link to="portfolio" smooth={true} duration={650} className="hero-scroll">
+                <span>SCROLL</span><ArrowDownIcon />
+              </Link>
+            </div>
+          </div>*/}
             
             {/*<div className="hero-text-block">
               <h1>[STUDIO HAQUIN ©]</h1>
               <p>Studio de création graphique et audiovisuelle, basé à Angers, FR.</p>
             </div>*/}
-
+          
+            
             <StudioHaquinLogo className="hero-title-block-logo" alt="Studio Haquin Logo" draggable="false"/>
             
             {/*<div className="hero-engaged-roll-block">
