@@ -12,17 +12,17 @@ export function Home() {
   return (
     <>
       <Head>
-        <title>STUDIO HAQUIN © GRAPHIC & MOTION DESIGNER / FILMMAKER, BASÉ À ANGERS, FR.</title>
-        <meta name="description" content="Studio de production graphique et audiovisuelle, basé à Angers. Spécialisé dans la création graphique, le web design et la production vidéo, j'accorde une attention particulière à comprendre vos besoins pour donner vie à vos projets, alliant esthétique et efficacité pour raconter votre histoire de manière authentique." />
+        <title>STUDIO HAQUIN © GRAPHIC & WEB DESIGNER / MOTION DESIGNER, BASÉ À ANGERS, FR.</title>
+        <meta name="description" content="Studio de production graphique et audiovisuelle, basé à Angers. Spécialisé dans la création graphique, le web design et le motion design, j'accorde une attention particulière à comprendre vos besoins pour donner vie à vos projets, alliant esthétique et efficacité pour raconter votre histoire de manière authentique." />
         <meta name="application-name" content="Studio Haquin" />
         <meta name="keywords" content="graphiste, motion, design, graphiste, vidéaste, filmmaker, angers, 3D, designer, web, designer, ux, ui, dveloppeur" />
 
         {/* Open Graph (Facebook, LinkedIn, etc.) */}
         <meta property="og:url" content="https://studiohaquin.com" />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="STUDIO HAQUIN © DESIGNER & FILMMAKER, BASÉ À ANGERS, FR." key="title" />
+        <meta property="og:title" content="STUDIO HAQUIN © GRAPHIC & WEB DESIGNER / MOTION DESIGNER, BASÉ À ANGERS, FR." key="title" />
         <meta property="og:image" content="https://studiohaquin.com/studio-haquin-og-banner.jpg" />
-        <meta property="og:description" content="Studio de production graphique et audiovisuelle, basé à Angers. Spécialisé dans la création graphique, le web design et la production vidéo, j'accorde une attention particulière à comprendre vos besoins pour donner vie à vos projets, alliant esthétique et efficacité pour raconter votre histoire de manière authentique." />
+        <meta property="og:description" content="Studio de production graphique et audiovisuelle, basé à Angers. Spécialisé dans la création graphique, le web design et le motion design, j'accorde une attention particulière à comprendre vos besoins pour donner vie à vos projets, alliant esthétique et efficacité pour raconter votre histoire de manière authentique." />
         
         {/* Favicon */}
         <link rel="icon" href="/favicon.ico" />

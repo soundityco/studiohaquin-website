@@ -10,7 +10,7 @@ function Intro() {
           <p className="intro-container-text">
             <span>Studio de production graphique et audiovisuelle, basé à Angers.</span>
             <span>
-              Spécialisé dans la création graphique, le web design et la production vidéo, j'accorde une attention particulière à comprendre vos besoins pour donner vie à vos projets, alliant esthétique et efficacité pour raconter votre histoire de manière authentique.
+              Spécialisé dans la création graphique, le web design et le motion design, j'accorde une attention particulière à comprendre vos besoins pour donner vie à vos projets, alliant esthétique et efficacité pour raconter votre histoire de manière authentique.
             </span>
           </p>
         </div>
