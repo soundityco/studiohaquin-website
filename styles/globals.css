@@ -731,8 +731,6 @@ header.scrolled-no-blur {
 }*/
 
 .header-menu-icon {
-  transform: rotate(0deg);
-  transition: 1s all cubic-bezier(.7,0,.4,1.01);
   width: 2vw;
   height: 2vw;
 }
@@ -748,9 +746,6 @@ header.scrolled-no-blur {
   transition: all 0.3s ease;
 }
 
-.header-logo:hover .header-menu-icon {
-  transform: rotate(180deg);
-}
 
 .header-logo div {
   /*transform: translateY(0.5px);*/
