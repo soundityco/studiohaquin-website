@@ -6,7 +6,7 @@ function Intro() {
     <section className="intro" id="intro" >
       <div className="intro-container container">
         <div className="intro-container-item">
-          <h3 className="intro-container-title">01. ABOUT</h3>
+          <h3 className="intro-container-title">01. À PROPOS</h3>
           <p className="intro-container-text">
             <span>Studio de production graphique et audiovisuelle, basé à Angers.</span>
             <span>
