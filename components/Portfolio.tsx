@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+//import Link from "next/link";
+import { Link } from "react-scroll/modules";
 
 // Import Utils Components
 import HoverableGroup from "@/components/utils/HoverableGroup";
@@ -364,7 +366,7 @@ export function Portfolio() {
           links: [
             {
               label: "Airval Studio",
-              url: "https://airvalstudiostudio.com",
+              url: "https://airvalstudio.com",
             },
           ],
           tags: allAvailableTags,
@@ -732,7 +734,7 @@ export function Portfolio() {
             </nav>
             <div>
               {projects.map((project, index) => (
-                <a //href="#portfolio-block"
+                <Link to="portfolio-block"
                   key={project.name}
                   className={`div-to-click show-me hover-click-sound ${
                     activeProjectIndex === index ? "activeProject" : ""
@@ -744,7 +746,7 @@ export function Portfolio() {
                   <span>{project.name}</span>
                   <span>{project.description}</span>
                   <span>{project.date}</span>
-                </a>
+                </Link>
               ))}
             </div>
           </div>
@@ -753,9 +755,10 @@ export function Portfolio() {
         {activeProject && (
           <div
             className="portfolio-popup-container" //section-top
-            //id="portfolio-block"
+            id="portfolio-block"
             ref={popupRef}
           >
+            <div className="portfolio-popup-container-block">
             <div className="portfolio-popup-container-overlay"></div>
             <div className="portfolio-popup-content container">
               <div className="portfolio-popup-content-header">
@@ -864,12 +867,12 @@ export function Portfolio() {
               <p className="portfolio-scroll">
                 DRAG OR SCROLL&nbsp;<ArrowRightIcon />
               </p>
+              </div>
             </div>
           </div>
         )}
-
-        
       </section>
+      
         {isMediaPopupOpen && (
           <div className="media-popup">
             {/*<div className="media-popup-overlay" onClick={() => setIsMediaPopupOpen(false)}>*/}
