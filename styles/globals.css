@@ -1604,6 +1604,8 @@ input[type="range"]::-ms-thumb {
   pointer-events: all;
   -webkit-backdrop-filter: blur(50px);
   backdrop-filter: blur(50px);
+  /*height: calc(100vh - (var(--container-padding) / 1.25* 2 + 2.8rem));*/
+  box-sizing: border-box;
 }
 
 /*.portfolio-popup-container {
@@ -1663,6 +1665,7 @@ input[type="range"]::-ms-thumb {
   flex-direction: column;
   gap: var(--container-padding);
   /*margin: unset !important;*/
+  justify-content: space-between;
 }
 
 /*.portfolio-popup-content {

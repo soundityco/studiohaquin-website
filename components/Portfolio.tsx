@@ -181,41 +181,7 @@ export function Portfolio() {
         }
       }
     },
-    {
-      name: "Doris Oppenlander",
-      description: "Série de vidéos YouTube",
-      date: "2023 — 2024",
-      content: {
-        media: [
-          { type: "video", "id": "H6wkoTE8oyo" },
-          { type: "video", "id": "IFKT_fekZw4" },
-          { type: "video", "id": "QTpHOYt04QU" },
-          { type: "video", "id": "DhnqP_J-MoQ" },
-          { type: "video", "id": "YB3SCKTtBLM" },
-          { type: "video", "id": "ZbT4yy6ZU6I" },
-          { type: "video", "id": "Dwnl_BvyhdY" }
-        ],
-        projectTags: {
-          "H6wkoTE8oyo": ["Divertissement"],
-          "IFKT_fekZw4": ["Vulgarisation"],
-          "QTpHOYt04QU": ["Divertissement"],
-          "DhnqP_J-MoQ": ["Vulgarisation"],
-          "YB3SCKTtBLM": ["Divertissement"],
-          "ZbT4yy6ZU6I": ["Vulgarisation"],
-          "Dwnl_BvyhdY": ["Divertissement"]
-        },
-        text: {
-          description: "Réalisation d'une série de vidéos YouTube sur le divertissement et la vulgarisation du chant par ",
-          links: [
-            {
-              label: "Doris Oppenlander",
-              url: "https://www.youtube.com/@DorisOppenlanderCoachVocal",
-            },
-          ],
-          tags: allAvailableTags,
-        }
-      }
-    },
+    
     {
       name: "POLYPHONIA",
       description: "Identité visuelle, D.A. & UX/UI",
@@ -254,6 +220,41 @@ export function Portfolio() {
           tags: allAvailableTags,
         },
       },
+    },
+    {
+      name: "Doris Oppenlander",
+      description: "Série de vidéos YouTube",
+      date: "2023 — 2024",
+      content: {
+        media: [
+          { type: "video", "id": "H6wkoTE8oyo" },
+          { type: "video", "id": "IFKT_fekZw4" },
+          { type: "video", "id": "QTpHOYt04QU" },
+          { type: "video", "id": "DhnqP_J-MoQ" },
+          { type: "video", "id": "YB3SCKTtBLM" },
+          { type: "video", "id": "ZbT4yy6ZU6I" },
+          { type: "video", "id": "Dwnl_BvyhdY" }
+        ],
+        projectTags: {
+          "H6wkoTE8oyo": ["Divertissement"],
+          "IFKT_fekZw4": ["Vulgarisation"],
+          "QTpHOYt04QU": ["Divertissement"],
+          "DhnqP_J-MoQ": ["Vulgarisation"],
+          "YB3SCKTtBLM": ["Divertissement"],
+          "ZbT4yy6ZU6I": ["Vulgarisation"],
+          "Dwnl_BvyhdY": ["Divertissement"]
+        },
+        text: {
+          description: "Réalisation d'une série de vidéos YouTube sur le divertissement et la vulgarisation du chant par ",
+          links: [
+            {
+              label: "Doris Oppenlander",
+              url: "https://www.youtube.com/@DorisOppenlanderCoachVocal",
+            },
+          ],
+          tags: allAvailableTags,
+        }
+      }
     },
     {
       name: "L'Orange Bleue",
