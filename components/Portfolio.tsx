@@ -57,30 +57,6 @@ export function Portfolio() {
 
   const projects: Project[] = [
     {
-      name: "Dracula Technologies",
-      description: "Motion design 3D 'LAYER ®'",
-      date: "2025",
-      content: {
-        media: [
-          { type: "video", "id": "AROkpW1Kziw" },
-          //{ type: "image", "url": "/assets/images/projets/greengot/greengot-card-premium-3D-1.jpg" },
-        ],
-        projectTags: {
-          "AROkpW1Kziw": ["Motion Design", "3D"],
-          //"/assets/images/projets/greengot/greengot-card-premium-3D-1.jpg": ["3D"],
-        },
-        text: {
-          description: "Modélisation & réalisation d'un motion designs 3D pour le lancement du nouveau LAYER ® de ",
-          links: [
-            {
-              label: "Dracula Technologies",
-              url: "https://dracula-technologies.com",
-            },
-          ],
-          tags: allAvailableTags,
-        }
-      }
-    },{
       name: "Green Got",
       description: "Motion design 3D 'Carte Premium'",
       date: "2025",
@@ -111,6 +87,31 @@ export function Portfolio() {
             {
               label: "Green Got",
               url: "https://green-got.com",
+            },
+          ],
+          tags: allAvailableTags,
+        }
+      }
+    },
+    {
+      name: "Dracula Technologies",
+      description: "Motion design 3D 'LAYER ®'",
+      date: "2025",
+      content: {
+        media: [
+          { type: "video", "id": "AROkpW1Kziw" },
+          //{ type: "image", "url": "/assets/images/projets/greengot/greengot-card-premium-3D-1.jpg" },
+        ],
+        projectTags: {
+          "AROkpW1Kziw": ["Motion Design", "3D"],
+          //"/assets/images/projets/greengot/greengot-card-premium-3D-1.jpg": ["3D"],
+        },
+        text: {
+          description: "Modélisation & réalisation d'un motion designs 3D pour le lancement du nouveau LAYER ® de ",
+          links: [
+            {
+              label: "Dracula Technologies",
+              url: "https://dracula-technologies.com",
             },
           ],
           tags: allAvailableTags,
@@ -152,7 +153,7 @@ export function Portfolio() {
         },
       },
     },
-    {
+    /*{
       name: "Decathlon",
       description: "Mini série & vidéos promotionnelles",
       date: "2024",
@@ -180,7 +181,7 @@ export function Portfolio() {
           tags: allAvailableTags,
         }
       }
-    },
+    },*/
     
     {
       name: "POLYPHONIA",
@@ -221,7 +222,7 @@ export function Portfolio() {
         },
       },
     },
-    {
+    /*{
       name: "Doris Oppenlander",
       description: "Série de vidéos YouTube",
       date: "2023 — 2024",
@@ -280,7 +281,7 @@ export function Portfolio() {
           tags: allAvailableTags,
         }
       }
-    },
+    },*/
     /*{
       name: "Galeries Lafayette",
       description: "Vidéo récap évènement 'Mère Fille'",
@@ -374,7 +375,7 @@ export function Portfolio() {
         },
       },
     },
-    {
+    /*{
       name: "Faux Raccords Prod",
       description: "Réalisation court métrage 'L'ERMITE'",
       date: "2023",
@@ -390,7 +391,7 @@ export function Portfolio() {
           tags: allAvailableTags,
         }
       }
-    },
+    },*/
     {
       name: "Selvea Nature",
       description: "Identité visuelle & UX/UI",
