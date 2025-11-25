@@ -56,8 +56,10 @@ type Media = { type: "video"; id: string } |
 export function Portfolio() {
 
   const projects: Project[] = [
+
+    
     {
-      name: "Green Got",
+      name: "Green-Got",
       description: "Motion design 3D 'Carte Premium'",
       date: "2025",
       content: {
@@ -85,7 +87,59 @@ export function Portfolio() {
           description: "Modélisation & réalisation d'un motion designs 3D pour le lancement de la nouvelle offre 'Premium' de la banque en ligne ",
           links: [
             {
-              label: "Green Got",
+              label: "Green-Got",
+              url: "https://green-got.com",
+            },
+          ],
+          tags: allAvailableTags,
+        }
+      }
+    },
+    {
+      name: "Green-Got",
+      description: "Campagne d'affichage métro parisien",
+      date: "2025",
+      content: {
+        media: [
+          { type: "image", "url": "/assets/images/projets/greengot/greengot-affiche-metro.jpg" },
+          { type: "image", "url": "/assets/images/projets/greengot/greengot-affiche-metro-2.webp" },
+        ],
+        projectTags: {
+          "/assets/images/projets/greengot/greengot-affiche-metro.jpg": ["3D", "Design Graphique"],
+          "/assets/images/projets/greengot/greengot-affiche-metro-2.webp": ["3D", "Design Graphique"],
+        },
+        text: {
+          description: "Réalisation d'une campagne publicitaire pour le métro parisien, en collaboration avec T&Friends pour la banque en ligne ",
+          links: [
+            {
+              label: "Green-Got",
+              url: "https://green-got.com",
+            },
+          ],
+          tags: allAvailableTags,
+        }
+      }
+    },
+    {
+      name: "Green-Got",
+      description: "Communication réseaux sociaux",
+      date: "2025",
+      content: {
+        media: [
+          { type: "video", "id": "DqDQbeJr3NE" },
+          { type: "video", "id": "ovse81mM6MU" },
+          { type: "video", "id": "Wgj9Gt6gFQc" },
+        ],
+        projectTags: {
+          "DqDQbeJr3NE": ["Motion Design"],
+          "ovse81mM6MU": ["Motion Design"],
+          "Wgj9Gt6gFQc": ["Motion Design", "Design Graphique", "3D"],
+        },
+        text: {
+          description: "Diverses réalisations de design graphique, motion design et sound design pour les réseaux sociaux de la banque en ligne ",
+          links: [
+            {
+              label: "Green-Got",
               url: "https://green-got.com",
             },
           ],
@@ -211,7 +265,7 @@ export function Portfolio() {
           "h2CHHok1aPM": ["Développement Web", "UX/UI Design"],
         },
         text: {
-          description: "Direction artistique, , identité visuelle, web design et développement du site de ",
+          description: "Direction artistique, identité visuelle, web design et développement du site de ",
           links: [
             {
               label: "POLYPHONIA",
