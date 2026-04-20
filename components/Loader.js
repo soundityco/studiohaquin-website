@@ -28,7 +28,7 @@ export function Loader({ lenis, onLoaderComplete }) { // Ajout de onLoaderComple
           <h1 className="loader-title">
             <Typewriter
               options={{
-                strings: ["STUDIO HAQUIN", "GRAPHIC / WEB & MOTION DESIGNER"],
+                strings: ["STUDIO HAQUIN", "DESIGNER & VIDEOGRAPHER"],
                 autoStart: true,
                 loop: false,
                 delay: 60,
