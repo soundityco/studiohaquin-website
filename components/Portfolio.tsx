@@ -33,6 +33,8 @@ const allAvailableTags = [
  'UX/UI Design',
  'Mise en page',
  '3D',
+ 'Vidéo',
+ 'Sound Design',
 ];
 
 interface Project {
@@ -57,7 +59,29 @@ export function Portfolio() {
 
   const projects: Project[] = [
 
-    
+    {
+      name: "Angers Comedy Club",
+      description: "Aftermovie 'Angers Comedy Festival 2026'",
+      date: "2026",
+      content: {
+        media: [
+          { type: "video", "id": "Y-7CrzG9pxM" },
+        ],
+        projectTags: {
+          "Y-7CrzG9pxM": ["Vidéo", "Sound Design"],
+        },
+        text: {
+          description: "Réalisation de l'aftermovie du jour 4 du Angers Comedy Festival 2026 '33 Humoristes X 3 minutes', au Centre des Congrès d'Angers.",
+          /*links: [
+            {
+              label: "Angers Comedy Club",
+              url: "https://www.angerscomedyclub.com/",
+            },
+          ],*/
+          tags: allAvailableTags,
+        }
+      }
+    },
     {
       name: "Green-Got",
       description: "Motion design 3D 'Carte Premium'",
@@ -101,15 +125,17 @@ export function Portfolio() {
       date: "2025",
       content: {
         media: [
-          { type: "image", "url": "/assets/images/projets/greengot/greengot-affiche-metro.jpg" },
+          { type: "image", "url": "/assets/images/projets/greengot/greengot-affiche-metro-1.webp" },
           { type: "image", "url": "/assets/images/projets/greengot/greengot-affiche-metro-2.webp" },
+          { type: "image", "url": "/assets/images/projets/greengot/greengot-affiche-metro-3.webp" },
         ],
         projectTags: {
-          "/assets/images/projets/greengot/greengot-affiche-metro.jpg": ["3D", "Design Graphique"],
+          "/assets/images/projets/greengot/greengot-affiche-metro-1.webp": ["3D", "Design Graphique"],
           "/assets/images/projets/greengot/greengot-affiche-metro-2.webp": ["3D", "Design Graphique"],
+          "/assets/images/projets/greengot/greengot-affiche-metro-3.webp": ["3D", "Design Graphique"],
         },
         text: {
-          description: "Réalisation d'une campagne publicitaire pour le métro parisien, en collaboration avec T&Friends pour la banque en ligne ",
+          description: "Réalisation d'une campagne publicitaire pour le métro parisien, en collaboration avec Biocoop, SNCF Connect & TGV Inoui pour la banque en ligne ",
           links: [
             {
               label: "Green-Got",
@@ -131,9 +157,9 @@ export function Portfolio() {
           { type: "video", "id": "Wgj9Gt6gFQc" },
         ],
         projectTags: {
-          "DqDQbeJr3NE": ["Motion Design"],
-          "ovse81mM6MU": ["Motion Design"],
-          "Wgj9Gt6gFQc": ["Motion Design", "Design Graphique", "3D"],
+          "DqDQbeJr3NE": ["Motion Design", "Sound Design"],
+          "ovse81mM6MU": ["Motion Design", "Sound Design"],
+          "Wgj9Gt6gFQc": ["Motion Design", "3D", "Sound Design"],
         },
         text: {
           description: "Diverses réalisations de design graphique, motion design et sound design pour les réseaux sociaux de la banque en ligne ",
